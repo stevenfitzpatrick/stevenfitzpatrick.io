@@ -1,0 +1,26 @@
+{
+  "name": "stevenfitzpatrick.io",
+  "version": "1.0.0",
+  "description": "Homepage of Steven Fitzpatrick",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevenfitzpatrick/stevenfitzpatrick.io.git"
+  },
+  "keywords": [
+    "Front",
+    "End",
+    "Developer",
+    "Steven",
+    "Fitzpatrick"
+  ],
+  "author": "Steven Fitzpatrick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevenfitzpatrick/stevenfitzpatrick.io/issues"
+  },
+  "homepage": "https://github.com/stevenfitzpatrick/stevenfitzpatrick.io#readme"
+}
