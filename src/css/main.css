@@ -1,0 +1,38 @@
+html, body{
+    font-family: Calibri, Candara, Segoe , "Segoe UI", Optima, Arial, sans-serif;
+    height: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    line-height: 1.4;
+    background-color: #eee;
+    box-sizing: border-box;
+    height: 100%;
+    color: #555;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.wrapper__soon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.wrapper__soon h3{
+    font-size: 1.8em;
+    font-weight: 500;
+    border-bottom: 1px solid dodgerblue;
+}
+
+.wrapper__soon p{
+    font-size: 1.2em;
+}
