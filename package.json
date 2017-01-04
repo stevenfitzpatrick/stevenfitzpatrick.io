@@ -22,5 +22,14 @@
   "bugs": {
     "url": "https://github.com/stevenfitzpatrick/stevenfitzpatrick.io/issues"
   },
-  "homepage": "stevenfitzpatrick.io"
+  "homepage": "stevenfitzpatrick.io",
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "css-loader": "^0.26.1",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-import": "^9.0.0",
+    "postcss-loader": "^1.2.1",
+    "postcss-url": "^5.1.2",
+    "webpack": "^2.2.0-rc.3"
+  }
 }
