@@ -1,0 +1,24 @@
+{
+    "env": {
+      "es6":true,
+      "browser":true,
+      "node":true
+    },
+    "extends": "airbnb",
+    "rules": {
+        "comma-dangle" : 0,
+        "linebreak-style" : 0,
+        "indent" : [2, 4],
+        "no-underscore-dangle" : [2, {
+          "allowAfterThis": true
+        }],
+        "class-methods-use-this" : 0
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "ecmaFeatures": {
+      "modules": true
+    }
+}
