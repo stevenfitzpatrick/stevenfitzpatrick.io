@@ -9,7 +9,7 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const pkg = require('./package.json');
 
 // Environment Variables
-const ENV = process.env.NODE_ENV;
+const ENV = process.env.npm_lifecycle_event;
 const isProd = ENV === 'build';
 
 module.exports = {
@@ -22,7 +22,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '',
+        publicPath: isProd ? '' : 'http://localhost:8080/',
         filename: 'bundle.js'
     },
     module: {
@@ -36,7 +36,7 @@ module.exports = {
             // CSS Loader
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({ loader: 'css-loader!postcss-loader', publicPath: '../' })
+                loader: 'style-loader!css-loader!postcss-loader'
             }
 
         ]

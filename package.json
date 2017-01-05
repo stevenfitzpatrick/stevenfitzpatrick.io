@@ -46,6 +46,7 @@
     "postcss-import": "^9.0.0",
     "postcss-loader": "^1.2.1",
     "postcss-url": "^5.1.2",
+    "style-loader": "^0.13.1",
     "sw-precache-webpack-plugin": "^0.7.1",
     "webpack": "^2.2.0-rc.3",
     "webpack-bundle-analyzer": "^2.2.1",
