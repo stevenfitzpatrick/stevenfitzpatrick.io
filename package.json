@@ -4,7 +4,9 @@
   "description": "Homepage of Steven Fitzpatrick",
   "main": "index.js",
   "scripts": {
-    "test": "eslint src/**/*.js"
+    "dev": "webpack-dev-server --inline --progress --colors --watch",
+    "test": "eslint src/**/*.js",
+    "build": "webpack --progress -p"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,13 @@
   },
   "homepage": "stevenfitzpatrick.io",
   "devDependencies": {
-    "autoprefixer": "^6.6.1",
+    "babel": "^6.5.2",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.18.0",
+    "clean-webpack-plugin": "^0.1.14",
     "css-loader": "^0.26.1",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
@@ -32,10 +40,15 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
+    "extract-text-webpack-plugin": "^2.0.0-beta.3",
+    "html-webpack-plugin": "^2.26.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.0.0",
     "postcss-loader": "^1.2.1",
     "postcss-url": "^5.1.2",
-    "webpack": "^2.2.0-rc.3"
+    "sw-precache-webpack-plugin": "^0.7.1",
+    "webpack": "^2.2.0-rc.3",
+    "webpack-bundle-analyzer": "^2.2.1",
+    "webpack-dev-server": "^1.16.2"
   }
 }
