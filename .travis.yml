@@ -9,8 +9,6 @@ deploy:
   script: "~/.local/bin/aws s3 sync dist s3://stevenfitzpatrick.io --region=eu-west-1
     --delete"
 before_deploy:
-- npm run build
-- pip install --user awscli
 env:
   global:
   - secure: pYDJnG2j3slkMoAW3Y7Bmsrly5EWLQVVhx72pZf07RzIfDCaAIqaCOyZUINT1mc6qZJK65lwEIGUGQzXS6vNwrH+e/Oj56wvJdgKBCt7zZqSdwuRR4yIepaPGUAFDWQpBMR6gZxwRhkmw2Hy2GQzzGVVqUONRADHY4cd1TAVQ7WJaiCnAG+bNcaHuug62MbvlybNiaXtgnIWMx8m+420v4EWOeqNO//m8n89PtTtq7G3Ydmkpt4mP2p+HcKW7tlRz1gcVFyjPyRlvEDL7dBuGNLokbB944TXoK6Da6Gj4oNa5tIW0S+rGc3lbcwdTlXxJ+rzEI7xTtG1+gxzJAJxkawVENJu6XYa0pUSaQdOOLqFbC8t6gft0jwNAxdnfpIfNrTwrL7TiIYS1cLP/0PErPT8ggVMlXKQW6hv5tAvUwenE3/9tZeLw3EbpRYJuEW5cgSG9vTPJ4/BdzVLNaGB49g7AFGT7hbl3voB0bgzNQ6wgLIbIMZbFGvQ+f9pmYDHx1hrYn971HAAGjp+7K0ezZ3xEOpTipqP0scBKE76uUwavis6luEv1X5C12yZsrBBjVd5CoeEf6Htrqo17mUgtKFdahg6EFvFIOmu08CnhFgH+s9HNxoZ2btGdMdWbnx6eyv8KeNxEMSwSQT9pxtC/nkvOKbEODPlQeLS1uThF0Q=
