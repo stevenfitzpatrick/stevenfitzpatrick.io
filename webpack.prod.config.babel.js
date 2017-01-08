@@ -49,6 +49,12 @@ const prodPlugins = [
             stripPrefix: 'C:/dev/stevenfitzpatrick.io/dist'
         }
     ),
+    // Add Bundle JS Analyzer
+    new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: true,
+        generateStatsFile: true
+    }),
     // Move Files
     new CopyWebpackPlugin([
         { from: 'src/manifest.json' },
