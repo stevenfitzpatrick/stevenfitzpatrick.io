@@ -46,7 +46,10 @@ const prodPlugins = [
             cacheId: pkg.name,
             filename: 'sw.js',
             maximumFileSizeToCacheInBytes: 4194304,
-            stripPrefix: 'C:/dev/stevenfitzpatrick.io/dist'
+            stripPrefixMulti: {
+                'C:/dev/stevenfitzpatrick.io/dist': '',
+                '/home/travis/build/stevenfitzpatrick/stevenfitzpatrick.io/dist': ''
+            }
         }
     ),
     // Add Bundle JS Analyzer
