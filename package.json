@@ -26,21 +26,24 @@
   },
   "homepage": "stevenfitzpatrick.io",
   "devDependencies": {
-    "babel": "^6.5.2",
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-react-jsx": "^6.8.0",
     "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "babel-runtime": "^6.20.0",
     "clean-webpack-plugin": "^0.1.14",
+    "copy-webpack-plugin": "^4.0.1",
+    "core-js": "^2.4.1",
     "css-loader": "^0.26.1",
     "eslint": "^3.12.2",
-    "eslint-config-airbnb": "^13.0.0",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.8.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.3",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.26.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.0.0",
@@ -51,5 +54,10 @@
     "webpack": "^2.2.0-rc.3",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.20.0",
+    "preact": "^7.1.0",
+    "preact-router": "^2.3.2"
   }
 }
