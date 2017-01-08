@@ -11,6 +11,7 @@ deploy:
   bucket: stevenfitzpatrick.io
   local-dir: dist
   acl: public_read
+  skip_cleanup: true
   on:
     repo: stevenfitzpatrick/stevenfitzpatrick.io
 before_deploy:
