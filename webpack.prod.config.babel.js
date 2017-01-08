@@ -53,7 +53,8 @@ const prodPlugins = [
     new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         openAnalyzer: true,
-        generateStatsFile: true
+        generateStatsFile: false,
+        reportFilename: '../src/report.html',
     }),
     // Move Files
     new CopyWebpackPlugin([

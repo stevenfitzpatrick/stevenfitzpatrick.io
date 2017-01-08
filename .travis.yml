@@ -5,9 +5,6 @@ node_js:
 - '7'
 deploy:
   provider: script
-  access_key_id: AKIAIJ7K3K4SUG7YTIJA
-  secret_access_key:
-    secure: HIlfQy6kj+0NAMo0YxPdTMFvxszTw41VrpjsFY069b22PSBV7345/ScDrw/u/AhjH+ctGbKEjXA9rlKoxMmLcvpSqFZfhYxvy1l+laiHgjv/ys1z8Kd0EoQoH3zrOGQp1oJ+lF37T150OrKWEapI3Spia5QkJqC6RNYCQmPKVZXveKnTK4+xssQK3SzN3V3KGAC4i3Z+WjoEvQNKzg6otlzklo9bEwv2YTgr4v90pYiyx6Rtp+bz4uSYox+MtxXhJ1u7yDNbEZwjlq93YPQw9OtuPSKHeTPkVyz/mLe7HwcXzsbOCyikOw+N2jtbMvFH0t1QDGQL7KbgnNHt6mT5P2GV7bKPJbUoG/RIc66LfYRKJEjAFFgt3N3OT3ePLQxPb4QgkQeH/aL6t1BuiGC5mq53uEWgf5gWFJebvNk11pTuTfGqanGdPyqHzvmsn4NtMWaxO5lT7CqiHgNPwhEGgQQjaKuVPEBp0tm74Fjq9czNQQHHzYVhf73FG4KsAFcnnPzTpDISUbM1bhITcc8d3tqnTJeTOn1sOOmYk0zWa6uN1oWbl2tkS3N7rXy2sj5BYO4IAJa2IGTyzRbF7QWxCV0Io+1LSMRIscwQxL5ONh7YRZLIPkH3AnlUOFR8BOMfMkXYtc3xNSNBAOdsc7LpjdH97z+0BToiKxAp+OkYIOI=
   skip_cleanup: true
   script: "~/.local/bin/aws s3 sync dist s3://stevenfitzpatrick.io --region=eu-west-1
     --delete"
