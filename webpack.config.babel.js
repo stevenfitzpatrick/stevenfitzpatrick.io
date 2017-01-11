@@ -44,6 +44,9 @@ module.exports = {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
+                options: {
+                    compact: true
+                }
             },
             // CSS Loader
             {

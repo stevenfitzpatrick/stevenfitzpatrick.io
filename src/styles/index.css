@@ -15,6 +15,11 @@ html, body {
     box-sizing: border-box;
     height: 100%;
     color: #555;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 h1,
@@ -22,22 +27,25 @@ h2,
 h3,
 h4,
 p,
+img,
+a,
 blockquote,
 figure,
 ol,
 ul {
     margin: 0;
     padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-size: inherit;
+    font-synthesis: none;
 }
 main,
-li {
+li,
+footer,
+header,
+main {
     display: block;
-}
-h1,
-h2,
-h3,
-h4 {
-    font-size: inherit;
 }
 
 strong {
@@ -77,27 +85,25 @@ button {
     cursor: pointer;
 }
 
+.app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 1 0;
+}
+
+footer {
+    padding: 1em;
+    text-align: center;
+}
+
 .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-}
-
-.wrapper__soon{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
-}
-
-.wrapper__soon h3{
-    font-size: 1.8em;
-    font-weight: 500;
-    border-bottom: 1px solid dodgerblue;
-}
-
-.wrapper__soon p{
-    font-size: 1.2em;
+    height: 100%;
+    border: 1px solid red;
 }

@@ -4,6 +4,7 @@ import { Router } from 'preact-router';
 import Header from './header';
 import Home from './home';
 import About from './about';
+import Footer from './footer';
 import Error from './error';
 
 
@@ -14,12 +15,16 @@ export default class App extends Component {
     
     render() {
         return (
-            <div class="container">
-                <Router onChange={this.handleRoute}>
-                    <Home path='/' />
-                    <About path='/about/' />
-                    <Error type='404' default/>
-                </Router>
+            <div class="app">
+                <Header />
+                <main>
+                    <Router onChange={this.handleRoute}>
+                        <Home path='/' />
+                        <About path='/about/' />
+                        <Error type='404' default/>
+                    </Router>
+                </main>
+                <Footer />
             </div>
         )
     }

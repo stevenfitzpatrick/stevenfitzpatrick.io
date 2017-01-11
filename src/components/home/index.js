@@ -4,10 +4,7 @@ export default class Home extends Component {
     render() {
         return (
             <div class="wrapper">
-                <div class="wrapper__soon">
-                    <h3>Stay Tuned...</h3>
-                    <p>Currently developing StevenFitzpatrick.io !</p>
-                </div>
+                <h1>Some Content</h1>
             </div>
         )
     }
