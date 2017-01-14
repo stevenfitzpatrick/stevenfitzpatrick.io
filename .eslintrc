@@ -26,11 +26,19 @@
     "prefer-spread": 2,
     "no-useless-concat": 2,
     "no-var": 2,
+    "max-nested-callbacks": [2, 3],
+		"no-eval": 2,
+		"no-implied-eval": 2,
+		"no-new-func": 2,
+    "no-else-return": 2,
+    "no-redeclare": 2,
+    "no-dupe-keys": 2,
     "object-shorthand": 2,
     "prefer-arrow-callback": 2,
     "arrow-spacing": 2,
     "arrow-body-style": 2,
     "comma-dangle": 0,
+    "quotes": [2, "single", { "avoidEscape": true }],
     "no-unused-vars": [
       0,
       {
@@ -39,10 +47,7 @@
     ],
     "import/no-extraneous-dependencies": 0,
     "linebreak-style": 0,
-    "indent": [
-      2,
-      4
-    ],
+    "indent": ["error", 2],
     "no-underscore-dangle": [
       2,
       {

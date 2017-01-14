@@ -6,6 +6,7 @@ import Home from './home';
 import About from './about';
 import Footer from './footer';
 import Error from './error';
+import Favourites from './favourites';
 
 
 export default class App extends Component {
@@ -22,6 +23,7 @@ export default class App extends Component {
                         <Home path='/' />
                         <About path='/about/' />
                         <Error type='404' default/>
+                        <Favourites path='/favourites'/>
                     </Router>
                 </main>
                 <Footer />

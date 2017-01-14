@@ -9,6 +9,10 @@ const pkg = require('./package.json');
 const prodPlugins = [
     // Don't Finish if any issues occur
     new webpack.NoErrorsPlugin(),
+    // Todo check the options
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'app'
+    }),
     // Specific Options for Loading
     new webpack.LoaderOptionsPlugin({
         minimize: true,

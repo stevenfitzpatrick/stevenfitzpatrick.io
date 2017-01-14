@@ -4,9 +4,9 @@
   "description": "Homepage of Steven Fitzpatrick",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --colors --watch",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --colors --watch",
     "test": "eslint src/**/*.js",
-    "build": "webpack --progress -p"
+    "build": "cross-env NODE_ENV=production webpack --progress -p"
   },
   "repository": {
     "type": "git",
@@ -37,12 +37,14 @@
     "clean-webpack-plugin": "^0.1.14",
     "copy-webpack-plugin": "^4.0.1",
     "core-js": "^2.4.1",
+    "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
     "eslint": "^3.12.2",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.2.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.3",
     "file-loader": "^0.9.0",
+    "firebase": "^3.6.5",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.26.0",
     "postcss-cssnext": "^2.9.0",

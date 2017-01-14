@@ -99,11 +99,3 @@ footer {
     padding: 1em;
     text-align: center;
 }
-
-.wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    border: 1px solid red;
-}

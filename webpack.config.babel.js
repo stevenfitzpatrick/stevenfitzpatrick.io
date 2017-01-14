@@ -19,24 +19,35 @@ module.exports = {
         open: true,
         historyApiFallback: true
     },
-    entry: [
-        './src/index.js'
-    ],
+    // Start Bundling Here
+    entry: {
+        app: './src/index.js'
+    },
+    // Output of Bundling
+    /* 
+    [path] - Returns entry path
+    [name] - Returns entry Name
+    [hash] - Returns the build hash
+    [chunkhash] - Retuns Chunk specific hash
+    */
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: isProd ? '' : 'http://localhost:8080/',
-        filename: 'bundle.js'
+        filename: '[name].bundle.js',
+        chunkFilename: '[chunkhash].js'
     },
     resolve: {
         modules: [
             'node_modules',
-            path.resolve(__dirname, "node_modules"),
+            path.resolve(__dirname, 'node_modules'),
             path.resolve(__dirname, 'src'),
         ],
         extensions: ['.js', '.json', '.jsx', '.css']
     },
     target: 'web',
-    devtool: isProd ? '' : 'cheap-module-eval-source-map',
+    // eval for dev, source-map for production       
+    devtool: isProd ? '' : 'source-map',
+    // Transform Rules
     module: {
         rules: [
             // JS Loader
@@ -47,6 +58,7 @@ module.exports = {
                 options: {
                     compact: true
                 }
+                //include: PATHS.style
             },
             // CSS Loader
             {
@@ -61,6 +73,7 @@ module.exports = {
 
         ]
     },
+    // Bundle Rules
     plugins: ([
         // Inject CSS and JS into HTML
         new HtmlWebpackPlugin({
