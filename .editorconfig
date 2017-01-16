@@ -11,6 +11,8 @@ max_line_length = 120
 
 [*.js]
 quote_type = single
+indent_style = space
+indent_size = 2
 curly_bracket_next_line = false
 spaces_around_operators = true
 spaces_around_brackets = inside

@@ -12,7 +12,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import prodPlugins from './webpack.prod.config.babel';
 
 // Environment Variables
-const ENV = process.env.npm_lifecycle_event;
+const ENV = process.env.NODE_ENV;
 
 const isProd = ENV === 'build';
 
@@ -45,7 +45,11 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, 'src')
     ],
-    extensions: [ '.js', '.json', '.jsx', '.css' ]
+    extensions: [ '.js', '.json', '.jsx', '.css' ],
+    alias: {
+      components: path.resolve(__dirname, 'src/components'),
+      style: path.resolve(__dirname, 'src/styles')
+    }
   },
   target: 'web',
   // eval for dev, source-map for production       
