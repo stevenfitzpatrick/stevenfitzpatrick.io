@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --colors --watch",
     "test": "eslint src/**/*.js && npm run -s test:karma",
-    "test:karma": "karma start test/karma.config.js",
+    "test:karma": "karma start test/karma.config.js --single-run",
     "build": "cross-env NODE_ENV=production webpack --progress -p"
   },
   "repository": {
