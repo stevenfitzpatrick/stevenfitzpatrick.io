@@ -1,11 +1,8 @@
 // Modules
 
 import webpack from 'webpack';
-
 import path from 'path';
-
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 // Import Prod Settings

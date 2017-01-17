@@ -1,17 +1,10 @@
 import { h, Component } from 'preact';
-
 import { Router } from 'preact-router';
-
 import Header from './header';
-
 import Home from './home';
-
 import About from './about';
-
 import Footer from './footer';
-
 import Error from './error';
-
 import Favourites from './favourites';
 
 export default class App extends Component {
@@ -21,14 +14,14 @@ export default class App extends Component {
 
   render() {
     return (
-      <div class='app'>
+      <div class="app">
         <Header />
         <main>
           <Router onChange={this.handleRoute}>
-            <Home path='/' />
-            <About path='/about/' />
-            <Error type='404' default />
-            <Favourites path='/favourites' />
+            <Home path="/" />
+            <About path="/about/" />
+            <Error type="404" default />
+            <Favourites path="/favourites" />
           </Router>
         </main>
         <Footer />

@@ -39,3 +39,6 @@ jspm_packages
 # Build Directory
 dist
 report.html
+
+# Visual Studio
+.vscode
