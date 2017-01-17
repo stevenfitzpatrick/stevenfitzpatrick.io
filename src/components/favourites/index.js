@@ -1,11 +1,11 @@
-import {h, Component} from 'preact';
+import { h, Component } from 'preact';
 
 // import database from '../../base';
-export default class Footer extends Component {
+export default class Favourites extends Component {
   constructor() {
     super();
 
-    this.state = {favourites: {}};
+    this.state = { favourites: {} };
   }
 
   // componentWillMount() {

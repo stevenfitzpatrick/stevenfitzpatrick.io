@@ -11,7 +11,7 @@ import prodPlugins from './webpack.prod.config.babel';
 // Environment Variables
 const ENV = process.env.NODE_ENV;
 
-const isProd = ENV === 'build';
+const isProd = ENV === 'production';
 
 module.exports = {
   context: path.resolve(__dirname),
@@ -50,7 +50,7 @@ module.exports = {
   },
   target: 'web',
   // eval for dev, source-map for production       
-  devtool: isProd ? 'source-map' : 'eval',
+  devtool: isProd ? '' : 'source-map',
   // Transform Rules
   module: {
     rules: [

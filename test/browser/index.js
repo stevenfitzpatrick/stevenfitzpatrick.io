@@ -27,5 +27,17 @@ describe('App', () => {
 
       expect(scratch.innerHTML).to.contain('Home');
     });
+
+    it('should render the header', () => {
+      render(<App />, scratch);
+
+      expect(scratch.innerHTML).to.contain('Header');
+    });
+
+    it('should render the footer', () => {
+      render(<App />, scratch);
+
+      expect(scratch.innerHTML).to.contain('Footer');
+    });
   });
 });
