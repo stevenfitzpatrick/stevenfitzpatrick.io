@@ -22,7 +22,10 @@ module.exports = {
     historyApiFallback: true
   },
   // Start Bundling Here
-  entry: { app: './src/index.js' },
+  entry: {
+    app: './src/index.js',
+    vendor: ['preact', 'preact-router']
+  },
   // Output of Bundling
   /* 
         [path] - Returns entry path
@@ -33,7 +36,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: isProd ? '' : 'http://localhost:8080/',
-    filename: '[name].bundle.js',
+    filename: '[name].bundle.[chunkhash].js',
     chunkFilename: '[chunkhash].js'
   },
   resolve: {
@@ -42,7 +45,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, 'src')
     ],
-    extensions: [ '.js', '.json', '.jsx', '.css' ],
+    extensions: ['.js', '.json', '.jsx', '.css'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
       style: path.resolve(__dirname, 'src/styles')

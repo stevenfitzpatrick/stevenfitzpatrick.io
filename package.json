@@ -4,10 +4,10 @@
   "description": "Homepage of Steven Fitzpatrick",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --colors --watch",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --colors --watch --display-modules --display-chunks",
     "test": "eslint src/**/*.js && npm run -s test:karma",
     "test:karma": "karma start test/karma.config.js --single-run",
-    "build": "cross-env NODE_ENV=production webpack --progress -p"
+    "build": "cross-env NODE_ENV=production webpack --progress -p --display-modules --display-chunks"
   },
   "repository": {
     "type": "git",
@@ -70,7 +70,7 @@
     "style-loader": "^0.13.1",
     "sw-precache-webpack-plugin": "^0.7.1",
     "v8-lazy-parse-webpack-plugin": "^0.3.0",
-    "webpack": "^2.2.0-rc.3",
+    "webpack": "^2.2.0",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-server": "^1.16.2"
   },

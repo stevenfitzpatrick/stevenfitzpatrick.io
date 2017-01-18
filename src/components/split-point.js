@@ -4,7 +4,8 @@ export default class SplitCode extends Component {
   componentWillMount() {
     this.props.load(this.linkState('child'));
   }
-  render(props, { child }) {
+
+  render({ load, path, ...props}, { child }) {
     return child ? h(child.default, props) : null;
   }
 }

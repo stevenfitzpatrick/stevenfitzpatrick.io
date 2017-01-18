@@ -15,10 +15,11 @@ const V8LazyParseWebpackPlugin = require('v8-lazy-parse-webpack-plugin');
 const pkg = require('./package.json');
 
 const prodPlugins = [
-  // Don't Finish if any issues occur
-  new webpack.NoErrorsPlugin(),
   // Todo check the options
-  new webpack.optimize.CommonsChunkPlugin({ name: 'app' }),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor',
+    filename: 'common.vendor.js'
+  }),
   // Specific Options for Loading
   new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
   // Use exploit the V8/Chakra engines treatment of functions, this lazy loads the parsing
@@ -43,7 +44,7 @@ const prodPlugins = [
     minimize: true
   }),
   // Clean up dist folder after each build
-  new CleanWebpackPlugin([ 'dist' ], {
+  new CleanWebpackPlugin(['dist'], {
     root: __dirname,
     verbose: true,
     dry: false
@@ -60,13 +61,13 @@ const prodPlugins = [
   }),
   // Add Bundle JS Analyzer
   new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
+    analyzerMode: 'server',
     openAnalyzer: true,
     generateStatsFile: false,
     reportFilename: '../src/report.html'
   }),
   // Move Files
-  new CopyWebpackPlugin([ { from: 'src/manifest.json' } ])
+  new CopyWebpackPlugin([{ from: 'src/manifest.json' }])
 ];
 
 export default prodPlugins;
