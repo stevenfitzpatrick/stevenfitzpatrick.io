@@ -4,6 +4,7 @@ import Header from './header';
 import Home from './home';
 import Footer from './footer';
 import Error from './error';
+import About from './about';
 import SplitPoint from './split-point';
 
 export default class App extends Component {
@@ -18,10 +19,7 @@ export default class App extends Component {
         <main>
           <Router onChange={this.handleRoute}>
             <Home path="/" />
-            <SplitPoint
-              path="/about"
-              load={require('bundle-loader?lazy!./about')}
-            />
+            <About path="/about" />
             <SplitPoint
               path="/favourites"
               load={require('bundle-loader?lazy!./favourites')}
