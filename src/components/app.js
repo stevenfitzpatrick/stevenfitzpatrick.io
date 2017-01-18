@@ -20,10 +20,7 @@ export default class App extends Component {
           <Router onChange={this.handleRoute}>
             <Home path="/" />
             <About path="/about" />
-            <SplitPoint
-              path="/favourites"
-              load={require('bundle-loader?lazy!./favourites')}
-            />
+            <SplitPoint path="/favourites" />
             <Error type="404" default />
           </Router>
         </main>

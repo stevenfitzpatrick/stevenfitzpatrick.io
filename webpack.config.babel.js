@@ -1,12 +1,10 @@
 // Modules
-
-import webpack from 'webpack';
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-
-// Import Prod Settings
-import prodPlugins from './webpack.prod.config.babel';
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const Prod Settings
+const prodPlugins = require('./webpack.prod.config.babel');
 
 // Environment Variables
 const ENV = process.env.NODE_ENV;
@@ -15,17 +13,9 @@ const isProd = ENV === 'production';
 
 module.exports = {
   context: path.resolve(__dirname),
-  devServer: {
-    outputPath: path.join(__dirname, 'src'),
-    contentBase: './src',
-    open: true,
-    historyApiFallback: true
-  },
+  devServer: { contentBase: './dist', open: true, historyApiFallback: true },
   // Start Bundling Here
-  entry: {
-    app: './src/index.js',
-    vendor: ['preact', 'preact-router']
-  },
+  entry: { app: './src/index.js', vendor: [ 'preact', 'preact-router' ] },
   // Output of Bundling
   /* 
         [path] - Returns entry path
@@ -45,7 +35,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, 'src')
     ],
-    extensions: ['.js', '.json', '.jsx', '.css'],
+    extensions: [ '.js', '.json', '.jsx', '.css' ],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
       style: path.resolve(__dirname, 'src/styles')
@@ -53,10 +43,17 @@ module.exports = {
   },
   target: 'web',
   // eval for dev, source-map for production       
-  devtool: isProd ? '' : 'source-map',
+  devtool: !isProd && 'source-map',
   // Transform Rules
   module: {
     rules: [
+      // Eslint Pre Loader
+      // {
+      //   enforce: 'pre',
+      //   test: /\.js?$/,
+      //   loader: 'eslint-loader',
+      //   exclude: '/node_modules/'
+      // },
       // JS Loader
       {
         test: /\.jsx?$/,
