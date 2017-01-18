@@ -1,6 +1,5 @@
 import { h, Component } from 'preact';
-
-// import database from '../../base';
+import database from '../../base';
 export default class Favourites extends Component {
   constructor() {
     super();
@@ -8,9 +7,9 @@ export default class Favourites extends Component {
     this.state = { favourites: {} };
   }
 
-  // componentWillMount() {
-  //     database.ref('favourites').set(this.state.favourites);
-  // }
+  componentWillMount() {
+    database.ref('favourites').set(this.state.favourites);
+  }
   // componentWillUnmount() {
   //     database.goOffline();
   // }
@@ -23,6 +22,6 @@ export default class Favourites extends Component {
   //     return value;
   // }
   render(props, state) {
-    return <h1>Favourites</h1>;
+    return <h1>Favourites2</h1>;
   }
 }

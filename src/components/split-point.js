@@ -2,11 +2,9 @@ import { h, Component } from 'preact';
 
 export default class SplitCode extends Component {
   componentWillMount() {
-    this.props.load(file => {
-      this.setState({ child: file.default });
-    });
+    this.props.load(this.linkState('child'));
   }
-  render({ load, fallbackContent, ...props }, { child }) {
-    return child ? h(child, props) : null;
+  render(props, { child }) {
+    return child ? h(child.default, props) : null;
   }
 }
