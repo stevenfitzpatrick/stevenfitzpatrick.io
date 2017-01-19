@@ -1,0 +1,9 @@
+@import '../../styles/variables.css';
+@import '../../styles/mixins.css';
+
+header {
+  background: var(--headerColor);
+  color: white;
+  padding: 0.5em;
+  @apply --centered;
+}
