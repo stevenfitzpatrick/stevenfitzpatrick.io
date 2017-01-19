@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
+
 // const Prod Settings
 const prodPlugins = require('./webpack.prod.config.babel');
 
@@ -76,6 +78,7 @@ module.exports = {
       filename: 'index.html',
       template: './src/index.html',
       inject: true,
+      prefetch: false,
       minify: { removeComments: true, collapseWhitespace: false }
     }),
     // Write out CSS bundle to its own file:
@@ -83,6 +86,7 @@ module.exports = {
       filename: 'css/[name].styles.[contenthash].css',
       allChunks: true
     }),
+    new ResourceHintWebpackPlugin(),
     // Set Environment Variables
     new webpack.DefinePlugin({
       'process.env.environment': isProd

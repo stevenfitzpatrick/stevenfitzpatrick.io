@@ -66,6 +66,7 @@
     "postcss-import": "^9.0.0",
     "postcss-loader": "^1.2.1",
     "postcss-url": "^5.1.2",
+    "resource-hints-webpack-plugin": "0.0.1",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",

@@ -24,20 +24,19 @@ describe('App', () => {
   describe('routing', () => {
     it('should render the homepage', () => {
       render(<App />, scratch);
-
       expect(scratch.innerHTML).to.contain('Home');
     });
 
     it('should render the header', () => {
       render(<App />, scratch);
 
-      expect(scratch.innerHTML).to.contain('Header');
+      expect(scratch.innerHTML).to.contain('header');
     });
 
     it('should render the footer', () => {
       render(<App />, scratch);
 
-      expect(scratch.innerHTML).to.contain('Footer');
+      expect(scratch.innerHTML).to.contain('footer');
     });
   });
 });
