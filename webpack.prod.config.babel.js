@@ -14,6 +14,10 @@ const prodPlugins = [
   new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
   // Minimize JS
   new webpack.optimize.UglifyJsPlugin({
+    beatify: false,
+    mangle: {
+      screw_ie8: true
+    },
     compress: {
       warnings: false,
       screw_ie8: true,
@@ -26,12 +30,13 @@ const prodPlugins = [
       if_return: true,
       join_vars: true
     },
+    comments: false,
     output: { comments: false },
     sourceMap: false,
     minimize: true
   }),
   // Clean up dist folder after each build
-  new CleanWebpackPlugin([ 'dist' ], {
+  new CleanWebpackPlugin(['dist'], {
     root: __dirname,
     verbose: true,
     dry: false
@@ -54,7 +59,7 @@ const prodPlugins = [
     reportFilename: '../src/report.html'
   }),
   // Move Files
-  new CopyWebpackPlugin([ { from: 'src/manifest.json' } ])
+  new CopyWebpackPlugin([{ from: 'src/manifest.json' }])
 ];
 
 module.exports = prodPlugins;

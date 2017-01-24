@@ -17,7 +17,7 @@ module.exports = {
   context: path.resolve(__dirname),
   devServer: { contentBase: './dist', open: true, historyApiFallback: true },
   // Start Bundling Here
-  entry: { app: './src/index.js', vendor: [ 'preact', 'preact-router' ] },
+  entry: { app: './src/index.js', vendor: ['preact', 'preact-router'] },
   // Output of Bundling
   /* 
         [path] - Returns entry path
@@ -37,7 +37,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, 'src')
     ],
-    extensions: [ '.js', '.json', '.jsx', '.css' ],
+    extensions: ['.js', '.json', '.jsx', '.css'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
       style: path.resolve(__dirname, 'src/styles')
@@ -89,9 +89,9 @@ module.exports = {
     new ResourceHintWebpackPlugin(),
     // Set Environment Variables
     new webpack.DefinePlugin({
-      'process.env.environment': isProd
-        ? JSON.stringify('prod')
-        : JSON.stringify('dev')
+      'process.env': {
+        NODE_ENV: isProd ? JSON.stringify('production') : JSON.stringify('development')
+      }
     })
   ].concat(isProd ? prodPlugins : [])
 };

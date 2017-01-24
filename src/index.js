@@ -12,11 +12,11 @@ function init() {
 
 init();
 
-if (process.env.environment === 'dev') {
+if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
 }
 
-if ('serviceWorker' in navigator && process.env.environment === 'prod') {
+if ('serviceWorker' in navigator && process.env.NODE_ENV !== 'production') {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js');
   });
