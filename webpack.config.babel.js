@@ -28,7 +28,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: isProd ? '' : 'http://localhost:8080/',
-    filename: '[name].bundle.[chunkhash].js',
+    filename: isProd ? '[name].bundle.[chunkhash].js' : '[name].bundle.js',
     chunkFilename: '[chunkhash].js'
   },
   resolve: {

@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
 }
 
-if ('serviceWorker' in navigator && process.env.NODE_ENV !== 'production') {
+if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js');
   });

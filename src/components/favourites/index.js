@@ -18,18 +18,32 @@ export default class Favourites extends Component {
     });
   }
 
+  componentWillUnmount() {
+    database.ref('/favourites').off();
+  }
+
   displayItem = (key) => {
     const item = this.state.favourites[key];
     return <FavouriteItem item={item}></FavouriteItem>;
   }
 
   render(props, { favourites }) {
+    const ifContainsFavourites = Object.keys(favourites).length !== 0;
+    let favouriteList = null;
+
+    if (ifContainsFavourites) {
+      favouriteList = Object.keys(favourites).map(this.displayItem);
+    } else {
+      favouriteList = <span>Loading...</span>
+    }
+
     return (
       <div class="favourites__list">
         <h1>Favourites</h1>
-        {Object.keys(favourites).map(this.displayItem)}
+        {favouriteList}
         <CreateFavourite />
       </div>
     );
+
   }
 }
