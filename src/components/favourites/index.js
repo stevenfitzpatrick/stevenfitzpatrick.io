@@ -38,7 +38,7 @@ export default class Favourites extends Component {
     }
 
     return (
-      <div class="favourites__list">
+      <div class={style.favourites__list}>
         <h1>Favourites</h1>
         {favouriteList}
         <CreateFavourite />

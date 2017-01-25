@@ -6,6 +6,7 @@ import Footer from './footer';
 import Error from './error';
 import About from './about';
 import SplitPoint from './split-point';
+import style from '../styles/index';
 
 export default class App extends Component {
   handleRoute = e => {
@@ -14,7 +15,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div class="app">
+      <div class={style.app}>
         <Header />
         <main>
           <Router onChange={this.handleRoute}>

@@ -64,8 +64,24 @@ module.exports = {
         //include: PATHS.style
         options: { compact: true }
       },
-      // CSS Loader
-      { test: /\.css$/, loader: 'style-loader!css-loader!postcss-loader' },
+      // Chained CSS Loader
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: [
+            {
+              loader: 'css-loader',
+              query: {
+                importLoaders: 1,
+                modules: true,
+                localIdentName: '[local]__[hash:base64:5]'
+              }
+            },
+            'postcss-loader'
+          ]
+        })
+      },
       // HTML Files
       { test: /\.html$/, loader: 'html-loader' }
     ]
