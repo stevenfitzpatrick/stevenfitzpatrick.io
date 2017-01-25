@@ -4,6 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 // const Prod Settings
 const prodPlugins = require('./webpack.prod.config.babel');
@@ -102,7 +103,12 @@ module.exports = {
       filename: 'css/[name].styles.[contenthash].css',
       allChunks: true
     }),
+    // Add Preload Tags
     new ResourceHintWebpackPlugin(),
+    // Add Async Tags
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'async'
+    }),
     // Set Environment Variables
     new webpack.DefinePlugin({
       'process.env': {
