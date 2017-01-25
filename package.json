@@ -71,7 +71,7 @@
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
-    "sw-precache-webpack-plugin": "^0.7.1",
+    "sw-precache-webpack-plugin": "^0.8.0",
     "webpack": "^2.2.0",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-server": "^2.2.0"
