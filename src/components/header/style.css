@@ -1,9 +1,25 @@
 @import '../../styles/variables.css';
 @import '../../styles/mixins.css';
 
-header {
-  background: var(--headerColor);
-  color: white;
-  padding: 0.5em;
-  @apply --centered;
+.header {
+    background: var(--header);
+    color: white;
+    @apply --centered;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header__menu {
+    & a {
+        transition: all 0.3s;
+        padding: 0.5em 1em;
+        display: inline-block;
+        &:hover,
+        &:focus {
+            background: color(var(--header) shade(10%));
+        }
+        &.active {
+            background: color(var(--header) shade(20%));
+        }
+    }
 }

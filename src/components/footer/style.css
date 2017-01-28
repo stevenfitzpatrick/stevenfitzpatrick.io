@@ -1,4 +1,69 @@
+@import '../../styles/variables.css';
+@import '../../styles/mixins.css';
+
 .footer {
-    background-color: #555;
-    color: white;
+    background-color: inherit;
+    text-align: center;
+    padding: 1em 0 0.5em;
+
+    /*&:before {
+        content: '';
+        width: 90%;
+        border-top: 1px solid currentColor;
+        height:1px;
+        margin: 0 auto;
+        display: inline-block;
+        padding: 0;
+    }*/
+}
+
+.footer__acknowledgement{
+    padding-top: 0.4em;
+}
+
+.footer__content {
+    @apply --centered;
+
+    & a {
+        & svg {
+            height: 24px;
+            width: 24px;
+            fill: currentColor;
+            vertical-align: bottom;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            &.twitter:hover {
+                fill:var(--twitter);
+            }
+
+            &.github:hover {
+                fill:var(--github);
+            }
+
+            &.linkedin:hover {
+                fill:var(--linkedIn);
+            }
+
+            &.email:hover {
+                fill:var(--email);
+            }
+        }
+
+        & ~ a {
+            &::before {
+                content: ' ';
+                width: 1px;
+                height: 17px;
+                border-right: 1px solid currentColor;
+                bottom: 3px;
+                margin: 0 1em;
+                display: inline-block;
+                vertical-align: bottom;
+                position: relative;
+            }
+        }
+    }
 }

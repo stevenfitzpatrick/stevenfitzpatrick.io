@@ -4,7 +4,6 @@ import FavouriteItem from '../favourite-item';
 import CreateFavourite from '../create-favourite';
 import style from './style';
 
-
 export default class Favourites extends Component {
   constructor() {
     super();
@@ -22,10 +21,10 @@ export default class Favourites extends Component {
     database.ref('/favourites').off();
   }
 
-  displayItem = (key) => {
+  displayItem = key => {
     const item = this.state.favourites[key];
-    return <FavouriteItem item={item}></FavouriteItem>;
-  }
+    return <FavouriteItem item={item} />;
+  };
 
   render(props, { favourites }) {
     const ifContainsFavourites = Object.keys(favourites).length !== 0;
@@ -34,7 +33,7 @@ export default class Favourites extends Component {
     if (ifContainsFavourites) {
       favouriteList = Object.keys(favourites).map(this.displayItem);
     } else {
-      favouriteList = <span>Loading...</span>
+      favouriteList = <span>Loading...</span>;
     }
 
     return (
@@ -44,6 +43,5 @@ export default class Favourites extends Component {
         <CreateFavourite />
       </div>
     );
-
   }
 }

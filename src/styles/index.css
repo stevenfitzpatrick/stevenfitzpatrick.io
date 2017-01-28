@@ -1,89 +1,5 @@
-html {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-}
-
-html, body {
-    font-family: Calibri, Candara, Segoe , "Segoe UI", Optima, Arial, sans-serif;
-    height: 100%;
-    font-weight: 400;
-    font-size: 14px;
-    padding: 0;
-    margin: 0;
-    line-height: 1.5;
-    background-color: #eee;
-    box-sizing: border-box;
-    height: 100%;
-    color: #555;
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-h1,
-h2,
-h3,
-h4,
-p,
-img,
-a,
-blockquote,
-figure,
-ol,
-ul {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    font-size: inherit;
-    font-synthesis: none;
-}
-main,
-li,
-footer,
-header,
-main {
-    display: block;
-}
-
-strong {
-    font-weight: bold;
-}
-
-a,
-button {
-    color: inherit;
-    transition: .3s;
-}
-
-a {
-    text-decoration: none;
-}
-
-::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
-:focus {
-    outline: 0;
-}
-img {
-    max-width: 100%;
-    height: auto;
-    border: 0;
-}
-
-button {
-    overflow: visible;
-    border: 0;
-    font: inherit;
-    -webkit-font-smoothing: inherit;
-    letter-spacing: inherit;
-    background: none;
-    cursor: pointer;
-}
+@import 'reset.css';
+@import 'typography.css';
 
 .app {
     height: 100%;
@@ -93,9 +9,8 @@ button {
 
 main {
     flex: 1 1 0;
+    padding: 1em 2em;
 }
 
-footer {
-    padding: 1em;
-    text-align: center;
-}
+
+

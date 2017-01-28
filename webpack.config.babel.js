@@ -4,7 +4,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 // const Prod Settings
 const prodPlugins = require('./webpack.prod.config.babel');
@@ -18,7 +17,10 @@ module.exports = {
   context: path.resolve(__dirname),
   devServer: { contentBase: './dist', open: true, historyApiFallback: true },
   // Start Bundling Here
-  entry: { app: './src/index.js', vendor: ['preact', 'preact-router'] },
+  entry: {
+    app: './src/index.js',
+    vendor: [ 'preact', 'preact-router', 'classnames' ]
+  },
   // Output of Bundling
   /* 
         [path] - Returns entry path
@@ -38,14 +40,14 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, 'src')
     ],
-    extensions: ['.js', '.json', '.jsx', '.css'],
+    extensions: [ '.js', '.json', '.jsx', '.css' ],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
       style: path.resolve(__dirname, 'src/styles')
     }
   },
   target: 'web',
-  // eval for dev, source-map for production       
+  // eval for dev, source-map for production
   devtool: !isProd && 'source-map',
   // Transform Rules
   module: {
@@ -100,19 +102,19 @@ module.exports = {
     }),
     // Write out CSS bundle to its own file:
     new ExtractTextPlugin({
-      filename: 'css/[name].styles.[contenthash].css',
+      filename: isProd
+        ? 'css/[name].styles.[contenthash].css'
+        : 'css/[name].styles.css',
       allChunks: true
     }),
     // Add Preload Tags
     new ResourceHintWebpackPlugin(),
-    // Add Async Tags
-    new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: 'async'
-    }),
     // Set Environment Variables
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: isProd ? JSON.stringify('production') : JSON.stringify('development')
+        NODE_ENV: isProd
+          ? JSON.stringify('production')
+          : JSON.stringify('development')
       }
     })
   ].concat(isProd ? prodPlugins : [])

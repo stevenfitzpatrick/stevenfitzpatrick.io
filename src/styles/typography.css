@@ -1,0 +1,45 @@
+@import 'variables.css';
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+html, body {
+    font-family: Calibri, Candara, Segoe , "Segoe UI", Optima, Arial, sans-serif;
+    height: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    line-height: 1.5714;
+    background-color: #eee;
+    box-sizing: border-box;
+    height: 100%;
+    color: #555;
+    box-sizing: border-box;
+}
+
+h1 {
+  font-size: 5.063em;
+}
+
+h2 {
+ font-size: 3.375em;
+}
+
+h3 {
+ font-size: 2.25em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+p{
+  margin-bottom: var(--baseLine);
+}
+
+smaller {
+  font-size: 0.667em;
+}

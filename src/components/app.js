@@ -9,19 +9,23 @@ import SplitPoint from './split-point';
 import style from '../styles/index';
 
 export default class App extends Component {
+  state = {
+    url: ''
+  }
   handleRoute = e => {
-    this.currentUrl = e.url;
+    const currentUrl = e.url;
+    this.setState({ url: currentUrl });
   };
 
-  render() {
+  render({}, state) {
     return (
       <div class={style.app}>
-        <Header />
+        <Header {...state} />
         <main>
           <Router onChange={this.handleRoute}>
             <Home path="/" />
             <About path="/about" />
-            <SplitPoint path="/favourites" />
+            <SplitPoint path="/favourites" load={() => import('./favourites') } />
             <Error type="404" default />
           </Router>
         </main>

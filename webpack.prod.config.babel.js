@@ -5,9 +5,15 @@ const BundleAnalyzerPlugin = require(
   'webpack-bundle-analyzer'
 ).BundleAnalyzerPlugin;
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+
 const pkg = require('./package.json');
 
 const prodPlugins = [
+  // Add Async Tags
+  new ScriptExtHtmlWebpackPlugin({
+    defaultAttribute: 'async'
+  }),
   // Todo check the options
   new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
   // Specific Options for Loading
@@ -45,6 +51,7 @@ const prodPlugins = [
   new SWPrecacheWebpackPlugin({
     cacheId: pkg.name,
     filename: 'sw.js',
+    minify: true,
     maximumFileSizeToCacheInBytes: 4194304,
     stripPrefixMulti: {
       'C:/dev/stevenfitzpatrick.io/dist': '',

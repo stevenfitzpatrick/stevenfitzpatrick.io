@@ -1,8 +1,9 @@
 import { h, Component } from 'preact';
 
 export default class SplitCode extends Component {
-  componentWillMount() {
-    System.import('./favourites').then(child => {
+  constructor({ load }) {
+    super();
+    load().then(child => {
       this.setState({ child });
     });
   }
