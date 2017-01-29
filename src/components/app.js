@@ -26,6 +26,7 @@ export default class App extends Component {
             <Home path="/" />
             <About path="/about" />
             <SplitPoint path="/favourites" load={() => import('./favourites') } />
+            <SplitPoint path="/create" load={() => import('./create-favourite') } />
             <Error type="404" default />
           </Router>
         </main>

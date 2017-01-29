@@ -7,6 +7,6 @@ firebase.initializeApp({
   databaseURL: 'https://stevenfitzpatrick-5181b.firebaseio.com'
 });
 
-const database = firebase.database();
+const database = firebase;
 
 export default database;

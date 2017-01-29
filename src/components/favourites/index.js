@@ -1,24 +1,24 @@
 import { h, Component } from 'preact';
-import database from '../../base';
+import firebase from '../../base';
 import FavouriteItem from '../favourite-item';
-import CreateFavourite from '../create-favourite';
 import style from './style';
 
 export default class Favourites extends Component {
   constructor() {
     super();
     this.state = { favourites: {} };
+    this.firebase = firebase.database();
   }
 
   componentWillMount() {
-    const items = database.ref('/favourites').once('value').then(data => {
+    const items = this.firebase.ref('/favourites').once('value').then(data => {
       const result = data.val();
       this.setState({ favourites: result });
     });
   }
 
   componentWillUnmount() {
-    database.ref('/favourites').off();
+    this.firebase.ref('/favourites').off();
   }
 
   displayItem = key => {
@@ -40,7 +40,6 @@ export default class Favourites extends Component {
       <div class={style.favourites__list}>
         <h1>Favourites</h1>
         {favouriteList}
-        <CreateFavourite />
       </div>
     );
   }
