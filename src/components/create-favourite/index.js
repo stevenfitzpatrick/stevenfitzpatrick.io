@@ -63,10 +63,6 @@ export default class CreateFavourite extends Component {
       });
   };
 
-  componentWillUnmount() {
-    this.firebase.ref('favourites').off();
-  }
-
   render({}, { title, url, description, author, tags, key }) {
     return (
       <section>

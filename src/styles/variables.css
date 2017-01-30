@@ -13,6 +13,6 @@
   --success: #66bb6a;
   --inputBorder: #ddd;
   --focusBorder: #555;
-  --submitButton: #2196f3;
-  --activeSubmitButton: #1976d2;
+  --submitButton: #86b1be;
+  --activeSubmitButton: color( var(--submitButton) shade(20%));
 }

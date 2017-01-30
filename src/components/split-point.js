@@ -3,6 +3,9 @@ import { h, Component } from 'preact';
 export default class SplitCode extends Component {
   constructor({ load }) {
     super();
+  }
+
+  componentWillReceiveProps({ load }) {
     load().then(child => {
       this.setState({ child });
     });

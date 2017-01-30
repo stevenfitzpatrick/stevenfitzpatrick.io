@@ -11,10 +11,16 @@ export default class Favourites extends Component {
   }
 
   componentWillMount() {
-    const items = this.firebase.ref('/favourites').once('value').then(data => {
-      const result = data.val();
-      this.setState({ favourites: result });
-    });
+    const items = this.firebase
+      .ref('/favourites')
+      .once('value')
+      .then(data => {
+        const result = data.val();
+        this.setState({ favourites: result });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   componentWillUnmount() {
