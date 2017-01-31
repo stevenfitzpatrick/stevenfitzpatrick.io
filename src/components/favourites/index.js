@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import firebase from '../../base';
-import FavouriteItem from '../favourite-item';
+import FavouriteItem from './favourite-item';
 import style from './style';
 
 export default class Favourites extends Component {

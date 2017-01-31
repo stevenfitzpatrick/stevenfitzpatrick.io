@@ -16,3 +16,8 @@
   --submitButton: #86b1be;
   --activeSubmitButton: color( var(--submitButton) shade(20%));
 }
+
+/* Media Queries */
+@custom-media --tablet (min-width: 600px);
+@custom-media --desktop (min-width: 1200px);
+@custom-media --large-desktop (min-width: 1200px);

@@ -1,0 +1,40 @@
+.favourite__item {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  margin: 1em 0;
+  padding: 5px 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+  & .favourite__item__time {
+    flex: 0 1 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .favourite__item__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    & .favourite__author {
+      text-transform: uppercase;
+    }
+  }
+
+  & div {
+    &.tags {
+      & span {
+        background-color: #eee;
+        padding: 5px 0.5em;
+        display: inline-block;
+
+        & + span {
+          margin-left: 0.5em;
+        }
+      }
+    }
+  }
+}

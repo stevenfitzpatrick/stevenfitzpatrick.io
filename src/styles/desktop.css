@@ -1,0 +1,9 @@
+@import 'variables.css';
+
+@media (--tablet) {
+  main {
+    width:85%;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}

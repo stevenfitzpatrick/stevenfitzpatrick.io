@@ -91,6 +91,7 @@ module.exports = {
   },
   // Bundle Rules
   plugins: [
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-ie/),
     // Inject CSS and JS into HTML
     new HtmlWebpackPlugin({
       hash: false,
