@@ -12,14 +12,15 @@ export default class Favourites extends Component {
 
   componentWillMount() {
     const items = this.firebase
-      .ref('/favourites')
+      .ref('/favourites').orderByKey()
       .once('value')
       .then(data => {
         const result = data.val();
-        this.setState({ favourites: result });
+        let favourites = [];
+        Object.keys(result).map(item => favourites.push(result[item]));
+        this.setState({ favourites });
       })
       .catch(error => {
-        console.log(error);
       });
   }
 
@@ -27,24 +28,22 @@ export default class Favourites extends Component {
     this.firebase.ref('/favourites').off();
   }
 
-  displayItem = key => {
-    const item = this.state.favourites[key];
-    return <FavouriteItem item={item} />;
-  };
+  displayItem = item => <FavouriteItem item={item} />;
+
 
   render(props, { favourites }) {
     const ifContainsFavourites = Object.keys(favourites).length !== 0;
     let favouriteList = null;
 
     if (ifContainsFavourites) {
-      favouriteList = Object.keys(favourites).map(this.displayItem);
+      favouriteList = favourites.map(this.displayItem).reverse();
     } else {
       favouriteList = <span>Loading...</span>;
     }
 
     return (
       <div class={style.favourites__list}>
-        <h1>Favourites</h1>
+        <h2>Favourites</h2>
         {favouriteList}
       </div>
     );

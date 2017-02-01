@@ -14,11 +14,6 @@
             "path": "/favourites",
             "name": "favourites",
             "title": "Favourites"
-        },
-        {
-            "path": "/create",
-            "name": "create",
-            "title": "Create New"
         }
     ]
 }

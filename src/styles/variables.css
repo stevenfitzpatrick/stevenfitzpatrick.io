@@ -15,6 +15,7 @@
   --focusBorder: #555;
   --submitButton: #86b1be;
   --activeSubmitButton: color( var(--submitButton) shade(20%));
+  --link: rgb(103, 135, 213);
 }
 
 /* Media Queries */
