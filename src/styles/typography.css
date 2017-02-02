@@ -6,8 +6,12 @@ html {
 }
 
 html, body {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
     font-family: Calibri, Candara, Segoe , "Segoe UI", Optima, Arial, sans-serif;
-    height: 100%;
     font-weight: 400;
     font-size: 16px;
     padding: 0;
@@ -15,7 +19,6 @@ html, body {
     line-height: 1.5714;
     background-color: #eee;
     box-sizing: border-box;
-    height: 100%;
     color: #555;
     box-sizing: border-box;
 }

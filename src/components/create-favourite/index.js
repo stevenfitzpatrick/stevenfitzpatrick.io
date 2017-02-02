@@ -1,24 +1,11 @@
 import { h, Component } from 'preact';
+import auth from 'firebase/auth';
 import firebase from '../../base';
 import styles from './style';
-import firebase_database from 'firebase/database';
+import { SuccessMessage } from '../common/';
 
-const SuccessMessage = ({ itemKey }) => {
-  if (!itemKey) return;
-
-  return (
-    <div class={styles.success}>
-      Favourite Item has been created : {itemKey}
-    </div>
-  );
-};
 
 export default class CreateFavourite extends Component {
-  constructor() {
-    super();
-    this.firebase = firebase.database();
-  }
-
   state = {
     title: '',
     url: '',
@@ -26,8 +13,35 @@ export default class CreateFavourite extends Component {
     author: '',
     tags: [],
     favourite: false,
-    key: null
+    key: null,
+    uid: null
   };
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.authHandler({ user });
+      }
+    })
+  }
+
+  renderLogin = () => (
+    <button onClick={this.authenticate}>Github Login</button>
+  )
+
+  authenticate = (type) => {
+    const auth = firebase.auth();
+    const provider = new firebase.auth.GithubAuthProvider();
+    auth.signInWithPopup(provider).then(this.authHandler);
+  }
+
+  signOut = () => {
+    firebase.auth().signOut().then(() => this.setState({ uid: null }));
+  }
+
+  authHandler = (authData) => {
+    this.setState({ uid: authData.user.uid });
+  }
 
   clearForm = e => {
     e.preventDefault();
@@ -46,7 +60,7 @@ export default class CreateFavourite extends Component {
     e.preventDefault();
     const { title, url, description, author, tags } = this.state;
     const tagsToArray = tags.split(',').map(tag => tag.trim());
-    this.firebase
+    firebase.database()
       .ref('/favourites')
       .push({
         title,
@@ -54,7 +68,7 @@ export default class CreateFavourite extends Component {
         url,
         author,
         favourite: false,
-        dateAdded: firebase_database.ServerValue.TIMESTAMP,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP,
         tags: tagsToArray
       })
       .then(snap => {
@@ -63,9 +77,15 @@ export default class CreateFavourite extends Component {
       });
   };
 
-  render({}, { title, url, description, author, tags, key }) {
+  render({}, { title, url, description, author, tags, key, uid }) {
+    // check if Logged input
+    if (!uid) {
+      return <div>{this.renderLogin()}</div>
+    }
+
     return (
       <section>
+        <button onClick={this.signOut}>Logout </button>
         <SuccessMessage itemKey={key} />
         <form onSubmit={this.createItem} class={styles.form}>
           <h3>New Favourite</h3>
@@ -79,7 +99,7 @@ export default class CreateFavourite extends Component {
               autofocus
               placeholder="Favourite Title"
               onInput={this.linkState('title')}
-            />
+              />
           </div>
           <div>
             <label htmlFor="url">URL</label>
@@ -90,7 +110,7 @@ export default class CreateFavourite extends Component {
               value={url}
               placeholder="Favourite URL"
               onInput={this.linkState('url')}
-            />
+              />
           </div>
           <div>
             <label htmlFor="author">Author</label>
@@ -101,7 +121,7 @@ export default class CreateFavourite extends Component {
               placeholder="Author URL"
               value={author}
               onInput={this.linkState('author')}
-            />
+              />
           </div>
           <div>
             <label htmlFor="description">Description</label>
@@ -112,7 +132,7 @@ export default class CreateFavourite extends Component {
               placeholder="Favourite Description"
               value={description}
               onInput={this.linkState('description')}
-            />
+              />
           </div>
           <div>
             <label htmlFor="tags">Tags</label>
@@ -123,7 +143,7 @@ export default class CreateFavourite extends Component {
               required
               placeholder="Sample Tags"
               onInput={this.linkState('tags')}
-            />
+              />
           </div>
           <div>
             <button type="reset" onClick={this.clearForm}>Clear</button>

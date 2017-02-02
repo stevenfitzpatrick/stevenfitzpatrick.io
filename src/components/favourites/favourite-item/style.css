@@ -27,6 +27,7 @@
 
     & .favourite__meta {
       display: flex;
+      font-size: 0.909em;
 
       & span {
         font-weight: bold;

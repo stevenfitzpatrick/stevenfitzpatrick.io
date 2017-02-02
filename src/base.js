@@ -1,5 +1,5 @@
 import * as firebase from 'firebase/app';
-import firebase_database from 'firebase/database';
+import database from 'firebase/database';
 
 firebase.initializeApp({
   apiKey: 'AIzaSyAYBgORfDq6ptpb9k6jE3N5UHonW75EYPE',
@@ -7,6 +7,4 @@ firebase.initializeApp({
   databaseURL: 'https://stevenfitzpatrick-5181b.firebaseio.com'
 });
 
-const database = firebase;
-
-export default database;
+export default firebase;

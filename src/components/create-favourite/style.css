@@ -1,15 +1,5 @@
 @import '../../styles/variables.css';
 
-div {
-    &.success {
-      background-color: var(--success);
-      padding: 1em;
-      color: white;
-      border-radius: 5px;
-      margin: 0.5em 0;
-    }
-}
-
 @media (min-width: 600px) {
   .form {
     width: 80%;
