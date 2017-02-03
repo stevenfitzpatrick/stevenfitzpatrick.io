@@ -1,55 +1,17 @@
 import { h, Component } from 'preact';
+import GithubLogo from '../../assets/svg/github.svg';
+import TwitterLogo from '../../assets/svg/twitter.svg';
+import EmailLogo from '../../assets/svg/email.svg';
+import LinkedInLogo from '../../assets/svg/linkedin.svg';
+import cx from 'classnames';
 
 import style from './style';
 const test = style;
 
-const Twitter = props => (
-  <a {...props} href="//twitter.com/Fitzy_Longhorn">
-    <svg class={style.twitter} viewBox="328 355 335 276">
-      <path
-        class="twitter"
-        d="M630 425a195 195 0 0 1-299 175 142 142 0 0 0 97-30 70 70 0 0 1-58-47 70 70 0 0 0 31-2 70 70 0 0 1-57-66 70 70 0 0 0 28 5 70 70 0 0 1-18-90 195 195 0 0 0 141 72 67 67 0 0 1 116-62 117 117 0 0 0 43-17 65 65 0 0 1-31 38 117 117 0 0 0 39-11 65 65 0 0 1-32 35z"
-      />
-    </svg>
-  </a>
-);
-
-const LinkedIn = props => (
-  <a {...props} href="//twitter.com/Fitzy_Longhorn">
-    <svg class={style.linkedin} viewBox="0 0 512 512">
-      <path
-        d="M150.65 100.682c0 27.992-22.508 50.683-50.273 50.683-27.765 0-50.273-22.69-50.273-50.683C50.104 72.692 72.612 50 100.377 50c27.766 0 50.273 22.69 50.273 50.682zm-7.356 86.65H58.277V462h85.017V187.333zm135.9 0h-81.54V462h81.54V317.82c0-38.625 17.78-61.616 51.808-61.616 31.268 0 46.29 22.07 46.29 61.615V462h84.604V288.085s-41.69-109.13-99.934-109.13-82.768 45.368-82.768 45.368v-36.99z"
-      />
-    </svg>
-  </a>
-);
-
-const Github = props => (
+const FooterIcon = ({glyph, type, ...props}) => (
   <a {...props}>
-    <svg
-      class={style.github}
-      viewBox="0 0 16 16"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      stroke-linejoin="round"
-      stroke-miterlimit="1.414"
-    >
-      <path
-        d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"
-      />
-    </svg>
-  </a>
-);
-
-const Email = props => (
-  <a {...props}>
-    <svg class={style.email} viewBox="0 0 483.3 483.3">
-      <path
-        d="M424.3 57.75H59.1c-32.6 0-59.1 26.5-59.1 59.1v249.6c0 32.6 26.5 59.1 59.1 59.1h365.1c32.6 0 59.1-26.5 59.1-59.1v-249.5c.1-32.6-26.4-59.2-59-59.2zm32.1 308.7c0 17.7-14.4 32.1-32.1 32.1H59.1c-17.7 0-32.1-14.4-32.1-32.1v-249.5c0-17.7 14.4-32.1 32.1-32.1h365.1c17.7 0 32.1 14.4 32.1 32.1v249.5h.1z"
-      />
-      <path
-        d="M304.8 238.55l118.2-106c5.5-5 6-13.5 1-19.1-5-5.5-13.5-6-19.1-1l-163 146.3-31.8-28.4c-.1-.1-.2-.2-.2-.3-.7-.7-1.4-1.3-2.2-1.9L78.3 112.35c-5.6-5-14.1-4.5-19.1 1.1-5 5.6-4.5 14.1 1.1 19.1l119.6 106.9-119.1 111.5c-5.4 5.1-5.7 13.6-.6 19.1 2.7 2.8 6.3 4.3 9.9 4.3 3.3 0 6.6-1.2 9.2-3.6l120.9-113.1 32.8 29.3c2.6 2.3 5.8 3.4 9 3.4s6.5-1.2 9-3.5l33.7-30.2 120.2 114.2c2.6 2.5 6 3.7 9.3 3.7 3.6 0 7.1-1.4 9.8-4.2 5.1-5.4 4.9-14-.5-19.1l-118.7-112.7z"
-      />
+    <svg class={cx(style.icon, style[type])}>
+      <use xlinkHref={glyph} />
     </svg>
   </a>
 );
@@ -59,10 +21,10 @@ export default class Footer extends Component {
     return (
       <footer class={style.footer}>
         <div class={style.footer__content}>
-          <Twitter href="//twitter.com/Fitzy_Longhorn" />
-          <Github href="//github.com/stevenfitzpatrick/stevenfitzpatrick.io" />
-          <LinkedIn href="//ie.linkedin.com/in/steven-fitzpatrick-a7a6b016" />
-          <Email href="mailto:steven.fitzpatrick1985@gmail.com" />
+          <FooterIcon href="//twitter.com/Fitzy_Longhorn" glyph={TwitterLogo} type="twitter" />
+          <FooterIcon href="//github.com/stevenfitzpatrick/stevenfitzpatrick.io" glyph={GithubLogo} type="github" />
+          <FooterIcon href="//ie.linkedin.com/in/steven-fitzpatrick-a7a6b016" glyph={LinkedInLogo} type="linkedin" />
+          <FooterIcon href="mailto:steven.fitzpatrick1985@gmail.com" glyph={EmailLogo} type="email" />
         </div>
         <div class={style.footer__acknowledgement}>
           <smaller>Created and Written by Me !</smaller>

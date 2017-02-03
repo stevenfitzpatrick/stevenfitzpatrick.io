@@ -4,6 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 // const Prod Settings
 const prodPlugins = require('./webpack.prod.config.babel');
@@ -19,7 +20,7 @@ module.exports = {
   // Start Bundling Here
   entry: {
     app: './src/index.js',
-    vendor: [ 'preact', 'preact-router', 'classnames' ]
+    vendor: ['preact', 'preact-router', 'classnames']
   },
   // Output of Bundling
   /* 
@@ -40,7 +41,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, 'src')
     ],
-    extensions: [ '.js', '.json', '.jsx', '.css' ],
+    extensions: ['.js', '.json', '.jsx', '.css'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
       style: path.resolve(__dirname, 'src/styles')
@@ -85,6 +86,15 @@ module.exports = {
           ]
         })
       },
+      // SVG Images
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        options: {
+          name: '[name]_[hash]',
+          prefixize: true
+        }
+      },
       // HTML Files
       { test: /\.html$/, loader: 'html-loader' }
     ]
@@ -99,7 +109,7 @@ module.exports = {
       template: './src/index.html',
       inject: true,
       prefetch: false,
-      minify: { removeComments: true, collapseWhitespace: false }
+      minify: { removeComments: true, collapseWhitespace: true }
     }),
     // Write out CSS bundle to its own file:
     new ExtractTextPlugin({
@@ -107,6 +117,10 @@ module.exports = {
         ? 'css/[name].styles.[contenthash].css'
         : 'css/[name].styles.css',
       allChunks: true
+    }),
+    // Add Preload allChunks
+    new PreloadWebpackPlugin({
+      rel: 'prefetch'
     }),
     // Add Preload Tags
     new ResourceHintWebpackPlugin(),

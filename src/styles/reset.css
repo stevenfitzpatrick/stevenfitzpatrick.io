@@ -2,6 +2,10 @@
   box-sizing: inherit;
 }
 
+svg use svg { 
+    fill: inherit;
+}
+
 h1,
 h2,
 h3,
