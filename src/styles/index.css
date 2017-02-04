@@ -13,5 +13,9 @@ main {
     padding: 1em;
 }
 
+:global(.menu--open) {
+  overflow:hidden;
+}
+
 
 

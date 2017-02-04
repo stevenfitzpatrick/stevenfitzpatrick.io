@@ -1,4 +1,5 @@
 :root {
+  --bodyColor: #555;
   --header: rgba(204, 94, 0, 0.8);
   --darkerHeader: color(var(--header) shade(20%));
   --twitter: #4099FF;
@@ -6,8 +7,11 @@
   --email: #558C89;
   --github: #333;
   --msBases: 1;
-  --msRatio: 1.5714;
+  --msRatio: 1.50;
+  --fontSize: 16px;
+  --lineHeight: 24px;
   --baseLine: calc(var(--msRatio) * 16px);
+  --spacing: calc(var(--lineHeight) / 2);
 
   /* Buttons */
   --success: #66bb6a;

@@ -5,6 +5,8 @@ import Home from './home';
 import Footer from './footer';
 import Error from './error';
 import About from './about';
+import Blogs from './blogs'
+import Blog from './blog'
 import SplitPoint from './split-point';
 import style from '../styles/index';
 
@@ -25,6 +27,8 @@ export default class App extends Component {
           <Router onChange={this.handleRoute}>
             <Home path="/" />
             <About path="/about" />
+            <Blogs path="/blogs" />
+            <Blog path="/blog/:title" />
             <SplitPoint path="/favourites" load={() => import('./favourites') } />
             <SplitPoint path="/create" load={() => import('./create-favourite') } />
             <Error type="404" default />

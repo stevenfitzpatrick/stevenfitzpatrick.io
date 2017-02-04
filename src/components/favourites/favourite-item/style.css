@@ -7,6 +7,7 @@
   margin: 1em 0;
   padding: 0.7em;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(-45deg, transparent 15px, #fff 0);
 
   & .favourite__item__time {
     display: flex;
