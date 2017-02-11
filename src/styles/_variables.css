@@ -1,6 +1,8 @@
+@import './_mixins.css';
+
 :root {
   --bodyColor: #555;
-  --header: rgba(204, 94, 0, 0.8);
+  --header: #d68643;
   --darkerHeader: color(var(--header) shade(20%));
   --twitter: #4099FF;
   --linkedIn: #0077b5;
@@ -17,8 +19,8 @@
   --success: #66bb6a;
   --inputBorder: #ddd;
   --focusBorder: #555;
-  --submitButton: #86b1be;
-  --activeSubmitButton: color( var(--submitButton) shade(20%));
+  --defaultButton: rgb(103, 135, 213);
+  --defaultButtonText: #fff;
   --link: rgb(103, 135, 213);
 }
 

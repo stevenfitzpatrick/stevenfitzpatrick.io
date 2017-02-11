@@ -1,4 +1,4 @@
-@import '../../styles/variables.css';
+@import '../../styles/_variables.css';
 
 @media (min-width: 600px) {
   .form {
@@ -6,6 +6,13 @@
     max-width: 600px;
     margin: auto;
   }
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .form {
@@ -31,22 +38,6 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-    }
-  }
-
-  & button {
-    width: 120px;
-    background-color: var(--submitButton);
-    align-self: center;
-    border-radius: 5px;
-    color: #fff;
-    padding: 0.5em;
-    transition: all 0.3s;
-    text-transform: uppercase;
-    font-weight: 500;
-
-    &:hover,&:focus,&:active {
-      background: var(--activeSubmitButton);
     }
   }
 }

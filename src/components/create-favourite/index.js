@@ -4,7 +4,6 @@ import firebase from '../../base';
 import styles from './style';
 import { SuccessMessage } from '../common/';
 
-
 export default class CreateFavourite extends Component {
   state = {
     title: '',
@@ -22,26 +21,29 @@ export default class CreateFavourite extends Component {
       if (user) {
         this.authHandler({ user });
       }
-    })
+    });
   }
 
   renderLogin = () => (
-    <button onClick={this.authenticate}>Github Login</button>
-  )
+    <section class={styles.login}>
+      <p>Please login to create a new favourite.</p>
+      <button onClick={this.authenticate}>Login</button>
+    </section>
+  );
 
-  authenticate = (type) => {
+  authenticate = type => {
     const auth = firebase.auth();
     const provider = new firebase.auth.GithubAuthProvider();
     auth.signInWithPopup(provider).then(this.authHandler);
-  }
+  };
 
   signOut = () => {
     firebase.auth().signOut().then(() => this.setState({ uid: null }));
-  }
+  };
 
-  authHandler = (authData) => {
+  authHandler = authData => {
     this.setState({ uid: authData.user.uid });
-  }
+  };
 
   clearForm = e => {
     e.preventDefault();
@@ -60,7 +62,8 @@ export default class CreateFavourite extends Component {
     e.preventDefault();
     const { title, url, description, author, tags } = this.state;
     const tagsToArray = tags.split(',').map(tag => tag.trim());
-    firebase.database()
+    firebase
+      .database()
       .ref('/favourites')
       .push({
         title,
@@ -80,7 +83,7 @@ export default class CreateFavourite extends Component {
   render({}, { title, url, description, author, tags, key, uid }) {
     // check if Logged input
     if (!uid) {
-      return <div>{this.renderLogin()}</div>
+      return <section class={styles.login}>{this.renderLogin()}</section>;
     }
 
     return (
@@ -99,7 +102,7 @@ export default class CreateFavourite extends Component {
               autofocus
               placeholder="Favourite Title"
               onInput={this.linkState('title')}
-              />
+            />
           </div>
           <div>
             <label htmlFor="url">URL</label>
@@ -110,7 +113,7 @@ export default class CreateFavourite extends Component {
               value={url}
               placeholder="Favourite URL"
               onInput={this.linkState('url')}
-              />
+            />
           </div>
           <div>
             <label htmlFor="author">Author</label>
@@ -121,7 +124,7 @@ export default class CreateFavourite extends Component {
               placeholder="Author URL"
               value={author}
               onInput={this.linkState('author')}
-              />
+            />
           </div>
           <div>
             <label htmlFor="description">Description</label>
@@ -132,7 +135,7 @@ export default class CreateFavourite extends Component {
               placeholder="Favourite Description"
               value={description}
               onInput={this.linkState('description')}
-              />
+            />
           </div>
           <div>
             <label htmlFor="tags">Tags</label>
@@ -143,7 +146,7 @@ export default class CreateFavourite extends Component {
               required
               placeholder="Sample Tags"
               onInput={this.linkState('tags')}
-              />
+            />
           </div>
           <div>
             <button type="reset" onClick={this.clearForm}>Clear</button>

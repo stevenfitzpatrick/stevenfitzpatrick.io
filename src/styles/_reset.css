@@ -2,10 +2,6 @@
   box-sizing: inherit;
 }
 
-svg use svg { 
-    fill: inherit;
-}
-
 h1,
 h2,
 h3,
@@ -13,6 +9,7 @@ h4,
 p,
 img,
 a,
+button,
 blockquote,
 figure,
 ol,
@@ -67,4 +64,17 @@ button {
     letter-spacing: inherit;
     background: none;
     cursor: pointer;
+}
+
+*::-webkit-scrollbar {
+  width: 7px !important;
+  height: 7px !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.5);
 }

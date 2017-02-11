@@ -3,6 +3,7 @@ import style from './style';
 import { Link, route, Router } from 'preact-router';
 import config from '../../config';
 import cx from 'classnames';
+import LogoImage from '../../assets/svg/Header.svg';
 
 export default class Header extends Component {
   state = { open: false };
@@ -10,7 +11,6 @@ export default class Header extends Component {
   toggleMenu = () => {
     requestAnimationFrame(() => {
       this.setState({ open: !this.state.open });
-      document.body.classList.toggle('menu--open');
     });
   };
 
@@ -20,15 +20,30 @@ export default class Header extends Component {
     }
   }
 
+  loadHome = () => route('/');
+
   render({ url }, { open }) {
     return (
-      <header class={cx(style.header, open && style.header__expanded)}>
-        <Nav routes={config.nav} current={url} />
-        <Menu open={open} onClick={this.toggleMenu} />
-      </header>
+      <div class={style.header__container}>
+        <header
+          class={cx(style.header__content, open && style.header__expanded)}
+        >
+          <Logo onClick={this.loadHome} image={LogoImage} />
+
+          <Nav routes={config.nav} current={url} />
+
+          <Menu open={open} onClick={this.toggleMenu} />
+        </header>
+      </div>
     );
   }
 }
+
+const Logo = ({ image, ...props }) => (
+  <svg {...props} class={style.header__logo}>
+    <use xlinkHref={image} />
+  </svg>
+);
 
 const Menu = ({ open, ...props }) => (
   <div class={style.header__hamburger} {...props}>

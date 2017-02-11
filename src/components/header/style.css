@@ -1,21 +1,27 @@
-@import '../../styles/variables.css';
-@import '../../styles/mixins.css';
+@import '../../styles/_variables.css';
 
-.header {
+.header__container {
+    position: relative;
+    z-index:1;
+}
+
+.header__content {
     background: var(--header);
     color: white;
     display: flex;
-    justify-content: center;
-    flex-shrink: 0;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 0 1em;
+    position: relative;
     height: 48px;
-    overflow: hidden;
-    transition: all 0.25s;
-    will-change: transform, height;
+
+    @media (--tablet) {
+        justify-content: space-around;
+        height: 64px;
+    }
 
     &.header__expanded {
-        height: 100vh;
-
         & .header__hamburger {
             & span {
                 background: none;
@@ -37,25 +43,63 @@
         }
 
         & .header__menu {
-            & a {
-                & ~ a {
-                    border-top: 3px solid var(--darkerHeader);
-                }
+            visibility: visible;
+            transform: translate(0, 100%);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
-                &:last-child {
-                    border-bottom: 3px solid var(--darkerHeader);
-                }
+            & a {
+                transform: none;
             }
         }
 
     }
 
+    & .header__logo {
+        cursor: pointer;
+        height: 48px;
+        max-width: 65%;
+    }
+
     & .header__menu {
+        position: absolute;
+        z-index: -10;
+        left:0;
+        right:0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        user-select: none;
+        background: #555;
+        visibility: hidden;
+        will-change: transform;
+        transform: none;
+        @apply --transition;
+
+        & a {
+            padding: var(--spacing);
+            text-align: center;
+            transform: scale(0.2);
+        }
+
         @media (--tablet) {
             flex-direction: row;
             justify-content: center;
+            align-items: center;
+            background: none;
+            position: relative;
+            visibility: visible;
+            z-index: 0;
+            height: 100%;
             
             & a {
+                transform: scale(1);
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justtify-content: center;
+                text-transform: uppercase;
+                font-weight: 600;
+
                 &:hover,
                 &:focus {
                     background: color(var(--header) shade(10%));
@@ -65,17 +109,6 @@
                     border-bottom: 1px solid;
                 }
             }
-        }
-
-        display: flex;
-        flex-direction: column;
-        user-select: none;
-        width: 100vw;
-        
-        & a {
-            transition: all 0.3s;
-            padding: var(--spacing);
-            text-align: center;
         }
     }
 
@@ -99,7 +132,6 @@
             position: absolute;
             border-radius: 30px;
             top: calc(50% - 2px);
-            transition: all 0.25s ease-in;
 
             &:before, 
             &:after {
@@ -109,7 +141,7 @@
                 border-radius: 30px;
                 width: 100%;
                 height: 2px;
-                transition: all 0.25s ease-in;
+                @apply --transition;
             }
 
             &:before {

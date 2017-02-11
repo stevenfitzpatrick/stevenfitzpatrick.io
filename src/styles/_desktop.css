@@ -1,4 +1,4 @@
-@import 'variables.css';
+@import '_variables.css';
 
 @media (--tablet) {
   main {

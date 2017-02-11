@@ -1,11 +1,6 @@
 {
     "nav": [
         {
-            "path": "/",
-            "name": "home",
-            "title": "Home"
-        },
-        {
             "path": "/about",
             "name": "about",
             "title": "About Me"

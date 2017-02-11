@@ -1,4 +1,4 @@
-@import 'variables.css';
+@import '_variables.css';
 
 html {
     -ms-text-size-adjust: 100%;
@@ -20,6 +20,8 @@ body {
     background-color: #eee;
     box-sizing: border-box;
     color: var(--bodyColor);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1 {

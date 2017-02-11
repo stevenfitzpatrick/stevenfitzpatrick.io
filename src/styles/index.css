@@ -1,6 +1,6 @@
-@import 'reset.css';
-@import 'typography.css';
-@import 'desktop.css';
+@import '_reset.css';
+@import '_typography.css';
+@import '_desktop.css';
 
 .app {
     height: 100%;
@@ -11,6 +11,24 @@
 main {
     flex: 1 1 0;
     padding: 1em;
+}
+
+button {
+    display: inline-block;
+    position: relative;
+    background-color: var(--defaultButton);
+    color: var(--defaultButtonText);
+    font-weight: 500;
+    padding: 0.5em 1em;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    transition: all 0.3s;
+
+    &:hover,&:focus,&:active {
+      background: color(var(--defaultButton) shade(10%));
+    }
 }
 
 :global(.menu--open) {

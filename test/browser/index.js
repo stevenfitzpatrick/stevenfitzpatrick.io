@@ -38,5 +38,11 @@ describe('App', () => {
 
       expect(scratch.innerHTML).to.contain('footer');
     });
+
+    it('should render the social media links', () => {
+      render(<App />, scratch);
+
+      expect(scratch.innerHTML).to.contain('a');
+    });
   });
 });

@@ -1,5 +1,4 @@
-@import '../../styles/variables.css';
-@import '../../styles/mixins.css';
+@import '../../styles/_variables.css';
 
 .footer {
     background-color: inherit;

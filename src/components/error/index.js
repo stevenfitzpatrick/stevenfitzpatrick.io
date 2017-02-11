@@ -1,11 +1,8 @@
-import { h, Component } from 'preact';
+import { h } from 'preact';
 
-const Error = (props) => (
+export default props => (
   <div>
     <h1>Error</h1>
     <p>Oops an error has occured !</p>
   </div>
 );
-
-export default Error;
-
