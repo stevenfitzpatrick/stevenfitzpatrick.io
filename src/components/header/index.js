@@ -24,10 +24,8 @@ export default class Header extends Component {
 
   render({ url }, { open }) {
     return (
-      <div class={style.header__container}>
-        <header
-          class={cx(style.header__content, open && style.header__expanded)}
-        >
+      <div class={cx(style.header__container, open && style.header__expanded)}>
+        <header class={style.header__content}>
           <Logo onClick={this.loadHome} image={LogoImage} />
 
           <Nav routes={config.nav} current={url} />

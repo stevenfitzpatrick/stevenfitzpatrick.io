@@ -88,10 +88,12 @@ export default class CreateFavourite extends Component {
 
     return (
       <section>
-        <button onClick={this.signOut}>Logout </button>
         <SuccessMessage itemKey={key} />
         <form onSubmit={this.createItem} class={styles.form}>
-          <h3>New Favourite</h3>
+          <div class={styles.form__header}>
+            <h3>New Favourite</h3>
+            <button onClick={this.signOut}>Logout </button>
+          </div>
           <div>
             <label htmlFor="title">Title</label>
             <input
@@ -149,7 +151,6 @@ export default class CreateFavourite extends Component {
             />
           </div>
           <div>
-            <button type="reset" onClick={this.clearForm}>Clear</button>
             <button type="submit">Save</button>
           </div>
         </form>

@@ -3,25 +3,25 @@
 .header__container {
     position: relative;
     z-index:1;
-}
-
-.header__content {
     background: var(--header);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    padding: 0 1em;
-    position: relative;
-    height: 48px;
-
-    @media (--tablet) {
-        justify-content: space-around;
-        height: 64px;
-    }
 
     &.header__expanded {
+        &:before {
+            position: absolute;
+            content:'';
+            background-color: rgba(0, 0, 0, 0.3);
+            min-height: 100vh;
+            width: 100%;
+            z-index: -50;
+        }
+
+        @media (--tablet) {
+            &:before {
+                min-height: 0;
+            }
+        }
+
         & .header__hamburger {
             & span {
                 background: none;
@@ -43,21 +43,48 @@
         }
 
         & .header__menu {
+            @media (--tablet) {
+                transform: none;
+                box-shadow: none;
+            }
             visibility: visible;
             transform: translate(0, 100%);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
             & a {
-                transform: none;
             }
         }
 
     }
+}
+
+.header__content {
+    background: var(--header);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+    position: relative;
+    height: 48px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    @media (--tablet) {
+        height: 64px;
+        max-width: 960px;
+        margin: 0 auto;
+        box-shadow: none;
+    }
 
     & .header__logo {
         cursor: pointer;
-        height: 48px;
-        max-width: 65%;
+        height: 23px;
+        width: 200px;
+
+        @media (--tablet) {
+            height: 34px;
+            width: 300px;
+        }
     }
 
     & .header__menu {
@@ -69,7 +96,7 @@
         display: flex;
         flex-direction: column;
         user-select: none;
-        background: #555;
+        background: color(var(--header) alpha(90%));
         visibility: hidden;
         will-change: transform;
         transform: none;
@@ -78,7 +105,15 @@
         & a {
             padding: var(--spacing);
             text-align: center;
-            transform: scale(0.2);
+            @apply --transition;
+
+            &:hover,
+            &:focus {
+                background: color(var(--header) shade(10%));
+            }
+            &.active {
+                background: color(var(--header) shade(20%));
+            }
         }
 
         @media (--tablet) {
@@ -92,22 +127,11 @@
             height: 100%;
             
             & a {
-                transform: scale(1);
                 height: 100%;
                 display: flex;
                 align-items: center;
                 justtify-content: center;
-                text-transform: uppercase;
                 font-weight: 600;
-
-                &:hover,
-                &:focus {
-                    background: color(var(--header) shade(10%));
-                }
-                &.active {
-                    background: color(var(--header) shade(20%));
-                    border-bottom: 1px solid;
-                }
             }
         }
     }
@@ -132,6 +156,7 @@
             position: absolute;
             border-radius: 30px;
             top: calc(50% - 2px);
+            will-change: transform;
 
             &:before, 
             &:after {
@@ -153,4 +178,40 @@
             }
         }
     }
+}
+
+:global(.logo__code) {
+    animation: fadeIn 1.5s 0.2s ease-in-out both;
+}
+
+:global(.logo__text) {
+    animation: comeUp 1s ease-in-out both;
+    &:nth-of-type(3) {
+        animation-delay: 0.75s;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scaleX(0.1);
+    }, 
+    25% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 0.50;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes comeUp {
+  from {transform: translateY(-150%);}
+  to {transform: translateY(0);}
 }

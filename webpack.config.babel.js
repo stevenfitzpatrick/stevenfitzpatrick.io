@@ -49,7 +49,9 @@ module.exports = {
   },
   target: 'web',
   // eval for dev, source-map for production
-  devtool: !isProd && 'source-map',
+  devtool: (
+    !isProd && 'source-map'
+  ),
   // Transform Rules
   module: {
     rules: [
@@ -95,6 +97,14 @@ module.exports = {
           prefixize: true
         }
       },
+      // Load other Image Types
+      {
+        test: /\.(woff2?|ttf|eot|jpg|png|gif)(\?.*)?$/i,
+        loader: 'file-loader',
+        options: {
+          name: 'assets/[name].[ext]'
+        }
+      },
       // HTML Files
       { test: /\.html$/, loader: 'html-loader' }
     ]
@@ -107,15 +117,16 @@ module.exports = {
       hash: false,
       filename: 'index.html',
       template: './src/index.html',
+      favicon: './src/assets/favicon.ico',
       inject: true,
       prefetch: false,
       minify: { removeComments: true, collapseWhitespace: true }
     }),
     // Write out CSS bundle to its own file:
     new ExtractTextPlugin({
-      filename: isProd
-        ? 'css/[name].styles.[contenthash].css'
-        : 'css/[name].styles.css',
+      filename: (
+        isProd ? 'css/[name].styles.[contenthash].css' : 'css/[name].styles.css'
+      ),
       allChunks: true
     }),
     // Add Preload allChunks
@@ -127,9 +138,9 @@ module.exports = {
     // Set Environment Variables
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: isProd
-          ? JSON.stringify('production')
-          : JSON.stringify('development')
+        NODE_ENV: (
+          isProd ? JSON.stringify('production') : JSON.stringify('development')
+        )
       }
     })
   ].concat(isProd ? prodPlugins : [])

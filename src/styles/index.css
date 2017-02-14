@@ -22,7 +22,6 @@ button {
     padding: 0.5em 1em;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
     font-weight: bold;
     transition: all 0.3s;
 
