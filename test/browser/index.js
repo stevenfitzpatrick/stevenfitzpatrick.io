@@ -24,7 +24,7 @@ describe('App', () => {
   describe('routing', () => {
     it('should render the homepage', () => {
       render(<App />, scratch);
-      expect(scratch.innerHTML).to.contain('Home');
+      expect(scratch.innerHTML).not.contain('Home');
     });
 
     it('should render the header', () => {
