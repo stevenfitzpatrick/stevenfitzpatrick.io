@@ -61,6 +61,11 @@ const Nav = ({ routes, current, ...props }) => (
   </nav>
 );
 
-const NavItem = ({ to, current, ...props }) => (
-  <a href={to.path} {...props}>{to.title}</a>
-);
+class NavItem extends Component {
+  visitPage = to => {
+    requestAnimationFrame(() => route(to.path));
+  };
+  render({ to, current, ...props }) {
+    return <a {...props} onClick={() => this.visitPage(to)}>{to.title}</a>;
+  }
+}

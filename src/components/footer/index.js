@@ -5,10 +5,10 @@ import EmailLogo from '../../assets/svg/email.svg';
 import LinkedInLogo from '../../assets/svg/linkedin.svg';
 import cx from 'classnames';
 
-import style from './style';
+import style from './style.scss';
 const test = style;
 
-const FooterIcon = ({glyph, type, ...props}) => (
+const FooterIcon = ({ glyph, type, ...props }) => (
   <a {...props}>
     <svg class={cx(style.icon, style[type])}>
       <use xlinkHref={glyph} />
@@ -21,10 +21,26 @@ export default class Footer extends Component {
     return (
       <footer class={style.footer}>
         <div class={style.footer__content}>
-          <FooterIcon href="//twitter.com/Fitzy_Longhorn" glyph={TwitterLogo} type="twitter" />
-          <FooterIcon href="//github.com/stevenfitzpatrick/stevenfitzpatrick.io" glyph={GithubLogo} type="github" />
-          <FooterIcon href="//ie.linkedin.com/in/steven-fitzpatrick-a7a6b016" glyph={LinkedInLogo} type="linkedin" />
-          <FooterIcon href="mailto:steven.fitzpatrick1985@gmail.com" glyph={EmailLogo} type="email" />
+          <FooterIcon
+            href="//twitter.com/Fitzy_Longhorn"
+            glyph={TwitterLogo}
+            type="twitter"
+          />
+          <FooterIcon
+            href="//github.com/stevenfitzpatrick/stevenfitzpatrick.io"
+            glyph={GithubLogo}
+            type="github"
+          />
+          <FooterIcon
+            href="//ie.linkedin.com/in/steven-fitzpatrick-a7a6b016"
+            glyph={LinkedInLogo}
+            type="linkedin"
+          />
+          <FooterIcon
+            href="mailto:steven.fitzpatrick1985@gmail.com"
+            glyph={EmailLogo}
+            type="email"
+          />
         </div>
         <div class={style.footer__acknowledgement}>
           <smaller>Created and Written by Me !</smaller>
@@ -32,7 +48,4 @@ export default class Footer extends Component {
       </footer>
     );
   }
-
 }
-
-

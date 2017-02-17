@@ -1,60 +1,51 @@
 @import '../../styles/_variables.css';
-
 .header__container {
     position: relative;
-    z-index:1;
+    z-index: 1;
     background: var(--header);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
     &.header__expanded {
         &:before {
             position: absolute;
-            content:'';
+            content: '';
             background-color: rgba(0, 0, 0, 0.3);
             min-height: 100vh;
             width: 100%;
             z-index: -50;
         }
-
         @media (--tablet) {
             &:before {
                 min-height: 0;
             }
         }
-
         & .header__hamburger {
+            &:before {
+                animation: fab 0.2s cubic-bezier(.15, 1.05, .54, 1.29) 1;
+            }
             & span {
                 background: none;
-
-                &:before, 
+                &:before,
                 &:after {
                     top: 0;
-                    height: 3px;
                 }
-
                 &:before {
                     transform: rotate(45deg);
                 }
-
                 &:after {
                     transform: rotate(-45deg);
                 }
             }
         }
-
         & .header__menu {
             @media (--tablet) {
                 transform: none;
                 box-shadow: none;
             }
-            visibility: visible;
+            opacity: 1;
             transform: translate(0, 100%);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
-            & a {
-            }
+            & a {}
         }
-
     }
 }
 
@@ -68,45 +59,39 @@
     position: relative;
     height: 48px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
     @media (--tablet) {
         height: 64px;
         max-width: 960px;
         margin: 0 auto;
         box-shadow: none;
     }
-
     & .header__logo {
         cursor: pointer;
         height: 23px;
         width: 200px;
-
         @media (--tablet) {
             height: 34px;
             width: 300px;
         }
     }
-
     & .header__menu {
         position: absolute;
         z-index: -10;
-        left:0;
-        right:0;
+        left: 0;
+        right: 0;
         bottom: 0;
         display: flex;
         flex-direction: column;
         user-select: none;
         background: color(var(--header) alpha(90%));
-        visibility: hidden;
+        opacity: 0;
         will-change: transform;
         transform: none;
         @apply --transition;
-
         & a {
             padding: var(--spacing);
             text-align: center;
             @apply --transition;
-
             &:hover,
             &:focus {
                 background: color(var(--header) shade(10%));
@@ -115,17 +100,15 @@
                 background: color(var(--header) shade(20%));
             }
         }
-
         @media (--tablet) {
             flex-direction: row;
             justify-content: center;
             align-items: center;
             background: none;
             position: relative;
-            visibility: visible;
+            opacity: 1;
             z-index: 0;
             height: 100%;
-            
             & a {
                 height: 100%;
                 display: flex;
@@ -135,12 +118,20 @@
             }
         }
     }
-
     & .header__hamburger {
         @media (--tablet) {
             display: none;
         }
-
+        &:before {
+            content: '';
+            background: rgba(0, 0, 0, 0.15);
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            content: '';
+            height: 100%;
+            width: 100%;
+        }
         height: 1.5em;
         width: 1.5em;
         position: absolute;
@@ -148,31 +139,25 @@
         right: calc(var(--spacing) * 2);
         cursor: pointer;
         display: block;
-
         & span {
             width: 100%;
             height: 2px;
             background-color: #fff;
             position: absolute;
-            border-radius: 30px;
-            top: calc(50% - 2px);
+            top: calc(50% - 1px);
             will-change: transform;
-
-            &:before, 
+            &:before,
             &:after {
                 content: '';
                 background-color: #fff;
                 position: absolute;
-                border-radius: 30px;
                 width: 100%;
                 height: 2px;
                 @apply --transition;
             }
-
             &:before {
                 top: -6px;
             }
-
             &:after {
                 top: 6px;
             }
@@ -191,11 +176,18 @@
     }
 }
 
+@keyframes fab {
+    to {
+        transform: scale(2);
+    }
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
         transform: scaleX(0.1);
-    }, 
+    }
+    ,
     25% {
         opacity: 0.25;
     }
@@ -212,6 +204,10 @@
 }
 
 @keyframes comeUp {
-  from {transform: translateY(-150%);}
-  to {transform: translateY(0);}
+    from {
+        transform: translateY(-150%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }

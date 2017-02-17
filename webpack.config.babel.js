@@ -41,7 +41,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, 'src')
     ],
-    extensions: ['.js', '.json', '.jsx', '.css'],
+    extensions: ['.js', '.json', '.jsx', '.css', '.scss'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
       style: path.resolve(__dirname, 'src/styles')
@@ -49,9 +49,7 @@ module.exports = {
   },
   target: 'web',
   // eval for dev, source-map for production
-  devtool: (
-    !isProd && 'source-map'
-  ),
+  devtool: !isProd && 'source-map',
   // Transform Rules
   module: {
     rules: [
@@ -85,6 +83,25 @@ module.exports = {
               }
             },
             'postcss-loader'
+          ]
+        })
+      },
+      // Chained SASS Loader
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: [
+            {
+              loader: 'css-loader',
+              query: {
+                importLoaders: 1,
+                modules: true,
+                localIdentName: '[local]__[hash:base64:5]'
+              }
+            },
+            'postcss-loader',
+            'sass-loader'
           ]
         })
       },
@@ -130,9 +147,9 @@ module.exports = {
       allChunks: true
     }),
     // Add Preload allChunks
-    new PreloadWebpackPlugin({
-      rel: 'prefetch'
-    }),
+    // new PreloadWebpackPlugin({
+    //   rel: 'prefetch'
+    // }),
     // Add Preload Tags
     new ResourceHintWebpackPlugin(),
     // Set Environment Variables

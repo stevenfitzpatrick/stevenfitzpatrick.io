@@ -33,10 +33,8 @@ if (process.env.NODE_ENV === 'development') {
 //   debugger;
 // }
 
-if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js');
-  });
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
 
   //Add Google Analytics
   /*global ga*/

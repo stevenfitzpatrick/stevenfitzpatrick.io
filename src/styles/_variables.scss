@@ -1,0 +1,24 @@
+/* Buttons */
+
+$bodyColor: #555;
+$header: #d68643;
+$darkerHeader: color(var($header) shade(20%));
+$twitter: #4099FF;
+$linkedIn: #0077b5;
+$email: #558C89;
+$github: #333;
+$msBases: 1;
+$msRatio: 1.50;
+$fontSize: 16px;
+$lineHeight: 24px;
+$baseLine: calc(var($msRatio) * 16px);
+$spacing: calc(var($lineHeight) / 2);
+
+/* Buttons */
+
+$success: #66bb6a;
+$inputBorder: #ddd;
+$focusBorder: #555;
+$defaultButton: rgb(103, 135, 213);
+$defaultButtonText: #fff;
+$link: rgb(103, 135, 213);

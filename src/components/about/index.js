@@ -5,11 +5,9 @@ export default class About extends Component {
   render() {
     return (
       <div>
-        <h2>About Meqwe</h2>
-        <img src={Picture} />
+        <h2>About Me</h2>
         <p>
           First of all, thanks for visiting my homepage ! I am a front-end developer currently based in Dublin, Ireland.
-
 
           My career has taken me through all different aspects of web development i.e. server side, client side, databases, web design, UI/UX etc.
         </p>
