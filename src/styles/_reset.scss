@@ -1,5 +1,8 @@
-*, *:before, *:after {
-  box-sizing: inherit;
+@import '~modularscale-sass/stylesheets/modular-scale';
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 h1,
@@ -21,6 +24,7 @@ ul {
     font-size: inherit;
     font-synthesis: none;
 }
+
 main,
 li,
 footer,
@@ -47,9 +51,11 @@ a {
     padding: 0;
     border: 0;
 }
+
 :focus {
     outline: 0;
 }
+
 img {
     max-width: 100%;
     height: auto;
@@ -67,14 +73,14 @@ button {
 }
 
 *::-webkit-scrollbar {
-  width: 7px !important;
-  height: 7px !important;
+    width: 7px !important;
+    height: 7px !important;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.4);
 }
 
 *::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.5);
 }

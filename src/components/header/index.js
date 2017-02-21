@@ -20,6 +20,26 @@ export default class Header extends Component {
     }
   }
 
+  toggleFixedNav = () => {
+    if (window.scrollY > 0) {
+      requestAnimationFrame(() => {
+        this.main.style.paddingTop = `${this.header}px`;
+        document.body.classList.add('js-fixed-nav');
+      });
+    } else {
+      requestAnimationFrame(() => {
+        this.main.style.paddingTop = 0;
+        document.body.classList.remove('js-fixed-nav');
+      });
+    }
+  };
+
+  componentDidMount() {
+    this.header = this.base.offsetHeight;
+    this.main = document.querySelector('main');
+    window.addEventListener('scroll', this.toggleFixedNav);
+  }
+
   loadHome = () => route('/');
 
   render({ url }, { open }) {
@@ -66,6 +86,8 @@ class NavItem extends Component {
     requestAnimationFrame(() => route(to.path));
   };
   render({ to, current, ...props }) {
-    return <a {...props} onClick={() => this.visitPage(to)}>{to.title}</a>;
+    return (
+      <a href="#0" {...props} onClick={() => this.visitPage(to)}>{to.title}</a>
+    );
   }
 }

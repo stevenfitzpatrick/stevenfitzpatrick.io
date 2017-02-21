@@ -1,0 +1,28 @@
+@import '_variables';
+@media (min-width: $tablet) {
+    main {
+        width: 85%;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 1em;
+        margin-top: $line-height-base;
+    }
+    h1 {
+        font-size: ms(2);
+        line-height: 1.1;
+    }
+    h2 {
+        font-size: ms(3);
+    }
+    h3 {
+        font-size: ms(2);
+        font-weight: 400;
+    }
+    h4 {
+        font-size: ms(1);
+    }
+    h4+h2 {
+        margin-top: $line-height-base;
+        margin-bottom: $line-height-base;
+    }
+}

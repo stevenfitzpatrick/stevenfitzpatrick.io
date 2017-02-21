@@ -3,7 +3,10 @@ import { h, Component } from 'preact';
 export default class Blogs extends Component {
   render() {
     return (
-      <div className="hello">Hello</div>
-    )
+      <div>
+        <h3>Blogs</h3>
+        <p>Coming soon.</p>
+      </div>
+    );
   }
 }

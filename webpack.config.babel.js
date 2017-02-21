@@ -79,7 +79,7 @@ module.exports = {
               query: {
                 importLoaders: 1,
                 modules: true,
-                localIdentName: '[local]__[hash:base64:5]'
+                localIdentName: '[local]'
               }
             },
             'postcss-loader'
@@ -97,7 +97,7 @@ module.exports = {
               query: {
                 importLoaders: 1,
                 modules: true,
-                localIdentName: '[local]__[hash:base64:5]'
+                localIdentName: '[local]'
               }
             },
             'postcss-loader',

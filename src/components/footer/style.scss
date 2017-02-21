@@ -25,6 +25,8 @@
                 display: inline-block;
                 vertical-align: bottom;
                 position: relative;
+                pointer-events: none;
+                user-select: none;
             }
         }
         .icon {

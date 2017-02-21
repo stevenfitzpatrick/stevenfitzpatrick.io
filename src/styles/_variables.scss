@@ -1,18 +1,36 @@
-/* Buttons */
+@import '~modularscale-sass/stylesheets/modular-scale';
 
-$bodyColor: #555;
+/* Vertivsl Rhythm */
+
+$font-size-base: 16px;
+$line-height-base: 24px;
+$ms-base: 1em;
+$ms-ratio: $fifth;
+$spacing: $line-height-base / 2;
+
+/* Fonts */
+
+$headerFont: 'brandon-grotesque',
+"Segoe UI",
+Segoe,
+Calibri,
+Arial sans-serif;
+$mainFont: 'source-sans-pro',
+"Segoe UI",
+Segoe,
+Calibri,
+Arial sans-serif;
+$textColor: #555;
+
+/* Colors */
+
 $header: #d68643;
-$darkerHeader: color(var($header) shade(20%));
+$secondaryHeader: rgb(62, 61, 61);
+$darkerHeader: darken($header, 20%);
 $twitter: #4099FF;
 $linkedIn: #0077b5;
 $email: #558C89;
 $github: #333;
-$msBases: 1;
-$msRatio: 1.50;
-$fontSize: 16px;
-$lineHeight: 24px;
-$baseLine: calc(var($msRatio) * 16px);
-$spacing: calc(var($lineHeight) / 2);
 
 /* Buttons */
 
@@ -22,3 +40,12 @@ $focusBorder: #555;
 $defaultButton: rgb(103, 135, 213);
 $defaultButtonText: #fff;
 $link: rgb(103, 135, 213);
+
+/* Media Queries */
+
+$tablet: 640px;
+$desktop: (min-width: 1200px);
+
+/* Transitions */
+
+$transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

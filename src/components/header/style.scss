@@ -1,9 +1,19 @@
-@import '../../styles/_variables.css';
+@import '../../styles/_variables.scss';
+:global(.js-fixed-nav) {
+    .header__container {
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+}
+
 .header__container {
     position: relative;
     z-index: 1;
-    background: var(--header);
+    background: $header;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    will-change: position, top;
+    transition: all 0.3s ease-in;
     &.header__expanded {
         &:before {
             position: absolute;
@@ -13,7 +23,7 @@
             width: 100%;
             z-index: -50;
         }
-        @media (--tablet) {
+        @media (min-width: $tablet) {
             &:before {
                 min-height: 0;
             }
@@ -37,20 +47,19 @@
             }
         }
         & .header__menu {
-            @media (--tablet) {
+            @media (min-width: $tablet) {
                 transform: none;
                 box-shadow: none;
             }
             opacity: 1;
             transform: translate(0, 100%);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            & a {}
         }
     }
 }
 
 .header__content {
-    background: var(--header);
+    background: $header;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -59,17 +68,17 @@
     position: relative;
     height: 48px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    @media (--tablet) {
-        height: 64px;
+    @media (min-width: $tablet) {
         max-width: 960px;
         margin: 0 auto;
         box-shadow: none;
+        height: 60px;
     }
     & .header__logo {
         cursor: pointer;
         height: 23px;
         width: 200px;
-        @media (--tablet) {
+        @media (min-width: $tablet) {
             height: 34px;
             width: 300px;
         }
@@ -83,24 +92,25 @@
         display: flex;
         flex-direction: column;
         user-select: none;
-        background: color(var(--header) alpha(90%));
+        background: $secondaryHeader;
         opacity: 0;
         will-change: transform;
         transform: none;
-        @apply --transition;
+        transition: $transition;
         & a {
-            padding: var(--spacing);
+            padding: $spacing;
             text-align: center;
-            @apply --transition;
+            font-family: $headerFont;
+            transition: $transition;
             &:hover,
             &:focus {
-                background: color(var(--header) shade(10%));
+                background: darken($header, 10%);
             }
             &.active {
-                background: color(var(--header) shade(20%));
+                background: darken($header, 20%);
             }
         }
-        @media (--tablet) {
+        @media (min-width: $tablet) {
             flex-direction: row;
             justify-content: center;
             align-items: center;
@@ -113,13 +123,15 @@
                 height: 100%;
                 display: flex;
                 align-items: center;
-                justtify-content: center;
-                font-weight: 600;
+                justify-content: center;
+                font-size: 1.1em;
+                letter-spacing: 0.4px;
+                text-shadow: 2px 1px rgba(0, 0, 0, 0.2);
             }
         }
     }
     & .header__hamburger {
-        @media (--tablet) {
+        @media (min-width: $tablet) {
             display: none;
         }
         &:before {
@@ -135,8 +147,8 @@
         height: 1.5em;
         width: 1.5em;
         position: absolute;
-        top: var(--spacing);
-        right: calc(var(--spacing) * 2);
+        top: $spacing;
+        right: $spacing * 2;
         cursor: pointer;
         display: block;
         & span {
@@ -153,7 +165,7 @@
                 position: absolute;
                 width: 100%;
                 height: 2px;
-                @apply --transition;
+                transition: $transition;
             }
             &:before {
                 top: -6px;
@@ -187,7 +199,6 @@
         opacity: 0;
         transform: scaleX(0.1);
     }
-    ,
     25% {
         opacity: 0.25;
     }

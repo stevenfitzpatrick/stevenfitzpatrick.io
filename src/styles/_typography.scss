@@ -1,0 +1,96 @@
+@import '_variables.scss';
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'source-sans-pro', "Segoe UI", Segoe, Calibri, Arial sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+    background-color: #eee;
+    box-sizing: border-box;
+    color: $textColor;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $headerFont;
+    margin: ($line-height-base / 2) 0;
+    line-height: $line-height-base;
+}
+
+h1,
+h2 {
+    margin-top: ($line-height-base / 2);
+    margin-bottom: ($line-height-base / 2);
+    line-height: ($line-height-base * 2);
+}
+
+h4,
+h5,
+h6 {
+    margin-top: ($line-height-base / 2);
+    margin-bottom: ($line-height-base / 2);
+}
+
+h3 {
+    margin-top: ($line-height-base / 2);
+    margin-bottom: $line-height-base;
+    position: relative;
+}
+
+h1 {
+    font-size: ms(2);
+}
+
+h2 {
+    font-size: ms(2);
+}
+
+h3 {
+    font-size: ms(2);
+    font-weight: 400;
+}
+
+h4 {
+    font-size: ms(1);
+    font-weight: 400;
+}
+
+h5 {
+    font-size: ms(0);
+}
+
+h4+h2 {
+    margin: 0;
+}
+
+h2+h5 {
+    margin-top: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+p {
+    margin-bottom: $line-height-base;
+}
+
+smaller {
+    font-size: 0.667em;
+}

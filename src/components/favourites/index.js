@@ -12,7 +12,8 @@ export default class Favourites extends Component {
 
   componentWillMount() {
     const items = this.firebase
-      .ref('/favourites').orderByKey()
+      .ref('/favourites')
+      .orderByKey()
       .once('value')
       .then(data => {
         const result = data.val();
@@ -20,8 +21,7 @@ export default class Favourites extends Component {
         Object.keys(result).map(item => favourites.push(result[item]));
         this.setState({ favourites });
       })
-      .catch(error => {
-      });
+      .catch(error => {});
   }
 
   componentWillUnmount() {
@@ -29,7 +29,6 @@ export default class Favourites extends Component {
   }
 
   displayItem = item => <FavouriteItem item={item} />;
-
 
   render(props, { favourites }) {
     const ifContainsFavourites = Object.keys(favourites).length !== 0;
@@ -43,7 +42,7 @@ export default class Favourites extends Component {
 
     return (
       <div class={style.favourites__list}>
-        <h2>Favourites</h2>
+        <h3>Favourites</h3>
         {favouriteList}
       </div>
     );
