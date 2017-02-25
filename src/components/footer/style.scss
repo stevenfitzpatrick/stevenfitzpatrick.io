@@ -1,54 +1,62 @@
 @import '../../styles/_variables.scss';
+
 .footer {
-    background-color: inherit;
-    text-align: center;
-    padding: 1em 0 0.5em;
+  background-color: inherit;
+  text-align: center;
+  padding: 1em 0 0.5em;
 }
 
 .footer__acknowledgement {
-    padding-top: 0.4em;
+  padding-top: 0.4em;
 }
 
 .footer__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    a {
-        &~a {
-            &:before {
-                content: ' ';
-                width: 1px;
-                height: 17px;
-                border-right: 1px solid currentColor;
-                bottom: 3px;
-                margin: 0 1em;
-                display: inline-block;
-                vertical-align: bottom;
-                position: relative;
-                pointer-events: none;
-                user-select: none;
-            }
-        }
-        .icon {
-            height: 24px;
-            width: 24px;
-            fill: currentColor;
-            vertical-align: bottom;
-            &:hover {
-                transform: scale(1.1);
-            }
-            &.twitter:hover {
-                fill: $twitter;
-            }
-            &.github:hover {
-                fill: $github;
-            }
-            &.linkedin:hover {
-                fill: $linkedIn;
-            }
-            &.email:hover {
-                fill: $email;
-            }
-        }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    & ~ a {
+      &::before {
+        content: ' ';
+        width: 1px;
+        height: 17px;
+        border-right: 1px solid currentColor;
+        bottom: 3px;
+        margin: 0 1em;
+        display: inline-block;
+        vertical-align: bottom;
+        position: relative;
+        pointer-events: none;
+        user-select: none;
+      }
     }
+
+    .icon {
+      height: 24px;
+      width: 24px;
+      fill: currentColor;
+      vertical-align: bottom;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &.twitter:hover {
+        fill: $twitter;
+      }
+
+      &.github:hover {
+        fill: $github;
+      }
+
+      &.linkedin:hover {
+        fill: $linkedIn;
+      }
+
+      &.email:hover {
+        fill: $email;
+      }
+    }
+  }
 }

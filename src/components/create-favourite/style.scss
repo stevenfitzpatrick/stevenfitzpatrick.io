@@ -1,48 +1,55 @@
 @import '../../styles/_variables.scss';
+
 @media (min-width: $tablet) {
-    .form {
-        width: 80%;
-        max-width: 600px;
-        margin: auto;
-    }
+  .form {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+  }
 }
 
 .login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .form {
+  display: flex;
+  flex-direction: column;
+
+  .form__header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  > div {
     display: flex;
     flex-direction: column;
-    .form__header {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        align-items: center;
+    margin-bottom: 1em;
+
+    input {
+      padding: 0.6em;
+      border-radius: 5px;
+      border: 1px solid $inputBorder;
+
+      &:active,
+      &:focus {
+        border-color: $focusBorder;
+      }
+
+      &:focus:required:invalid {
+        border: 1px solid crimson;
+      }
     }
-    >div {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1em;
-        input {
-            padding: 0.6em;
-            border-radius: 5px;
-            border: 1px solid $inputBorder;
-            &:active,
-            &:focus {
-                border-color: $focusBorder;
-            }
-            &:focus:required:invalid {
-                border: 1px solid crimson;
-            }
-        }
-        &:last-child {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-        }
+
+    &:last-child {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
     }
+  }
 }

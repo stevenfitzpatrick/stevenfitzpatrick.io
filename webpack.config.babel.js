@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 // const Prod Settings
 const prodPlugins = require('./webpack.prod.config.babel');
@@ -101,7 +102,14 @@ module.exports = {
               }
             },
             'postcss-loader',
-            'sass-loader'
+            'sass-loader',
+            {
+              loader: 'stylefmt-loader',
+              enforce: 'pre',
+              options: {
+                config: '.stylelintrc'
+              }
+            }
           ]
         })
       },
@@ -128,6 +136,13 @@ module.exports = {
   },
   // Bundle Rules
   plugins: [
+    // Style Checking
+    new StyleLintPlugin({
+      configFile: '.stylelintrc',
+      files: '**/*.scss',
+      failOnError: false,
+      syntax: 'scss'
+    }),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-ie/),
     // Inject CSS and JS into HTML
     new HtmlWebpackPlugin({

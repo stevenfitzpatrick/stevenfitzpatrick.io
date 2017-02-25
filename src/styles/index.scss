@@ -1,37 +1,39 @@
 @import '_reset';
 @import '_typography';
+
 .app {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-    flex: 1 1 auto;
-    padding: 0 1em;
-    margin-top: $line-height-base / 2;
+  flex: 1 1 auto;
+  padding: 0 1em;
+  margin-top: $line-height-base / 2;
 }
 
 button {
-    display: inline-block;
-    position: relative;
-    background-color: $defaultButton;
-    color: $defaultButtonText;
-    font-weight: 500;
-    padding: 0.5em 1em;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: all 0.3s;
-    &:hover,
-    &:focus,
-    &:active {
-        background: darken($defaultButton, 10%);
-    }
+  display: inline-block;
+  position: relative;
+  background-color: $defaultButton;
+  color: $defaultButtonText;
+  font-weight: 500;
+  padding: 0.5em 1em;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: darken($defaultButton, 10%);
+  }
 }
 
 :global(.menu--open) {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 @import '_desktop';

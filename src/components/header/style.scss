@@ -1,224 +1,255 @@
 @import '../../styles/_variables.scss';
+
 :global(.js-fixed-nav) {
-    .header__container {
-        position: fixed;
-        width: 100%;
-        top: 0;
-    }
+  .header__container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
 }
 
 .header__container {
-    position: relative;
-    z-index: 1;
-    background: $header;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    will-change: position, top;
-    transition: all 0.3s ease-in;
-    &.header__expanded {
-        &:before {
-            position: absolute;
-            content: '';
-            background-color: rgba(0, 0, 0, 0.3);
-            min-height: 100vh;
-            width: 100%;
-            z-index: -50;
-        }
-        @media (min-width: $tablet) {
-            &:before {
-                min-height: 0;
-            }
-        }
-        & .header__hamburger {
-            &:before {
-                animation: fab 0.2s cubic-bezier(.15, 1.05, .54, 1.29) 1;
-            }
-            & span {
-                background: none;
-                &:before,
-                &:after {
-                    top: 0;
-                }
-                &:before {
-                    transform: rotate(45deg);
-                }
-                &:after {
-                    transform: rotate(-45deg);
-                }
-            }
-        }
-        & .header__menu {
-            @media (min-width: $tablet) {
-                transform: none;
-                box-shadow: none;
-            }
-            opacity: 1;
-            transform: translate(0, 100%);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
+  position: relative;
+  z-index: 1;
+  background: $header;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  will-change: position, top;
+  transition: all 0.3s ease-in;
+
+  &.header__expanded {
+    &:before {
+      position: absolute;
+      content: '';
+      background-color: rgba(0, 0, 0, 0.3);
+      min-height: 100vh;
+      width: 100%;
+      z-index: -50;
     }
+
+    @media (min-width: $tablet) {
+      &:before {
+        min-height: 0;
+      }
+    }
+
+    & .header__hamburger {
+      &:before {
+        animation: fab 0.2s cubic-bezier(0.15, 1.05, 0.54, 1.29) 1;
+      }
+
+      & span {
+        background: none;
+
+        &:before,
+        &:after {
+          top: 0;
+        }
+
+        &:before {
+          transform: rotate(45deg);
+        }
+
+        &:after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    & .header__menu {
+      @media (min-width: $tablet) {
+        transform: none;
+        box-shadow: none;
+      }
+      opacity: 1;
+      transform: translate(0, 100%);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  }
 }
 
 .header__content {
-    background: $header;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1em;
-    position: relative;
-    height: 48px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: $header;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+  position: relative;
+  height: 48px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+  @media (min-width: $tablet) {
+    max-width: 960px;
+    margin: 0 auto;
+    box-shadow: none;
+    height: 60px;
+  }
+
+  & .header__logo {
+    cursor: pointer;
+    height: 23px;
+    width: 200px;
+
     @media (min-width: $tablet) {
-        max-width: 960px;
-        margin: 0 auto;
-        box-shadow: none;
-        height: 60px;
+      height: 34px;
+      width: 300px;
     }
-    & .header__logo {
-        cursor: pointer;
-        height: 23px;
-        width: 200px;
-        @media (min-width: $tablet) {
-            height: 34px;
-            width: 300px;
-        }
+  }
+
+  & .header__menu {
+    position: absolute;
+    z-index: -10;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    background: $secondaryHeader;
+    opacity: 0;
+    will-change: transform;
+    transform: none;
+    transition: $transition;
+
+    & a {
+      padding: $spacing;
+      text-align: center;
+      font-family: $headerFont;
+      transition: $transition;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:hover,
+      &:focus {
+        background: darken($header, 10%);
+      }
+
+      &.active {
+        background: darken($header, 20%);
+      }
     }
-    & .header__menu {
-        position: absolute;
-        z-index: -10;
-        left: 0;
-        right: 0;
-        bottom: 0;
+
+    @media (min-width: $tablet) {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      position: relative;
+      opacity: 1;
+      z-index: 0;
+      height: 100%;
+
+      & a {
+        height: 100%;
         display: flex;
-        flex-direction: column;
-        user-select: none;
-        background: $secondaryHeader;
-        opacity: 0;
-        will-change: transform;
-        transform: none;
-        transition: $transition;
-        & a {
-            padding: $spacing;
-            text-align: center;
-            font-family: $headerFont;
-            transition: $transition;
-            &:hover,
-            &:focus {
-                background: darken($header, 10%);
-            }
-            &.active {
-                background: darken($header, 20%);
-            }
-        }
-        @media (min-width: $tablet) {
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            background: none;
-            position: relative;
-            opacity: 1;
-            z-index: 0;
-            height: 100%;
-            & a {
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.1em;
-                letter-spacing: 0.4px;
-                text-shadow: 2px 1px rgba(0, 0, 0, 0.2);
-            }
-        }
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1em;
+        letter-spacing: 0.4px;
+        text-shadow: 2px 1px rgba(0, 0, 0, 0.2);
+      }
     }
-    & .header__hamburger {
-        @media (min-width: $tablet) {
-            display: none;
-        }
-        &:before {
-            content: '';
-            background: rgba(0, 0, 0, 0.15);
-            position: absolute;
-            border-radius: 50%;
-            transform: scale(0);
-            content: '';
-            height: 100%;
-            width: 100%;
-        }
-        height: 1.5em;
-        width: 1.5em;
+  }
+
+  & .header__hamburger {
+    @media (min-width: $tablet) {
+      display: none;
+    }
+
+    &:before {
+      content: '';
+      background: rgba(0, 0, 0, 0.15);
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      content: '';
+      height: 100%;
+      width: 100%;
+    }
+    height: 1.5em;
+    width: 1.5em;
+    position: absolute;
+    top: $spacing;
+    right: $spacing * 2;
+    cursor: pointer;
+    display: block;
+
+    & span {
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      position: absolute;
+      top: calc(50% - 1px);
+      will-change: transform;
+
+      &:before,
+      &:after {
+        content: '';
+        background-color: #fff;
         position: absolute;
-        top: $spacing;
-        right: $spacing * 2;
-        cursor: pointer;
-        display: block;
-        & span {
-            width: 100%;
-            height: 2px;
-            background-color: #fff;
-            position: absolute;
-            top: calc(50% - 1px);
-            will-change: transform;
-            &:before,
-            &:after {
-                content: '';
-                background-color: #fff;
-                position: absolute;
-                width: 100%;
-                height: 2px;
-                transition: $transition;
-            }
-            &:before {
-                top: -6px;
-            }
-            &:after {
-                top: 6px;
-            }
-        }
+        width: 100%;
+        height: 2px;
+        transition: $transition;
+      }
+
+      &:before {
+        top: -6px;
+      }
+
+      &:after {
+        top: 6px;
+      }
     }
+  }
 }
 
 :global(.logo__code) {
-    animation: fadeIn 1.5s 0.2s ease-in-out both;
+  animation: fadeIn 1.5s 0.2s ease-in-out both;
 }
 
 :global(.logo__text) {
-    animation: comeUp 1s ease-in-out both;
-    &:nth-of-type(3) {
-        animation-delay: 0.75s;
-    }
+  animation: comeUp 1s ease-in-out both;
+
+  &:nth-of-type(3) {
+    animation-delay: 0.75s;
+  }
 }
 
 @keyframes fab {
-    to {
-        transform: scale(2);
-    }
+  to {
+    transform: scale(2);
+  }
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scaleX(0.1);
-    }
-    25% {
-        opacity: 0.25;
-    }
-    50% {
-        opacity: 0.50;
-    }
-    75% {
-        opacity: 0.75;
-    }
-    100% {
-        opacity: 1;
-        transform: scaleX(1);
-    }
+  0% {
+    opacity: 0;
+    transform: scaleX(0.1);
+  }
+
+  25% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  75% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 @keyframes comeUp {
-    from {
-        transform: translateY(-150%);
-    }
-    to {
-        transform: translateY(0);
-    }
+  from {
+    transform: translateY(-150%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
