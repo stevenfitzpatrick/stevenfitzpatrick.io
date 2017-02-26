@@ -102,14 +102,7 @@ module.exports = {
               }
             },
             'postcss-loader',
-            'sass-loader',
-            {
-              loader: 'stylefmt-loader',
-              enforce: 'pre',
-              options: {
-                config: '.stylelintrc'
-              }
-            }
+            'sass-loader'
           ]
         })
       },

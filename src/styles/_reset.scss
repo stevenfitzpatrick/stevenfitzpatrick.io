@@ -1,8 +1,9 @@
 @import '~modularscale-sass/stylesheets/modular-scale';
+
 *,
-*:before,
-*:after {
-    box-sizing: inherit;
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 h1,
@@ -17,12 +18,12 @@ blockquote,
 figure,
 ol,
 ul {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    font-size: inherit;
-    font-synthesis: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font-size: inherit;
+  font-synthesis: none;
 }
 
 main,
@@ -30,57 +31,57 @@ li,
 footer,
 header,
 main {
-    display: block;
+  display: block;
 }
 
 strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 a,
 button {
-    color: inherit;
-    transition: .3s;
+  color: inherit;
+  transition: 0.3s;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 ::-moz-focus-inner {
-    padding: 0;
-    border: 0;
+  padding: 0;
+  border: 0;
 }
 
 :focus {
-    outline: 0;
+  outline: 0;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    border: 0;
+  max-width: 100%;
+  height: auto;
+  border: 0;
 }
 
 button {
-    overflow: visible;
-    border: 0;
-    font: inherit;
-    -webkit-font-smoothing: inherit;
-    letter-spacing: inherit;
-    background: none;
-    cursor: pointer;
+  overflow: visible;
+  border: 0;
+  font: inherit;
+  -webkit-font-smoothing: inherit;
+  letter-spacing: inherit;
+  background: none;
+  cursor: pointer;
 }
 
 *::-webkit-scrollbar {
-    width: 7px !important;
-    height: 7px !important;
+  width: 7px !important;
+  height: 7px !important;
 }
 
 *::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 *::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5);
 }

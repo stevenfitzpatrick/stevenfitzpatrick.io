@@ -10,16 +10,8 @@ $spacing: $line-height-base / 2;
 
 /* Fonts */
 
-$headerFont: 'brandon-grotesque',
-  "Segoe UI",
-Segoe,
-Calibri,
-Arial sans-serif;
-$mainFont: 'source-sans-pro',
-"Segoe UI",
-Segoe,
-Calibri,
-Arial sans-serif;
+$headerFont: 'brandon-grotesque',"Segoe UI", Segoe,Calibri, Arial sans-serif;
+$mainFont: 'source-sans-pro', "Segoe UI", Segoe,Calibri, Arial sans-serif;
 $textColor: #555;
 
 /* Colors */
@@ -27,9 +19,9 @@ $textColor: #555;
 $header: #d68643;
 $secondaryHeader: rgb(62, 61, 61);
 $darkerHeader: darken($header, 20%);
-$twitter: #4099FF;
+$twitter: #4099ff;
 $linkedIn: #0077b5;
-$email: #558C89;
+$email: #558c89;
 $github: #333;
 
 /* Buttons */
