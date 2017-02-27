@@ -1,12 +1,12 @@
 @import '../../styles/_variables.scss';
 
 :global(.js-fixed-nav) {
-  .header__container {
+  .header {
     position: fixed;
   }
 }
 
-.header__container {
+.header {
   position: relative;
   top: 0;
   z-index: 1;
@@ -16,7 +16,7 @@
   will-change: top;
   transition: all 0.3s ease-in;
 
-  &.header__expanded {
+  &.header--expanded {
     &::before {
       position: absolute;
       content: '';

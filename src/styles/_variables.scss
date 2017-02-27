@@ -11,7 +11,7 @@ $spacing: $line-height-base / 2;
 /* Fonts */
 
 $headerFont: 'brandon-grotesque',"Segoe UI", Segoe,Calibri, Arial sans-serif;
-$mainFont: 'source-sans-pro', "Segoe UI", Segoe,Calibri, Arial sans-serif;
+$mainFont: 'myriad-pro', "Segoe UI", Segoe,Calibri, Arial sans-serif;
 $textColor: #555;
 
 /* Colors */
@@ -41,3 +41,7 @@ $desktop: (min-width: 1200px);
 /* Transitions */
 
 $transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+/* Box Shadow Color */
+
+$boxShadowColor: rgba(0, 0, 0, 0.3);

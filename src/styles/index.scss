@@ -1,8 +1,14 @@
+/* Vendor Dependencies */
+@import '~modularscale-sass/stylesheets/modular-scale';
+
+/* Global SCSS Dependencies */
 @import '_reset';
 @import '_typography';
+@import '_variables';
 
 .app {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -19,7 +25,7 @@ button {
   background-color: $defaultButton;
   color: $defaultButtonText;
   padding: 0.5em 1em;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px $boxShadowColor;
   text-transform: uppercase;
   font-weight: bold;
   transition: all 0.3s;
@@ -31,8 +37,14 @@ button {
   }
 }
 
-:global(.menu--open) {
-  overflow: hidden;
+.content {
+  a {
+    border-bottom: 1px solid $header;
+
+    &:hover {
+      border-bottom: 1px solid $darkerHeader;
+    }
+  }
 }
 
 @import '_desktop';

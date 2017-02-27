@@ -44,7 +44,7 @@ export default class Header extends Component {
 
   render({ url }, { open }) {
     return (
-      <div class={cx(style.header__container, open && style.header__expanded)}>
+      <div class={cx(style.header, open && style['header--expanded'])}>
         <header class={style.header__content}>
           <Logo onClick={this.loadHome} image={LogoImage} />
 
