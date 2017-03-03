@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const fs = require('fs');
 
 // const Prod Settings
 const prodPlugins = require('./webpack.prod.config.babel');
@@ -17,7 +18,16 @@ const isProd = ENV === 'production';
 
 module.exports = {
   context: path.resolve(__dirname),
-  devServer: { contentBase: './dist', open: true, historyApiFallback: true },
+  devServer: {
+    contentBase: './dist',
+    open: true,
+    historyApiFallback: true,
+    setup(app) {
+      app.use('/content/**', (req, res) => {
+        fs.createReadStream(`content/${req.params[0]}`).pipe(res);
+      });
+    }
+  },
   // Start Bundling Here
   entry: {
     app: './src/index.js',
@@ -117,7 +127,7 @@ module.exports = {
       },
       // Load other Image Types
       {
-        test: /\.(woff2?|ttf|eot|jpg|png|gif)(\?.*)?$/i,
+        test: /\.(woff2?|ttf|eot|jpg|png|gif|webp)(\?.*)?$/i,
         loader: 'file-loader',
         options: {
           name: 'assets/[name].[ext]'

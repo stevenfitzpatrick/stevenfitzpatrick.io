@@ -31,4 +31,11 @@
     margin-top: $line-height-base;
     margin-bottom: $line-height-base;
   }
+
+  .content {
+    .introduction {
+      font-size: ms(1);
+      font-weight: normal;
+    }
+  }
 }

@@ -1,3 +1,5 @@
+@import './_variables.scss';
+
 @mixin flexRowCenter() {
   display: flex;
   justify-content: center;
@@ -8,4 +10,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@function calc-my-height($ems) {
+  @return $ems * $line-height-base;
 }

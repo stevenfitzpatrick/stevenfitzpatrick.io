@@ -1,5 +1,11 @@
 @import '../../styles/_variables.scss';
 
+/**
+ * This sites main header can have two different states.active
+ * 1) Mobile, Hamburger menu is shown with a sliding down menu
+ * 2) Desktop all Menu links items are shown.
+*/
+
 :global(.js-fixed-nav) {
   .header {
     position: fixed;

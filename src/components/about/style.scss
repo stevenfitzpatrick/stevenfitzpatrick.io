@@ -6,13 +6,13 @@
 
   .profile {
     border-radius: 50%;
-    max-width: 50%;
+    width: auto;
     align-self: center;
-    height: auto;
+    height: calc-my-height(8);
     box-shadow: 0 0 4px 4px transparentize(#555, 0.7);
     border: 1px solid rgba(0, 0, 0, 0.3);
-    margin-bottom: $line-height-base;
     transition: filter 0.3s ease-in;
+    margin-bottom: $line-height-base;
 
     &:hover {
       filter: grayscale(100%);
@@ -25,9 +25,43 @@
     flex-direction: row;
 
     .profile {
-      max-width: 200px;
-      height: auto;
       margin-right: 1em;
+      margin-bottom: 0;
     }
+  }
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: calc-my-height(5);
+  margin-bottom: calc-my-height(1);
+  padding: $spacing 0;
+  overflow-y: hidden;
+  overflow-x: auto;
+  cursor: pointer;
+  user-select: none;
+}
+
+.carousel__item {
+  flex: 1 0 150px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+
+  label {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  & > svg {
+    height: 80px;
+    width: 80px;
   }
 }

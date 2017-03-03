@@ -3,17 +3,31 @@
         {
             "path": "/about",
             "name": "about",
-            "title": "About Me"
+            "title": "About Me",
+            "type": "page"
         },
         {
             "path": "/favourites",
             "name": "favourites",
-            "title": "Favourites"
+            "title": "Favourites",
+            "type": "page"
         },
         {
             "path": "/blogs",
             "name": "blogs",
-            "title": "Blogs"
+            "title": "Blogs",
+            "type": "page"
+        },
+        {
+            "name": "blog",
+            "title": "Blog",
+            "type": "list",
+            "routes": [
+                {
+                    "path": "/blog/first-blog",
+                    "name": "My First Blog"
+                }
+            ]
         }
     ]
 }

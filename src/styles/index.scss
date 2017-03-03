@@ -39,11 +39,18 @@ button {
 
 .content {
   a {
-    border-bottom: 1px solid $header;
+    color: $header;
+    border-bottom: 1px solid;
+    transition: all 0.15s ease-in;
 
     &:hover {
-      border-bottom: 1px solid $darkerHeader;
+      color: $darkerHeader;
+      border-bottom: 1px solid;
     }
+  }
+
+  .introduction {
+    font-weight: 700;
   }
 }
 
