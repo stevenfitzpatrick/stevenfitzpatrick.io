@@ -52,6 +52,15 @@ button {
   .introduction {
     font-weight: 700;
   }
+
+  .breakout {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    box-shadow: 0 3px 4px $boxShadowColor, 0 -3px 4px $boxShadowColor;
+  }
 }
 
 @import '_desktop';

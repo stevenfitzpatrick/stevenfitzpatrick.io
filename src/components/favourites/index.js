@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import firebase from '../../base';
 import FavouriteItem from './favourite-item';
+import ExternalSVG from '../../assets/svg/external.svg';
 import style from './style';
 
 export default class Favourites extends Component {
@@ -43,6 +44,10 @@ export default class Favourites extends Component {
     return (
       <div class={style.favourites__list}>
         <h3>Favourites</h3>
+        <p>
+          Below is a list of interesting links I have encountered that I wanted to share with you and also just to save for myself for future reference. The content of the links can be an article, blog or codepen, and I hope you enjoy reading them as much as I did.
+          Please note that these are all external links.
+        </p>
         {favouriteList}
       </div>
     );

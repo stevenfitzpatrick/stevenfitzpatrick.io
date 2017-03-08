@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const fs = require('fs');
 
 // const Prod Settings
@@ -42,7 +43,7 @@ module.exports = {
         */
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: isProd ? '' : 'http://localhost:8080/',
+    publicPath: isProd ? '/' : 'http://localhost:8080/',
     filename: isProd ? '[name].bundle.[chunkhash].js' : '[name].bundle.js',
     chunkFilename: '[chunkhash].js'
   },
@@ -152,7 +153,6 @@ module.exports = {
       hash: false,
       filename: 'index.html',
       template: './src/index.html',
-      favicon: './src/assets/favicon.ico',
       inject: true,
       prefetch: false,
       minify: { removeComments: true, collapseWhitespace: true }
@@ -177,6 +177,14 @@ module.exports = {
           isProd ? JSON.stringify('production') : JSON.stringify('development')
         )
       }
-    })
+    }),
+    // Move Files
+    new CopyWebpackPlugin([
+      { from: 'src/manifest.json' },
+      { from: 'content', to: 'content' },
+      { from: 'src/assets/icon-64.png', to: 'assets' },
+      { from: 'src/assets/icon-192.png', to: 'assets' },
+      { from: 'src/assets/blogs', to: 'assets/blogs' }
+    ])
   ].concat(isProd ? prodPlugins : [])
 };

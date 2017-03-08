@@ -5,10 +5,11 @@
   @include flexColumnCenter;
 
   .profile {
-    border-radius: 50%;
-    width: auto;
-    align-self: center;
+    position: relative;
+    display: block;
     height: calc-my-height(8);
+    width: auto;
+    border-radius: 50%;
     box-shadow: 0 0 4px 4px transparentize(#555, 0.7);
     border: 1px solid rgba(0, 0, 0, 0.3);
     transition: filter 0.3s ease-in;
@@ -24,9 +25,25 @@
   .about {
     flex-direction: row;
 
+    + p {
+      margin-top: $line-height-base / 2;
+    }
+
     .profile {
       margin-right: 1em;
       margin-bottom: 0;
+    }
+  }
+
+  .carousel {
+    .carousel__item {
+      padding: $line-height-base 0;
+      flex: 1 1 10%;
+
+      & > svg {
+        height: 50px;
+        width: 50px;
+      }
     }
   }
 }
@@ -35,33 +52,30 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
-  height: calc-my-height(5);
-  margin-bottom: calc-my-height(1);
-  padding: $spacing 0;
-  overflow-y: hidden;
-  overflow-x: auto;
-  cursor: pointer;
-  user-select: none;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: space-around;
+  margin: calc-my-height(1) 0;
 }
 
 .carousel__item {
-  flex: 1 0 150px;
-  height: 100%;
+  flex: 1 0 25%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: $spacing 0;
   flex-direction: column;
   transition: all 0.3s ease-in-out;
 
-  label {
+  span {
+    font-family: $headerFont;
+    color: #efefef;
     font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
+    padding-top: $line-height-base / 4;
   }
 
   & > svg {
-    height: 80px;
-    width: 80px;
+    height: 45px;
+    width: 45px;
   }
 }

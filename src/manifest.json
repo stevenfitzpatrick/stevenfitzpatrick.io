@@ -1,11 +1,23 @@
 {
-  "name" : "stevenfitzpatrick.io",
+  "name": "stevenfitzpatrick.io",
   "default_locale": "en",
-  "short_name" : "sf.io dev",
+  "short_name": "SF",
   "description": "Steven Fitzpatrick, Front End Developer",
-  "version" : "0.0.0.1",
+  "version": "0.0.0.1",
   "manifest_version": 2,
   "start_url": "./",
+  "icons": [
+    {
+      "src": "/assets/icon-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
   "display": "standalone",
   "background_color": "#154881",
   "theme_color": "#154881"

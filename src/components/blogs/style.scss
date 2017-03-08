@@ -1,0 +1,14 @@
+@import '~styles/_variables.scss';
+
+article {
+  .blog__content {
+    padding: 0 0 $spacing;
+  }
+
+  h5 {
+    font-weight: 300;
+    font-family: $mainFont;
+    margin: 0 0 $spacing / 2;
+    color: $link;
+  }
+}

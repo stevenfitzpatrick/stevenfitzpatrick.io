@@ -8,7 +8,7 @@ const Time = ({ date }) => {
   const postDate = moment(date).format('Do MMM YYYY');
 
   return (
-    <div class={style.favourite__item__time}>
+    <div class={style.favourite__time}>
       {postDate}
     </div>
   );
@@ -17,9 +17,17 @@ const Time = ({ date }) => {
 const FavouriteItem = ({ item }) => {
   const time = new Date(item.dateAdded);
   return (
-    <div class={style.favourite__item}>
-      <div class={style.favourite__item__content}>
-        <h4><a href={item.url}>{item.title}</a></h4>
+    <div class={style.favourite}>
+      <div class={style.favourite__content}>
+        <div class={style.favourite__header}>
+          <h5>
+            <a href={item.url}>
+              {item.title}
+            </a>
+
+          </h5>
+        </div>
+
         <div class={style.favourite__meta}>
           <span>By: </span> {item.author}
           <span>Date: </span> <Time date={time} />

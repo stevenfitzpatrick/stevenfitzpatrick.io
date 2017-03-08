@@ -42,9 +42,7 @@ export default class Footer extends Component {
             type="email"
           />
         </div>
-        <div class={style.footer__acknowledgement}>
-          <smaller>Created and Written by Me !</smaller>
-        </div>
+        <div class={style.footer__acknowledgement} />
       </footer>
     );
   }

@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import cx from 'classnames';
 import ProfilePictureJpg from '../../assets/profile.jpg';
 import ProfilePictureWebp from '../../assets/profile.webp';
 import style from './style';
@@ -8,6 +9,8 @@ import CSS3Icon from '../../assets/svg/css3.svg';
 import Es6Icon from '../../assets/svg/es6.svg';
 import ReactIcon from '../../assets/svg/react.svg';
 import WebpackIcon from '../../assets/svg/webpack.svg';
+import PreactIcon from '../../assets/svg/preact.svg';
+import NodeIcon from '../../assets/svg/nodejs.svg';
 
 export default class About extends Component {
   render() {
@@ -50,30 +53,26 @@ export default class About extends Component {
           <a href="/favourites">Favourites</a>
           {' '}
           section which will just be a list of interesting links I came across on the web. If you have any further questions about me you can reach me via the social media links in the footer.
-
         </p>
-        <h4>Stuff I like to work with :</h4>
+        <h4>Stuff I like to work with<span>…</span></h4>
         <Carousel />
       </div>
     );
   }
 }
 
-const CarouselItem = ({ glyph, ...children }) => (
+const CarouselItem = ({ glyph, text }) => (
   <div class={style.carousel__item}>
-    <svg>
+    <svg class={style.icon}>
       <use xlinkHref={glyph} />
     </svg>
-    <label>{children}</label>
+    <span>{text}</span>
   </div>
 );
 
 class Carousel extends Component {
   constructor() {
     super();
-    this.isDown = false;
-    this.startX;
-    this.scrollLeft;
     this.list = [
       {
         text: 'Angular JS',
@@ -82,6 +81,10 @@ class Carousel extends Component {
       {
         text: 'React JS',
         glyph: ReactIcon
+      },
+      {
+        text: 'Preact JS',
+        glyph: PreactIcon
       },
       {
         text: 'ES6',
@@ -98,54 +101,24 @@ class Carousel extends Component {
       {
         text: 'Webpack',
         glyph: WebpackIcon
+      },
+      {
+        text: 'Node JS',
+        glyph: NodeIcon
       }
     ];
   }
 
-  state = {
-    active: false
-  };
-
-  onMouseDown = e => {
-    this.isDown = true;
-    this.startX = e.pageX - this.base.offsetLeft;
-    this.scrollLeft = this.base.scrollLeft;
-    this.setState({ active: true });
-  };
-
-  onMouseLeave = () => {
-    this.isDown = false;
-    this.setState({ active: false });
-  };
-
-  onMouseUp = () => {
-    this.isDown = false;
-    this.setState({ active: false });
-  };
-
-  onMouseMove = e => {
-    if (!this.isDown) return;
-    e.preventDefault();
-
-    const x = e.pageX - this.base.offsetLeft;
-    const walk = x - this.startX;
-    this.base.scrollLeft = this.scrollLeft - walk;
-  };
-
-  renderItem = item => (
-    <CarouselItem glyph={item.glyph}>{item.text}</CarouselItem>
-  );
+  renderItem = item => <CarouselItem glyph={item.glyph} text={item.text} />;
 
   render() {
     return (
-      <div
-        class={style.carousel}
-        onMouseDown={this.onMouseDown}
-        onMouseLeave={this.onMouseLeave}
-        onMouseUp={this.onMouseUp}
-        onMouseMove={this.onMouseMove}
-      >
-        {this.list.map(this.renderItem)}
+      <div className="breakout">
+        <div className="breakout-wrapper">
+          <div class={cx(style.carousel)}>
+            {this.list.map(this.renderItem)}
+          </div>
+        </div>
       </div>
     );
   }

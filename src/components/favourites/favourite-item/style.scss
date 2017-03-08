@@ -1,23 +1,26 @@
 @import '../../../styles/_variables.scss';
 
-.favourite__item {
+.favourite {
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  margin: 1em 0;
-  padding: 0.7em;
+  padding: $spacing;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 
-  & .favourite__item__time {
+  &:not(:first-child) {
+    margin-bottom: $line-height-base;
+  }
+
+  & .favourite__time {
     display: flex;
   }
 
-  & .favourite__item__content {
+  & .favourite__content {
     flex: 1;
     display: flex;
     flex-direction: column;
 
-    h4 {
+    h5 {
       margin: 0 0 0.2em;
     }
 

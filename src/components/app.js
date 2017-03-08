@@ -47,7 +47,7 @@ export default class App extends Component {
   }
 
   render({}, state) {
-    const staticRoutes = config.nav.filter(route => route.type === 'list');
+    const blogRoutes = config.nav.filter(route => route.type === 'list');
     return (
       <div class={style.app}>
         <Header {...state} />
@@ -57,8 +57,8 @@ export default class App extends Component {
             <AsyncRoute path="/about" component={this.About} />
             <AsyncRoute path="/favourites" component={this.Favourites} />
             <AsyncRoute path="/create" component={this.CreateFavourites} />
-            <Blogs path="/blogs" />
-            {this.getNavRoutes(staticRoutes)}
+            <Blogs path="/writing" blogs={blogRoutes} />
+            {this.getNavRoutes(blogRoutes)}
             <Error type="404" default />
           </Router>
         </main>

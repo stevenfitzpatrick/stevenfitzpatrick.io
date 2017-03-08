@@ -30,8 +30,9 @@ export default class Blog extends Component {
   render({ route }, { content }) {
     return (
       <div>
-        <h2>this is a blog entry for </h2>
-        <Markup markup={content} type="html" />
+        <article>
+          <Markup markup={content} type="html" />
+        </article>
       </div>
     );
   }

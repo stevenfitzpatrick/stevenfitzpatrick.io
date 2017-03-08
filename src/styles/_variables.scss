@@ -1,7 +1,6 @@
 @import '~modularscale-sass/stylesheets/modular-scale';
 
 /* Vertivsl Rhythm */
-
 $font-size-base: 16px;
 $line-height-base: 24px;
 $ms-base: 1em;
@@ -9,13 +8,11 @@ $ms-ratio: $fifth;
 $spacing: $line-height-base / 2;
 
 /* Fonts */
-
-$headerFont: 'brandon-grotesque',"Segoe UI", Segoe,Calibri, Arial sans-serif;
-$mainFont: 'myriad-pro', "Segoe UI", Segoe,Calibri, Arial sans-serif;
+$headerFont: 'brandon-grotesque', "Segoe UI", Segoe, Calibri, Arial sans-serif;
+$mainFont: 'myriad-pro', "Segoe UI", Segoe, Calibri, Arial sans-serif;
 $textColor: #555;
 
 /* Colors */
-
 $header: #d68643;
 $secondaryHeader: rgb(62, 61, 61);
 $darkerHeader: darken($header, 20%);
@@ -24,9 +21,9 @@ $linkedIn: #0077b5;
 $email: #558c89;
 $github: #333;
 $border: #ccc;
+$breakoutBG: #333640;
 
 /* Buttons */
-
 $success: #66bb6a;
 $inputBorder: #ddd;
 $focusBorder: #555;
@@ -35,14 +32,13 @@ $defaultButtonText: #fff;
 $link: rgb(103, 135, 213);
 
 /* Media Queries */
-
 $tablet: 640px;
+$container: 1100px;
+$medium: (min-width: 900px);
 $desktop: (min-width: 1200px);
 
 /* Transitions */
-
-$transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
 /* Box Shadow Color */
-
 $boxShadowColor: rgba(0, 0, 0, 0.3);

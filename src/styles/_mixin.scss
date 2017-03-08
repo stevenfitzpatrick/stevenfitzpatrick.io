@@ -12,6 +12,14 @@
   align-items: center;
 }
 
+@mixin containerWrapper() {
+  width: 85%;
+  max-width: $container;
+  margin: 0 auto;
+  padding: 0 1em;
+  margin-top: $line-height-base;
+}
+
 @function calc-my-height($ems) {
   @return $ems * $line-height-base;
 }

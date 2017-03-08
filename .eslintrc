@@ -1,4 +1,7 @@
 {
+  "plugins": [
+    "jsx-a11y"
+  ],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
@@ -12,7 +15,10 @@
     "node": true,
     "mocha": true
   },
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
   "rules": {
     "prefer-template": 2,
     "template-curly-spacing": 2,
@@ -43,6 +49,8 @@
     "arrow-body-style": 2,
     "comma-dangle": 0,
     "no-empty-pattern": 0,
+    "jsx-a11y/onclick-has-role": 2,
+    "jsx-a11y/onclick-has-focus": 2,
     "quotes": [
       2,
       "single",

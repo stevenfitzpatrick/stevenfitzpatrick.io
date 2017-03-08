@@ -20,6 +20,7 @@ body {
   line-height: 1.5;
   background-color: #eee;
   box-sizing: border-box;
+  overflow-x: hidden;
   color: $textColor;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -34,6 +35,11 @@ h6 {
   font-family: $headerFont;
   margin: ($line-height-base / 2) 0;
   line-height: $line-height-base;
+
+  span {
+    color: $header;
+    padding-left: 1px;
+  }
 }
 
 h1,
@@ -54,16 +60,17 @@ h2 {
 
 h3 {
   font-size: ms(2);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 h4 {
   font-size: ms(1);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 h5 {
-  font-size: ms(0);
+  font-size: ms(1);
+  font-weight: normal;
 }
 
 h4 + h2 {
@@ -81,11 +88,27 @@ p {
 }
 
 smaller {
-  font-size: 0.667em;
+  font-size: 0.8em;
+  color: #999;
+  padding: 0 0 9px;
+  display: inline-block;
 }
 
 hr {
   border-color: $border;
+}
+
+a {
+  &.link {
+    color: $link;
+    font-weight: 600;
+    transition: all 0.3s ease-out;
+    border-bottom: 2px solid rgba(0, 102, 255, 0);
+
+    &:hover {
+      border-bottom: 2px solid $link;
+    }
+  }
 }
 
 /* Typekit Fonts Smooth Loading */
@@ -96,7 +119,7 @@ hr {
   h3,
   h4,
   h5,
-  a {
+  a:not(.link) {
     opacity: 0;
   }
 }
@@ -108,7 +131,7 @@ hr {
   h3,
   h4,
   h5,
-  a {
+  a:not(.link) {
     transition: opacity 0.2s ease-in;
     opacity: 1;
   }

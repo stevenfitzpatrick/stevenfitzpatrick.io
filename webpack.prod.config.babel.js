@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require(
   'webpack-bundle-analyzer'
@@ -64,9 +63,7 @@ const prodPlugins = [
     openAnalyzer: true,
     generateStatsFile: false,
     reportFilename: '../src/report.html'
-  }),
-  // Move Files
-  new CopyWebpackPlugin([{ from: 'src/manifest.json' }])
+  })
 ];
 
 module.exports = prodPlugins;
