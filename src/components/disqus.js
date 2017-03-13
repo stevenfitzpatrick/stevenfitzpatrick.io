@@ -1,3 +1,4 @@
+/*global DISQUS */
 import { h, Component } from 'preact';
 
 let disqusAdded = false;
@@ -49,7 +50,6 @@ class Disqus extends Component {
         reload: true,
         config: function config() {
           copyProps(this.page, props);
-          debugger;
           // Disqus needs hashbang URL, see https://help.disqus.com/customer/portal/articles/472107
           //this.page.url = this.page.url.replace(/#/, '') + '#!newthread';
         }
