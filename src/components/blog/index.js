@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import Markup from 'preact-markup';
+import Disqus from '../disqus';
 
 export default class Blog extends Component {
   componentDidMount() {
@@ -33,6 +34,11 @@ export default class Blog extends Component {
         <article>
           <Markup markup={content} type="html" />
         </article>
+        <Disqus
+          shortname="stevenfitzpatrick-io"
+          identifier={route.name}
+          title={route.name}
+        />
       </div>
     );
   }

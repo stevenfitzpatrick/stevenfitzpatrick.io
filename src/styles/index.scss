@@ -6,6 +6,24 @@
 @import '_typography';
 @import '_variables';
 
+input {
+  border: none;
+  outline: none;
+  padding: 0.6em;
+  background: transparent;
+  border-bottom: 1px solid $inputBorder;
+  transition: border 0.3s ease-in-out;
+
+  &:active,
+  &:focus {
+    border-color: $focusBorder;
+  }
+
+  &:focus:required:invalid {
+    border-bottom: 1px solid crimson;
+  }
+}
+
 .app {
   height: 100%;
   width: 100%;
@@ -50,7 +68,9 @@ button {
   }
 
   .introduction {
-    font-weight: 700;
+    font-size: ms(1);
+    font-weight: 300;
+    line-height: 1.25;
   }
 
   .breakout {

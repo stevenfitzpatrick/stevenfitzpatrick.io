@@ -31,21 +31,6 @@
     flex-direction: column;
     margin-bottom: 1em;
 
-    input {
-      padding: 0.6em;
-      border-radius: 5px;
-      border: 1px solid $inputBorder;
-
-      &:active,
-      &:focus {
-        border-color: $focusBorder;
-      }
-
-      &:focus:required:invalid {
-        border: 1px solid crimson;
-      }
-    }
-
     &:last-child {
       display: flex;
       flex-direction: row;
