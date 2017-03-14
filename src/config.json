@@ -30,14 +30,6 @@
                     "duration": "5 min read",
                     "image": "/assets/blogs/lighthouse.PNG",
                     "intro": "I couldnt’t  get enough of the new Google Plugin Lighthouse, so I thought I would share how to get the full 100/100 score for your web app. The example will be this website itself, and I will walk you through the best to get there."
-                },
-                {
-                    "path": "/blog/test-article",
-                    "name": "Test Second Article",
-                    "date": "March 1st, 2017",
-                    "duration": "5 min read",
-                    "image": "/assets/blogs/lighthouse.PNG",
-                    "intro": "Disqus 2nd Thread"
                 }
             ]
         }

@@ -11,19 +11,13 @@ function copyProps(context, props, prefix = '') {
 }
 
 class Disqus extends Component {
-  constructor() {
-    super();
-  }
-
   addDisqusScript() {
     if (disqusAdded) {
       return;
     }
 
-    const child = (this.disqus = document.createElement('script'));
-    const parent = document.getElementsByTagName('head')[0] ||
-      document.getElementsByTagName('body')[0];
-
+    const child = document.createElement('script');
+    const [parent] = document.getElementsByTagName('head');
     child.async = true;
     child.type = 'text/javascript';
     child.src = `//${this.props.shortname}.disqus.com/embed.js`;
@@ -44,25 +38,18 @@ class Disqus extends Component {
       props.url = window.location.href;
     }
 
-    this.props.url = window.location.href;
     if (typeof DISQUS !== 'undefined') {
       DISQUS.reset({
         reload: true,
-        config: function config() {
+        config() {
           copyProps(this.page, props);
-          // Disqus needs hashbang URL, see https://help.disqus.com/customer/portal/articles/472107
-          //this.page.url = this.page.url.replace(/#/, '') + '#!newthread';
         }
       });
     } else {
+      copyProps(window, props, 'disqus_');
       this.addDisqusScript();
     }
   }
-
-  // componentDidUpdate() {
-  //   debugger;
-  //   this.loadDisqus();
-  // }
 
   componentDidMount() {
     this.loadDisqus();

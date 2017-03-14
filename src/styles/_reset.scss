@@ -1,3 +1,5 @@
+@import './_variables.scss';
+
 *,
 *::before,
 *::after {
@@ -69,6 +71,8 @@ button {
   cursor: pointer;
 }
 
+// Scrollbars
+
 *::-webkit-scrollbar {
   width: 7px !important;
   height: 7px !important;
@@ -80,4 +84,15 @@ button {
 
 *::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.5);
+}
+
+// Selection Color  
+::selection {
+  background: $header; /* WebKit/Blink Browsers */
+  color: #fff;
+}
+
+::-moz-selection {
+  background: $header; /* Gecko Browsers */
+  color: #fff;
 }
