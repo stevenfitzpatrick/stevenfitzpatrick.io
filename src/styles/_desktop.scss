@@ -2,6 +2,18 @@
 @import '_mixin';
 
 @media (min-width: $tablet) {
+  /**
+  * Time Style
+  */
+
+  time {
+    font-size: ms(1);
+    font-weight: 400;
+    margin: ($line-height-base / 2) 0;
+    line-height: $line-height-base;
+    display: inline-block;
+  }
+
   main {
     @include containerWrapper;
   }

@@ -17,7 +17,7 @@
   top: 0;
   z-index: 1;
   width: 100%;
-  background: $header;
+  background-color: $header;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   will-change: top;
 
@@ -74,7 +74,7 @@
 }
 
 .header__content {
-  background: $header;
+  background-color: $header;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -111,7 +111,7 @@
     display: flex;
     flex-direction: column;
     user-select: none;
-    background: $secondaryHeader;
+    background-color: $secondaryHeader;
     opacity: 0;
     will-change: transform;
     transform: none;
@@ -126,11 +126,11 @@
 
       &:hover,
       &:focus {
-        background: darken($header, 10%);
+        background-color: darken($header, 10%);
       }
 
       &.active {
-        background: darken($header, 20%);
+        background-color: darken($header, 20%);
       }
     }
 
@@ -171,7 +171,7 @@
 
     &::before {
       content: '';
-      background: rgba(0, 0, 0, 0.15);
+      background-color: rgba(0, 0, 0, 0.15);
       position: absolute;
       border-radius: 50%;
       transform: scale(0);

@@ -5,6 +5,8 @@ import ExternalSVG from '../../assets/svg/external.svg';
 import style from './style';
 
 export default class Favourites extends Component {
+  displayItem = item => <FavouriteItem item={item} />;
+
   constructor() {
     super();
     this.state = { favourites: {} };
@@ -28,8 +30,6 @@ export default class Favourites extends Component {
   componentWillUnmount() {
     this.firebase.ref('/favourites').off();
   }
-
-  displayItem = item => <FavouriteItem item={item} />;
 
   render(props, { favourites }) {
     const ifContainsFavourites = Object.keys(favourites).length !== 0;

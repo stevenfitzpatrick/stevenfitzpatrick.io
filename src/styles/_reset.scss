@@ -79,20 +79,20 @@ button {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 *::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 // Selection Color  
 ::selection {
-  background: $header; /* WebKit/Blink Browsers */
+  background-color: $header; /* WebKit/Blink Browsers */
   color: #fff;
 }
 
 ::-moz-selection {
-  background: $header; /* Gecko Browsers */
+  background-color: $header; /* Gecko Browsers */
   color: #fff;
 }

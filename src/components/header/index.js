@@ -8,26 +8,19 @@ import LogoImage from '../../assets/svg/Header.svg';
 export default class Header extends Component {
   state = { open: false };
 
-  componentWillReceiveProps({ url }) {
-    if (this.state.open) {
-      this.toggleMenu();
-    }
-  }
-
-  componentDidMount() {
-    this.header = this.base.offsetHeight;
-    this.main = document.querySelector('main');
-    window.addEventListener('scroll', this.toggleFixedNav);
-  }
-
-  // Js Animations for Header Toggling
-
+  /**
+   *  Toggle the Header Animation
+   */
   toggleMenu = () => {
     requestAnimationFrame(() => {
       this.setState({ open: !this.state.open });
     });
   };
 
+  /**
+   *  Increase/Decrease Padding Top as the user scrolls down
+   *  Toggle Display Fixed depending if the user has scrolled.
+   */
   toggleFixedNav = () => {
     if (window.scrollY > 0) {
       requestAnimationFrame(() => {
@@ -43,6 +36,18 @@ export default class Header extends Component {
   };
 
   loadHome = () => route('/');
+
+  componentDidMount() {
+    this.header = this.base.offsetHeight;
+    this.main = document.querySelector('main');
+    window.addEventListener('scroll', this.toggleFixedNav);
+  }
+
+  componentWillReceiveProps({ url }) {
+    if (this.state.open) {
+      this.toggleMenu();
+    }
+  }
 
   render({ url }, { open }) {
     return (
@@ -91,6 +96,7 @@ class NavItem extends Component {
   visitPage = to => {
     requestAnimationFrame(() => route(to.path));
   };
+
   render({ to, current, ...props }) {
     return (
       <a href="#0" {...props} onClick={() => this.visitPage(to)}>{to.title}</a>

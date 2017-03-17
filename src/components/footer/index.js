@@ -16,34 +16,32 @@ const FooterIcon = ({ glyph, type, ...props }) => (
   </a>
 );
 
-export default class Footer extends Component {
-  render() {
-    return (
-      <footer class={style.footer}>
-        <div class={style.footer__content}>
-          <FooterIcon
-            href="//twitter.com/Fitzy_Longhorn"
-            glyph={TwitterLogo}
-            type="twitter"
-          />
-          <FooterIcon
-            href="//github.com/stevenfitzpatrick/stevenfitzpatrick.io"
-            glyph={GithubLogo}
-            type="github"
-          />
-          <FooterIcon
-            href="//ie.linkedin.com/in/steven-fitzpatrick-a7a6b016"
-            glyph={LinkedInLogo}
-            type="linkedin"
-          />
-          <FooterIcon
-            href="mailto:steven.fitzpatrick1985@gmail.com"
-            glyph={EmailLogo}
-            type="email"
-          />
-        </div>
-        <div class={style.footer__acknowledgement} />
-      </footer>
-    );
-  }
-}
+const Footer = () => (
+  <footer class={style.footer}>
+    <div class={style.footer__content}>
+      <FooterIcon
+        href="//twitter.com/Fitzy_Longhorn"
+        glyph={TwitterLogo}
+        type="twitter"
+      />
+      <FooterIcon
+        href="//github.com/stevenfitzpatrick/stevenfitzpatrick.io"
+        glyph={GithubLogo}
+        type="github"
+      />
+      <FooterIcon
+        href="//ie.linkedin.com/in/steven-fitzpatrick-a7a6b016"
+        glyph={LinkedInLogo}
+        type="linkedin"
+      />
+      <FooterIcon
+        href="mailto:steven.fitzpatrick1985@gmail.com"
+        glyph={EmailLogo}
+        type="email"
+      />
+    </div>
+    <div class={style.footer__acknowledgement} />
+  </footer>
+);
+
+export default Footer;

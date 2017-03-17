@@ -6,11 +6,28 @@
 @import '_typography';
 @import '_variables';
 
+.app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 1 auto;
+  padding: 0 1em;
+  margin-top: $line-height-base / 2;
+}
+
+/**
+ * Input Styles
+ */
+
 input {
   border: none;
   outline: none;
   padding: 0.6em;
-  background: transparent;
+  background-color: transparent;
   border-bottom: 1px solid $inputBorder;
   transition: border 0.3s ease-in-out;
 
@@ -24,18 +41,9 @@ input {
   }
 }
 
-.app {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 1 auto;
-  padding: 0 1em;
-  margin-top: $line-height-base / 2;
-}
+/**
+ * Button Styles
+ */
 
 button {
   display: inline-block;
@@ -51,8 +59,21 @@ button {
   &:hover,
   &:focus,
   &:active {
-    background: darken($defaultButton, 10%);
+    background-color: darken($defaultButton, 10%);
   }
+}
+
+/**
+ * Date Displays
+ */
+
+time {
+  font-weight: 700;
+  font-family: $headerFont;
+  color: $time;
+  position: relative;
+  display: inline;
+  border-bottom: 1px solid #ddd;
 }
 
 .content {

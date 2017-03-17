@@ -16,21 +16,6 @@ export default class CreateFavourite extends Component {
     uid: null
   };
 
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.authHandler({ user });
-      }
-    });
-  }
-
-  renderLogin = () => (
-    <section class={styles.login}>
-      <p>Please login to create a new favourite.</p>
-      <button onClick={this.authenticate}>Login</button>
-    </section>
-  );
-
   authenticate = type => {
     const auth = firebase.auth();
     const provider = new firebase.auth.GithubAuthProvider();
@@ -79,6 +64,21 @@ export default class CreateFavourite extends Component {
         this.setState({ key });
       });
   };
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.authHandler({ user });
+      }
+    });
+  }
+
+  renderLogin = () => (
+    <section class={styles.login}>
+      <p>Please login to create a new favourite.</p>
+      <button onClick={this.authenticate}>Login</button>
+    </section>
+  );
 
   render({}, { title, url, description, author, tags, key, uid }) {
     // check if Logged input

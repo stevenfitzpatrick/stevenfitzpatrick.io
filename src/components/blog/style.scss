@@ -1,0 +1,16 @@
+@import '~styles/_variables.scss';
+
+.blog {
+  /**
+  * Underline for Blog Title
+  */
+
+  h2 {
+    position: relative;
+  }
+
+  @media (min-width: $tablet) {
+    h2 {
+    }
+  }
+}

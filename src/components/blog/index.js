@@ -1,18 +1,12 @@
 import { h, Component } from 'preact';
 import Markup from 'preact-markup';
 import Disqus from '../disqus';
+import styles from './style';
 
 export default class Blog extends Component {
-  componentDidMount() {
+  setTitle() {
     const { props } = this, title = props.route.name;
-    this.setTitle(title);
-    this.fetchContent(title);
-  }
-
-  getBlogByName(name) {
-    const path = `/content/${name.replace(/\s+/g, '-').toLowerCase()}.md`;
-
-    return fetch(path).then(data => data.text());
+    document.title = `${title}`;
   }
 
   fetchContent(name) {
@@ -23,15 +17,24 @@ export default class Blog extends Component {
     });
   }
 
-  setTitle() {
+  getBlogByName(name) {
+    const path = `/content/${name.replace(/\s+/g, '-').toLowerCase()}.html`;
+
+    return fetch(path).then(data => data.text());
+  }
+
+  componentDidMount() {
     const { props } = this, title = props.route.name;
-    document.title = `${title}`;
+    this.setTitle(title);
+    this.fetchContent(title);
   }
 
   render({ route }, { content }) {
     return (
-      <div>
+      <div class="blog">
         <article>
+          <time>{route.date}</time>
+          <h2>{route.name}</h2>
           <Markup markup={content} type="html" />
         </article>
         <Disqus
