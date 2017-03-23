@@ -1,0 +1,21 @@
+.profile {
+  position: relative;
+  display: block;
+  height: calc-my-height(8);
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 4px transparentize(#555, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  transition: filter 0.3s ease-in;
+  margin-bottom: $line-height-base;
+
+  &:hover {
+    filter: grayscale(100%);
+  }
+}
+
+.profile--small {
+  height: calc-my-height(2.5);
+  box-shadow: none;
+  margin: 0;
+}

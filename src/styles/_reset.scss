@@ -27,7 +27,6 @@ ul {
 }
 
 main,
-li,
 footer,
 header,
 main {
@@ -42,6 +41,18 @@ a,
 button {
   color: inherit;
   transition: 0.3s;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: "Operator Mono", Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  margin: 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
 }
 
 a {

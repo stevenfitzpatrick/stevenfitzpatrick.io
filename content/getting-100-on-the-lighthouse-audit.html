@@ -1,14 +1,118 @@
 <p>
-  <div>
-    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ad quos a provident exercitationem facere harum, distinctio
-      natus. Ipsam ab ex omnis, quam soluta reprehenderit nemo! Sit et veniam doloribus.</div>
-    <div>Fugit ipsam magni, tenetur incidunt labore minus distinctio, dignissimos nam est accusantium autem similique dicta rem
-      velit odio repudiandae officiis vel voluptatum, facere impedit. Magni suscipit dicta dolorum quibusdam et!</div>
-    <div>Reiciendis odit molestiae labore voluptatem, maxime amet ex repellat quas? Sapiente, libero saepe laudantium fugiat voluptates
-      obcaecati aperiam, quos? Unde cupiditate adipisci fuga laborum quaerat, sapiente aliquid iste quasi reiciendis!</div>
-    <div>Odit provident distinctio voluptatem, quisquam tenetur quis! Voluptatum totam, voluptatem nesciunt porro quaerat quod.
-      Numquam aliquam magnam porro id repudiandae ipsa quis odio, mollitia, vero, a aut atque rerum sint.</div>
-    <div>Quas aut mollitia fuga, expedita, eligendi possimus quidem nam magnam temporibus suscipit nesciunt odio consequatur similique
-      porro tenetur. Rerum dolores mollitia autem itaque impedit sed cum delectus, iure. Nisi, minus.</div>
-  </div>
+  While working on a recent website and looking to improve page optimization/performance, I came came across a new plugin released
+  by Google called <a class="link--content" href="https://developers.google.com/web/tools/lighthouse/">Lighthouse </a>.
+  The Lighthouse tool will basically run a report on your website, and test your site for a whole list of web performance
+  standards. Conveniently, it will also then let you know what your page is missing and what areas need improvement.
 </p>
+
+<p>
+  The main aim is to get your website to a <strong>Progressive Web Application</strong> or <abbr title="Progressive Web Application">PWA</abbr>  level. If you don&rsquo;t know anything about PWA&rsquo;s, this is a good introductory <a class="link--content" href="https://developers.google.com/web/progressive-web-apps/">link</a>.
+  Progressive Web Apps are built to be fast, feel native on mobile (you can also add <abbr title="Progressive Web Application">PWA</abbr>&rsquo;s
+  to your Android&rsquo;s Homescreen) and work under any network condition.
+</p>
+
+<p>
+  You can run the Lighouse tools in several ways, straight from the command line, a plugin part of your build process (i.e.
+  webpack) or maybe most convenienly as a Chrome Extension. With the Chrome Extension all you need to do is browse to page
+  you want to check and click on the Lighthouse Icon (Just make sure you don&rsquo;t have page open in multiple tabs). As
+  soon as you do it, the extension will take over and run your page against a barrage of tests. If you don&rsquo;t get a
+  full green report the first time don&rsquo;t worry, a lot of the items are quite new in web development and most sites
+  out there would currently not pass this test.
+</p>
+
+<p>
+  So, I will try and help guide you on the path to a full 100/100 score on the Lighouse report. Starting with a few basic items
+  that you will need that I bet your site doesn&rsquo;t currently have.
+</p>
+
+<h5>Service Worker</h5>
+
+<p>
+  Adding a Service Worker is key for any <abbr title="Progressive Web Application">PWA</abbr>, this is what will allows us
+  to deliver a great user experience under any network condition &mdash; hello offline first. The Service Worker will allows
+  you to control the caching strategy for your website, putting you back in control how your website should load it&rsquo;s
+  resources and requests. If you don&rsquo;t know anything about Service Workers, you might be wondering how you actually
+  add a Service Worker to your site.
+</p>
+
+<p>The good news is that adding a Service Worker to your site is relatively easing, and there is great tooling out there to
+  get help you get started.</p>
+
+<ul>
+  <li>
+    <a class="link--content" href="https://github.com/GoogleChrome/sw-precache">sw-precache</a> Node module to generate a
+    service worker, produced by Google.
+  </li>
+  <li>
+    <a class="link--content" href="https://github.com/goldhand/sw-precache-webpack-plugin">SW Precache Webpack Plugin</a>    Webpack wrapper around sw-precache (Used on this site) .
+  </li>
+  <li>
+    <a class="link--content" href="https://github.com/NekR/offline-plugin">offline-plugin</a> Another one for webpack users.
+  </li>
+</ul>
+
+<h5>Manifest File</h5>
+
+<p>As I mentioned earlier, one of the main features of <abbr title="Progressive Web Application">PWA</abbr> is to get your web
+  app have a native feel on mobile. Here is where the manifest file comes into play. Again very simple to set up, just a
+  manifest.json to the root of your project and then link to the manifest file from your index.html. It is a simple JSON
+  file, with a large list of possible <a class="link--content" href="https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android">configurations</a>  which let you control how your app would be displayed on mobile. Items such as the icons, launch screen, theme colour,
+  short name for the app etc. Here is the list of minimum required settings for the Lighthouse test.
+</p>
+<div class="breakout">
+  <div class="breakout-wrapper">
+    <Highlight type="javascript" code="// Simply add the link the manifest.json file in the <head> of your index.html
+<link rel=''manifest'' href=''/manifest.json''>"></Highlight>
+  </div>
+</div>
+
+<ul>
+  <li>
+    Contains start_url.
+  </li>
+  <li>
+    Links to icon images in 64&times;64 and 192&times;192 sizes.
+  </li>
+  <li>
+    Background &amp; Theme color
+  </li>
+  <li>
+    Theme color
+  </li>
+  <li>
+    Name &amp; Short Name for your app (max 12 characters).
+  </li>
+  <li>
+    Display property set to standalone.
+  </li>
+</ul>
+
+<h5>What Else ?</h5>
+
+<p>The Service Worker and Manifest File are the two items that will really boost your score on the Lighthouse test, and which
+  more and more websites are adapting each day. But there is another main feature required on your website, and actually
+  a Service Worker won&rsquo;t even work on your website without this (unless you are working on localhost).
+</p>
+
+<h5>Https, Https &amp; Https</h5>
+
+<p>Absolutely the most important item of a <abbr title="Progressive Web Application">PWA</abbr> and the Lighthouse report is
+  having your website https enabled. With all the power that comes with having a service worker controlling the responses
+  to all your requests, https is required. Even aside from that for just plain security and best practice, if your website
+  is not https enabled &mdash; don&rsquo;t wait any longer and get that SSL Cert. Chrome will <a class="link--content" href="https://developers.google.com/web/updates/2016/10/avoid-not-secure-warn">soon</a>  display a security display a warning in the browser for any non-https websites which have a password or credit card (duh)
+  input on their page .</p>
+
+<h5>Ok really, what else ?</h5>
+
+<p>Lighthouse is constantly updating the requirements to pass the report, so it&rsquo;s a good idea to check your website every
+  few weeks even if you pass everything incase something new has popped up. Plus it&rsquo;s a good regression test for any
+  future releases. While I feel adding a Service Worker, Manifest and Https are the main wins to get your report green &mdash;
+  there are lot&rsquo;s more smaller items. Page Load Performace is huge, and you will be checked for the amount of resources
+  you load and how you load them.</p>
+
+<p>But I hope with the pointers outlined here you can get closer to getting a 100 on the Lighthouse report, and if not on your
+  current site it can help get a good head start for your next project !</p>
+
+<div class="blog__img">
+  <img src="/assets/blogs/lighthouse100.png" alt="Lighthouse Report for stevenfitzpatrick.io">
+</div>

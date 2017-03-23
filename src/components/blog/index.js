@@ -1,46 +1,52 @@
 import { h, Component } from 'preact';
 import Markup from 'preact-markup';
+import { slugifyPath } from '../../helpers';
 import Disqus from '../disqus';
 import styles from './style';
+import BlogMeta from './blog-meta';
+import Highlight from '../highlight';
 
 export default class Blog extends Component {
-  setTitle() {
-    const { props } = this, title = props.route.name;
-    document.title = `${title}`;
+  setTitle(title) {
+    document.title = `${title} | Steven Fitzpatrick`;
   }
 
-  fetchContent(name) {
-    this.getBlogByName(name).then(data => {
-      this.setState({
-        content: data
-      });
+  async fetchContent(title) {
+    const path = `${slugifyPath(title, '/content/')}.html`;
+    const content = await this.getBlogByName(path);
+    this.setState({
+      content
     });
   }
 
-  getBlogByName(name) {
-    const path = `/content/${name.replace(/\s+/g, '-').toLowerCase()}.html`;
-
+  getBlogByName(path) {
     return fetch(path).then(data => data.text());
   }
 
   componentDidMount() {
-    const { props } = this, title = props.route.name;
-    this.setTitle(title);
-    this.fetchContent(title);
+    const { props } = this, { blogTitle } = props.route;
+    this.setTitle(blogTitle);
+    this.fetchContent(blogTitle);
   }
 
   render({ route }, { content }) {
     return (
-      <div class="blog">
+      <div class="content blog">
         <article>
-          <time>{route.date}</time>
-          <h2>{route.name}</h2>
-          <Markup markup={content} type="html" />
+          <BlogMeta date={route.date} />
+          <h2>{route.blogTitle}</h2>
+          <Markup
+            markup={content}
+            type="html"
+            trim={false}
+            components={{ Highlight }}
+          />
         </article>
+
         <Disqus
           shortname="stevenfitzpatrick-io"
-          identifier={route.name}
-          title={route.name}
+          identifier={route.blogTitle}
+          title={route.blogTitle}
         />
       </div>
     );

@@ -5,17 +5,23 @@
   /**
   * Time Style
   */
-
   time {
     font-size: ms(1);
     font-weight: 400;
-    margin: ($line-height-base / 2) 0;
     line-height: $line-height-base;
-    display: inline-block;
+  }
+
+  /**
+  * Blogs
+  */
+  .markup {
+    padding-top: $spacing;
   }
 
   main {
     @include containerWrapper;
+
+    margin-top: $line-height-base;
   }
 
   h1 {
@@ -32,7 +38,7 @@
   }
 
   h4 {
-    font-size: ms(1);
+    font-size: ms(2);
   }
 
   h4 + h2 {

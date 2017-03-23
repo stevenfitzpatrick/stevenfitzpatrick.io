@@ -1,14 +1,15 @@
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require(
-  'webpack-bundle-analyzer'
-).BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
 
 const pkg = require('./package.json');
 
 const prodPlugins = [
+  // Inline CSS
+  // new StyleExtHtmlWebpackPlugin(),
   // Add Async Tags
   new ScriptExtHtmlWebpackPlugin({
     defaultAttribute: 'async'
@@ -52,6 +53,16 @@ const prodPlugins = [
     filename: 'sw.js',
     minify: true,
     maximumFileSizeToCacheInBytes: 4194304,
+    runtimeCaching: [
+      {
+        urlPattern: /\www.google-analytics.com+/,
+        handler: 'cacheFirst'
+      },
+      {
+        urlPattern: /\use.typekit.net+/,
+        handler: 'cacheFirst'
+      }
+    ],
     stripPrefixMulti: {
       'C:/dev/stevenfitzpatrick.io/dist': '',
       '/home/travis/build/stevenfitzpatrick/stevenfitzpatrick.io/dist': ''

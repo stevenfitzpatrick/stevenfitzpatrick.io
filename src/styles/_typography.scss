@@ -39,6 +39,22 @@ h6 {
   span {
     color: $header;
     padding-left: 1px;
+
+    &.underline {
+      color: currentColor;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 90%;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: $inputBorder;
+      }
+    }
   }
 }
 
@@ -73,42 +89,30 @@ h5 {
   font-weight: normal;
 }
 
-h4 + h2 {
-  margin: 0;
-}
-
 h2 + h5 {
-  margin-top: 0;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 1.5;
+  will-change: transform;
+  overflow: hidden;
 }
 
-p {
+p,
+ul {
   margin-bottom: $line-height-base;
 }
 
 smaller {
   font-size: 0.8em;
-  color: #999;
-  padding: 0 0 9px;
+  color: $inputBorder;
+  font-variant-caps: small-caps;
+  font-feature-settings: "smcp";
+  padding: 0 0 $spacing / 2;
   display: inline-block;
 }
 
 hr {
   border-color: $border;
-}
-
-a {
-  &.link {
-    color: $link;
-    font-weight: 200;
-    transition: all 0.3s ease-out;
-    border-bottom: 2px solid rgba(0, 102, 255, 0);
-
-    &:hover {
-      border-bottom: 2px solid $link;
-    }
-  }
 }
 
 /* Typekit Fonts Smooth Loading */

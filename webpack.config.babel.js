@@ -35,7 +35,7 @@ module.exports = {
     vendor: ['preact', 'preact-router', 'classnames']
   },
   // Output of Bundling
-  /* 
+  /*
         [path] - Returns entry path
         [name] - Returns entry Name
         [hash] - Returns the build hash
@@ -128,11 +128,32 @@ module.exports = {
       },
       // Load other Image Types
       {
-        test: /\.(woff2?|ttf|eot|jpg|png|gif|webp)(\?.*)?$/i,
-        loader: 'file-loader',
-        options: {
-          name: 'assets/[name].[ext]'
-        }
+        test: /\.(woff2?|ttf|eot|jpg|jpeg|png|gif|webp)(\?.*)?$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[name].[ext]'
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            query: {
+              mozjpeg: {
+                quality: 65
+              },
+              gifsicle: {
+                interlaced: false
+              },
+              pngquant: {
+                optimizationLevel: 6,
+                quality: '65-90',
+                interlaced: false,
+                speed: 4
+              }
+            }
+          }
+        ]
       },
       // HTML Files
       { test: /\.html$/, loader: 'html-loader' }
@@ -159,9 +180,9 @@ module.exports = {
     }),
     // Write out CSS bundle to its own file:
     new ExtractTextPlugin({
-      filename: (
-        isProd ? 'css/[name].styles.[contenthash].css' : 'css/[name].styles.css'
-      ),
+      filename: isProd
+        ? 'css/[name].styles.[contenthash].css'
+        : 'css/[name].styles.css',
       allChunks: true
     }),
     // Add Preload allChunks
@@ -173,9 +194,9 @@ module.exports = {
     // Set Environment Variables
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: (
-          isProd ? JSON.stringify('production') : JSON.stringify('development')
-        )
+        NODE_ENV: isProd
+          ? JSON.stringify('production')
+          : JSON.stringify('development')
       }
     }),
     // Move Files

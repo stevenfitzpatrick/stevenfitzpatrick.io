@@ -1,4 +1,5 @@
 {
+    "title": "Steven Fitzpatrick",
     "nav": [
         {
             "path": "/about",
@@ -24,8 +25,7 @@
             "type": "list",
             "routes": [
                 {
-                    "path": "/blog/lighthouse-report-100",
-                    "name": "Getting 100 on the Lighthouse Audit",
+                    "blogTitle": "Getting 100 on the Lighthouse Audit",
                     "date": "March 7th, 2017",
                     "duration": "5 min read",
                     "image": "/assets/blogs/lighthouse.PNG",

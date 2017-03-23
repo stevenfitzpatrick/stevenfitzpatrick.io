@@ -1,34 +1,28 @@
 import { h, Component } from 'preact';
-import firebase from '../../base';
+import config from '../../config';
 import FavouriteItem from './favourite-item';
-import ExternalSVG from '../../assets/svg/external.svg';
 import style from './style';
 
 export default class Favourites extends Component {
   displayItem = item => <FavouriteItem item={item} />;
 
-  constructor() {
-    super();
-    this.state = { favourites: {} };
-    this.firebase = firebase.database();
+  state = { favourites: {} };
+
+  async getFavourites() {
+    const data = await fetch(
+      'https://stevenfitzpatrick-5181b.firebaseio.com/favourites.json'
+    );
+    const result = await data.json();
+    let favourites = [];
+    Object.keys(result).map(item => favourites.push(result[item]));
+    this.setState({ favourites });
   }
 
   componentWillMount() {
-    const items = this.firebase
-      .ref('/favourites')
-      .orderByKey()
-      .once('value')
-      .then(data => {
-        const result = data.val();
-        let favourites = [];
-        Object.keys(result).map(item => favourites.push(result[item]));
-        this.setState({ favourites });
-      })
-      .catch(error => {});
-  }
-
-  componentWillUnmount() {
-    this.firebase.ref('/favourites').off();
+    // Set Page Title
+    document.title = `Favourites | ${config.title}`;
+    // Get Items from Firebase
+    this.getFavourites();
   }
 
   render(props, { favourites }) {
@@ -42,7 +36,7 @@ export default class Favourites extends Component {
     }
 
     return (
-      <div class={style.favourites__list}>
+      <div class={`content ${style.favourites__list}`}>
         <h3>Favourites</h3>
         <p>
           Below is a list of interesting links I have encountered that I wanted to share with you and also just to save for myself for future reference. The content of the links can be an article, blog or codepen, and I hope you enjoy reading them as much as I did.

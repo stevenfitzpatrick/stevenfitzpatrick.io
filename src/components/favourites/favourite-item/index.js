@@ -21,7 +21,12 @@ const FavouriteItem = ({ item }) => {
       <div class={style.favourite__content}>
         <div class={style.favourite__header}>
           <h5>
-            <a href={item.url} target="_blank" rel="noopener noreferrer">
+            <a
+              class="link"
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {item.title}
             </a>
           </h5>

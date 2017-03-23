@@ -3,22 +3,6 @@
 
 .about {
   @include flexColumnCenter;
-
-  .profile {
-    position: relative;
-    display: block;
-    height: calc-my-height(8);
-    width: auto;
-    border-radius: 50%;
-    box-shadow: 0 0 4px 4px transparentize(#555, 0.7);
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    transition: filter 0.3s ease-in;
-    margin-bottom: $line-height-base;
-
-    &:hover {
-      filter: grayscale(100%);
-    }
-  }
 }
 
 @media (min-width: $tablet) {
@@ -37,7 +21,6 @@
 
   .carousel {
     .carousel__item {
-      padding: $line-height-base 0;
       flex: 1 1 10%;
 
       & > svg {
@@ -55,7 +38,6 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-content: space-around;
-  margin: calc-my-height(1) 0;
 }
 
 .carousel__item {
@@ -69,7 +51,6 @@
 
   span {
     font-family: $headerFont;
-    color: #efefef;
     font-weight: 400;
     padding-top: $line-height-base / 4;
   }

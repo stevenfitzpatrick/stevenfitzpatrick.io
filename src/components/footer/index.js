@@ -10,6 +10,7 @@ const test = style;
 
 const FooterIcon = ({ glyph, type, ...props }) => (
   <a {...props}>
+    <span>{type}</span>
     <svg class={cx(style.icon, style[type])}>
       <use xlinkHref={glyph} />
     </svg>
@@ -40,7 +41,9 @@ const Footer = () => (
         type="email"
       />
     </div>
-    <div class={style.footer__acknowledgement} />
+    <div class={style.footer__acknowledgement}>
+      Written and designed by me !
+    </div>
   </footer>
 );
 

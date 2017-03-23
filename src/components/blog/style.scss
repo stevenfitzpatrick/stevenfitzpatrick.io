@@ -1,16 +1,20 @@
 @import '~styles/_variables.scss';
 
 .blog {
-  /**
-  * Underline for Blog Title
-  */
-
-  h2 {
-    position: relative;
+  h5 {
+    line-height: 1;
+    margin: 0 0 ($line-height-base) 0;
   }
 
-  @media (min-width: $tablet) {
-    h2 {
+  .blog__meta {
+    display: flex;
+    align-items: center;
+
+    figure {
+      margin-right: 1em;
+      border: 1px solid $border;
+      border-radius: 100%;
+      padding: 6px;
     }
   }
 }

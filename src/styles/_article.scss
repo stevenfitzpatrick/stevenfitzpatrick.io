@@ -1,0 +1,12 @@
+@import '_variables';
+
+article {
+  h5 {
+    margin: 0 0 $spacing / 2;
+    font-weight: bold;
+
+    a {
+      color: $textColor;
+    }
+  }
+}

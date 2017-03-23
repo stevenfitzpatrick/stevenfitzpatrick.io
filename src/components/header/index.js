@@ -5,6 +5,7 @@ import config from '../../config';
 import cx from 'classnames';
 import LogoImage from '../../assets/svg/Header.svg';
 
+const expandedHeaderClass = 'header--expanded';
 export default class Header extends Component {
   state = { open: false };
 
@@ -15,6 +16,19 @@ export default class Header extends Component {
     requestAnimationFrame(() => {
       this.setState({ open: !this.state.open });
     });
+  };
+
+  /**
+   * Hide Menu also when the body is clicked
+   */
+  hideMenu = event => {
+    if (
+      event.target.tagName === 'DIV' &&
+      event.target.className.includes(expandedHeaderClass)
+    ) {
+      this.toggleMenu();
+      this.base.removeEventListener('click', this.hideMenu, { once: true });
+    }
   };
 
   /**
@@ -38,9 +52,11 @@ export default class Header extends Component {
   loadHome = () => route('/');
 
   componentDidMount() {
-    this.header = this.base.offsetHeight;
-    this.main = document.querySelector('main');
-    window.addEventListener('scroll', this.toggleFixedNav);
+    requestAnimationFrame(() => {
+      this.header = this.base.offsetHeight;
+      this.main = document.querySelector('main');
+      window.addEventListener('scroll', this.toggleFixedNav);
+    });
   }
 
   componentWillReceiveProps({ url }) {
@@ -49,9 +65,15 @@ export default class Header extends Component {
     }
   }
 
+  componentDidUpdate(props, state) {
+    if (this.state.open) {
+      this.base.addEventListener('click', this.hideMenu, { once: true });
+    }
+  }
+
   render({ url }, { open }) {
     return (
-      <div class={cx(style.header, open && style['header--expanded'])}>
+      <div class={cx(style.header, open && style[expandedHeaderClass])}>
         <header class={style.header__content}>
           <Logo onClick={this.loadHome} image={LogoImage} />
           <Nav routes={config.nav} current={url} />
@@ -94,7 +116,9 @@ const Nav = ({ routes, current, ...props }) => (
 // Individual Navigation Items
 class NavItem extends Component {
   visitPage = to => {
-    requestAnimationFrame(() => route(to.path));
+    requestAnimationFrame(() => {
+      route(to.path);
+    });
   };
 
   render({ to, current, ...props }) {
