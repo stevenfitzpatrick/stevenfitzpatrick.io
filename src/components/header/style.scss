@@ -22,7 +22,7 @@
   will-change: top;
 
   &::before {
-    position: absolute;
+    position: fixed;
     content: '';
     background-color: rgba(0, 0, 0, 0.3);
     min-height: 100vh;
@@ -38,7 +38,7 @@
       pointer-events: auto;
     }
 
-    @media (min-width: $tablet) {
+    @media (min-width: $desktop) {
       &::before {
         opacity: 0;
         pointer-events: none;
@@ -72,7 +72,7 @@
       opacity: 1;
       transform: translate(0, 100%);
 
-      @media (min-width: $tablet) {
+      @media (min-width: $desktop) {
         transform: none;
       }
     }
@@ -90,7 +90,7 @@
   height: 48px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
-  @media (min-width: $tablet) {
+  @media (min-width: $desktop) {
     max-width: $container;
     margin: 0 auto;
     box-shadow: none;
@@ -102,7 +102,7 @@
     height: 23px;
     width: 200px;
 
-    @media (min-width: $tablet) {
+    @media (min-width: $desktop) {
       height: 34px;
       width: 300px;
     }
@@ -141,7 +141,7 @@
       }
     }
 
-    @media (min-width: $tablet) {
+    @media (min-width: $desktop) {
       flex-direction: row;
       justify-content: center;
       align-items: center;
@@ -173,7 +173,7 @@
     cursor: pointer;
     display: block;
 
-    @media (min-width: $tablet) {
+    @media (min-width: $desktop) {
       display: none;
     }
 
@@ -217,15 +217,8 @@
 }
 
 :global(.logo__code) {
+  will-change: opacity, transform;
   animation: fadeIn 1.5s 0.2s ease-in-out both;
-}
-
-:global(.logo__text) {
-  animation: comeUp 1s ease-in-out both;
-
-  &:nth-of-type(3) {
-    animation-delay: 0.75s;
-  }
 }
 
 @keyframes fab {

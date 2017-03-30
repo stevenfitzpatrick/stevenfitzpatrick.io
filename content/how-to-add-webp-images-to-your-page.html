@@ -1,0 +1,102 @@
+<p>
+  In this post I want to show you two different strategies for adding Google&rsquo;s new image format <a class="link--content"
+    href="https://developers.google.com/speed/webp/">WebP</a>, and the legacy browser issues to be considered in your implementation.
+  As part of your web page optimization to-do list, you will want to decrease image download sizes and this where WebP will
+  help you.
+</p>
+
+<h5>Creating WebP Images</h5>
+
+<h5>Adding WebP from Html</h5>
+
+<p>
+  Adding images to your html has always been a straight forward process, you simple add an <code>&lt;img&gt;</code> tag in
+  your html and in the src you would specify the image to download. This would take any valid popular image format i.e. png,
+  jpeg, svg etc... and you were done. Now a WebP image is just another image format, so you would be tempted to just place
+  this new image extension straight in the source of an img tag.
+</p>
+
+<p>But not every browser supports WebP <a class="link--content" href="http://caniuse.com/#feat=webp">yet</a>, currently limited
+  Chrome, Opera and Android. For example if you would try to load a WebP image in Firefox, the request would fail and no
+  image would be displayed. To handle these unsupported browser, we need to also specify a fallback image which can be rendered
+  by the browser. For this kind of flexibility we need the HTML 5 <code>&lt;picture&gt;</code> tag.</p>
+
+<div class="breakout">
+  <div class="breakout-wrapper">
+    <Highlight type="xml" code="<picture>
+  <source type=''image/webp'' srcset=''your_image.webp'' />
+  <img
+    src=''your_image.png''
+    class=''profile__img''
+    alt=''WebP for supported Browser, otherwise png will load''
+  />
+</picture>"></Highlight>
+  </div>
+</div>
+
+<p>In the above example we added the source tag to specify the WebP image with the correct type, which is defined as MIME Type
+  image/webp, and srcset to point to the location of the WebP image. We still have to load the img tag which then loads the
+  alternative file for unsupported browsers, but for supported browser img source will be replaced by the srcset of the WebP
+  source tag&#8202;&mdash;&#8202;Pretty cool !</p>
+
+<p>Make sure that the <code>&lt;img&gt;</code> tag is specified last, since browsers will pick the first matching element and
+  ignore subsequent sources. Note that even the css class, alt etc on the img tag will persist and will be applied to your
+  WebP image.</p>
+
+<h5>Adding WebP from CSS</h5>
+
+<p>
+  Next up is setting WebP as background images in CSS, where similar considerations are required. First we need to a way to
+  detect in our css file if a certain browser can load WebP as a background image or not.
+</p>
+
+<p>
+  To do this we need to add a small <a class="link--content" href="https://modernizr.com/">Modernizr</a> script to detect
+  the browser support for WebP, which will then add appropiate classes to your html page. We can then use these hints to
+  load the correct image in our css. Download the required WebP detect script from the Modernizr website and then import
+  into your app&#8202;&mdash;&#8202;around 3.4 KB before gzip.
+</p>
+
+<p>When your page is loaded you should then see either the<code>.webp</code> or <code>.no-webp</code> css class added to your
+  page html tag</p>
+
+<figure>
+  <div class="blog__img">
+    <picture>
+      <source type="image/webp" srcset='/assets/blogs/webp_available.webp' />
+      <img src='/assets/blogs/webp_available.png' alt="Service Worker in Network Tab" />
+    </picture>
+  </div>
+  <figcaption>.webp class is added when supported.</figcaption>
+</figure>
+
+<figure>
+  <div class="blog__img">
+    <picture>
+      <source type="image/webp" srcset='/assets/blogs/webp_not_available.webp' />
+      <img src='/assets/blogs/webp_not_available.png' alt="Service Worker in Network Tab" />
+    </picture>
+  </div>
+  <figcaption>.no-webp class is added when not supported.</figcaption>
+</figure>
+
+<p>Now we have all that we need to implement the fallback logic in our css, and display the correct background image based on
+  browser support.</p>
+
+
+<div class="breakout">
+  <div class="breakout-wrapper">
+    <Highlight type="css" code="/* No WebP Support i.e. Firefox */
+.no-webp .container { 
+  background-image: url('/img/your_image.png'); 
+} 
+
+/* WebP Support i.e. Chrome */
+.webp .container { 
+  background-image: url('/img/your_image.webp'); 
+}"></Highlight>
+  </div>
+</div>
+
+
+Added image/webp to MIME types

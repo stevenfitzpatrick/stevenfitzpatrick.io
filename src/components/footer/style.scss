@@ -2,17 +2,18 @@
 @import '../../styles/_mixin.scss';
 
 .footer {
-  background-color: inherit;
   text-align: center;
-  padding: 1em 0 0.5em;
+  padding: 0.5em 0;
 }
 
-.footer__acknowledgement {
-  padding-top: 0.4em;
+.footer__title {
+  font-family: $headerFont;
 }
 
 .footer__content {
   @include flexRowCenter;
+
+  padding: $spacing / 2;
 
   a {
     span {
@@ -33,33 +34,6 @@
         position: relative;
         pointer-events: none;
         user-select: none;
-      }
-    }
-
-    .icon {
-      height: 24px;
-      width: 24px;
-      fill: currentColor;
-      vertical-align: bottom;
-
-      &:hover {
-        transform: scale(1.1);
-      }
-
-      &.twitter:hover {
-        fill: $twitter;
-      }
-
-      &.github:hover {
-        fill: $github;
-      }
-
-      &.linkedin:hover {
-        fill: $linkedIn;
-      }
-
-      &.email:hover {
-        fill: $email;
       }
     }
   }

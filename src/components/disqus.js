@@ -56,7 +56,12 @@ class Disqus extends Component {
   }
 
   render() {
-    return <div id="disqus_thread" />;
+    return (
+      <section class="comments">
+        <h4>Leave a Comment<span>.</span></h4>
+        <div id="disqus_thread" />
+      </section>
+    );
   }
 }
 

@@ -12,12 +12,9 @@ body {
 }
 
 body {
-  font-family: $mainFont;
-  font-weight: 400;
-  font-size: 16px;
+  font: 400 16px/1.5 $mainFont;
   padding: 0;
   margin: 0;
-  line-height: 1.5;
   background-color: #eee;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -63,7 +60,8 @@ h2 {
   line-height: ($line-height-base * 2);
 }
 
-h3 {
+h3,
+h4 {
   margin-top: ($line-height-base / 2);
   margin-bottom: $line-height-base;
   position: relative;
@@ -98,7 +96,9 @@ h2 + h5 {
 }
 
 p,
-ul {
+ul,
+.blog__share,
+figure {
   margin-bottom: $line-height-base;
 }
 
@@ -123,7 +123,7 @@ hr {
   h3,
   h4,
   h5,
-  a:not(.link) {
+  a:not(.link--content) {
     opacity: 0;
   }
 }
@@ -135,7 +135,7 @@ hr {
   h3,
   h4,
   h5,
-  a:not(.link) {
+  a:not(.link--content) {
     transition: opacity 0.2s ease-in;
     opacity: 1;
   }

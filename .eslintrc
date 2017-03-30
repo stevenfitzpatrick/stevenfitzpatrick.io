@@ -52,6 +52,7 @@
     "no-empty-pattern": 0,
     "react/jsx-indent-props": 0,
     "react/jsx-no-bind": 1,
+    "react/no-danger": 0,
     "brace-style": 0,
     "compat/compat": 1,
     "jsx-a11y/onclick-has-role": 2,

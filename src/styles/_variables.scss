@@ -33,10 +33,9 @@ $defaultButtonText: #fff;
 $link: rgb(103, 135, 213);
 
 /* Media Queries */
-$tablet: 640px;
-$container: 920px;
-$medium: (min-width: 900px);
-$desktop: (min-width: 1200px);
+$tablet: 37.5em; /* 600 px */
+$desktop: 62.5em; /* 1000 px */
+$container: 60em;
 
 /* Transitions */
 $transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);

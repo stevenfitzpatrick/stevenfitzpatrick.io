@@ -9,8 +9,8 @@
         },
         {
             "path": "/favourites",
-            "name": "favourites",
-            "title": "Favourites",
+            "name": "Bookmarks",
+            "title": "Bookmarks",
             "type": "page"
         },
         {
@@ -25,9 +25,16 @@
             "type": "list",
             "routes": [
                 {
-                    "blogTitle": "Getting 100 on the Lighthouse Audit",
-                    "date": "March 7th, 2017",
+                    "blogTitle": "How to add WebP images to your page",
+                    "date": "March 30th, 2017",
                     "duration": "5 min read",
+                    "image": "/assets/blogs/lighthouse.PNG",
+                    "intro": "I couldnt’t  get enough of the new Google Plugin Lighthouse, so I thought I would share how to get the full 100/100 score for your web app. The example will be this website itself, and I will walk you through the best to get there."
+                },
+                {
+                    "blogTitle": "Getting 100 on the Lighthouse Audit",
+                    "date": "March 26th, 2017",
+                    "duration": "8 min read",
                     "image": "/assets/blogs/lighthouse.PNG",
                     "intro": "I couldnt’t  get enough of the new Google Plugin Lighthouse, so I thought I would share how to get the full 100/100 score for your web app. The example will be this website itself, and I will walk you through the best to get there."
                 }

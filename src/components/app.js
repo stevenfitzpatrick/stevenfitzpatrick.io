@@ -10,6 +10,7 @@ import Writing from './writing';
 import Blog from './blog';
 import style from '../styles/index';
 import config from '../config';
+import 'unfetch/polyfill';
 
 export default class App extends Component {
   state = {

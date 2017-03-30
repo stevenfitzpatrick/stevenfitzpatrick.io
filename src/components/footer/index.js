@@ -11,7 +11,7 @@ const test = style;
 const FooterIcon = ({ glyph, type, ...props }) => (
   <a {...props}>
     <span>{type}</span>
-    <svg class={cx(style.icon, style[type])}>
+    <svg class={cx('icon', type)}>
       <use xlinkHref={glyph} />
     </svg>
   </a>
@@ -19,16 +19,14 @@ const FooterIcon = ({ glyph, type, ...props }) => (
 
 const Footer = () => (
   <footer class={style.footer}>
+    <div class={style.footer__title}>
+      Let’s Stay Connected
+    </div>
     <div class={style.footer__content}>
       <FooterIcon
         href="//twitter.com/Fitzy_Longhorn"
         glyph={TwitterLogo}
         type="twitter"
-      />
-      <FooterIcon
-        href="//github.com/stevenfitzpatrick/stevenfitzpatrick.io"
-        glyph={GithubLogo}
-        type="github"
       />
       <FooterIcon
         href="//ie.linkedin.com/in/steven-fitzpatrick-a7a6b016"
@@ -40,9 +38,6 @@ const Footer = () => (
         glyph={EmailLogo}
         type="email"
       />
-    </div>
-    <div class={style.footer__acknowledgement}>
-      Written and designed by me !
     </div>
   </footer>
 );

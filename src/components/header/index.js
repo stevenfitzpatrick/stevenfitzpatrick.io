@@ -107,7 +107,7 @@ const Nav = ({ routes, current, ...props }) => (
         <NavItem
           to={route}
           current={current}
-          class={cx(route.name, route.path === current && style.active)}
+          class={route.path === current && style.active}
         />
       ))}
   </nav>

@@ -1,18 +1,23 @@
 @import '~styles/_variables.scss';
 
-.writing {
+.writing__article {
   position: relative;
-  // + article {
-  //   margin-top: $spacing * 2;
 
-  //   &::before {
-  //     content: '';
-  //     position: absolute;
-  //     width: 100%;
-  //     height: 1px;
-  //     background-color: $inputBorder;
-  //     top: -($spacing);
-  //     left: 0;
-  //   }
-  // }
+  &:not(:first-of-type) {
+    margin-top: $line-height-base;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -$spacing;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $border;
+    }
+  }
+}
+
+.writing__intro {
+  padding-bottom: $spacing / 2;
 }

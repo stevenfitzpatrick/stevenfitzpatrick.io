@@ -10,8 +10,8 @@
     "build": "cross-env NODE_ENV=production webpack --progress -p --display-modules --display-chunks"
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions"
+    "> 5%",
+    "last 1 version"
   ],
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
   },
   "homepage": "stevenfitzpatrick.io",
   "devDependencies": {
+    "autoprefixer": "^6.7.7",
     "babel-core": "6.24.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.4.0",
@@ -77,6 +78,7 @@
     "postcss-loader": "^1.2.1",
     "postcss-url": "^5.1.2",
     "preload-webpack-plugin": "^1.2.1",
+    "purifycss-webpack": "^0.5.0",
     "resource-hints-webpack-plugin": "0.0.1",
     "sass-loader": "^6.0.0",
     "script-ext-html-webpack-plugin": "^1.6.2",
@@ -101,6 +103,7 @@
     "preact": "^7.2.0",
     "preact-async-route": "^1.0.1",
     "preact-markup": "^1.6.0",
-    "preact-router": "^2.3.2"
+    "preact-router": "^2.3.2",
+    "unfetch": "^2.1.2"
   }
 }

@@ -5,7 +5,7 @@
   @include flexColumnCenter;
 }
 
-@media (min-width: $tablet) {
+@media (min-width: $desktop) {
   .about {
     flex-direction: row;
 

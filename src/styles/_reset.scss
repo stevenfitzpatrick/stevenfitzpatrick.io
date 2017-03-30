@@ -53,6 +53,7 @@ samp {
 
 abbr[title] {
   border-bottom: 1px dotted;
+  text-decoration: none;
 }
 
 a {
@@ -82,11 +83,18 @@ button {
   cursor: pointer;
 }
 
+figcaption {
+  text-align: center;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 0.85em;
+}
+
 // Scrollbars
 
 *::-webkit-scrollbar {
-  width: 7px !important;
-  height: 7px !important;
+  width: 7px;
+  height: 7px;
 }
 
 *::-webkit-scrollbar-thumb {

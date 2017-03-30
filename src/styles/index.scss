@@ -5,6 +5,7 @@
 @import '_reset';
 @import '_typography';
 @import '_variables';
+@import '_mixin';
 
 .app {
   height: 100%;
@@ -15,7 +16,7 @@
 
 main {
   flex: 1 1 auto;
-  padding: 0 $line-height-base;
+  padding: 0 1.5em;
   margin-top: $line-height-base / 2;
 
   .home {
@@ -56,14 +57,41 @@ button {
   color: $defaultButtonText;
   padding: 0.5em 1em;
   box-shadow: 2px 2px 4px $boxShadowColor;
-  text-transform: uppercase;
-  font-weight: bold;
+  font-family: $headerFont;
   transition: all 0.3s;
+
+  svg {
+    margin-right: $spacing;
+  }
 
   &:hover,
   &:focus,
   &:active {
     background-color: darken($defaultButton, 10%);
+  }
+
+  + button {
+    margin-left: $spacing;
+  }
+}
+
+.button--twitter {
+  background-color: $twitter;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($twitter, 10%);
+  }
+}
+
+.button--linkedin {
+  background-color: $linkedIn;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($linkedIn, 10%);
   }
 }
 
@@ -103,7 +131,7 @@ address {
 
 ul {
   list-style-type: square;
-  padding-left: 1em;
+  padding-left: 1.5em;
 }
 
 /**
@@ -115,8 +143,8 @@ ul {
 }
 
 /**
- * Content Styling
- */
+* Content Styling
+*/
 
 .content {
   a {
@@ -127,14 +155,14 @@ ul {
     &:focus {
       border-bottom: 2px solid currentColor;
     }
+  }
 
-    &.link--content {
-      color: $header;
-    }
+  .link--content {
+    color: $header;
+  }
 
-    &.link--readmore {
-      color: $link;
-    }
+  .link--readmore {
+    color: $link;
   }
 
   .introduction {
@@ -152,18 +180,73 @@ ul {
     background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
     box-shadow: 0 3px 4px $boxShadowColor, 0 -3px 4px $boxShadowColor;
     color: #efefef;
+  }
 
-    .breakout-wrapper {
-      padding: $spacing;
-    }
+  .breakout-wrapper {
+    padding: $spacing;
+  }
 
-    .breakout__title {
-      font-family: $mainFont;
-      padding: $spacing 0;
-    }
+  .breakout__title {
+    font-family: $mainFont;
+    padding: $spacing 0;
   }
 }
 
-@import '_desktop';
+/**
+* Loading Styles
+*/
+
+.loading {
+  @include flexRowCenter;
+
+  svg {
+    height: $line-height-base * 4;
+    width: $line-height-base * 4;
+  }
+}
+
+/**
+* Comments
+*/
+
+.comments {
+  padding-top: $spacing;
+  border-top: 1px solid $border;
+}
+
+/**
+* Social Icons
+*/
+
+.icon {
+  height: 24px;
+  width: 24px;
+  fill: currentColor;
+  vertical-align: bottom;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &.twitter:hover {
+    fill: $twitter;
+  }
+
+  &.github:hover {
+    fill: $github;
+  }
+
+  &.linkedin:hover {
+    fill: $linkedIn;
+  }
+
+  &.email:hover {
+    fill: $email;
+  }
+}
+
+@import '_tablet';
+@import 'desktop';
 @import '_article';
+@import '_code';
 @import '_images';

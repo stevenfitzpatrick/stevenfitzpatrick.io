@@ -1,5 +1,5 @@
 <p>
-  While working on a recent website and looking to improve page optimization/performance, I came came across a new plugin released
+  While working on a recent website and looking to improve page optimization / performance, I came across a new plugin released
   by Google called <a class="link--content" href="https://developers.google.com/web/tools/lighthouse/">Lighthouse </a>.
   The Lighthouse tool will basically run a report on your website, and test your site for a whole list of web performance
   standards. Conveniently, it will also then let you know what your page is missing and what areas need improvement.
@@ -7,36 +7,36 @@
 
 <p>
   The main aim is to get your website to a <strong>Progressive Web Application</strong> or <abbr title="Progressive Web Application">PWA</abbr>  level. If you don&rsquo;t know anything about PWA&rsquo;s, this is a good introductory <a class="link--content" href="https://developers.google.com/web/progressive-web-apps/">link</a>.
-  Progressive Web Apps are built to be fast, feel native on mobile (you can also add <abbr title="Progressive Web Application">PWA</abbr>&rsquo;s
-  to your Android&rsquo;s Homescreen) and work under any network condition.
+  Progressive Web Apps are built to be fast, reliable, feel native on mobile (you can also add <abbr title="Progressive Web Application">PWA</abbr>&rsquo;s
+  to your Android&rsquo;s homescreen) and work under any network condition.
 </p>
 
 <p>
-  You can run the Lighouse tools in several ways, straight from the command line, a plugin part of your build process (i.e.
-  webpack) or maybe most convenienly as a Chrome Extension. With the Chrome Extension all you need to do is browse to page
-  you want to check and click on the Lighthouse Icon (Just make sure you don&rsquo;t have page open in multiple tabs). As
-  soon as you do it, the extension will take over and run your page against a barrage of tests. If you don&rsquo;t get a
-  full green report the first time don&rsquo;t worry, a lot of the items are quite new in web development and most sites
-  out there would currently not pass this test.
+  You can run the Lighthouse tools in several ways, straight from the command line, a plugin part of your build process (i.e.
+  webpack) or maybe most convenienly as a <a class="link--content" href="https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en">Chrome Extension</a>.
+  With the Chrome Extension all you need to do is browse to the page you want to check and click on the Lighthouse Icon (just
+  make sure you don&rsquo;t have page open in multiple tabs). As soon as you do it, the extension will take over and run
+  your page against a barrage of tests. If you don&rsquo;t get a full green report the first time don&rsquo;t worry, a lot
+  of the items are quite new in web development and most sites out there would currently not pass this test.
 </p>
 
 <p>
-  So, I will try and help guide you on the path to a full 100/100 score on the Lighouse report. Starting with a few basic items
-  that you will need that I bet your site doesn&rsquo;t currently have.
+  So, I will try and help guide you on the path to a full 100/100 score on the Lighthouse report. Starting with a few basic
+  items that you will need that I bet your site doesn&rsquo;t currently have.
 </p>
 
 <h5>Service Worker</h5>
 
 <p>
   Adding a Service Worker is key for any <abbr title="Progressive Web Application">PWA</abbr>, this is what will allows us
-  to deliver a great user experience under any network condition &mdash; hello offline first. The Service Worker will allows
-  you to control the caching strategy for your website, putting you back in control how your website should load it&rsquo;s
-  resources and requests. If you don&rsquo;t know anything about Service Workers, you might be wondering how you actually
-  add a Service Worker to your site.
+  to deliver a great user experience under any network condition &mdash; <i>hello</i> offline first. The Service Worker on
+  your webpage will allow you to control the caching strategy for your website, putting you back in control of how your website
+  should load its resources and requests. If you don&rsquo;t know anything about Service Workers, you might be wondering
+  how you actually add a Service Worker to your site.
 </p>
 
-<p>The good news is that adding a Service Worker to your site is relatively easing, and there is great tooling out there to
-  get help you get started.</p>
+<p>The good news is that adding a Service Worker to your site is relatively easy, and there is already great tooling available
+  out there to get help you get started.</p>
 
 <ul>
   <li>
@@ -44,12 +44,55 @@
     service worker, produced by Google.
   </li>
   <li>
-    <a class="link--content" href="https://github.com/goldhand/sw-precache-webpack-plugin">SW Precache Webpack Plugin</a>    Webpack wrapper around sw-precache (Used on this site) .
+    <a class="link--content" href="https://github.com/goldhand/sw-precache-webpack-plugin">sw-precache-webpack-plugin</a>    Webpack wrapper around sw-precache (Used on this site) .
   </li>
   <li>
     <a class="link--content" href="https://github.com/NekR/offline-plugin">offline-plugin</a> Another one for webpack users.
   </li>
 </ul>
+
+<p>Since I already used Webpack for this website I went ahead and added <strong>sw-precache-webpack-plugin</strong> to my webpack
+  config file. Although Service Workers have good support they <a href="http://caniuse.com/#feat=serviceworkers" class="link--content">aren&rsquo;t supported</a>  by all browsers just yet, so you need to check if they are supported before registering the service worker javascript file
+  on your page. The actual service worker file will be generated by the sw-precache-webpack plugin.</p>
+
+
+<div class="breakout">
+  <div class="breakout-wrapper">
+    <Highlight type="javascript" code="// Check for service worker support in window.navigator object
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}">
+    </Highlight>
+  </div>
+</div>
+
+<p>Below are some quick ways to ensure your service worker has installed correctly. I will use Chrome as the example, but the
+  process will be similar for other browsers. Open up your dev tools and under <strong>Application</strong> click on the
+  Service Worker link, where you should now see your service worker installed.</p>
+
+<figure>
+  <div class="blog__img">
+    <picture>
+      <source type="image/webp" srcset='/assets/blogs/installed.webp' />
+      <img src='/assets/blogs/installed.png ' alt="Service worker in Application Tab" />
+    </picture>
+  </div>
+  <figcaption>Service Worker status in Chrome Dev Tools.</figcaption>
+</figure>
+
+<p>A second test would be in your network tab, if you refresh the page and check your static resources i.e. .css, .js and images
+  they should have the text <i>(from ServiceWorker)</i> next to them. This tells you that these resources did not get fetched
+  from the network but rather from your local Service Worker cache.</p>
+
+<figure>
+  <div class="blog__img">
+    <picture>
+      <source type="image/webp" srcset='/assets/blogs/network.webp' />
+      <img src='/assets/blogs/network.png ' alt="Service Worker in Network Tab" />
+    </picture>
+  </div>
+  <figcaption>Sample Lighthouse Result of stevenfitzpatrick.io</figcaption>
+</figure>
 
 <h5>Manifest File</h5>
 
@@ -59,6 +102,7 @@
   file, with a large list of possible <a class="link--content" href="https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android">configurations</a>  which let you control how your app would be displayed on mobile. Items such as the icons, launch screen, theme colour,
   short name for the app etc. Here is the list of minimum required settings for the Lighthouse test.
 </p>
+
 <div class="breakout">
   <div class="breakout-wrapper">
     <Highlight type="javascript" code="// Simply add the link the manifest.json file in the <head> of your index.html
@@ -90,7 +134,7 @@
 <h5>What Else ?</h5>
 
 <p>The Service Worker and Manifest File are the two items that will really boost your score on the Lighthouse test, and which
-  more and more websites are adapting each day. But there is another main feature required on your website, and actually
+  more and more websites are adapting to each day. But there is another main feature required on your website, and actually
   a Service Worker won&rsquo;t even work on your website without this (unless you are working on localhost).
 </p>
 
@@ -100,19 +144,24 @@
   having your website https enabled. With all the power that comes with having a service worker controlling the responses
   to all your requests, https is required. Even aside from that for just plain security and best practice, if your website
   is not https enabled &mdash; don&rsquo;t wait any longer and get that SSL Cert. Chrome will <a class="link--content" href="https://developers.google.com/web/updates/2016/10/avoid-not-secure-warn">soon</a>  display a security display a warning in the browser for any non-https websites which have a password or credit card (duh)
-  input on their page .</p>
+  input on their page.</p>
 
 <h5>Ok really, what else ?</h5>
 
 <p>Lighthouse is constantly updating the requirements to pass the report, so it&rsquo;s a good idea to check your website every
-  few weeks even if you pass everything incase something new has popped up. Plus it&rsquo;s a good regression test for any
+  few weeks even if you pass everything in case something new has popped up. Plus it&rsquo;s a good regression test for any
   future releases. While I feel adding a Service Worker, Manifest and Https are the main wins to get your report green &mdash;
-  there are lot&rsquo;s more smaller items. Page Load Performace is huge, and you will be checked for the amount of resources
+  there are lot&rsquo;s more smaller items. Page Load Performance is huge, and you will be checked for the amount of resources
   you load and how you load them.</p>
 
 <p>But I hope with the pointers outlined here you can get closer to getting a 100 on the Lighthouse report, and if not on your
   current site it can help get a good head start for your next project !</p>
-
-<div class="blog__img">
-  <img src="/assets/blogs/lighthouse100.png" alt="Lighthouse Report for stevenfitzpatrick.io">
-</div>
+<figure>
+  <div class="blog__img">
+    <picture>
+      <source type="image/webp" srcset='/assets/blogs/lighthouse100.webp' />
+      <img src='/assets/blogs/lighthouse100.png ' alt="Lighthouse Report" />
+    </picture>
+  </div>
+  <figcaption>Sample Lighthouse Result of stevenfitzpatrick.io</figcaption>
+</figure>

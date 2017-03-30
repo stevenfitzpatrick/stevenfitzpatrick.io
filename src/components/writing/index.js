@@ -5,13 +5,13 @@ import cx from 'classnames';
 
 export default class Writing extends Component {
   displayBlogSummary = blog => (
-    <article>
+    <article class={styles.writing__article}>
       <h5><a class="link" href={blog.path}>{blog.blogTitle}</a></h5>
       <smaller>{blog.date} — {blog.duration}</smaller>
-      <div class={styles.blog__content}>
+      <div class={styles.writing__intro}>
         {blog.intro}
       </div>
-      <a class="link readmore" href={blog.path}>Read more…</a>
+      <a class="link link--readmore" href={blog.path}>Read more…</a>
     </article>
   );
 

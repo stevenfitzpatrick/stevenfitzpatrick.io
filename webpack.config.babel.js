@@ -186,9 +186,9 @@ module.exports = {
       allChunks: true
     }),
     // Add Preload allChunks
-    // new PreloadWebpackPlugin({
-    //   rel: 'prefetch'
-    // }),
+    new PreloadWebpackPlugin({
+      rel: 'prefetch'
+    }),
     // Add Preload Tags
     new ResourceHintWebpackPlugin(),
     // Set Environment Variables
@@ -203,9 +203,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: 'src/manifest.json' },
       { from: 'content', to: 'content' },
-      { from: 'src/assets/icon-64.png', to: 'assets' },
-      { from: 'src/assets/icon-192.png', to: 'assets' },
-      { from: 'src/assets/blogs', to: 'assets/blogs' }
+      { from: 'src/assets', to: 'assets' }
     ])
   ].concat(isProd ? prodPlugins : [])
 };
