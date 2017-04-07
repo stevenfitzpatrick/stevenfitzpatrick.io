@@ -14,10 +14,9 @@ const prodPlugins = [
   // new StyleExtHtmlWebpackPlugin(),
   // Add Async Tags
   new ScriptExtHtmlWebpackPlugin({
-    defaultAttribute: 'async'
+    defaultAttribute: 'sync',
+    async: ['app']
   }),
-  // Todo check the options
-  new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
   // Specific Options for Loading
   new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
   // Minimize JS

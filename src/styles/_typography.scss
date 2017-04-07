@@ -85,6 +85,7 @@ h4 {
 h5 {
   font-size: ms(1);
   font-weight: normal;
+  line-height: 1.25;
 }
 
 h2 + h5 {
@@ -98,6 +99,7 @@ h2 + h5 {
 p,
 ul,
 .blog__share,
+blockquote,
 figure {
   margin-bottom: $line-height-base;
 }
@@ -115,6 +117,38 @@ hr {
   border-color: $border;
 }
 
+/* Blockquote */
+blockquote {
+  display: block;
+  margin: $line-height-base 30px;
+  font-family: $headerFont;
+  background-color: #d6d7d9;
+  padding: $spacing;
+  color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  border-left: 0.5em solid $header;
+
+  &::before {
+    display: block;
+    height: 0;
+    content: "“";
+    margin-left: -0.95em;
+    font: italic 400%/1 Cochin, Georgia, "Times New Roman", serif;
+    color: $darkerHeader;
+  }
+
+  p {
+    margin-bottom: $spacing;
+  }
+}
+
+cite {
+  font-family: $headerFont;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+
 /* Typekit Fonts Smooth Loading */
 
 .wf-loading {
@@ -123,7 +157,7 @@ hr {
   h3,
   h4,
   h5,
-  a:not(.link--content) {
+  a:not(.link--content):not(.link) {
     opacity: 0;
   }
 }
@@ -135,7 +169,7 @@ hr {
   h3,
   h4,
   h5,
-  a:not(.link--content) {
+  a:not(.link--content):not(.link) {
     transition: opacity 0.2s ease-in;
     opacity: 1;
   }

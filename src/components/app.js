@@ -26,9 +26,6 @@ export default class App extends Component {
 
   Favourites = () => import('./favourites').then(module => module.default);
 
-  CreateFavourites = () =>
-    import('./create-favourite').then(module => module.default);
-
   getNavRoutes(nav) {
     return nav.reduce(
       (routes, route) => {
@@ -59,7 +56,6 @@ export default class App extends Component {
             <Home path="/" />
             <AsyncRoute path="/about" component={this.About} />
             <AsyncRoute path="/favourites" component={this.Favourites} />
-            <AsyncRoute path="/create" component={this.CreateFavourites} />
             <Writing path="/writing" blogs={blogRoutes} />
             {this.getNavRoutes(blogRoutes)}
             <Error type="404" default />

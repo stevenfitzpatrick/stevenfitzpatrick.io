@@ -13,7 +13,6 @@ Object.keys(LANGUAGES).forEach(key =>
 
 class Highlight extends Component {
   render({ code, type }, state) {
-    debugger;
     let text = code.replace(/''/g, '"');
     let highlighted = hljs.highlightAuto(text, [type]);
     let hLang = highlighted.language || 'javascript';

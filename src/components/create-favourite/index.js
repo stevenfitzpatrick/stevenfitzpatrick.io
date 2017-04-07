@@ -65,6 +65,14 @@ export default class CreateFavourite extends Component {
       });
   };
 
+  updateState = e => {
+    const target = e.target;
+    const { id, value } = target;
+    this.setState({
+      [id]: value
+    });
+  };
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -103,7 +111,7 @@ export default class CreateFavourite extends Component {
               required
               autofocus
               placeholder="Favourite Title"
-              onInput={this.linkState('title')}
+              onInput={this.updateState}
             />
           </div>
           <div>
@@ -114,7 +122,7 @@ export default class CreateFavourite extends Component {
               required
               value={url}
               placeholder="Favourite URL"
-              onInput={this.linkState('url')}
+              onInput={this.updateState}
             />
           </div>
           <div>
@@ -125,7 +133,7 @@ export default class CreateFavourite extends Component {
               required
               placeholder="Author URL"
               value={author}
-              onInput={this.linkState('author')}
+              onInput={this.updateState}
             />
           </div>
           <div>
@@ -136,7 +144,7 @@ export default class CreateFavourite extends Component {
               required
               placeholder="Favourite Description"
               value={description}
-              onInput={this.linkState('description')}
+              onInput={this.updateState}
             />
           </div>
           <div>
@@ -147,7 +155,7 @@ export default class CreateFavourite extends Component {
               value={tags}
               required
               placeholder="Sample Tags"
-              onInput={this.linkState('tags')}
+              onInput={this.updateState}
             />
           </div>
           <div>

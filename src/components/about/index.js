@@ -43,9 +43,12 @@ export default class AboutMe extends Component {
           </div>
         </div>
         <p>
-          Experiencing all that, I enjoy Front End Development the most and this is what I now mainly focus on. It's something I am very enthusiastic and passionate about to work with — but it’s also a hobby of mine. With new
-          frameworks, libraries and languages coming out every day to learn it can be very time consuming to keep up with but I enjoy the challenge. Hacking away with Module Bundlers, Page Load Optimizations, Service Workers,
-          Web Design, Node, React/Preact/Angular and some random database would be a pretty normal day.
+          Experiencing all that, I enjoy Front End Development the most and this is what I now mainly focus on. It’s something I am very enthusiastic and passionate about to work with — but it’s also a hobby of mine. With new
+          frameworks, libraries and languages coming out every day to learn it can be very time consuming to keep up with but I enjoy the challenge.
+        </p>
+
+        <p>
+          Hacking away with Build Tools, Page Load Optimizations, Service Workers, Web Design, Node, a random Front-end Framework — React / Preact / Angular and some SQL / NoSQL database would be a pretty normal day.
         </p>
 
         <p>

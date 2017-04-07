@@ -7,6 +7,8 @@ const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
 const fs = require('fs');
 
 // const Prod Settings
@@ -32,7 +34,7 @@ module.exports = {
   // Start Bundling Here
   entry: {
     app: './src/index.js',
-    vendor: ['preact', 'preact-router', 'classnames']
+    vendor: ['preact', 'preact-router', 'classnames', 'preact-markup']
   },
   // Output of Bundling
   /*
@@ -204,6 +206,17 @@ module.exports = {
       { from: 'src/manifest.json' },
       { from: 'content', to: 'content' },
       { from: 'src/assets', to: 'assets' }
-    ])
+    ]),
+    // new ScriptExtHtmlWebpackPlugin({
+    //   defaultAttribute: 'async'
+    // }),
+    // Todo check the options
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    }),
+    //CommonChunksPlugin will now extract all the common modules from vendor and main bundles
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest' //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
+    })
   ].concat(isProd ? prodPlugins : [])
 };

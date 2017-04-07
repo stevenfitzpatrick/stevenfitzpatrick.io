@@ -46,6 +46,15 @@
     margin-bottom: $line-height-base;
   }
 
+  /* Blockquote */
+  blockquote {
+    font-size: ms(1);
+  }
+
+  cite {
+    font-size: 18px;
+  }
+
   .content {
     .introduction {
       margin-bottom: $line-height-base;
