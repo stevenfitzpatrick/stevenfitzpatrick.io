@@ -10,6 +10,14 @@ const glob = require('glob');
 const pkg = require('./package.json');
 
 const prodPlugins = [
+  // Todo check the options
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor'
+  }),
+  //CommonChunksPlugin will now extract all the common modules from vendor and main bundles
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'manifest' //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
+  }),
   // Inline CSS
   // new StyleExtHtmlWebpackPlugin(),
   // Add Async Tags
