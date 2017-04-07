@@ -9,7 +9,8 @@ module.exports = function(config) {
     browsers: ['PhantomJS'],
     files: ['test/browser/**/*.js'],
     preprocessors: {
-      'test/**/*.js': ['webpack']
+      'test/**/*.js': ['webpack'],
+      'src/**/*.js': ['webpack']
     },
     webpack,
     webpackMiddleware: { noInfo: true }
