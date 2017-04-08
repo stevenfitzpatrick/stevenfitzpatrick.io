@@ -1,4 +1,6 @@
 import { h, render } from 'preact';
+import { Provider } from 'preact-redux';
+import App from './components/App';
 import style from './styles';
 
 let root;
@@ -8,8 +10,13 @@ function init() {
     '%cThanks for checking out my console at stevenfitzpatrick.io, let me know if any bugs !',
     'color: #d28546;font-size: 16px;font-family: "Segoe UI", Roboto, Ubuntu, Cantarell,sans-serif'
   );
-  let App = require('./components/app').default;
-  root = render(<App />, document.body, root);
+
+  render(
+    <Provider>
+      <App />
+    </Provider>,
+    document.body
+  );
 }
 
 init();
