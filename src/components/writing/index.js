@@ -1,12 +1,13 @@
 import { h, Component } from 'preact';
 import config from '../../config.json';
 import styles from './style';
+import { Link } from 'preact-router';
 import cx from 'classnames';
 
 export default class Writing extends Component {
   displayBlogSummary = blog => (
     <article class={styles.writing__article}>
-      <h5><a class="link" href={blog.path}>{blog.blogTitle}</a></h5>
+      <h5><Link class="link" href={blog.path}>{blog.blogTitle}</Link></h5>
       <smaller>{blog.date} — {blog.duration}</smaller>
       <div class={styles.writing__intro}>
         {blog.intro}
