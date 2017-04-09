@@ -245,6 +245,22 @@ ul {
   }
 }
 
+/**
+* Animation
+*/
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @import '_tablet';
 @import 'desktop';
 @import '_article';

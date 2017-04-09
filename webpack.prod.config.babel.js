@@ -6,10 +6,17 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
 const path = require('path');
 const glob = require('glob');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const pkg = require('./package.json');
 
 const prodPlugins = [
+  // Move Files
+  new CopyWebpackPlugin([
+    { from: 'src/manifest.json' },
+    { from: 'content', to: 'content' },
+    { from: 'src/assets', to: 'assets' }
+  ]),
   // Todo check the options
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor'

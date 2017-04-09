@@ -29,7 +29,6 @@ describe('App', () => {
 
     it('should render the header', () => {
       render(<App />, scratch);
-
       expect(scratch.innerHTML).to.contain('header');
     });
 
