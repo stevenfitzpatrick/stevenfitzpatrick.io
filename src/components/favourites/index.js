@@ -1,9 +1,14 @@
 import { h, Component } from 'preact';
 import config from '../../config';
 import FavouriteItem from './favourite-item';
+import { connect } from 'preact-redux';
+import { bindActions } from '../../helpers';
+import reduce from '../../reducers';
+import * as actions from '../../actions';
 import style from './style';
 import Loading from '../loading';
 
+@connect(reduce, bindActions(actions))
 export default class Favourites extends Component {
   displayItem = item => <FavouriteItem item={item} />;
 
@@ -16,21 +21,25 @@ export default class Favourites extends Component {
     const result = await data.json();
     let favourites = [];
     Object.keys(result).map(item => favourites.push(result[item]));
-    this.setState({ favourites });
+    this.props.loadBookmarks(favourites);
   }
 
   componentWillMount() {
     // Set Page Title
     document.title = `Favourites | ${config.title}`;
+  }
+
+  componentDidMount() {
+    if (this.props.bookmarks && this.props.bookmarks.length) return;
     // Get Items from Firebase
     this.getFavourites();
   }
 
-  render(props, { favourites }) {
-    const ifContainsFavourites = Object.keys(favourites).length !== 0;
+  render({ bookmarks }) {
+    const ifContainsFavourites = Object.keys(bookmarks).length !== 0;
     let favouriteList = null;
     if (ifContainsFavourites) {
-      favouriteList = favourites.map(this.displayItem).reverse();
+      favouriteList = bookmarks.map(this.displayItem).reverse();
     } else {
       favouriteList = <Loading />;
     }
