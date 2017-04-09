@@ -3,12 +3,15 @@ import config from '../../config';
 import FavouriteItem from './favourite-item';
 import { connect } from 'preact-redux';
 import { bindActions } from '../../helpers';
-import reduce from '../../reducers';
-import * as actions from '../../actions';
+import * as actions from '../../actionCreators';
 import style from './style';
 import Loading from '../loading';
 
-@connect(reduce, bindActions(actions))
+const mapStateToProps = state => ({
+  bookmarks: state.bookmarks
+});
+
+@connect(mapStateToProps, bindActions(actions))
 export default class Favourites extends Component {
   displayItem = item => <FavouriteItem item={item} />;
 
@@ -35,11 +38,11 @@ export default class Favourites extends Component {
     this.getFavourites();
   }
 
-  render({ bookmarks }) {
-    const ifContainsFavourites = Object.keys(bookmarks).length !== 0;
+  render(props) {
+    const ifContainsFavourites = Object.keys(props.bookmarks).length !== 0;
     let favouriteList = null;
     if (ifContainsFavourites) {
-      favouriteList = bookmarks.map(this.displayItem).reverse();
+      favouriteList = props.bookmarks.map(this.displayItem).reverse();
     } else {
       favouriteList = <Loading />;
     }

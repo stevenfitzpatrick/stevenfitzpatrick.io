@@ -1,20 +1,10 @@
-import { createStore } from 'redux';
-
-let ACTIONS = {
-  LOAD_BOOKMARKS: ({ bookmarks, ...state }, { allBookmarks }) => ({
-    bookmarks: [...bookmarks, ...allBookmarks],
-    ...state
-  })
-};
+import { createStore, combineReducers } from 'redux';
+import { rootReducer as bookmarks, initialState } from './reducers';
 
 const INITIAL = {
   bookmarks: []
 };
 
-export default createStore(
-  (state, action) =>
-    action && ACTIONS[action.type]
-      ? ACTIONS[action.type](state, action)
-      : state,
-  INITIAL
-);
+const store = combineReducers({ bookmarks });
+
+export default createStore(store, INITIAL);

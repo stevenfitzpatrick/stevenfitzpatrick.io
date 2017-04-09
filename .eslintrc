@@ -73,8 +73,11 @@
     "import/no-extraneous-dependencies": 0,
     "linebreak-style": 0,
     "indent": [
-      "error",
-      2
+      2,
+      2,
+      {
+        "SwitchCase": 1
+      }
     ],
     "no-underscore-dangle": [
       2,

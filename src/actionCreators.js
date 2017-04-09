@@ -1,4 +1,6 @@
+import * as types from './types';
+
 export const loadBookmarks = allBookmarks => ({
-  type: 'LOAD_BOOKMARKS',
+  type: types.LOAD_BOOKMARKS,
   allBookmarks
 });

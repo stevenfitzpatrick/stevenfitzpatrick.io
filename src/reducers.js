@@ -1,3 +1,10 @@
-const EMPTY = {};
+import * as types from './types';
 
-export default store => store || EMPTY;
+export const rootReducer = (state = [], action) => {
+  switch (action.type) {
+    case types.LOAD_BOOKMARKS:
+      return [...state, ...action.allBookmarks];
+    default:
+      return state;
+  }
+};
