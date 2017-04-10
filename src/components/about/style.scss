@@ -5,10 +5,6 @@
   @include flexColumnCenter;
 }
 
-.profile {
-  animation: fadeInDown 0.3s ease-in forwards;
-}
-
 @media (min-width: $desktop) {
   .about {
     flex-direction: row;
