@@ -74,7 +74,7 @@
     "modularscale-sass": "^2.1.1",
     "node-sass": "^4.5.2",
     "phantomjs-prebuilt": "^2.1.14",
-    "postcss-import": "^9.0.0",
+    "postcss-import": "^10.0.0",
     "postcss-loader": "^1.2.1",
     "postcss-url": "^5.1.2",
     "preact-redux": "^2.0.1",
