@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import style from './style';
-import { Link, route, Router } from 'preact-router';
+import { route, Router } from 'preact-router';
+import { Link } from 'preact-router/match';
 import config from '../../config';
 import cx from 'classnames';
 import LogoImage from '../../assets/svg/Header.svg';
@@ -100,20 +101,11 @@ const Menu = ({ open, ...props }) => (
 
 // Header Navigation
 const Nav = ({ routes, current, ...props }) => (
-  <nav {...props} class={style.header__menu}>
+  <nav {...props} class={style.header__menu} aria-label="Main Navigation">
     {routes
       .filter(route => route.type === 'page')
-      .map(route => (
-        <NavItem
-          to={route}
-          current={current}
-          class={route.path === current && style.active}
-        />
+      .map(({ path, title }) => (
+        <Link href={path} activeClassName={style.active}>{title}</Link>
       ))}
   </nav>
-);
-
-// Individual Navigation Items
-const NavItem = ({ to, current, ...props }) => (
-  <Link href={to.path} {...props}>{to.title}</Link>
 );

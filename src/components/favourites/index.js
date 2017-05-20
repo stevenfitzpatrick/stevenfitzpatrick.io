@@ -4,17 +4,33 @@ import FavouriteItem from './favourite-item';
 import { connect } from 'preact-redux';
 import { bindActions } from '../../helpers';
 import * as actions from '../../actionCreators';
+import FilterList from './FilterList';
 import style from './style';
 import Loading from '../loading';
+import BackToTop from '../backToTop';
+import FavouritesList from './FavouritesList';
 
 const mapStateToProps = state => ({
-  bookmarks: state.bookmarks
+  bookmarks: state.bookmarks,
+  tags: state.tags,
+  filters: state.filters
 });
+
+let timeOut;
+
+const mapObjectToArray = object =>
+  Object.keys(object).reduce((list, item) => [...list, object[item]], []);
+
+const getTags = bookmarks => {
+  const tags = bookmarks.map(item => [...item.tags]);
+  return [].concat(...tags);
+};
+
+const uniqueTags = tags =>
+  tags.filter((val, idx, array) => array.indexOf(val) === idx);
 
 @connect(mapStateToProps, bindActions(actions))
 export default class Favourites extends Component {
-  displayItem = item => <FavouriteItem item={item} />;
-
   state = { favourites: {} };
 
   async getFavourites() {
@@ -22,10 +38,30 @@ export default class Favourites extends Component {
       'https://stevenfitzpatrick-5181b.firebaseio.com/favourites.json'
     );
     const result = await data.json();
-    let favourites = [];
-    Object.keys(result).map(item => favourites.push(result[item]));
+    const favourites = mapObjectToArray(result);
+    const tags = uniqueTags(getTags(favourites)).sort();
+    this.props.loadTags(tags);
     this.props.loadBookmarks(favourites);
   }
+
+  toggleFilter = tag => {
+    const test = this.props.filters;
+    if (this.props.filters.includes(tag)) {
+      this.props.removeFilter(tag);
+    } else {
+      this.props.addFilter(tag);
+    }
+  };
+
+  backToTop = e => {
+    if (
+      document.body.scrollTop != 0 || document.documentElement.scrollTop != 0
+    ) {
+      window.scrollBy(0, -100);
+      timeOut = setTimeout(this.backToTop, 10);
+    } else
+      clearTimeout(timeOut);
+  };
 
   componentWillMount() {
     // Set Page Title
@@ -38,15 +74,7 @@ export default class Favourites extends Component {
     this.getFavourites();
   }
 
-  render(props) {
-    const ifContainsFavourites = Object.keys(props.bookmarks).length !== 0;
-    let favouriteList = null;
-    if (ifContainsFavourites) {
-      favouriteList = props.bookmarks.map(this.displayItem).reverse();
-    } else {
-      favouriteList = <Loading />;
-    }
-
+  render({ tags, bookmarks, filters }) {
     return (
       <div class={`content ${style.favourites__list}`}>
         <h3>Bookmarks</h3>
@@ -54,7 +82,13 @@ export default class Favourites extends Component {
           Below is a list of interesting links I have encountered that I wanted to share with you and also just to save for myself for future reference. The content of the links can be an article, blog or codepen, and I hope you enjoy reading them as much as I did.
           Please note that these are all external links.
         </p>
-        {favouriteList}
+        <FilterList
+          filters={filters}
+          tags={tags}
+          toggleFilter={this.toggleFilter}
+        />
+        <FavouritesList bookmarks={bookmarks} />
+        <BackToTop>Top</BackToTop>
       </div>
     );
   }

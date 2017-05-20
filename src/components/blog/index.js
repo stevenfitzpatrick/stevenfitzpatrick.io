@@ -6,6 +6,7 @@ import styles from './style';
 import BlogMeta from './blog-meta';
 import Highlight from '../highlight';
 import Share from '../share';
+import BackToTop from '../backToTop';
 
 export default class Blog extends Component {
   setTitle(title) {
@@ -52,6 +53,7 @@ export default class Blog extends Component {
               identifier={route.blogTitle}
               title={route.blogTitle}
             />
+            <BackToTop>Top</BackToTop>
           </section>}
       </div>
     );

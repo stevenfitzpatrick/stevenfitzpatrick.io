@@ -1,0 +1,66 @@
+@import '~styles/_variables';
+
+/**
+ * Button Styles
+ */
+
+button {
+  display: inline-block;
+  position: relative;
+  background-color: $defaultButton;
+  color: $defaultButtonText;
+  padding: 0.5em 1em;
+  box-shadow: 2px 2px 4px $boxShadowColor;
+  font-family: $headerFont;
+  transition: all 0.3s;
+
+  svg {
+    margin-right: $spacing;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($defaultButton, 10%);
+  }
+
+  + button {
+    margin-left: $spacing;
+  }
+}
+
+.button--twitter {
+  background-color: $twitter;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($twitter, 10%);
+  }
+}
+
+.button--linkedin {
+  background-color: $linkedIn;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($linkedIn, 10%);
+  }
+}
+
+.button--fixed {
+  position: fixed;
+  will-change: transform;
+  bottom: $line-height-base;
+  right: $line-height-base;
+  transform: scale(0, 0);
+  pointer-events: none;
+  transition: all 0.3 ease-in;
+}
+
+.button--display {
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1, 1);
+}

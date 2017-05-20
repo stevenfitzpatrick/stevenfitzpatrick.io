@@ -22,22 +22,25 @@ export default class App extends Component {
     this.setState({ url: currentUrl });
   };
 
-  About = () => import('./about').then(module => module.default);
+  About = () =>
+    System.import(/* webpackChunkName: "chunk-about" */ './about').then(
+      module => module.default
+    );
 
-  Favourites = () => import('./favourites').then(module => module.default);
+  Favourites = () =>
+    System.import(
+      /* webpackChunkName: "chunk-favourite" */ './favourites'
+    ).then(module => module.default);
 
   getNavRoutes(nav) {
-    return nav.reduce(
-      (routes, route) => {
-        if (route.blogTitle) {
-          routes.push(this.buildRoute(route));
-        } else if (route.routes) {
-          routes = [...routes, ...this.getNavRoutes(route.routes)];
-        }
-        return routes;
-      },
-      []
-    );
+    return nav.reduce((routes, route) => {
+      if (route.blogTitle) {
+        routes.push(this.buildRoute(route));
+      } else if (route.routes) {
+        routes = [...routes, ...this.getNavRoutes(route.routes)];
+      }
+      return routes;
+    }, []);
   }
 
   buildRoute(route) {

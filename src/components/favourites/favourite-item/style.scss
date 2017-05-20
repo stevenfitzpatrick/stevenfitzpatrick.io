@@ -6,10 +6,7 @@
   background-color: #fff;
   padding: $spacing;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-
-  &:not(:first-child) {
-    margin-bottom: $line-height-base;
-  }
+  margin-bottom: $line-height-base;
 
   & .favourite__time {
     display: flex;

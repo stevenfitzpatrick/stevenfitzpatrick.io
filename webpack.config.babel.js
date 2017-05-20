@@ -47,7 +47,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: isProd ? '/' : 'http://localhost:8080/',
     filename: isProd ? '[name].bundle.[chunkhash].js' : '[name].bundle.js',
-    chunkFilename: '[chunkhash].js'
+    chunkFilename: '[name].[chunkhash].js'
   },
   resolve: {
     modules: [
@@ -79,7 +79,6 @@ module.exports = {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        //include: PATHS.style
         options: { compact: true }
       },
       // Chained CSS Loader
@@ -103,7 +102,7 @@ module.exports = {
       // Chained SASS Loader
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
+        use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             {

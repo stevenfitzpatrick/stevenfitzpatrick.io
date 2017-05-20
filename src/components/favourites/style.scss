@@ -1,2 +1,18 @@
-.favourites__list {
+@import '~styles/_variables';
+
+.filters {
+  margin-bottom: $line-height-base;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter {
+  margin: $spacing / 2 $spacing;
+  padding: $spacing / 2 $spacing;
+  background-color: $header;
+  border-radius: 15px;
+}
+
+.filter--active {
+  box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.4);
 }
