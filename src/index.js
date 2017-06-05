@@ -1,7 +1,7 @@
 import { h, render } from 'preact';
 import { Provider } from 'preact-redux';
 import App from './components/App';
-import store from './store';
+import store from './redux/store';
 import style from './styles';
 
 let root;

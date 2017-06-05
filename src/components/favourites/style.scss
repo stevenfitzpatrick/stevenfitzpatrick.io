@@ -6,35 +6,12 @@
   flex-wrap: wrap;
 }
 
-.filter:focus,
-.filter {
-  margin: $spacing / 2 $spacing;
-  background-color: $focusBorder;
-  padding: 0;
-  transition: all 0.25s ease-in-out;
-}
-
-.filter:hover {
-  transform: scale(1.05);
-  background-color: $header !important;
-}
-
-.filter--active {
-  background-color: $header !important;
-  box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.4);
-  transform: scale(1);
-}
-
 .button__text {
   padding: $spacing / 2 $spacing;
   display: inline-block;
   height: 100%;
   user-select: none;
   pointer-events: none;
-}
-
-.button__text:hover {
-  transform: scale(1.1);
 }
 
 .button__count {

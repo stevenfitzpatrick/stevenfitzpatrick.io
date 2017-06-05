@@ -2,14 +2,10 @@ import * as types from './types';
 
 export const bookmarksReducer = (state = {}, action) => {
   switch (action.type) {
-    case types.LOAD_BOOKMARKS:
+    case types.BOOKMARKS_FETCH_SUCCEEDED:
       return {
         ...state,
-        list: [...action.allBookmarks]
-      };
-    case types.LOAD_TAGS:
-      return {
-        ...state,
+        list: [...action.bookmarks],
         tags: { ...action.tags }
       };
     case types.ADD_FILTER:

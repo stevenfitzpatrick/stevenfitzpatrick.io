@@ -10,7 +10,7 @@ export default function FilterList({ tags, toggleFilter, filters }) {
         Object.keys(tags).map(tag => (
           <button
             name={tag}
-            class={cx(style.filter, filters === tag && 'filter--active')}
+            class={cx('button--filter', filters === tag && 'filter--active')}
             onClick={toggleFilter}
           >
             <span class={style.button__text}> {tag} </span>

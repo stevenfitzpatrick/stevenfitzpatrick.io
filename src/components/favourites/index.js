@@ -1,13 +1,13 @@
 import { h, Component } from 'preact';
 import config from '../../config';
-import FavouriteItem from './favourite-item';
 import { connect } from 'preact-redux';
 import { bindActions } from '../../helpers';
-import * as actions from '../../actionCreators';
-import FilterList from './FilterList';
+import * as actions from '../../redux/actionCreators';
 import style from './style';
 import Loading from '../loading';
 import BackToTop from '../backToTop';
+import FavouriteItem from './favourite-item';
+import FilterList from './FilterList';
 import FavouritesList from './FavouritesList';
 
 const mapStateToProps = state => ({
@@ -22,44 +22,10 @@ const mapStateToProps = state => ({
 
 let timeOut;
 
-const mapObjectToArray = object =>
-  Object.keys(object).reduce((list, item) => [...list, object[item]], []);
-
-const getTags = bookmarks => {
-  const tags = bookmarks.map(item => [...item.tags]);
-  return [].concat(...tags);
-};
-
-const reduceTags = tags =>
-  tags.reduce((prev, next) => {
-    if (prev[next]) {
-      prev[next].count++;
-    } else {
-      prev[next] = {
-        text: next,
-        count: 1
-      };
-    }
-
-    return prev;
-  }, {});
-
-const uniqueTags = tags =>
-  tags.filter((val, idx, array) => array.indexOf(val) === idx);
-
 @connect(mapStateToProps, bindActions(actions))
 export default class Favourites extends Component {
-  state = { favourites: {} };
-
-  async getFavourites() {
-    const data = await fetch(
-      'https://stevenfitzpatrick-5181b.firebaseio.com/favourites.json'
-    );
-    const result = await data.json();
-    const favourites = mapObjectToArray(result);
-    const tags = reduceTags(getTags(favourites).sort());
-    this.props.loadTags(tags);
-    this.props.loadBookmarks(favourites);
+  getFavourites() {
+    this.props.fetchBookmarks();
   }
 
   toggleFilter = e => {
@@ -74,8 +40,8 @@ export default class Favourites extends Component {
 
   backToTop = e => {
     if (
-      document.body.scrollTop != 0 ||
-      document.documentElement.scrollTop != 0
+      document.body.scrollTop !== 0 ||
+      document.documentElement.scrollTop !== 0
     ) {
       window.scrollBy(0, -100);
       timeOut = setTimeout(this.backToTop, 10);

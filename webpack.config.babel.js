@@ -34,7 +34,15 @@ module.exports = {
   // Start Bundling Here
   entry: {
     app: './src/index.js',
-    vendor: ['preact', 'preact-router', 'classnames', 'preact-markup']
+    vendor: [
+      'preact',
+      'preact-router',
+      'classnames',
+      'preact-markup',
+      'preact-redux',
+      'redux-saga',
+      'redux'
+    ]
   },
   // Output of Bundling
   /*
