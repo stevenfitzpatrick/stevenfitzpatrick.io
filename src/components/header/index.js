@@ -77,7 +77,7 @@ export default class Header extends Component {
       <div class={cx(style.header, open && style[expandedHeaderClass])}>
         <header class={style.header__content}>
           <Logo onClick={this.loadHome} image={LogoImage} />
-          <Nav routes={config.nav} current={url} />
+          <Nav routes={config.nav} />
           <Menu open={open} onClick={this.toggleMenu} />
         </header>
       </div>

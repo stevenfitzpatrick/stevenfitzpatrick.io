@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
@@ -15,8 +16,13 @@ const prodPlugins = [
   new CopyWebpackPlugin([
     { from: 'src/manifest.json' },
     { from: 'content', to: 'content' },
-    { from: 'src/assets', to: 'assets' }
+    {
+      from: 'src/assets',
+      to: 'assets',
+      ignore: ['**/*.svg', 'src/assets/svg/*', '*.svg']
+    }
   ]),
+
   // Todo check the options
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor'
@@ -79,10 +85,7 @@ const prodPlugins = [
         handler: 'cacheFirst'
       }
     ],
-    stripPrefixMulti: {
-      'C:/dev/stevenfitzpatrick.io/dist': '',
-      '/home/travis/build/stevenfitzpatrick/stevenfitzpatrick.io/dist': ''
-    }
+    stripPrefix: `${process.cwd().replace(/\\/g, '/')}/dist`
   }),
   // Add Bundle JS Analyzer
   new BundleAnalyzerPlugin({

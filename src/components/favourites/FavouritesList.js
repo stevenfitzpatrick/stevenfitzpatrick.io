@@ -8,6 +8,7 @@ import LoadingHOC from '../HOC/LoaderHOC';
   render({ bookmarks }) {
     return (
       <div>
+        <h5> Showing 1 of {bookmarks.length} </h5>
         {bookmarks.map(this.displayItem)}
       </div>
     );

@@ -1,17 +1,19 @@
 import { createStore, combineReducers } from 'redux';
-import {
-  rootReducer as bookmarks,
-  tagsReducer as tags,
-  filtersReducer as filters,
-  initialState
-} from './reducers';
+import { bookmarksReducer as bookmarks } from './reducers';
 
 const INITIAL = {
-  bookmarks: [],
-  tags: [],
-  filters: []
+  bookmarks: {
+    list: [],
+    tags: {},
+    filter: ''
+  }
 };
 
-const store = combineReducers({ bookmarks, tags, filters });
-
-export default createStore(store, INITIAL);
+const store = combineReducers({ bookmarks });
+/* eslint-disable no-underscore-dangle */
+export default createStore(
+  store,
+  INITIAL,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+/* eslint-enable */

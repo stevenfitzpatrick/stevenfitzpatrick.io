@@ -7,7 +7,8 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --colors --watch",
     "test": "eslint cross-env NODE_ENV=test src/**/*.js && npm run -s test:karma",
     "test:karma": "karma start test/karma.config.js --single-run",
-    "build": "cross-env NODE_ENV=production webpack -p"
+    "build": "cross-env NODE_ENV=production webpack -p",
+    "publish": "aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control \"private, max-age=0\" --exclude * --include sw.js --include index.html && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control max-age=31536000 --exclude sw.js --exclude index.html"
   },
   "browserslist": [
     "> 5%",

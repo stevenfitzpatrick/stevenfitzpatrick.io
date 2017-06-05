@@ -1,13 +1,24 @@
 import { h, Component } from 'preact';
 import Loading from '../loading';
-const LoadingHOC = WrappedComponent => {
-  return class LoadingHOC extends Component {
-    render(props) {
+const LoadingHOC = WrappedComponent =>
+  class LoadingHOC extends Component {
+    state = {
+      shouldRender: false
+    };
+
+    componentDidMount() {
+      window.requestAnimationFrame(_ => {
+        window.requestAnimationFrame(_ => {
+          this.setState({ shouldRender: true });
+        });
+      });
+    }
+
+    render(props, { shouldRender }) {
       return props.bookmarks.length === 0
-        ? <Loading />
-        : <WrappedComponent {...props} />;
+        ? shouldRender && <Loading />
+        : shouldRender && <WrappedComponent {...props} />;
     }
   };
-};
 
 export default LoadingHOC;

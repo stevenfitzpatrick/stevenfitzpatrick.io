@@ -199,13 +199,8 @@ module.exports = {
           ? JSON.stringify('production')
           : JSON.stringify('development')
       }
-    }),
-    // Move Files
-    new CopyWebpackPlugin([
-      { from: 'src/manifest.json' },
-      { from: 'content', to: 'content' },
-      { from: 'src/assets', to: 'assets' }
-    ])
+    })
+
     // new ScriptExtHtmlWebpackPlugin({
     //   defaultAttribute: 'async'
     // }),
