@@ -3,7 +3,7 @@ import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 import xml from 'highlight.js/lib/languages/xml';
 import css from 'highlight.js/lib/languages/css';
-import highlightCSS from 'highlight.js/styles/Ocean';
+import highlightCSS from 'highlight.js/styles/ocean.css';
 import '../styles/highlight';
 import cx from 'classnames';
 
