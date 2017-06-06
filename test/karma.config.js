@@ -6,7 +6,7 @@ module.exports = function(config) {
   config.set({
     basePath: '../',
     frameworks: ['mocha', 'chai-sinon'],
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeCanaryHeadless'],
     files: ['test/browser/**/*.js'],
     preprocessors: {
       'test/**/*.js': ['webpack'],
