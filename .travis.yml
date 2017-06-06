@@ -16,7 +16,7 @@ node_js:
 # - npm run build
 # - pip install --user awscli
 before_install:
-- export CHROME_BIN=chromium-browser
+  - export CHROME_BIN=chromium-browser
 before_script:
   - export DISPLAY=:99.0
 env:
