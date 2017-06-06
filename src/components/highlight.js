@@ -3,13 +3,14 @@ import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 import xml from 'highlight.js/lib/languages/xml';
 import css from 'highlight.js/lib/languages/css';
-import 'highlight.js/styles/Ocean.css';
+import 'highlight.js/styles/Ocean';
 import '../styles/highlight';
 import cx from 'classnames';
 
 const LANGUAGES = { javascript, xml, css };
 Object.keys(LANGUAGES).forEach(key =>
-  hljs.registerLanguage(key, LANGUAGES[key]));
+  hljs.registerLanguage(key, LANGUAGES[key])
+);
 
 const Highlight = ({ code, type }, state) => {
   let text = code.replace(/''/g, '"');
