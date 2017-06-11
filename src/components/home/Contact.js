@@ -11,6 +11,7 @@ export default ({ hideAboutMe, displayShowMe }) => (
       role="button"
       class={styles.aboutme__close}
       onClick={hideAboutMe}
+      onKeyDown={hideAboutMe}
     >
       <svg>
         <use xlinkHref={CloseIcon} />
