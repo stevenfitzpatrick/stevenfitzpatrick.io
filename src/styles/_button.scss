@@ -84,3 +84,67 @@ button {
   box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.4);
   transform: scale(1);
 }
+
+.button--outline.button--outline:focus,
+.button--outline {
+  position: absolute;
+  right: 1em;
+  bottom: 80px;
+  background: $header;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 3px 4px 6px rgba(50, 50, 93, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease-in-out;
+  height: 60px;
+  width: 60px;
+  vertical-align: middle;
+
+  svg {
+    vertical-align: middle;
+    fill: white;
+    height: 30px;
+    width: 30px;
+    margin: 0;
+  }
+
+  @media (min-width: $desktop) {
+    svg {
+      fill: $darkerHeader;
+    }
+  }
+
+  span {
+    display: none;
+  }
+}
+
+.button--outline:hover {
+  background-color: darken($header, 10%);
+}
+
+@media (min-width: $desktop) {
+  .button--outline.button--outline:focus,
+  .button--outline {
+    position: relative;
+    display: inline;
+    right: inherit;
+    bottom: inherit;
+    margin: $spacing * 2 0 $spacing;
+    background-color: $header;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease-in-out;
+    height: auto;
+    width: auto;
+
+    span {
+      display: inline;
+      vertical-align: middle;
+      margin-left: 1em;
+    }
+  }
+}

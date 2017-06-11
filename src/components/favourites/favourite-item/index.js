@@ -1,11 +1,10 @@
 import { h, Component } from 'preact';
 import style from './style';
-import moment from 'moment';
 
 const Tag = ({ tag }) => <span>{tag}</span>;
 
 const Time = ({ date }) => {
-  const postDate = moment(date).format('Do MMM YYYY');
+  const postDate = date.toDateString();
 
   return (
     <div class={style.favourite__time}>

@@ -1,6 +1,12 @@
 import { h, Component } from 'preact';
+import { connect } from 'preact-redux';
+import { bindActions } from '../../helpers';
+import { showAboutMe, hideAboutMe } from '../../redux/modules/home';
 import config from '../../config';
 import styles from './style';
+import ContactMe from './Contact';
+import cx from 'classnames';
+import ContactIcon from '../../assets/svg/speech-bubble.svg';
 
 const otherSkills = [
   'Problem Solver',
@@ -13,6 +19,11 @@ const otherSkills = [
   'Love Food'
 ];
 
+const mapStateToProps = state => ({
+  displayShowMe: state.home.displayShowMe
+});
+
+@connect(mapStateToProps, bindActions({ showAboutMe, hideAboutMe }))
 class Home extends Component {
   updateSkills = () => {
     requestAnimationFrame(() => {
@@ -48,15 +59,21 @@ class Home extends Component {
     this.otherSkills.removeEventListener('animationend', this.toggleAnimation);
   }
 
-  render = () => (
+  render = ({ showAboutMe, displayShowMe, hideAboutMe }) => (
     <section class={styles.home}>
       <h4>Hello & Welcome !</h4>
       <h2>I’m Steven Fitzpatrick.</h2>
       <h5>
         <span class="underline">I’m</span> a Front-End Developer &
-        {' '}
         <span class="other-skills popDown">Problem Solver</span>
       </h5>
+      <button class="button--outline" onClick={showAboutMe}>
+        <svg>
+          <use xlinkHref={ContactIcon} />
+        </svg>
+        <span>Contact Me</span>
+      </button>
+      <ContactMe displayShowMe={displayShowMe} hideAboutMe={hideAboutMe} />
     </section>
   );
 }

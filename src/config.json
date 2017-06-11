@@ -29,7 +29,7 @@
                     "date": "March 30th, 2017",
                     "duration": "5 min read",
                     "image": "/assets/blogs/lighthouse.PNG",
-                    "intro": "In this post I want to show you two different strategies for adding Google &rsquo; s new image format WebP, and the legacy browser issues to be considered in your implementation."
+                    "intro": "In this post I want to show you two different strategies for adding Googles new image format WebP, and the legacy browser issues to be considered in your implementation."
                 },
                 {
                     "blogTitle": "Getting 100 on the Lighthouse Audit",

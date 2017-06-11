@@ -8,6 +8,154 @@
   flex-direction: column;
 }
 
+.aboutme {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #323232;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-in-out;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.aboutme--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.aboutme__moon {
+  position: absolute;
+  top: 1.5em;
+  left: 1.5em;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  background-color: $moon;
+  box-shadow: 0 0 10px #fff, 0 0 25px #fff, 0 0 40px #fff;
+}
+
+@media (min-width: $desktop) {
+  .aboutme__moon {
+    top: 3em;
+    left: 3em;
+    height: 150px;
+    width: 150px;
+  }
+}
+
+.aboutme__moon li {
+  position: absolute;
+  list-style: none;
+  background: #737277;
+  border-radius: 50%;
+}
+
+.aboutme__moon li:nth-child(1) {
+  left: 20px;
+  top: 50px;
+  width: 25px;
+  height: 25px;
+  box-shadow: inset 6px -2px 0 0 #414043;
+}
+
+.aboutme__moon li:nth-child(2) {
+  right: 40px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  box-shadow: inset 3px -2px 0 0 #414043;
+}
+
+.aboutme__moon li:nth-child(3) {
+  left: 70%;
+  bottom: 35%;
+  width: 15px;
+  height: 15px;
+  box-shadow: inset 2px -2px 0 0 #414043;
+}
+
+.aboutme__moon li:nth-child(4) {
+  right: 35%;
+  bottom: 5px;
+  width: 15px;
+  height: 15px;
+  box-shadow: inset 6px -2px 0 0 #414043;
+}
+
+.aboutme__close {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  cursor: pointer;
+  outline: none;
+}
+
+.aboutme__close svg {
+  height: 25px;
+  width: 25px;
+  fill: $header;
+  outline: none;
+}
+
+.aboutme__content {
+  min-height: 100%;
+  display: flex;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: $spacing * 2;
+}
+
+.aboutme__content h4 {
+  padding-bottom: $spacing / 2;
+  border-bottom: 2px solid $header;
+}
+
+@media (min-width: $desktop) {
+  .aboutme__content p {
+    font-size: 1.15em;
+  }
+}
+
+.aboutme__content p {
+  max-width: 30em;
+  margin: 0 auto $spacing;
+}
+
+.aboutme__links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: $spacing 0;
+}
+
+.aboutme__links a {
+  margin: $spacing;
+}
+
+.aboutme__links svg {
+  fill: #fff;
+  height: 40px;
+  width: 40px;
+  transition: transform 0.2s ease-in;
+}
+
+.aboutme__links svg:hover {
+  transform: translateY(-5%);
+}
+
+.closeme {
+  position: absolute;
+  bottom: 1em;
+}
+
 .other-skills {
   display: block;
 }

@@ -66,6 +66,7 @@ module.exports = {
     extensions: ['.js', '.json', '.jsx', '.css', '.scss'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
+      common: path.resolve(__dirname, 'src/components/common'),
       style: path.resolve(__dirname, 'src/styles')
     }
   },

@@ -3,6 +3,7 @@
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 html,
@@ -173,4 +174,10 @@ cite {
     transition: opacity 0.2s ease-in;
     opacity: 1;
   }
+}
+
+.text--blue {
+  color: $ignito-blue;
+  text-transform: uppercase;
+  font-weight: 600;
 }
