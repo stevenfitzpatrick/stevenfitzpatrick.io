@@ -56,7 +56,7 @@
     "css-loader": "^0.28.0",
     "eslint": "3.18.0",
     "eslint-config-synacor": "^1.0.0",
-    "eslint-loader": "1.7.0",
+    "eslint-loader": "1.8.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.3",
