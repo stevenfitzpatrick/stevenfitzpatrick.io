@@ -176,8 +176,6 @@ module.exports = {
   },
   // Bundle Rules
   plugins: [
-    // Webpack 3 Scope Hoisting
-    // new webpack.optimize.ModuleConcatenationPlugin(),
     // Style Checking
     new StyleLintPlugin({
       configFile: '.stylelintrc',
