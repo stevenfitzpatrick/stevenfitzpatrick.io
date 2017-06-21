@@ -67,12 +67,12 @@ module.exports = {
     ],
     extensions: ['.js', '.json', '.jsx', '.css', '.scss'],
     alias: {
+      react: 'preact-compat',
+      'react-dom': 'preact-compat',
       components: path.resolve(__dirname, 'src/components'),
       clients: path.resolve(__dirname, 'src/clients'),
       common: path.resolve(__dirname, 'src/components/common'),
-      style: path.resolve(__dirname, 'src/styles'),
-      react: 'preact-compat',
-      'react-dom': 'preact-compat'
+      style: path.resolve(__dirname, 'src/styles')
     }
   },
   target: 'web',

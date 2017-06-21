@@ -109,6 +109,7 @@
     "moment": "^2.18.1",
     "preact": "^8.1.0",
     "preact-async-route": "^1.0.3",
+    "preact-compat": "^3.16.0",
     "preact-markup": "^1.6.0",
     "preact-router": "^2.5.2",
     "promise-polyfill": "^6.0.2",
