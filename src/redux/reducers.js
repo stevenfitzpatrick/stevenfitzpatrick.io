@@ -5,8 +5,8 @@ export const bookmarksReducer = (state = {}, action) => {
     case types.BOOKMARKS_FETCH_SUCCEEDED:
       return {
         ...state,
-        list: [...action.bookmarks],
-        tags: { ...action.tags }
+        list: [...action.payload.bookmarks],
+        tags: { ...action.payload.tags }
       };
     case types.ADD_FILTER:
       return {

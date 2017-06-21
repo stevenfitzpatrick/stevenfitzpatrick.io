@@ -8,7 +8,7 @@
     "test": "eslint cross-env NODE_ENV=test src/**/*.js && npm run -s test:karma",
     "test:chrome": "eslint cross-env NODE_ENV=test src/**/*.js && npm run -s test:karma -- --browsers ChromeCanaryHeadless",
     "test:karma": "karma start test/karma.config.js --single-run",
-    "build": "cross-env NODE_ENV=production webpack -p",
+    "build": "cross-env NODE_ENV=production webpack -p --display-optimization-bailout",
     "publish": "npm run test && npm run build && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control \"private, max-age=0\" --exclude * --include sw.js --include index.html && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control max-age=31536000 --exclude sw.js --exclude index.html"
   },
   "browserslist": [
@@ -54,11 +54,13 @@
     "core-js": "^2.4.1",
     "cross-env": "^3.1.4",
     "css-loader": "^0.28.0",
-    "eslint": "3.18.0",
+    "eslint": "3.19.0",
+    "eslint-config-prettier": "^2.2.0",
     "eslint-config-synacor": "^1.0.0",
-    "eslint-loader": "1.7.0",
-    "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-loader": "1.8.0",
+    "eslint-plugin-import": "2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-prettier": "^2.1.2",
     "extract-text-webpack-plugin": "^2.0.0-beta.3",
     "file-loader": "^0.11.1",
     "html-loader": "^0.4.5",
@@ -97,13 +99,13 @@
     "svg-sprite-loader": "^0.3.0",
     "sw-precache-webpack-plugin": "^0.9.0",
     "url-loader": "^0.5.7",
-    "webpack": "^2.5.1",
+    "webpack": "^3.0.0",
     "webpack-bundle-analyzer": "^2.8.2",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "highlight.js": "^9.11.0",
+    "highlight.js": "^9.12.0",
     "moment": "^2.18.1",
     "preact": "^8.1.0",
     "preact-async-route": "^1.0.3",
@@ -111,6 +113,7 @@
     "preact-router": "^2.5.2",
     "promise-polyfill": "^6.0.2",
     "redux-saga": "^0.15.3",
+    "styled-components": "^2.0.1",
     "unfetch": "^2.1.2"
   }
 }

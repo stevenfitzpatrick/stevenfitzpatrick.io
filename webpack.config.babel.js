@@ -41,7 +41,9 @@ module.exports = {
       'preact-markup',
       'preact-redux',
       'redux-saga',
-      'redux'
+      'redux',
+      'preact-compat',
+      'styled-components'
     ]
   },
   // Output of Bundling
@@ -66,8 +68,11 @@ module.exports = {
     extensions: ['.js', '.json', '.jsx', '.css', '.scss'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
+      clients: path.resolve(__dirname, 'src/clients'),
       common: path.resolve(__dirname, 'src/components/common'),
-      style: path.resolve(__dirname, 'src/styles')
+      style: path.resolve(__dirname, 'src/styles'),
+      react: 'preact-compat',
+      'react-dom': 'preact-compat'
     }
   },
   target: 'web',
@@ -171,6 +176,8 @@ module.exports = {
   },
   // Bundle Rules
   plugins: [
+    // Webpack 3 Scope Hoisting
+    // new webpack.optimize.ModuleConcatenationPlugin(),
     // Style Checking
     new StyleLintPlugin({
       configFile: '.stylelintrc',

@@ -1,4 +1,5 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { getBookmarks } from '../../clients/api';
 
 const mapObjectToArray = object =>
   Object.keys(object).reduce((list, item) => [...list, object[item]], []);
@@ -25,14 +26,15 @@ const reduceTags = tags =>
     return prev;
   }, {});
 
-function* fetchBookmarks(action) {
+export function* fetchBookmarks(action) {
   try {
-    let bookmarks = yield fetch(
-      'https://stevenfitzpatrick-5181b.firebaseio.com/favourites.json'
-    ).then(response => response.json());
+    let bookmarks = yield call(getBookmarks, {});
     bookmarks = mapObjectToArray(bookmarks).reverse();
     const tags = reduceTags(getTags(bookmarks));
-    yield put({ type: 'BOOKMARKS_FETCH_SUCCEEDED', bookmarks, tags });
+    yield put({
+      type: 'BOOKMARKS_FETCH_SUCCEEDED',
+      payload: { bookmarks, tags }
+    });
   } catch (e) {
     yield put({ type: 'BOOKMARKS_FETCH_FAILURE', message: e.message });
   }

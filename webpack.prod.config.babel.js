@@ -93,7 +93,9 @@ const prodPlugins = [
     openAnalyzer: true,
     generateStatsFile: false,
     reportFilename: '../src/report.html'
-  })
+  }),
+  // Webpack 3 Scope Hoisting
+  new webpack.optimize.ModuleConcatenationPlugin()
 ];
 
 module.exports = prodPlugins;
