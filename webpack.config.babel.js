@@ -42,8 +42,7 @@ module.exports = {
       'preact-redux',
       'redux-saga',
       'redux',
-      'preact-compat',
-      'styled-components'
+      'preact-compat'
     ]
   },
   // Output of Bundling
