@@ -88,7 +88,7 @@ const prodPlugins = [
     stripPrefix: `${process.cwd().replace(/\\/g, '/')}/dist`
   }),
   // Webpack 3 Scope Hoisting
-  new webpack.optimize.ModuleConcatenationPlugin(),
+  // new webpack.optimize.ModuleConcatenationPlugin(),
   // Add Bundle JS Analyzer
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
