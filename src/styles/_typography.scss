@@ -63,8 +63,7 @@ h2 {
 
 h3,
 h4 {
-  margin-top: ($line-height-base / 2);
-  margin-bottom: $line-height-base;
+  margin: $line-height-base 0;
   position: relative;
 }
 
@@ -148,7 +147,6 @@ cite {
   font-style: italic;
   color: rgba(0, 0, 0, 0.55);
 }
-
 
 /* Typekit Fonts Smooth Loading */
 

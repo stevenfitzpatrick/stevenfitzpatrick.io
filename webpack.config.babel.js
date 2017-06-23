@@ -42,7 +42,8 @@ module.exports = {
       'preact-redux',
       'redux-saga',
       'redux',
-      'preact-compat'
+      'preact-compat',
+      'styled-components'
     ]
   },
   // Output of Bundling
@@ -66,12 +67,12 @@ module.exports = {
     ],
     extensions: ['.js', '.json', '.jsx', '.css', '.scss'],
     alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat',
       components: path.resolve(__dirname, 'src/components'),
       clients: path.resolve(__dirname, 'src/clients'),
       common: path.resolve(__dirname, 'src/components/common'),
-      style: path.resolve(__dirname, 'src/styles')
+      style: path.resolve(__dirname, 'src/styles'),
+      react: 'preact-compat',
+      'react-dom': 'preact-compat'
     }
   },
   target: 'web',

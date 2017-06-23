@@ -5,7 +5,7 @@ import 'style';
 
 /*global sinon,expect*/
 describe('App', () => {
-  var scratch;
+  let scratch;
 
   before(() => {
     scratch = document.createElement('div');

@@ -1,8 +1,11 @@
 import { h, Component } from 'preact';
+
 import FavouriteItem from './favourite-item';
+
 import LoadingHOC from '../HOC/LoaderHOC';
 
-@LoadingHOC class FavouritesList extends Component {
+@LoadingHOC
+class FavouritesList extends Component {
   displayItem = item => <FavouriteItem item={item} />;
 
   render({ bookmarks }) {

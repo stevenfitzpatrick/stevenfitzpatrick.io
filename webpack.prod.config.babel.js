@@ -31,6 +31,9 @@ const prodPlugins = [
   new webpack.optimize.CommonsChunkPlugin({
     name: 'manifest' //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
   }),
+
+  // Webpack 3 Scope Hoisting
+  new webpack.optimize.ModuleConcatenationPlugin(),
   // Inline CSS
   // new StyleExtHtmlWebpackPlugin(),
   // Add Async Tags
