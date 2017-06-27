@@ -21,28 +21,26 @@ export default class App extends Component {
   };
 
   About = async () => {
-    const module = await System.import(
+    const module = await import(
       /* webpackChunkName: "chunk-about" */ './about'
     );
     return module.default;
   };
 
   Favourites = async () => {
-    const module = await System.import(
+    const module = await import(
       /* webpackChunkName: "chunk-favourite" */ './favourites'
     );
     return module.default;
   };
 
   Blog = async () => {
-    const module = await System.import(
-      /* webpackChunkName: "chunk-blog" */ './blog'
-    );
+    const module = await import(/* webpackChunkName: "chunk-blog" */ './blog');
     return module.default;
   };
 
   Writing = async () => {
-    const module = await System.import(
+    const module = await import(
       /* webpackChunkName: "chunk-writing" */ './writing'
     );
     return module.default;

@@ -189,10 +189,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       hash: false,
       filename: 'index.html',
-      template: './src/index.html',
+      template: './src/index.ejs',
       inject: true,
       prefetch: false,
-      minify: { removeComments: true, collapseWhitespace: true }
+      minify: { removeComments: true, collapseWhitespace: true, minifyJS: true }
     }),
     // Write out CSS bundle to its own file:
     new ExtractTextPlugin({

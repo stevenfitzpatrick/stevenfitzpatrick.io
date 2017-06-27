@@ -50,11 +50,16 @@ class Home extends Component {
     this.otherSkills = document.querySelector('.other-skills');
     this.otherSkills.addEventListener('animationend', this.toggleAnimation);
     this.timer = setInterval(this.updateSkills, 2500);
+  }
 
-    const contactMe = await System.import(
-      /* webpackChunkName: "chunk-contactme" */ './Contact'
-    );
-    this.Contact = contactMe.default;
+  async componentWillReceiveProps(nextProps) {
+    if (nextProps.displayShowMe && !this.Contact) {
+      const contactMe = await import(
+        /* webpackChunkName: "chunk-contactme" */ './Contact'
+      );
+      this.Contact = contactMe.default;
+      this.forceUpdate();
+    }
   }
 
   componentWillUnmount() {

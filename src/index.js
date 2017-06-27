@@ -31,9 +31,9 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   navigator.serviceWorker.register('/sw.js');
 
   const loadAnalytics = () => {
-    System.import(
-      /* webpackChunkName: "chunk-analytics" */ './analytics'
-    ).then(page => page.init());
+    import(/* webpackChunkName: "chunk-analytics" */ './analytics').then(page =>
+      page.init()
+    );
   };
   loadAnalytics();
 }

@@ -8,6 +8,7 @@ const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
 const path = require('path');
 const glob = require('glob');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 
 const pkg = require('./package.json');
 
@@ -31,6 +32,10 @@ const prodPlugins = [
   //CommonChunksPlugin will now extract all the common modules from vendor and main bundles
   new webpack.optimize.CommonsChunkPlugin({
     name: 'manifest' //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
+  }),
+
+  new InlineManifestWebpackPlugin({
+    name: 'webpackManifest'
   }),
 
   // Webpack 3 Scope Hoisting
