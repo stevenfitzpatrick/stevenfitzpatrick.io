@@ -9,7 +9,7 @@
     "test:chrome": "eslint cross-env NODE_ENV=test src/**/*.js && npm run -s test:karma -- --browsers ChromeCanaryHeadless",
     "test:karma": "karma start test/karma.config.js --single-run",
     "build": "cross-env NODE_ENV=production webpack -p --display-optimization-bailout",
-    "publish": "npm run test && npm run build && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control \"private, max-age=0\" --exclude * --include sw.js --include index.html && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control max-age=31536000 --exclude sw.js --exclude index.html"
+    "publish": "npm run test && npm run build && aws s3 rm s3://stevenfitzpatrick.io/ --recursive && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control \"private, max-age=0\" --exclude * --include sw.js --include index.html && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control max-age=31536000 --exclude sw.js --exclude index.html"
   },
   "browserslist": [
     "> 5%",
@@ -37,6 +37,7 @@
     "babel-core": "6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^6.4.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-react-jsx": "^6.23.0",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -61,7 +62,7 @@
     "eslint-plugin-import": "2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-prettier": "^2.1.2",
-    "extract-text-webpack-plugin": "^2.0.0-beta.3",
+    "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.1",
     "html-loader": "^0.4.5",
     "html-webpack-plugin": "^2.26.0",

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+  <url>
+    <loc>https://stevenfitzpatrick.io/</loc> 
+  </url>
+	<url>
+    <loc>https://stevenfitzpatrick.io/about</loc> 
+  </url>
+	<url>
+    <loc>https://stevenfitzpatrick.io/favourites</loc> 
+  </url>
+	<url>
+    <loc>https://stevenfitzpatrick.io/writing</loc> 
+  </url>
+	<url>
+    <loc>https://stevenfitzpatrick.io/blog/how-to-add-webp-images-to-your-page</loc> 
+  </url>
+	<url>
+    <loc>https://stevenfitzpatrick.io/blog/getting-100-on-the-lighthouse-audit</loc> 
+  </url>
+</urlset>

@@ -86,26 +86,23 @@ export default class Header extends Component {
 }
 
 // Header Main Logo
-const Logo = ({ image, ...props }) => (
+const Logo = ({ image, ...props }) =>
   <svg {...props} class={style.header__logo}>
     <use xlinkHref={image} />
-  </svg>
-);
+  </svg>;
 
 // Hamburger Menu for Mobile
-const Menu = ({ open, ...props }) => (
+const Menu = ({ open, ...props }) =>
   <div class={style.header__hamburger} {...props}>
     <span />
-  </div>
-);
+  </div>;
 
 // Header Navigation
-const Nav = ({ routes, current, ...props }) => (
+const Nav = ({ routes, current, ...props }) =>
   <nav {...props} class={style.header__menu} aria-label="Main Navigation">
     {routes
       .filter(route => route.type === 'page')
-      .map(({ path, title }) => (
+      .map(({ path, title }) =>
         <Link href={path} activeClassName={style.active}>{title}</Link>
-      ))}
-  </nav>
-);
+      )}
+  </nav>;

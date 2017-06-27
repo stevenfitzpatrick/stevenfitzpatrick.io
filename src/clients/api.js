@@ -4,3 +4,8 @@ export const getBookmarks = async () => {
   );
   return await body.json();
 };
+
+export const getWritings = async () => {
+  const body = await fetch('../config.json');
+  return await body.json();
+};

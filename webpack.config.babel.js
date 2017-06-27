@@ -37,8 +37,8 @@ module.exports = {
     vendor: [
       'preact',
       'preact-router',
+      'preact-async-route',
       'classnames',
-      'preact-markup',
       'preact-redux',
       'redux-saga',
       'redux',
@@ -103,7 +103,7 @@ module.exports = {
           use: [
             {
               loader: 'css-loader',
-              query: {
+              options: {
                 importLoaders: 1,
                 modules: true,
                 localIdentName: '[local]'
@@ -121,9 +121,10 @@ module.exports = {
           use: [
             {
               loader: 'css-loader',
-              query: {
+              options: {
                 importLoaders: 1,
                 modules: true,
+                minimize: true,
                 localIdentName: '[local]'
               }
             },

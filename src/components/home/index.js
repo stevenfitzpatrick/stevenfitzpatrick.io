@@ -4,7 +4,7 @@ import { bindActions } from '../../helpers';
 import { showAboutMe, hideAboutMe } from '../../redux/modules/home';
 import config from '../../config';
 import styles from './style';
-import ContactMe from './Contact';
+// import ContactMe from './Contact';
 import cx from 'classnames';
 import ContactIcon from '../../assets/svg/speech-bubble.svg';
 
@@ -46,10 +46,15 @@ class Home extends Component {
     document.title = `${config.title} | Front End Developer`;
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.otherSkills = document.querySelector('.other-skills');
     this.otherSkills.addEventListener('animationend', this.toggleAnimation);
     this.timer = setInterval(this.updateSkills, 2500);
+
+    const contactMe = await System.import(
+      /* webpackChunkName: "chunk-contactme" */ './Contact'
+    );
+    this.Contact = contactMe.default;
   }
 
   componentWillUnmount() {
@@ -59,7 +64,7 @@ class Home extends Component {
     this.otherSkills.removeEventListener('animationend', this.toggleAnimation);
   }
 
-  render = ({ showAboutMe, displayShowMe, hideAboutMe }) => (
+  render = ({ showAboutMe, displayShowMe, hideAboutMe }) =>
     <section class={styles.home}>
       <h4>Hello & Welcome !</h4>
       <h2>I’m Steven Fitzpatrick.</h2>
@@ -67,15 +72,18 @@ class Home extends Component {
         <span class="underline">I’m</span> a Front-End Developer &
         <span class="other-skills popDown">Problem Solver</span>
       </h5>
-      <button class="button--outline" onClick={showAboutMe}>
+      <button
+        class="button--outline"
+        onClick={showAboutMe}
+        aria-label="Contact Me"
+      >
         <svg>
           <use xlinkHref={ContactIcon} />
         </svg>
         <span>Contact Me</span>
       </button>
-      <ContactMe displayShowMe={displayShowMe} hideAboutMe={hideAboutMe} />
-    </section>
-  );
+      <this.Contact displayShowMe={displayShowMe} hideAboutMe={hideAboutMe} />
+    </section>;
 }
 
 export default Home;

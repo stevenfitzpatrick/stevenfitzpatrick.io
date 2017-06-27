@@ -3,6 +3,8 @@
     "react": "registry:dt/react#0.14.0+20161203201537"
   },
   "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
     "experimentalDecorators": true
   }
 }

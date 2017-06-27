@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery, takeLatest, all } from 'redux-saga/effects';
 import { getBookmarks } from '../../clients/api';
 
 const mapObjectToArray = object =>
@@ -41,7 +41,7 @@ export function* fetchBookmarks(action) {
 }
 
 function* favouriteSaga() {
-  yield takeEvery('BOOKMARKS_FETCH_REQUESTED', fetchBookmarks);
+  yield all([takeEvery('BOOKMARKS_FETCH_REQUESTED', fetchBookmarks)]);
 }
 
 export default favouriteSaga;

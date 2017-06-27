@@ -7,7 +7,7 @@ import cx from 'classnames';
 
 const ArticleTitle = styled.h5`
   font-weight: 700;
-  margin: 0;
+    margin: 0;
 `;
 
 export default class Writing extends Component {

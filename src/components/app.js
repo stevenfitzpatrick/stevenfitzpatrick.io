@@ -6,8 +6,6 @@ import Header from './header';
 import Home from './home';
 import Footer from './footer';
 import Error from './error';
-import Writing from './writing';
-import Blog from './blog';
 import style from '../styles/index';
 import config from '../config';
 import 'unfetch/polyfill';
@@ -22,15 +20,33 @@ export default class App extends Component {
     this.setState({ url: currentUrl });
   };
 
-  About = () =>
-    System.import(/* webpackChunkName: "chunk-about" */ './about').then(
-      module => module.default
+  About = async () => {
+    const module = await System.import(
+      /* webpackChunkName: "chunk-about" */ './about'
     );
+    return module.default;
+  };
 
-  Favourites = () =>
-    System.import(
+  Favourites = async () => {
+    const module = await System.import(
       /* webpackChunkName: "chunk-favourite" */ './favourites'
-    ).then(module => module.default);
+    );
+    return module.default;
+  };
+
+  Blog = async () => {
+    const module = await System.import(
+      /* webpackChunkName: "chunk-blog" */ './blog'
+    );
+    return module.default;
+  };
+
+  Writing = async () => {
+    const module = await System.import(
+      /* webpackChunkName: "chunk-writing" */ './writing'
+    );
+    return module.default;
+  };
 
   getNavRoutes(nav) {
     return nav.reduce((routes, route) => {
@@ -46,7 +62,7 @@ export default class App extends Component {
   buildRoute(route) {
     // Create Friendly URL for Blog
     route.path = slugifyPath(route.blogTitle, '/blog/');
-    return <Blog path={route.path} route={route} />;
+    return <AsyncRoute path={route.path} route={route} component={this.Blog} />;
   }
 
   render({}, state) {
@@ -59,7 +75,12 @@ export default class App extends Component {
             <Home path="/" />
             <AsyncRoute path="/about" component={this.About} />
             <AsyncRoute path="/favourites" component={this.Favourites} />
-            <Writing path="/writing" blogs={blogRoutes} />
+            <AsyncRoute path="/favourites" component={this.Favourites} />
+            <AsyncRoute
+              path="/writing"
+              blogs={blogRoutes}
+              component={this.Writing}
+            />
             {this.getNavRoutes(blogRoutes)}
             <Error type="404" default />
           </Router>

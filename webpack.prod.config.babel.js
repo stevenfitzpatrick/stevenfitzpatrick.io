@@ -15,6 +15,7 @@ const prodPlugins = [
   // Move Files
   new CopyWebpackPlugin([
     { from: 'src/manifest.json' },
+    { from: 'src/sitemap.xml' },
     { from: 'content', to: 'content' },
     {
       from: 'src/assets',
@@ -38,8 +39,8 @@ const prodPlugins = [
   // new StyleExtHtmlWebpackPlugin(),
   // Add Async Tags
   new ScriptExtHtmlWebpackPlugin({
-    defaultAttribute: 'sync',
-    async: ['app']
+    defaultAttribute: 'defer'
+    //async: ['app']
   }),
   // Specific Options for Loading
   new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
@@ -59,7 +60,8 @@ const prodPlugins = [
       dead_code: true,
       evaluate: true,
       if_return: true,
-      join_vars: true
+      join_vars: true,
+      drop_console: true
     },
     comments: false,
     output: { comments: false },

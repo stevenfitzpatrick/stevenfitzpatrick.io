@@ -7,8 +7,8 @@ export default function FilterList({ tags, toggleFilter, filters }) {
     <div class={style.filters}>
 
       {tags &&
-        Object.keys(tags).map(tag => (
-          <button
+        Object.keys(tags).map(tag =>
+          (<button
             name={tag}
             class={cx('button--filter', filters === tag && 'filter--active')}
             onClick={toggleFilter}
@@ -16,8 +16,8 @@ export default function FilterList({ tags, toggleFilter, filters }) {
             <span class={style.button__text}> {tag} </span>
             {' '}
             <span class={style.button__count}> {tags[tag].count} </span>
-          </button>
-        ))}
+          </button>)
+        )}
     </div>
   );
 }

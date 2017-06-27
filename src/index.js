@@ -1,6 +1,6 @@
 import { h, render } from 'preact';
 import { Provider } from 'preact-redux';
-import App from './components/App';
+import App from './components/app';
 import store from './redux/store';
 import style from './styles';
 
@@ -31,7 +31,9 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   navigator.serviceWorker.register('/sw.js');
 
   const loadAnalytics = () => {
-    import('./analytics').then(page => page.init());
+    System.import(
+      /* webpackChunkName: "chunk-analytics" */ './analytics'
+    ).then(page => page.init());
   };
   loadAnalytics();
 }

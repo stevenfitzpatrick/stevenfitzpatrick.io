@@ -119,7 +119,8 @@ button {
 }
 
 .button--outline:hover {
-  background-color: darken($header, 10%);
+  background-color: darken($header, 5%);
+  transform: translateY(-1px);
 }
 
 @media (min-width: $desktop) {

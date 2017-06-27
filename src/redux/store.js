@@ -2,7 +2,9 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { bookmarksReducer as bookmarks } from './reducers';
 import home from './modules/home';
-import favouriteSaga from '../components/favourites/sagas';
+import writings from './modules/writings';
+
+import Sagas from './sagas';
 
 const INITIAL = {
   bookmarks: {
@@ -12,6 +14,9 @@ const INITIAL = {
   },
   home: {
     displayShowMe: false
+  },
+  writings: {
+    list: []
   }
 };
 
@@ -27,10 +32,9 @@ const composedMiddleware = process.env.NODE_ENV === 'development'
     )
   : applyMiddleware(sagaMiddleware);
 
-const store = combineReducers({ bookmarks, home });
+const store = combineReducers({ bookmarks, home, writings });
 
 export default createStore(store, INITIAL, composedMiddleware);
 /* eslint-enable */
-
 // Run Saga Middlware
-sagaMiddleware.run(favouriteSaga);
+sagaMiddleware.run(Sagas);
