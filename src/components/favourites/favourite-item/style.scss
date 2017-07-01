@@ -39,11 +39,12 @@
         }
       }
     }
+  }
 
-    .favourite__description {
-      line-height: 1.333;
-      margin: 0.752em 0;
-    }
+  .favourite__description {
+    line-height: 1.333;
+    margin: 0.752em 0;
+    word-break: break-word;
   }
 
   & div {

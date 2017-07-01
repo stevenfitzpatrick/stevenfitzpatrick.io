@@ -77,7 +77,7 @@ module.exports = {
   },
   target: 'web',
   // eval for dev, source-map for production
-  devtool: !isProd && 'source-map',
+  devtool: 'source-map',
   // Transform Rules
   module: {
     rules: [

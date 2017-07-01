@@ -60,24 +60,34 @@ export default class App extends Component {
   buildRoute(route) {
     // Create Friendly URL for Blog
     route.path = slugifyPath(route.blogTitle, '/blog/');
-    return <AsyncRoute path={route.path} route={route} component={this.Blog} />;
+    return (
+      <AsyncRoute path={route.path} route={route} getComponent={this.Blog} />
+    );
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.url === '' && nextState.url === '/') {
+      return false;
+    }
+    return true;
   }
 
   render({}, state) {
     const blogRoutes = config.nav.filter(route => route.type === 'list');
+    const isHome = (state.url === '' || state.url === '/') && 'home';
     return (
       <div class={style.app}>
         <Header {...state} />
-        <main class={state.url === '/' && 'home'}>
+        <main class={isHome}>
           <Router onChange={this.handleRoute}>
             <Home path="/" />
-            <AsyncRoute path="/about" component={this.About} />
-            <AsyncRoute path="/favourites" component={this.Favourites} />
-            <AsyncRoute path="/favourites" component={this.Favourites} />
+            <AsyncRoute path="/about" getComponent={this.About} />
+            <AsyncRoute path="/favourites" getComponent={this.Favourites} />
+            <AsyncRoute path="/favourites" getComponent={this.Favourites} />
             <AsyncRoute
               path="/writing"
               blogs={blogRoutes}
-              component={this.Writing}
+              getComponent={this.Writing}
             />
             {this.getNavRoutes(blogRoutes)}
             <Error type="404" default />

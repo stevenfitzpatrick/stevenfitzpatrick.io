@@ -70,7 +70,7 @@ const prodPlugins = [
     },
     comments: false,
     output: { comments: false },
-    sourceMap: false,
+    sourceMap: true,
     minimize: true
   }),
   // Clean up dist folder after each build

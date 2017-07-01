@@ -56,7 +56,7 @@ button {
   right: $line-height-base;
   transform: scale(0, 0);
   pointer-events: none;
-  transition: all 0.3 ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .button--display {

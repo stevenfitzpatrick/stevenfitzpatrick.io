@@ -1,7 +1,16 @@
 language: node_js
 sudo: false
+dist: trusty # needs Ubuntu Trusty
 node_js:
 - '7'
+addons:
+  chrome: stable # have Travis install chrome stable.
+cache:
+  yarn: true
+  directories:
+    - node_modules
+script:
+  - yarn test
 # deploy:
 #   provider: script
 #   skip_cleanup: true
