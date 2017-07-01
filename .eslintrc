@@ -1,9 +1,5 @@
 {
-  "plugins": [
-    // "jsx-a11y",
-    "react",
-    "prettier"
-  ],
+  "plugins": ["react", "prettier"],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
@@ -19,7 +15,6 @@
   },
   "extends": [
     "eslint:recommended",
-    // "plugin:jsx-a11y/recommended",
     "eslint-config-synacor",
     "prettier",
     "prettier/react"
@@ -38,10 +33,7 @@
     "prefer-spread": 2,
     "no-useless-concat": 2,
     "no-var": 2,
-    "max-nested-callbacks": [
-      2,
-      3
-    ],
+    "max-nested-callbacks": [2, 3],
     "no-eval": 2,
     "no-implied-eval": 2,
     "no-new-func": 2,

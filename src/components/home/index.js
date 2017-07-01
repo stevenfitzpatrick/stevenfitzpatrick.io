@@ -40,6 +40,7 @@ class Home extends Component {
     super();
     this.otherSkills = null;
     this.index = 1;
+    this.Contact = null;
   }
 
   componentWillMount() {
@@ -87,7 +88,11 @@ class Home extends Component {
         </svg>
         <span>Contact Me</span>
       </button>
-      <this.Contact displayShowMe={displayShowMe} hideAboutMe={hideAboutMe} />
+      {this.Contact &&
+        <this.Contact
+          displayShowMe={displayShowMe}
+          hideAboutMe={hideAboutMe}
+        />}
     </section>;
 }
 

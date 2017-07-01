@@ -1,44 +1,51 @@
 {
-    "title": "Steven Fitzpatrick",
-    "nav": [
+  "title": "Steven Fitzpatrick",
+  "nav": [
+    {
+      "path": "/about",
+      "name": "about",
+      "title": "About Me",
+      "type": "page"
+    },
+    {
+      "path": "/favourites",
+      "name": "Bookmarks",
+      "title": "Bookmarks",
+      "type": "page"
+    },
+    {
+      "path": "/writing",
+      "name": "writing",
+      "title": "Writing",
+      "type": "page"
+    },
+    {
+      "name": "blog",
+      "title": "Blog",
+      "type": "list",
+      "routes": [
         {
-            "path": "/about",
-            "name": "about",
-            "title": "About Me",
-            "type": "page"
+          "blogTitle": "Code splitting with Preact JS",
+          "date": "July 1st, 2017",
+          "duration": "5 min read",
+          "image": "/assets/blogs/lighthouse.PNG",
+          "intro": "Introduction into code splitting with Preact. Includes route based code splitting and on-demand code splitting."
         },
         {
-            "path": "/favourites",
-            "name": "Bookmarks",
-            "title": "Bookmarks",
-            "type": "page"
+          "blogTitle": "How to add WebP images to your page",
+          "date": "March 30th, 2017",
+          "duration": "5 min read",
+          "image": "/assets/blogs/lighthouse.PNG",
+          "intro": "In this post I want to show you two different strategies for adding Googles new image format WebP, and the legacy browser issues to be considered in your implementation."
         },
         {
-            "path": "/writing",
-            "name": "writing",
-            "title": "Writing",
-            "type": "page"
-        },
-        {
-            "name": "blog",
-            "title": "Blog",
-            "type": "list",
-            "routes": [
-                {
-                    "blogTitle": "How to add WebP images to your page",
-                    "date": "March 30th, 2017",
-                    "duration": "5 min read",
-                    "image": "/assets/blogs/lighthouse.PNG",
-                    "intro": "In this post I want to show you two different strategies for adding Googles new image format WebP, and the legacy browser issues to be considered in your implementation."
-                },
-                {
-                    "blogTitle": "Getting 100 on the Lighthouse Audit",
-                    "date": "March 26th, 2017",
-                    "duration": "8 min read",
-                    "image": "/assets/blogs/lighthouse.PNG",
-                    "intro": "I will share how to get the full 100/100 Lighthouse score for your web app. The example will be this website itself, and I will walk you through the best to get there."
-                }
-            ]
+          "blogTitle": "Getting 100 on the Lighthouse Audit",
+          "date": "March 26th, 2017",
+          "duration": "8 min read",
+          "image": "/assets/blogs/lighthouse.PNG",
+          "intro": "I will share how to get the full 100/100 Lighthouse score for your web app. The example will be this website itself, and I will walk you through the best to get there."
         }
-    ]
+      ]
+    }
+  ]
 }

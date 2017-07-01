@@ -7,7 +7,11 @@ import highlightCSS from 'highlight.js/styles/ocean.css';
 import '../styles/highlight';
 import cx from 'classnames';
 
-const LANGUAGES = { javascript, xml, css };
+const LANGUAGES = {
+  javascript,
+  xml,
+  css
+};
 Object.keys(LANGUAGES).forEach(key =>
   hljs.registerLanguage(key, LANGUAGES[key])
 );

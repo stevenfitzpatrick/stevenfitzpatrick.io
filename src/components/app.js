@@ -83,7 +83,6 @@ export default class App extends Component {
             <Home path="/" />
             <AsyncRoute path="/about" getComponent={this.About} />
             <AsyncRoute path="/favourites" getComponent={this.Favourites} />
-            <AsyncRoute path="/favourites" getComponent={this.Favourites} />
             <AsyncRoute
               path="/writing"
               blogs={blogRoutes}

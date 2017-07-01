@@ -24,13 +24,14 @@ const INITIAL = {
 const sagaMiddleware = createSagaMiddleware();
 
 /* eslint-disable no-underscore-dangle */
-const composedMiddleware = process.env.NODE_ENV === 'development'
-  ? compose(
+const composedMiddleware =
+  process.env.NODE_ENV === 'development'
+    ? compose(
       applyMiddleware(sagaMiddleware),
       window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__()
+          window.__REDUX_DEVTOOLS_EXTENSION__()
     )
-  : applyMiddleware(sagaMiddleware);
+    : applyMiddleware(sagaMiddleware);
 
 const store = combineReducers({ bookmarks, home, writings });
 
