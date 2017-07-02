@@ -4,7 +4,7 @@ import { bindActions } from '../../helpers';
 import { showAboutMe, hideAboutMe } from '../../redux/modules/home';
 import config from '../../config';
 import styles from './style';
-// import ContactMe from './Contact';
+import MetaHOC from '../HOC/MetaHOC';
 import cx from 'classnames';
 import ContactIcon from '../../assets/svg/speech-bubble.svg';
 
@@ -23,6 +23,7 @@ const mapStateToProps = state => ({
   displayShowMe: state.home.displayShowMe
 });
 
+@MetaHOC
 @connect(mapStateToProps, bindActions({ showAboutMe, hideAboutMe }))
 class Home extends Component {
   updateSkills = () => {
@@ -41,10 +42,6 @@ class Home extends Component {
     this.otherSkills = null;
     this.index = 1;
     this.Contact = null;
-  }
-
-  componentWillMount() {
-    document.title = `${config.title} | Front End Developer`;
   }
 
   async componentDidMount() {

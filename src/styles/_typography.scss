@@ -169,7 +169,7 @@ cite {
   h4,
   h5,
   a:not(.link--content):not(.link) {
-    transition: opacity 0.2s ease-in;
+    transition: background-color 0.2s ease-in, opacity 0.2s ease-in;
     opacity: 1;
   }
 }

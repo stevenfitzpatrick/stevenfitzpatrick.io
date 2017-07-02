@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import Markup from 'preact-markup';
+import MetaHOC from '../HOC/MetaHOC';
 import { slugifyPath } from '../../helpers';
 import Disqus from '../disqus';
 import styles from './style';
@@ -8,11 +9,8 @@ import Highlight from '../highlight';
 import Share from '../share';
 import BackToTop from '../backToTop';
 
+@MetaHOC
 export default class Blog extends Component {
-  setTitle(title) {
-    document.title = `${title} | Steven Fitzpatrick`;
-  }
-
   async fetchContent(title) {
     const path = `${slugifyPath(title, '/content/')}.html`;
     const content = await this.getBlogByName(path);
@@ -26,8 +24,8 @@ export default class Blog extends Component {
   }
 
   componentDidMount() {
-    const { props } = this, { blogTitle } = props.route;
-    this.setTitle(blogTitle);
+    const { props } = this,
+      { blogTitle } = props.route;
     this.fetchContent(blogTitle);
   }
 
@@ -38,7 +36,9 @@ export default class Blog extends Component {
           <section>
             <article>
               <BlogMeta date={route.date} />
-              <h2>{route.blogTitle}</h2>
+              <h2>
+                {route.blogTitle}
+              </h2>
               <Markup
                 markup={content}
                 type="html"

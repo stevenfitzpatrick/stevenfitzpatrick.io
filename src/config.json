@@ -1,11 +1,13 @@
 {
-  "title": "Steven Fitzpatrick",
+  "title": "Steven Fitzpatrick | Front-End Developer | Dublin",
+  "description": "Hi, I’m Steven Fitzpatrick, a Front-End Developer based in Dublin, Ireland.",
   "nav": [
     {
       "path": "/about",
       "name": "about",
       "title": "About Me",
-      "type": "page"
+      "type": "page",
+      "description": "Learn a bit more about me !"
     },
     {
       "path": "/favourites",

@@ -9,6 +9,7 @@ import BackToTop from '../backToTop';
 import FavouriteItem from './favourite-item';
 import FilterList from './FilterList';
 import FavouritesList from './FavouritesList';
+import MetaHOC from '../HOC/MetaHOC';
 
 const mapStateToProps = state => ({
   bookmarks: state.bookmarks.filter
@@ -22,6 +23,7 @@ const mapStateToProps = state => ({
 
 let timeOut;
 
+@MetaHOC
 @connect(mapStateToProps, bindActions(actions))
 export default class Favourites extends Component {
   getFavourites() {
@@ -37,21 +39,6 @@ export default class Favourites extends Component {
       this.props.addFilter(tag);
     }
   };
-
-  backToTop = e => {
-    if (
-      document.body.scrollTop !== 0 ||
-      document.documentElement.scrollTop !== 0
-    ) {
-      window.scrollBy(0, -100);
-      timeOut = setTimeout(this.backToTop, 10);
-    } else clearTimeout(timeOut);
-  };
-
-  componentWillMount() {
-    // Set Page Title
-    document.title = `Favourites | ${config.title}`;
-  }
 
   componentDidMount() {
     if (this.props.bookmarks && this.props.bookmarks.length) return;

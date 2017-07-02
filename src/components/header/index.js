@@ -66,6 +66,14 @@ export default class Header extends Component {
     }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.url !== nextProps.url && nextState.open) {
+      return false;
+    }
+
+    return true;
+  }
+
   componentDidUpdate(props, state) {
     if (this.state.open) {
       this.base.addEventListener('click', this.hideMenu, { once: true });
@@ -100,9 +108,9 @@ const Menu = ({ open, ...props }) =>
 // Header Navigation
 const Nav = ({ routes, current, ...props }) =>
   <nav {...props} class={style.header__menu} aria-label="Main Navigation">
-    {routes
-      .filter(route => route.type === 'page')
-      .map(({ path, title }) =>
-        <Link href={path} activeClassName={style.active}>{title}</Link>
-      )}
+    {routes.filter(route => route.type === 'page').map(({ path, title }) =>
+      <Link href={path} activeClassName={style.active}>
+        {title}
+      </Link>
+    )}
   </nav>;

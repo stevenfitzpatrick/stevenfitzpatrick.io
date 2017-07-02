@@ -5,7 +5,6 @@ import { slugifyPath } from '../helpers';
 import Header from './header';
 import Home from './home';
 import Footer from './footer';
-import Error from './error';
 import style from '../styles/index';
 import config from '../config';
 import 'unfetch/polyfill';
@@ -16,7 +15,9 @@ export default class App extends Component {
   };
 
   handleRoute = e => {
-    const currentUrl = e.url;
+    const currentUrl = e.current.attributes.type
+      ? e.current.attributes.type
+      : e.url;
     this.setState({ url: currentUrl });
   };
 
@@ -46,6 +47,11 @@ export default class App extends Component {
     return module.default;
   };
 
+  Error = async () => {
+    const module = await import(/* webpackChunkName: "chunk-404" */ './error');
+    return module.default;
+  };
+
   getNavRoutes(nav) {
     return nav.reduce((routes, route) => {
       if (route.blogTitle) {
@@ -61,7 +67,13 @@ export default class App extends Component {
     // Create Friendly URL for Blog
     route.path = slugifyPath(route.blogTitle, '/blog/');
     return (
-      <AsyncRoute path={route.path} route={route} getComponent={this.Blog} />
+      <AsyncRoute
+        path={route.path}
+        route={route}
+        getComponent={this.Blog}
+        title={route.blogTitle}
+        description={route.blogTitle}
+      />
     );
   }
 
@@ -72,24 +84,43 @@ export default class App extends Component {
     return true;
   }
 
-  render({}, state) {
+  render(props, state) {
     const blogRoutes = config.nav.filter(route => route.type === 'list');
-    const isHome = (state.url === '' || state.url === '/') && 'home';
+    const isHome =
+      (state.url === '' || state.url === '/' || state.url === '404') && 'home';
     return (
       <div class={style.app}>
         <Header {...state} />
         <main class={isHome}>
           <Router onChange={this.handleRoute}>
             <Home path="/" />
-            <AsyncRoute path="/about" getComponent={this.About} />
-            <AsyncRoute path="/favourites" getComponent={this.Favourites} />
+            <AsyncRoute
+              path="/about"
+              getComponent={this.About}
+              title="About Me"
+              description="Learn a bit more about me !"
+            />
+            <AsyncRoute
+              path="/favourites"
+              getComponent={this.Favourites}
+              title="Bookmarks"
+              description="Checkout my favourite bookmark links regarding React, Javascript, CSS, PWA and more !"
+            />
             <AsyncRoute
               path="/writing"
               blogs={blogRoutes}
               getComponent={this.Writing}
+              title="Writing"
+              description="Checkout my list of blogs regarding front-end development and web performance !"
             />
             {this.getNavRoutes(blogRoutes)}
-            <Error type="404" default />
+            <AsyncRoute
+              path="/404"
+              type="404"
+              default
+              title="404"
+              getComponent={this.Error}
+            />
           </Router>
         </main>
         <Footer />

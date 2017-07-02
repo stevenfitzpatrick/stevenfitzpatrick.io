@@ -37,3 +37,15 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   };
   loadAnalytics();
 }
+
+// Add Check for Offline
+
+window.addEventListener('offline', event => {
+  document.body.classList.add('offline');
+  console.log('I am offline');
+});
+
+window.addEventListener('online', event => {
+  document.body.classList.remove('offline');
+  console.log('I am online');
+});
