@@ -284,10 +284,12 @@
 
 @keyframes comeUp {
   from {
-    transform: translateY(-150%);
+    transform: translateY(5%);
+    opacity: 0;
   }
 
   to {
     transform: translateY(0);
+    opacity: 1;
   }
 }

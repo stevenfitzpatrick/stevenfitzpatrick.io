@@ -5,6 +5,7 @@ import { slugifyPath } from '../helpers';
 import Header from './header';
 import Home from './home';
 import Footer from './footer';
+import cx from 'classnames';
 import style from '../styles/index';
 import config from '../config';
 import 'unfetch/polyfill';
@@ -88,10 +89,11 @@ export default class App extends Component {
     const blogRoutes = config.nav.filter(route => route.type === 'list');
     const isHome =
       (state.url === '' || state.url === '/' || state.url === '404') && 'home';
+    const isError = state.url === '404' && 'flex-align-center';
     return (
       <div class={style.app}>
         <Header {...state} />
-        <main class={isHome}>
+        <main class={cx(isHome, isError)}>
           <Router onChange={this.handleRoute}>
             <Home path="/" />
             <AsyncRoute

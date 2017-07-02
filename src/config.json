@@ -27,13 +27,6 @@
       "type": "list",
       "routes": [
         {
-          "blogTitle": "Code splitting with Preact JS",
-          "date": "July 1st, 2017",
-          "duration": "5 min read",
-          "image": "/assets/blogs/lighthouse.PNG",
-          "intro": "Introduction into code splitting with Preact. Includes route based code splitting and on-demand code splitting."
-        },
-        {
           "blogTitle": "How to add WebP images to your page",
           "date": "March 30th, 2017",
           "duration": "5 min read",
