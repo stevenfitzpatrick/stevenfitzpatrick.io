@@ -7,6 +7,7 @@ import cx from 'classnames';
 import LogoImage from '../../assets/svg/Header.svg';
 
 const expandedHeaderClass = 'header--expanded';
+let rafTimer;
 export default class Header extends Component {
   state = { open: false };
 
@@ -37,17 +38,18 @@ export default class Header extends Component {
    *  Toggle Display Fixed depending if the user has scrolled.
    */
   toggleFixedNav = () => {
-    if (window.scrollY > 0) {
-      requestAnimationFrame(() => {
+    cancelAnimationFrame(rafTimer);
+    rafTimer = requestAnimationFrame(() => {
+      const isSticky = document.body.classList.contains('js-fixed-nav');
+      if (window.scrollY > 0) {
+        if (isSticky) return;
         this.main.style.paddingTop = `${this.header}px`;
         document.body.classList.add('js-fixed-nav');
-      });
-    } else {
-      requestAnimationFrame(() => {
+      } else {
         this.main.style.paddingTop = 0;
         document.body.classList.remove('js-fixed-nav');
-      });
-    }
+      }
+    });
   };
 
   loadHome = () => route('/');
