@@ -41,7 +41,9 @@ const prodPlugins = [
   // Webpack 3 Scope Hoisting
   new webpack.optimize.ModuleConcatenationPlugin(),
   // Inline CSS
-  // new StyleExtHtmlWebpackPlugin(),
+  new StyleExtHtmlWebpackPlugin({
+    minify: true
+  }),
   // Add Async Tags
   new ScriptExtHtmlWebpackPlugin({
     defaultAttribute: 'defer'

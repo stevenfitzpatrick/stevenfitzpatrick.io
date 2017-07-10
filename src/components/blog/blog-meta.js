@@ -2,7 +2,7 @@ import { h } from 'preact';
 import ProfilePictureJpg from '../../assets/profile.jpg';
 import ProfilePictureWebp from '../../assets/profile.webp';
 
-export default ({ date }) => (
+export default ({ date }) =>
   <div class="blog__meta">
     <figure>
       <picture>
@@ -15,8 +15,9 @@ export default ({ date }) => (
       </picture>
     </figure>
     <div>
-      <time>{date}</time>
+      <time>
+        {date}
+      </time>
       <address class="author">By: Steven Fitzpatrick</address>
     </div>
-  </div>
-);
+  </div>;

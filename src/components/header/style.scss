@@ -5,15 +5,8 @@
  * 1) Mobile, Hamburger menu is shown with a sliding down menu
  * 2) Desktop all Menu links items are shown.
 */
-
-:global(.js-fixed-nav) {
-  .header {
-    position: fixed;
-  }
-}
-
 .header {
-  position: relative;
+  position: fixed;
   top: 0;
   z-index: 1;
   width: 100%;

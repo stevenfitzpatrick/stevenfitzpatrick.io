@@ -55,10 +55,10 @@
     "eslint-plugin-import": "2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-prettier": "^2.1.2",
-    "extract-text-webpack-plugin": "^2.1.2",
+    "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.1",
     "html-loader": "^0.4.5",
-    "html-webpack-plugin": "^2.26.0",
+    "html-webpack-plugin": "^2.29.0",
     "image-webpack-loader": "^3.2.0",
     "inline-manifest-webpack-plugin": "^3.0.1",
     "karma": "^1.7.0",
@@ -92,7 +92,7 @@
     "stylelint-config-standard": "^16.0.0",
     "stylelint-webpack-plugin": "^0.7.0",
     "svg-sprite-loader": "^0.3.0",
-    "sw-precache-webpack-plugin": "^0.9.0",
+    "sw-precache-webpack-plugin": "^0.11.4",
     "url-loader": "^0.5.7",
     "webpack": "3.1.0",
     "webpack-bundle-analyzer": "^2.8.2",
@@ -101,7 +101,6 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "highlight.js": "^9.12.0",
-    "moment": "^2.18.1",
     "preact": "^8.1.0",
     "preact-async-route": "^2.0.0",
     "preact-compat": "^3.16.0",
@@ -109,7 +108,8 @@
     "preact-router": "^2.5.2",
     "promise-polyfill": "^6.0.2",
     "redux-saga": "^0.15.3",
+    "share-this": "^1.2.0",
     "styled-components": "^2.1.1",
-    "unfetch": "^2.1.2"
+    "unfetch": "^3.0.0"
   }
 }

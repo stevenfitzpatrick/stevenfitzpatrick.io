@@ -77,7 +77,7 @@ module.exports = {
   },
   target: 'web',
   // eval for dev, source-map for production
-  devtool: 'source-map',
+  devtool: isProd ? '' : 'source-map',
   // Transform Rules
   module: {
     rules: [
@@ -98,20 +98,17 @@ module.exports = {
       // Chained CSS Loader
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 1,
-                modules: true,
-                localIdentName: '[local]'
-              }
-            },
-            'postcss-loader'
-          ]
-        })
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: false
+            }
+          },
+          'postcss-loader'
+        ]
       },
       // Chained SASS Loader
       {
