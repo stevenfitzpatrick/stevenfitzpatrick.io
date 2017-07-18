@@ -194,6 +194,10 @@
       &.active {
         background-color: darken($header, 12%);
         color: #fff;
+
+        &::before {
+          transform: scale(0.5, 1);
+        }
       }
     }
   }

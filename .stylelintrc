@@ -6,6 +6,7 @@
     "selector-type-no-unknown": null,
     "no-missing-end-of-source-newline": null,
     "block-no-empty": null,
+    "at-rule-no-unknown": null,
     "color-no-invalid-hex": true,
     "selector-pseudo-class-no-unknown": [
       true,

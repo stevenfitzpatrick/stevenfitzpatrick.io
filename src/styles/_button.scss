@@ -74,7 +74,7 @@ button {
 }
 
 .button--filter:hover {
-  transform: scale(1.05);
+  transform: perspective(1px) scale(1.025);
   background-color: $header;
 }
 

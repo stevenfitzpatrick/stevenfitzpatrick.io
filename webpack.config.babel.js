@@ -91,9 +91,11 @@ module.exports = {
       // JS Loader
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        options: { compact: true }
+        use: {
+          loader: 'babel-loader',
+          options: { compact: true }
+        },
+        exclude: /node_modules/
       },
       // Chained CSS Loader
       {
@@ -133,10 +135,12 @@ module.exports = {
       // SVG Images
       {
         test: /\.svg$/,
-        loader: 'svg-sprite-loader',
-        options: {
-          name: '[name]_[hash]',
-          prefixize: true
+        use: {
+          loader: 'svg-sprite-loader',
+          options: {
+            name: '[name]_[hash]',
+            prefixize: true
+          }
         }
       },
       // Load other Image Types
