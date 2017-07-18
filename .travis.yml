@@ -3,7 +3,6 @@ sudo: false
 dist: trusty # needs Ubuntu Trusty
 node_js:
 - '7'
-- '8'
 addons:
   chrome: stable # have Travis install chrome stable.
 cache:
