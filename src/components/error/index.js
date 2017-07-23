@@ -1,6 +1,18 @@
 import { h } from 'preact';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ErrorSVG from '../../assets/svg/404.svg';
+
+const comeUpAnimation = keyframes`
+  from {
+    transform: translateY(5%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
 
 const ErrorContainer = styled.div`
   position: relative;
@@ -10,7 +22,7 @@ const ErrorContainer = styled.div`
   display: flex;
   flex: 1;
   z-index: 9999;
-  animation: comeUp 1.2s ease-in;
+  animation: ${comeUpAnimation} 1.2s ease-in-out;
   overflow: hidden;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;

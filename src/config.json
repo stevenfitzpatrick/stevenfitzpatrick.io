@@ -27,15 +27,22 @@
       "type": "list",
       "routes": [
         {
+          "blogTitle": "Code Splitting with Preact",
+          "date": "July 22, 2017",
+          "duration": "5 min read",
+          "image": "/assets/blogs/lighthouse.PNG",
+          "intro": "Introduction into my code splitting set-up with Webpack and Preact. Includes route, component and event driven on-demand components based code splitting."
+        },
+        {
           "blogTitle": "How to add WebP images to your page",
-          "date": "March 30th, 2017",
+          "date": "March 30, 2017",
           "duration": "5 min read",
           "image": "/assets/blogs/lighthouse.PNG",
           "intro": "In this post I want to show you two different strategies for adding Googles new image format WebP, and the legacy browser issues to be considered in your implementation."
         },
         {
           "blogTitle": "Getting 100 on the Lighthouse Audit",
-          "date": "March 26th, 2017",
+          "date": "March 26, 2017",
           "duration": "8 min read",
           "image": "/assets/blogs/lighthouse.PNG",
           "intro": "I will share how to get the full 100/100 Lighthouse score for your web app. The example will be this website itself, and I will walk you through the best to get there."

@@ -3,6 +3,17 @@
 
 @media (min-width: $desktop) {
   /**
+  * Font Styles
+  */
+
+  @media (min-width: $desktop) {
+    p,
+    ul {
+      font-size: 18px;
+    }
+  }
+
+  /**
   * Time Style
   */
   time {

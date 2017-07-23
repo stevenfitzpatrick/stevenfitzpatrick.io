@@ -1,0 +1,167 @@
+<p>
+	One of the main performance gains you can make these days is by controlling the amount of javascript you ship to your users.
+	The idea is to stay away from shipping your entire javascript codebase into one single large bundle, which the user has
+	re-download entirely on any code change. Plus the fact that the user is downloading javascript which may not even required
+	by the page in question and may not ever be required, hurting down their initial page download and ultimately the user experience.
+</p>
+
+<p>
+	To help your users out, I will show a few techniques using <a target="_blank" rel="noopener noreferrer" class="link--content"
+	 href="https://webpack.js.org">Webpack</a> and <a target="_blank" rel="noopener noreferrer" class="link--content" href="https://preactjs.com/">Preact</a>	to use code splitting to minimize the javascript the user is forced to download and dynamically load further required bundles
+	when needed. Code splitting can be used to load many javascript bundles (i.e. your app and vendor bundle) in parallel or
+	on demand.
+</p>
+
+<p>
+	In this article I will mainly focus on the on demand bundles, since there is a lot of documentation out there already how
+	to just create static separate entry bundles in Webpack. Don&rsquo;t worry a lot of this sounds a lot scarier than it really
+	is, webpack runtime does most out of this magic out of the box. All you have to do is define your split points.
+</p>
+
+<h5>On Demand code splitting set up</h5>
+
+<ul>
+	<li><a target="_blank" rel="noopener noreferrer" class="link--content" href="https://webpack.js.org">Webpack</a> is the main
+		requirement, and I am using version 3.3.0.</li>
+	<li><a target="_blank" rel="noopener noreferrer" class="link--content" href="https://babeljs.io/">Babel ES2015</a> set up to
+		support <code>import()</code> to dynamically load ES6 modules, your project will also need a polyfill for <code>Promise()</code>.</li>
+	<li><a target="_blank" rel="noopener noreferrer" class="link--content" href="https://github.com/prateekbh/preact-async-route">Preact Async Router</a>		is used for route based code splitting.</li>
+</ul>
+
+<h5>Import</h5>
+
+<p>The key functionality to all of the module loading methods below stems from the module loader API method <code>import()</code>,
+	which is not part of the ES6 standard but a sort of extension of it called "Javascript Loader Standard" currently being
+	drafted. This method will allows us to dynamically load ES6 modules via the module loader api based on ES6 <code>Promises</code>.
+
+	<h5>Route based code splitting</h5>
+
+	<p>Using Preact Async Router we can define our main page routes and define what component to lazy-load when that route is requested.
+		All you need to do is pass a function to the <code>AsyncRoute</code> getComponent prop which will return load your lazy-loaded
+		requested component.
+	</p>
+
+	<div class="breakout">
+		<div class="breakout-wrapper">
+			<Highlight type="xml" code="<Router>
+  <Home path='/' />
+  <AsyncRoute path=''/about'' getComponent={this.About} />
+  <AsyncRoute path=''/favourites'' getComponent={this.Favourites} />
+  <AsyncRoute path=''/writing'' getComponent={this.Writing}         />
+</Router>"></Highlight>
+		</div>
+	</div>
+
+	<p>The difference here is subtle, normally you would just import the component on the top of the page and pass as a prop to
+		the route but this would mean that component would get included into one of your main static bundles.</p>
+
+	<p>Now we are saying I would you to create a separate bundle for this component, and only ever load this bundle if the user
+		actually visits this route. Please note the comment within
+		<code>import()</code>, this is a special webpack feature to give your javascript chunks a nicer name.</p>
+
+	<div class="breakout">
+		<div class="breakout-wrapper">
+			<Highlight type="javascript" code="/* No longer doing this... */
+import Favourites from './favourites';
+
+/* But now using ES6 Import to create a new split point */
+Favourites = async () => {
+  const module = await import(
+     /* webpackChunkName: ''chunk-favourite'' */ './favourites'
+  );
+  return module.default;
+};">
+			</Highlight>
+		</div>
+	</div>
+
+	<p><strong>Note: </strong> When the promise returning from <code>import()</code> resolves, you need to return the <code>.default</code>		since that will actually contain the module you want to load. </p>
+
+	<h5>Component based code splitting</h5>
+
+	<p>You might also run into a situation, where you want to lazy-load some logic but not based on routes but rather event driven.
+		One common example in the Preact or React world might be based on a component lifecycle event i.e. <code>ComponentDidMount</code>.</p>
+
+
+	<div class="breakout">
+		<div class="breakout-wrapper">
+			<Highlight type="javascript" code="async componentDidMount() {
+  const contactMe = await import(
+    /* webpackChunkName: ''chunk-contactme'' */ './Contact'
+  );
+  this.Contact = contactMe.default;
+}
+
+render() {
+  ...
+  // The && check is added here to prevent <undefined></undefined> being outputted.
+  { this.Contact && <this.Contact displayShowMe={displayShowMe} /> }
+  ...
+}">
+			</Highlight>
+		</div>
+	</div>
+
+	<p>Another example might be based on a user event like clicking a button, this works similar to the above example but we just
+		use <code>componentWillReceiveProps</code> lifecycle event.</p>
+
+	<div class="breakout">
+		<div class="breakout-wrapper">
+			<Highlight type="javascript" code="async componentWillReceiveProps(nextProps) {
+  if (nextProps.displayShowMe && !this.Contact) {
+    const contactMe = await import(
+      /* webpackChunkName: ''chunk-contactme'' */ './Contact'
+    );
+    this.Contact = contactMe.default;
+    // forceUpdate() required to call render
+    this.forceUpdate();
+  }
+}
+
+render({ showAboutMe, displayShowMe }) {
+  <button onClick={showAboutMe} />
+  {this.Contact && <this.Contact displayShowMe={displayShowMe} />}
+}">
+			</Highlight>
+		</div>
+	</div>
+
+	<h5>Resource Hints</h5>
+
+	<p>Another good performance boost would be to add resource hints in your index.html for these dynamic chunks you have created,
+		these will allow the browser to prefetch these chunks (while idle) in the background resulting in a quicker page load when
+		requested.
+	</p>
+
+	<p>There are a few webpack plugins to help you achieve this, I personally use this <a target="_blank" rel="noopener noreferrer"
+		 class="link--content" href="https://github.com/GoogleChrome/preload-webpack-plugin">preload-webpack</a> plugin.
+
+		<h5>Conclusion<span>.</span></h5>
+
+		<p>By following the steps above, this is the end results for my webpack output here at <a target="_blank" rel="noopener noreferrer"
+			 class="link--content" href="https://stevenfitzpatrick.io">stevenfitzpatrick.io</a>. Admittedly, this is a tiny site and
+			a lot of these are small bundle sizes and not really necessary to separate. But I believe it&rsquo;s a good principle
+			to only load what you need, and keep your page load resources at a minimum.
+
+			<figure>
+				<div class="blog__img">
+					<img src='/assets/blogs/codesplitting.png' alt="Code Splitting Results" />
+				</div>
+				<figcaption>Webpack build output, listing all the seperate chunks produced.</figcaption>
+			</figure>
+
+			<p>The perfect example are the javascript libraries to load this blog itself &#8202;&mdash;&#8202; <a target="_blank" rel="noopener noreferrer"
+				 class="link--content" href="https://github.com/developit/preact-markup">Preact-Markup</a>, <a target="_blank" rel="noopener noreferrer"
+				 class="link--content" href="https://highlightjs.org/ ">Highlight.js</a>, <a target="_blank" rel="noopener noreferrer"
+				 class="link--content" href="https://github.com/MaxArt2501/share-this">share-this</a> and
+				<a target="_blank" rel="noopener noreferrer" class="link--content" href="https://disqus.com/">Disqus</a>. These are only
+				required for my blog pages, and never used on my Home, About Me, Bookmarks etc&hellip;</p>
+
+			<p>So why force a user visiting my homepage for the first time download them ?
+
+				<figure>
+					<div class="blog__img">
+						<img src='/assets/blogs/codesplittingblog.png' alt="Code Splitting Results" />
+					</div>
+					<figcaption>Webpack bundle analyzer for Blog Chunk file.</figcaption>
+				</figure>

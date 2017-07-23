@@ -5,6 +5,12 @@
  * 1) Mobile, Hamburger menu is shown with a sliding down menu
  * 2) Desktop all Menu links items are shown.
 */
+.expand {
+  border: 10px solid transparent;
+  background-clip: padding-box;
+  box-sizing: content-box;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -32,9 +38,8 @@
   cursor: pointer;
   height: 23px;
   width: 200px;
-  border: 10px solid transparent;
-  background-clip: padding-box;
-  box-sizing: content-box;
+
+  @extend .expand;
 
   @media (min-width: $desktop) {
     height: 34px;
@@ -66,10 +71,12 @@
   height: 1.5em;
   width: 1.5em;
   position: absolute;
-  top: $spacing;
-  right: $spacing * 2;
+  top: 2px;
+  right: $spacing;
   cursor: pointer;
   display: block;
+
+  @extend .expand;
 
   @media (min-width: $desktop) {
     display: none;
@@ -283,17 +290,5 @@
   100% {
     opacity: 1;
     transform: scaleX(1);
-  }
-}
-
-@keyframes comeUp {
-  from {
-    transform: translateY(5%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
   }
 }

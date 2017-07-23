@@ -16,7 +16,7 @@ import PreactIcon from '../../assets/svg/preact.svg';
 import NodeIcon from '../../assets/svg/nodejs.svg';
 
 const AboutMe = () =>
-  <div class="content">
+  <div class="content about_me">
     <h3>About Me</h3>
     <div class={style.about}>
       <picture>
@@ -31,15 +31,15 @@ const AboutMe = () =>
         </p>
         <p>
           Hi again my name is Steven Fitzpatrick, thanks for visiting my website
-          and looking to know more about me! During my time in the web industry
-          I’ve gained experience in all aspects of the development lifecycle
-          i.e. UI / UX, front-end / back-end / mobile development , working with
-          / designing databases, agile methodology etc…
+          and looking to know more about me&#8202;! During my time in the web
+          industry I’ve gained experience in all aspects of the development
+          lifecycle i.e. UI / UX, front-end / back-end / mobile development ,
+          working with / designing databases, agile methodology etc…
         </p>
       </div>
     </div>
     <h5>
-      What do I like to do<span>?</span>
+      What do I like to do&#8202;<span>?</span>
     </h5>
     <p>
       Experiencing all that, I enjoy Front End Development the most and this is
@@ -55,7 +55,7 @@ const AboutMe = () =>
       and some SQL / NoSQL database would be a pretty normal day.
     </p>
     <h5>
-      What’s the aim of the website<span>?</span>
+      What’s the aim of the website&#8202;<span>?</span>
     </h5>
     <p>
       The original aim of this website was just to have a personal playground to
@@ -73,7 +73,7 @@ const AboutMe = () =>
       links in the footer.
     </p>
     <h5>
-      Stuff I like to work with<span>…</span>
+      Stuff I like to work with&#8202;<span>…</span>
     </h5>
     <Carousel />
   </div>;
