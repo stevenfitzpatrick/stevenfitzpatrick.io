@@ -21,12 +21,13 @@ class BackToTop extends Component {
   };
 
   componentDidMount() {
-    document.addEventListener('scroll', this.handleScroll);
+    document.addEventListener('scroll', this.handleScroll, { passive: true });
   }
 
   componentWillUnmount() {
     document.removeEventListener('scroll', this.handleScroll);
   }
+
   render({ children }) {
     return (
       <button

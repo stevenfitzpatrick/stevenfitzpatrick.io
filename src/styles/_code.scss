@@ -1,10 +1,9 @@
 @import '_variables';
 
 code:not(.hljs) {
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 3px;
-  padding: 2px 5px;
+  background-color: #d5dae2;
+  border-radius: 2px;
+  padding: 3px 5px;
   margin: 0 2px;
-  border: 1px solid $border;
-  font-size: 0.85em;
+  font-size: 0.9em;
 }

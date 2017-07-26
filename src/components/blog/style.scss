@@ -1,6 +1,10 @@
 @import '~styles/_variables.scss';
 
 .blog {
+  li:not(:last-of-type) {
+    padding-bottom: 5px;
+  }
+
   h5 {
     line-height: 1;
     margin: 0 0 ($line-height-base) 0;
@@ -9,7 +13,7 @@
     &::after {
       content: '';
       position: absolute;
-      bottom: -4px;
+      bottom: -5px;
       left: 0;
       width: 1em;
       height: 2px;

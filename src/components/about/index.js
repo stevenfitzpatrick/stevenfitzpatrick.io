@@ -15,6 +15,8 @@ import WebpackIcon from '../../assets/svg/webpack.svg';
 import PreactIcon from '../../assets/svg/preact.svg';
 import NodeIcon from '../../assets/svg/nodejs.svg';
 
+import { FunkyH5 } from 'style/buttons';
+
 const AboutMe = () =>
   <div class="content about_me">
     <h3>About Me</h3>
@@ -38,9 +40,9 @@ const AboutMe = () =>
         </p>
       </div>
     </div>
-    <h5>
+    <FunkyH5>
       What do I like to do&#8202;<span>?</span>
-    </h5>
+    </FunkyH5>
     <p>
       Experiencing all that, I enjoy Front End Development the most and this is
       what I now mainly focus on. It’s something I am very enthusiastic and
@@ -54,9 +56,9 @@ const AboutMe = () =>
       Web Design, Node, a random Front-end Framework — React / Preact / Angular
       and some SQL / NoSQL database would be a pretty normal day.
     </p>
-    <h5>
+    <FunkyH5>
       What’s the aim of the website&#8202;<span>?</span>
-    </h5>
+    </FunkyH5>
     <p>
       The original aim of this website was just to have a personal playground to
       test out new features and technologies but I will try and expand on that!
@@ -72,9 +74,9 @@ const AboutMe = () =>
       have any further questions about me you can reach me via the social media
       links in the footer.
     </p>
-    <h5>
+    <FunkyH5>
       Stuff I like to work with&#8202;<span>…</span>
-    </h5>
+    </FunkyH5>
     <Carousel />
   </div>;
 

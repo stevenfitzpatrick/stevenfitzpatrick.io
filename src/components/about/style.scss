@@ -5,22 +5,13 @@
   @include flexColumnCenter;
 }
 
-.about_me {
-  h5 {
-    font-weight: 700;
-  }
-}
-
 @media (min-width: $desktop) {
   .about {
     flex-direction: row;
+    margin-bottom: $line-height-base / 2;
 
     + p {
       margin-top: $line-height-base / 2;
-    }
-
-    h5 {
-      font-weight: 700;
     }
 
     .profile {

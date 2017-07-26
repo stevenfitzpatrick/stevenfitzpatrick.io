@@ -11,21 +11,12 @@
     "build": "cross-env NODE_ENV=production webpack -p --display-optimization-bailout",
     "publish": "npm run test && npm run build && aws s3 rm s3://stevenfitzpatrick.io/ --recursive && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control \"private, max-age=0\" --exclude * --include sw.js --include index.html && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control max-age=31536000 --exclude sw.js --exclude index.html"
   },
-  "browserslist": [
-    "> 5%",
-    "last 1 version"
-  ],
+  "browserslist": ["> 5%", "last 1 version"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stevenfitzpatrick/stevenfitzpatrick.io.git"
   },
-  "keywords": [
-    "Front",
-    "End",
-    "Developer",
-    "Steven",
-    "Fitzpatrick"
-  ],
+  "keywords": ["Front", "End", "Developer", "Steven", "Fitzpatrick"],
   "author": "Steven Fitzpatrick",
   "license": "ISC",
   "bugs": {
@@ -103,9 +94,9 @@
     "svg-sprite-loader": "^0.3.0",
     "sw-precache-webpack-plugin": "^0.11.4",
     "url-loader": "^0.5.7",
-    "webpack": "3.3.0",
+    "webpack": "3.4.1",
     "webpack-bundle-analyzer": "^2.8.3",
-    "webpack-dev-server": "^2.5.1"
+    "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",

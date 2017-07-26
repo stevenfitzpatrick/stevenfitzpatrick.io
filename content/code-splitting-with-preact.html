@@ -55,8 +55,8 @@
 	<p>The difference here is subtle, normally you would just import the component on the top of the page and pass as a prop to
 		the route but this would mean that component would get included into one of your main static bundles.</p>
 
-	<p>Now we are saying I would you to create a separate bundle for this component, and only ever load this bundle if the user
-		actually visits this route. Please note the comment within
+	<p>Now we are saying <strong>I want you to create a separate bundle for this component</strong>, and only ever load this bundle
+		if the user actually visits this route. Please note the comment within
 		<code>import()</code>, this is a special webpack feature to give your javascript chunks a nicer name.</p>
 
 	<div class="breakout">
