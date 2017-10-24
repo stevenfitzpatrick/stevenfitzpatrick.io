@@ -135,6 +135,13 @@ ul {
     color: #efefef;
   }
 
+  .breakout--image {
+    background-image: url('/assets/yolo.jpg');
+    min-height: 300px;
+    background-position: center 70%;
+    background-size: 100%;
+  }
+
   .breakout-wrapper {
     padding: $spacing;
   }
@@ -209,7 +216,6 @@ ul {
 
 @import '_tablet';
 @import 'desktop';
-@import '_article';
 @import '_code';
 @import '_images';
 @import '_button';

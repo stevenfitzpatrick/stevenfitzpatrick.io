@@ -167,6 +167,7 @@
 .other-skills {
   display: block;
   color: darken($header, 13%);
+  will-change: transform;
 }
 
 .popDown {
