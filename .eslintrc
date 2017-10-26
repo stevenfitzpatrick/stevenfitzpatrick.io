@@ -13,7 +13,12 @@
 		"node": true,
 		"mocha": true
 	},
-	"extends": ["eslint:recommended", "eslint-config-synacor", "prettier", "prettier/react"],
+	"extends": [
+		"eslint:recommended",
+		"eslint-config-synacor",
+		"prettier",
+		"prettier/react"
+	],
 	"rules": {
 		"prefer-template": 2,
 		"template-curly-spacing": 2,
@@ -88,6 +93,7 @@
 				"allowAfterThis": true
 			}
 		],
-		"class-methods-use-this": 0
+		"class-methods-use-this": 0,
+		"react/display-name": 0
 	}
 }

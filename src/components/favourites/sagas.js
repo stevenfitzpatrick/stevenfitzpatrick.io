@@ -1,8 +1,11 @@
-import { call, put, takeEvery, takeLatest, all } from 'redux-saga/effects';
+import { call, put, takeEvery, all } from 'redux-saga/effects';
 import { getBookmarks } from '../../clients/api';
 
 const mapObjectToArray = object =>
-  Object.keys(object).reduce((list, item) => [...list, object[item]], []);
+  Object.keys(object).reduce(
+    (list, item) => [...list, object[item]],
+    []
+  );
 
 /**
  * Returns list of tags sorted
@@ -36,7 +39,10 @@ export function* fetchBookmarks(action) {
       payload: { bookmarks, tags }
     });
   } catch (e) {
-    yield put({ type: 'BOOKMARKS_FETCH_FAILURE', message: e.message });
+    yield put({
+      type: 'BOOKMARKS_FETCH_FAILURE',
+      message: e.message
+    });
   }
 }
 

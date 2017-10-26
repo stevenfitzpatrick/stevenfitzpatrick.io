@@ -1,9 +1,9 @@
-import { h, Component } from 'preact';
+import { h } from 'preact';
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 import xml from 'highlight.js/lib/languages/xml';
 import css from 'highlight.js/lib/languages/css';
-import highlightCSS from 'highlight.js/styles/atom-one-dark.css';
+import 'highlight.js/styles/atom-one-dark.css';
 import '../styles/highlight';
 import cx from 'classnames';
 

@@ -3,7 +3,6 @@ import Markup from 'preact-markup';
 import MetaHOC from '../HOC/MetaHOC';
 import { slugifyPath } from '../../helpers';
 import Disqus from '../disqus';
-import styles from './style';
 import BlogMeta from './blog-meta';
 import Highlight from '../highlight';
 import Share from '../share';
@@ -44,13 +43,11 @@ export default class Blog extends Component {
   render({ route }, { content }) {
     return (
       <div class="content blog">
-        {content &&
+        {content && (
           <section>
             <article>
               <BlogMeta date={route.date} />
-              <h2>
-                {route.blogTitle}
-              </h2>
+              <h2>{route.blogTitle}</h2>
               <Markup
                 markup={content}
                 type="html"
@@ -66,7 +63,8 @@ export default class Blog extends Component {
               title={route.blogTitle}
             />
             <BackToTop>Top</BackToTop>
-          </section>}
+          </section>
+        )}
       </div>
     );
   }

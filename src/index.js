@@ -2,9 +2,7 @@ import { h, render } from 'preact';
 import { Provider } from 'preact-redux';
 import App from './components/app';
 import store from './redux/store';
-import style from './styles';
-
-let root;
+import './styles';
 
 function init() {
   /*eslint-disable no-console*/
@@ -26,14 +24,17 @@ if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
 }
 
-if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+if (
+  'serviceWorker' in navigator &&
+	process.env.NODE_ENV === 'production'
+) {
   /*eslint-disable compat/compat*/
   navigator.serviceWorker.register('/sw.js');
 
   const loadAnalytics = () => {
-    import(/* webpackChunkName: "chunk-analytics" */ './analytics').then(page =>
-      page.init()
-    );
+		import(/* webpackChunkName: "chunk-analytics" */ './analytics').then(
+		  page => page.init()
+		);
   };
   loadAnalytics();
 }

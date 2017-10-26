@@ -1,30 +1,30 @@
 {
-  "sourceMaps": true,
-  "presets": [
-    [
-      "es2015",
-      {
-        "loose": true,
-        "modules": false
-      }
-    ],
-    "stage-0"
-  ],
-  "plugins": [
-    "transform-decorators-legacy",
-    "transform-react-remove-prop-types",
-    [
-      "transform-react-jsx",
-      {
-        "pragma": "h"
-      }
-    ],
-    [
-      "transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": true
-      }
-    ]
-  ]
+	"sourceMaps": true,
+	"presets": [
+		[
+			"env",
+			{
+				"loose": true,
+				"modules": false
+			}
+		],
+		"stage-0"
+	],
+	"plugins": [
+		"transform-decorators-legacy",
+		"transform-react-remove-prop-types",
+		[
+			"transform-react-jsx",
+			{
+				"pragma": "h"
+			}
+		],
+		[
+			"transform-runtime",
+			{
+				"polyfill": false,
+				"regenerator": true
+			}
+		]
+	]
 }

@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest, all } from 'redux-saga/effects';
+import { call, put, takeEvery, all } from 'redux-saga/effects';
 import { getWritings } from '../../clients/api';
 
 export function* fetchWritings(action) {

@@ -1,4 +1,4 @@
-@import '~modularscale-sass/stylesheets/modular-scale';
+@import '~modularscale-sass/stylesheets/modularscale';
 
 /* Vertivsl Rhythm */
 $font-size-base: 16px;
@@ -8,8 +8,9 @@ $ms-ratio: $fifth;
 $spacing: $line-height-base / 2;
 
 /* Fonts */
-$headerFont: 'brandon-grotesque', "Segoe UI", Segoe, Calibri, Arial sans-serif;
-$mainFont: 'myriad-pro', "Segoe UI", Segoe, Calibri, Arial sans-serif;
+$headerFont: 'brandon-grotesque', 'Segoe UI', Segoe, Calibri,
+  Arial sans-serif;
+$mainFont: 'myriad-pro', 'Segoe UI', Segoe, Calibri, Arial sans-serif;
 $textColor: #555;
 
 /* Colors */

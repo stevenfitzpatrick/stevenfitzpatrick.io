@@ -1,5 +1,4 @@
 import { h } from 'preact';
-import GithubLogo from '../../assets/svg/github.svg';
 import TwitterLogo from '../../assets/svg/twitter.svg';
 import EmailLogo from '../../assets/svg/email.svg';
 import LinkedInLogo from '../../assets/svg/linkedin.svg';
@@ -33,7 +32,5 @@ const SocialIcon = ({ glyph, type, ...props }) => (
 );
 
 export default () => (
-  <div>
-    {SOCIAL_LIST.map(icon => <SocialIcon {...icon} />)}
-  </div>
+  <div>{SOCIAL_LIST.map(icon => <SocialIcon {...icon} />)}</div>
 );

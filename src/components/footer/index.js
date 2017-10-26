@@ -1,12 +1,10 @@
-import { h, Component } from 'preact';
-import GithubLogo from '../../assets/svg/github.svg';
+import { h } from 'preact';
 import TwitterLogo from '../../assets/svg/twitter.svg';
 import EmailLogo from '../../assets/svg/email.svg';
 import LinkedInLogo from '../../assets/svg/linkedin.svg';
 import cx from 'classnames';
 
 import style from './style.scss';
-const test = style;
 
 const FooterIcon = ({ glyph, type, ...props }) => (
   <a {...props}>
@@ -19,9 +17,7 @@ const FooterIcon = ({ glyph, type, ...props }) => (
 
 const Footer = () => (
   <footer class={style.footer}>
-    <div class={style.footer__title}>
-      Let’s Stay Connected
-    </div>
+    <div class={style.footer__title}>Let’s Stay Connected</div>
     <div class={style.footer__content}>
       <FooterIcon
         href="//twitter.com/Fitzy_Longhorn"
