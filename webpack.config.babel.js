@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const fs = require('fs');
+const WebpackDashboard = require('webpack-dashboard/plugin');
 
 // const Prod Settings
 const prodPlugins = require('./webpack.prod.config.babel');
@@ -30,7 +31,7 @@ module.exports = {
   },
   // Start Bundling Here
   entry: {
-    app: './src/index.js',
+    app: ['./src/index.js'],
     vendor: [
       'preact',
       'preact-router',
@@ -39,7 +40,6 @@ module.exports = {
       'preact-redux',
       'redux-saga',
       'redux',
-      'preact-compat',
       'styled-components'
     ]
   },
@@ -53,9 +53,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: isProd ? '/' : 'http://localhost:8080/',
-    filename: isProd
-      ? '[name].bundle.[chunkhash].js'
-      : '[name].bundle.js',
+    filename: isProd ? '[name].bundle.[chunkhash].js' : '[name].bundle.js',
     chunkFilename: '[name].[chunkhash].js'
   },
   resolve: {
@@ -64,14 +62,13 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, 'src')
     ],
-    extensions: ['.js', '.json', '.jsx', '.css', '.scss'],
+    extensions: ['.js', '.json', '.jsx', '.css', '.scss', '.svg'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
       clients: path.resolve(__dirname, 'src/clients'),
-      common: path.resolve(__dirname, 'src/components/common'),
+
       style: path.resolve(__dirname, 'src/styles'),
-      react: 'preact-compat',
-      'react-dom': 'preact-compat'
+      react: 'preact'
     }
   },
   target: 'web',
@@ -80,13 +77,6 @@ module.exports = {
   // Transform Rules
   module: {
     rules: [
-      // Eslint Pre Loader
-      // {
-      //   enforce: 'pre',
-      //   test: /\.js?$/,
-      //   loader: 'eslint-loader',
-      //   exclude: '/node_modules/'
-      // },
       // JS Loader
       {
         test: /\.jsx?$/,
@@ -135,11 +125,7 @@ module.exports = {
       {
         test: /\.svg$/,
         use: {
-          loader: 'svg-sprite-loader',
-          options: {
-            name: '[name]_[hash]',
-            prefixize: true
-          }
+          loader: 'svg-sprite-loader'
         }
       },
       // Load other Image Types
@@ -177,10 +163,7 @@ module.exports = {
   },
   // Bundle Rules
   plugins: [
-    new webpack.ContextReplacementPlugin(
-      /moment[\/\\]locale$/,
-      /en-ie/
-    ),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-ie/),
     // Inject CSS and JS into HTML
     new HtmlWebpackPlugin({
       hash: false,
@@ -196,9 +179,7 @@ module.exports = {
     }),
     // Write out CSS bundle to its own file:
     new ExtractTextPlugin({
-      filename: isProd
-        ? 'css/[name].styles.[contenthash].css'
-        : 'css/[name].styles.css',
+      filename: isProd ? 'css/[name].styles.[contenthash].css' : 'css/[name].styles.css',
       allChunks: true
     }),
     // Add Preload allChunks
@@ -210,14 +191,8 @@ module.exports = {
     // Set Environment Variables
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: isProd
-          ? JSON.stringify('production')
-          : JSON.stringify('development')
+        NODE_ENV: isProd ? JSON.stringify('production') : JSON.stringify('development')
       }
     })
-
-    // new ScriptExtHtmlWebpackPlugin({
-    //   defaultAttribute: 'async'
-    // }),
   ].concat(isProd ? prodPlugins : [])
 };

@@ -7,9 +7,6 @@ import BlogMeta from './blog-meta';
 import Highlight from '../highlight';
 import Share from '../share';
 import BackToTop from '../backToTop';
-import shareThis from 'share-this';
-import * as twitterSharer from 'share-this/dist/sharers/twitter';
-import 'share-this/dist/share-this.css';
 
 @MetaHOC
 export default class Blog extends Component {
@@ -29,15 +26,6 @@ export default class Blog extends Component {
     const { props } = this,
       { blogTitle } = props.route;
     this.fetchContent(blogTitle);
-
-    requestAnimationFrame(() => {
-      const selectionShare = shareThis({
-        selector: '.blog',
-        sharers: [twitterSharer]
-      });
-
-      selectionShare.init();
-    });
   }
 
   render({ route }, { content }) {

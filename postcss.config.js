@@ -4,7 +4,9 @@ module.exports = {
   plugins: [
     require('postcss-import')({ addDependencyTo: webpack }),
     require('postcss-url')(),
-    require('autoprefixer')(),
+    require('autoprefixer')({
+      flexbox: 'no-2009'
+    }),
     require('cssnano')({
       preset: 'default'
     })

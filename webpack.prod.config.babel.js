@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
@@ -98,16 +97,16 @@ const prodPlugins = [
       }
     ],
     stripPrefix: `${process.cwd().replace(/\\/g, '/')}/dist`
-  }),
+  })
   // Webpack 3 Scope Hoisting
   // new webpack.optimize.ModuleConcatenationPlugin(),
   // Add Bundle JS Analyzer
-  new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
-    openAnalyzer: true,
-    generateStatsFile: false,
-    reportFilename: '../src/report.html'
-  })
+  // new BundleAnalyzerPlugin({
+  //   analyzerMode: 'static',
+  //   openAnalyzer: true,
+  //   generateStatsFile: false,
+  //   reportFilename: '../src/report.html'
+  // })
 ];
 
 module.exports = prodPlugins;

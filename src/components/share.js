@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
-import TwitterLogo from '../assets/svg/twitter.svg';
-import LinkedInLogo from '../assets/svg/linkedin.svg';
+import TwitterLogo from '../assets/svg/twitter';
+import LinkedInLogo from '../assets/svg/linkedin';
 
 class Share extends Component {
   shareTwitter(url, text) {
@@ -27,20 +27,19 @@ class Share extends Component {
     const url = window.location.href;
     return (
       <section class="blog__share">
-        <h4>Share this page<span>.</span></h4>
+        <h4>
+					Share this page<span>.</span>
+        </h4>
         <button class="button--twitter" onClick={this.shareTwitter(url, title)}>
           <svg class="icon">
-            <use xlinkHref={TwitterLogo} />
+            <use xlinkHref={`#${TwitterLogo.id}`} />
           </svg>
           <span>Twitter</span>
         </button>
 
-        <button
-          class="button--linkedin"
-          onClick={this.shareLinkedIn(url, title)}
-        >
+        <button class="button--linkedin" onClick={this.shareLinkedIn(url, title)}>
           <svg class="icon">
-            <use xlinkHref={LinkedInLogo} />
+            <use xlinkHref={`#${LinkedInLogo.id}`} />
           </svg>
           <span>LinkedIn</span>
         </button>

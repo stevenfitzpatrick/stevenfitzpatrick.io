@@ -1,7 +1,7 @@
 import { h } from 'preact';
-import TwitterLogo from '../../assets/svg/twitter.svg';
-import EmailLogo from '../../assets/svg/email.svg';
-import LinkedInLogo from '../../assets/svg/linkedin.svg';
+import TwitterLogo from '../../assets/svg/twitter';
+import EmailLogo from '../../assets/svg/email';
+import LinkedInLogo from '../../assets/svg/linkedin';
 import cx from 'classnames';
 
 const SOCIAL_LIST = [
@@ -26,11 +26,9 @@ const SocialIcon = ({ glyph, type, ...props }) => (
   <a {...props}>
     <span class="hide--span">{type}</span>
     <svg class={cx('icon', type)}>
-      <use xlinkHref={glyph} />
+      <use xlinkHref={`#${glyph.id}`} />
     </svg>
   </a>
 );
 
-export default () => (
-  <div>{SOCIAL_LIST.map(icon => <SocialIcon {...icon} />)}</div>
-);
+export default () => <div>{SOCIAL_LIST.map(icon => <SocialIcon {...icon} />)}</div>;

@@ -4,7 +4,7 @@ import { route } from 'preact-router';
 import { Link } from 'preact-router/match';
 import config from '../../config';
 import cx from 'classnames';
-import LogoImage from '../../assets/svg/Header.svg';
+import LogoImage from '../../assets/svg/Header';
 
 const expandedHeaderClass = 'header--expanded';
 export default class Header extends Component {
@@ -23,10 +23,7 @@ export default class Header extends Component {
    * Hide Menu also when the body is clicked
    */
 	hideMenu = event => {
-	  if (
-	    event.target.tagName === 'DIV' &&
-			event.target.className.includes(expandedHeaderClass)
-	  ) {
+	  if (event.target.tagName === 'DIV' && event.target.className.includes(expandedHeaderClass)) {
 	    this.toggleMenu();
 	    this.base.removeEventListener('click', this.hideMenu, {
 	      once: true
@@ -67,9 +64,7 @@ export default class Header extends Component {
 
 	render({ url }, { open }) {
 	  return (
-	    <div
-	      class={cx(style.header, open && style[expandedHeaderClass])}
-	    >
+	    <div class={cx(style.header, open && style[expandedHeaderClass])}>
 	      <header class={style.header__content}>
 	        <Logo onClick={this.loadHome} image={LogoImage} />
 	        <Nav routes={config.nav} />
@@ -83,7 +78,7 @@ export default class Header extends Component {
 // Header Main Logo
 const Logo = ({ image, ...props }) => (
   <svg {...props} class={style.header__logo}>
-    <use xlinkHref={image} />
+    <use xlinkHref={`#${image.id}`} />
   </svg>
 );
 
@@ -96,17 +91,11 @@ const Menu = ({ open, ...props }) => (
 
 // Header Navigation
 const Nav = ({ routes, current, ...props }) => (
-  <nav
-    {...props}
-    class={style.header__menu}
-    aria-label="Main Navigation"
-  >
-    {routes
-      .filter(route => route.type === 'page')
-      .map(({ path, title }) => (
-        <Link href={path} activeClassName={style.active}>
-          {title}
-        </Link>
-      ))}
+  <nav {...props} class={style.header__menu} aria-label="Main Navigation">
+    {routes.filter(route => route.type === 'page').map(({ path, title }) => (
+      <Link href={path} activeClassName={style.active}>
+        {title}
+      </Link>
+    ))}
   </nav>
 );
