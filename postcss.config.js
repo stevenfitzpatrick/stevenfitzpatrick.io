@@ -6,9 +6,6 @@ module.exports = {
     require('postcss-url')(),
     require('autoprefixer')({
       flexbox: 'no-2009'
-    }),
-    require('cssnano')({
-      preset: 'default'
     })
   ]
 };

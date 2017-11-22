@@ -4,12 +4,9 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
-const path = require('path');
-const glob = require('glob');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
-
-const pkg = require('./package.json');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const prodPlugins = [
   // Move Files
@@ -81,32 +78,19 @@ const prodPlugins = [
     dry: false
   }),
   // Add Service Worker
-  new SWPrecacheWebpackPlugin({
-    cacheId: pkg.name,
-    filename: 'sw.js',
-    minify: true,
-    maximumFileSizeToCacheInBytes: 4194304,
-    runtimeCaching: [
-      {
-        urlPattern: /\www.google-analytics.com+/,
-        handler: 'cacheFirst'
-      },
-      {
-        urlPattern: /\use.typekit.net+/,
-        handler: 'cacheFirst'
-      }
-    ],
-    stripPrefix: `${process.cwd().replace(/\\/g, '/')}/dist`
+  new WorkboxPlugin({
+    globDirectory: './dist',
+    globPatterns: ['**/*.{html,js,css,webp,png}'],
+    swDest: './dist/sw.js',
+    skipWaiting: true
+  }),
+  //Add Bundle JS Analyzer
+  new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    openAnalyzer: true,
+    generateStatsFile: false,
+    reportFilename: '../src/report.html'
   })
-  // Webpack 3 Scope Hoisting
-  // new webpack.optimize.ModuleConcatenationPlugin(),
-  // Add Bundle JS Analyzer
-  // new BundleAnalyzerPlugin({
-  //   analyzerMode: 'static',
-  //   openAnalyzer: true,
-  //   generateStatsFile: false,
-  //   reportFilename: '../src/report.html'
-  // })
 ];
 
 module.exports = prodPlugins;

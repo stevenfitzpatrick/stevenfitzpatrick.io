@@ -24,29 +24,12 @@ if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
 }
 
-if (
-  'serviceWorker' in navigator &&
-	process.env.NODE_ENV === 'production'
-) {
+if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   /*eslint-disable compat/compat*/
   navigator.serviceWorker.register('/sw.js');
 
   const loadAnalytics = () => {
-		import(/* webpackChunkName: "chunk-analytics" */ './analytics').then(
-		  page => page.init()
-		);
+		import(/* webpackChunkName: "chunk-analytics" */ './analytics').then(page => page.init());
   };
   loadAnalytics();
 }
-
-// Add Check for Offline
-
-window.addEventListener('offline', event => {
-  document.body.classList.add('offline');
-  console.log('I am offline');
-});
-
-window.addEventListener('online', event => {
-  document.body.classList.remove('offline');
-  console.log('I am online');
-});

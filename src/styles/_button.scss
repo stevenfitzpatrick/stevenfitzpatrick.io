@@ -65,7 +65,7 @@ button {
   transform: scale(1, 1);
 }
 
-.button--filter.button--filter:focus,
+.button--filter:focus,
 .button--filter {
   margin: $spacing / 2 $spacing;
   background-color: $focusBorder;
@@ -85,7 +85,7 @@ button {
   transform: scale(1);
 }
 
-.button--outline.button--outline:focus,
+.button--outline:focus,
 .button--outline {
   position: absolute;
   right: 1em;
@@ -124,7 +124,7 @@ button {
 }
 
 @media (min-width: $desktop) {
-  .button--outline.button--outline:focus,
+  .button--outline:focus,
   .button--outline {
     position: relative;
     display: inline;
@@ -141,6 +141,7 @@ button {
     transition: all 0.25s ease-in-out;
     height: auto;
     width: auto;
+    animation: neon 3s alternate infinite ease-in-out;
 
     span {
       display: inline;

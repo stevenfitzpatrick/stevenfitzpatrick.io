@@ -1,8 +1,35 @@
 import { h } from 'preact';
-import styles from './style';
 import cx from 'classnames';
+import styled, { keyframes } from 'styled-components';
+
+import styles from './style';
 import CloseIcon from '../../assets/svg/close';
 import SocialIcons from 'components/common/SocialIcons';
+import colors from '../../styles/colors';
+
+const neon = keyframes`
+	from {
+		filter: drop-shadow(0 0 0 ${colors.primary});
+	}
+
+	to {
+		filter: drop-shadow(0 0 20px ${colors.primary});
+	}
+`;
+
+const Vacancy = styled.div`
+	border: 2px solid ${colors.primary};
+	animation: ${neon} 2.5s alternate infinite ease-in-out;
+	padding: 0.5rem 1rem;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	color: white;
+	transform: rotate(-2deg);
+	letter-spacing: 2px;
+	border-radius: 5px;
+	margin-bottom: 1rem;
+	user-select: none;
+`;
 
 export default ({ hideAboutMe, displayShowMe }) => (
   <div class={cx(styles.aboutme, displayShowMe && styles['aboutme--visible'])}>
@@ -28,6 +55,7 @@ export default ({ hideAboutMe, displayShowMe }) => (
     </div>
 
     <div class={styles.aboutme__content}>
+      <Vacancy>Vacancy</Vacancy>
       <h4>
 				How to contact me<span>.</span>
       </h4>

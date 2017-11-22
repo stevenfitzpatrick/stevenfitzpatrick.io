@@ -69,11 +69,6 @@ address {
 .blog__img {
   position: relative;
   text-align: center;
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
 }
 
 /**
@@ -83,14 +78,6 @@ address {
 ul {
   list-style-type: square;
   padding-left: 1.5em;
-}
-
-/**
-* Disqus
-*/
-
-#disqus_thread {
-  margin: ($spacing * 2) 0;
 }
 
 /**

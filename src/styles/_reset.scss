@@ -47,7 +47,8 @@ code,
 pre,
 kbd,
 samp {
-  font-family: "Operator Mono", Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  font-family: 'Operator Mono', Monaco, Consolas, 'Andale Mono',
+    'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
   margin: 0;
 }
 
@@ -72,6 +73,9 @@ a {
 
 img {
   border: 0;
+  max-width: 100%;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 button {
@@ -107,7 +111,7 @@ figcaption {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-// Selection Color  
+// Selection Color
 ::selection {
   background-color: $header; /* WebKit/Blink Browsers */
   color: #fff;

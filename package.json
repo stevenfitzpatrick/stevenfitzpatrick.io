@@ -4,30 +4,39 @@
 	"description": "Homepage of Steven Fitzpatrick",
 	"main": "index.js",
 	"scripts": {
-		"dev":
-			"webpack-dashboard -- cross-env NODE_ENV=development webpack-dev-server --inline --progress --colors --watch",
+		"dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --colors --watch",
 		"test": "npm run lint && cross-env NODE_ENV=test npm run -s test:karma",
-		"test:chrome":
-			"eslint cross-env NODE_ENV=test src/**/*.js && npm run -s test:karma -- --browsers ChromeCanaryHeadless",
+		"test:chrome": "eslint cross-env NODE_ENV=test src/**/*.js && npm run -s test:karma -- --browsers ChromeCanaryHeadless",
 		"test:karma": "karma start test/karma.config.js --single-run",
 		"build": "cross-env NODE_ENV=production BABEL_ENV=production webpack -p",
-		"publish":
-			"npm run test && npm run build && aws s3 rm s3://stevenfitzpatrick.io/ --recursive && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control private,no-cache,max-age=0 --exclude \"*\" --include sw.js --include index.html && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control public,max-age=31536000 --exclude sw.js --exclude index.html",
+		"predeploy": "npm run test && npm run build",
+		"deploy": "aws s3 rm s3://stevenfitzpatrick.io/ --recursive && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control private,no-cache,max-age=0 --exclude \"*\" --include sw.js --include index.html && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control public,max-age=31536000 --exclude sw.js --exclude index.html",
 		"lint": "eslint ./src ./test",
 		"lint:fix": "npm run lint -- --fix"
 	},
-	"browserslist": ["last 2 Chrome versions"],
+	"browserslist": [
+		"last 2 Chrome versions"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/stevenfitzpatrick/stevenfitzpatrick.io.git"
 	},
-	"keywords": ["Front", "End", "Developer", "Steven", "Fitzpatrick"],
+	"keywords": [
+		"Front",
+		"End",
+		"Developer",
+		"Steven",
+		"Fitzpatrick"
+	],
+	"eslintIgnore": [
+		"dist/*"
+	],
 	"author": "Steven Fitzpatrick",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/stevenfitzpatrick/stevenfitzpatrick.io/issues"
 	},
-	"homepage": "stevenfitzpatrick.io",
+	"homepage": "https://stevenfitzpatrick.io",
 	"devDependencies": {
 		"autoprefixer": "^7.1.6",
 		"babel-core": "^6.26.0",
@@ -98,7 +107,8 @@
 		"webpack": "3.8.1",
 		"webpack-bundle-analyzer": "^2.9.0",
 		"webpack-dashboard": "^1.0.0",
-		"webpack-dev-server": "^2.9.3"
+		"webpack-dev-server": "^2.9.3",
+		"workbox-webpack-plugin": "^2.1.1"
 	},
 	"dependencies": {
 		"babel-polyfill": "^6.26.0",
@@ -107,7 +117,7 @@
 		"preact": "^8.2.6",
 		"preact-async-route": "^2.0.1",
 		"preact-markup": "^1.6.0",
-		"preact-router": "^2.5.7",
+		"preact-router": "^2.6.0",
 		"promise-polyfill": "^6.0.2",
 		"redux": "^3.7.2",
 		"redux-saga": "^0.16.0",

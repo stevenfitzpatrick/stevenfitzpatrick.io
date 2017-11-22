@@ -182,10 +182,10 @@ module.exports = {
       filename: isProd ? 'css/[name].styles.[contenthash].css' : 'css/[name].styles.css',
       allChunks: true
     }),
-    // Add Preload allChunks
-    new PreloadWebpackPlugin({
-      rel: 'prefetch'
-    }),
+    // // Add Preload allChunks
+    // new PreloadWebpackPlugin({
+    //   rel: 'prefetch'
+    // }),
     // Add Preload Tags
     new ResourceHintWebpackPlugin(),
     // Set Environment Variables
