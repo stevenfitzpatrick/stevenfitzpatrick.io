@@ -1,6 +1,5 @@
 import { h, Component } from 'preact';
-import { connect } from 'preact-redux';
-import { showAboutMe, hideAboutMe } from '../../redux/modules/home';
+
 import styles from './style';
 import MetaHOC from '../HOC/MetaHOC';
 import ContactIcon from '../../assets/svg/speech-bubble';
@@ -16,13 +15,21 @@ const otherSkills = [
   'Love Food'
 ];
 
-const mapStateToProps = state => ({
-  displayShowMe: state.home.displayShowMe
-});
-
 @MetaHOC
-@connect(mapStateToProps, { showAboutMe, hideAboutMe })
 class Home extends Component {
+  state = {
+    showAboutMe: false
+  };
+
+  otherSkills = null;
+  index = 1;
+  Contact = null;
+
+  toggleAboutMe = () =>
+    this.setState({
+      showAboutMe: !this.state.showAboutMe
+    });
+
   updateSkills = () => {
     requestAnimationFrame(() => {
       this.otherSkills.innerHTML = otherSkills[this.index];
@@ -33,21 +40,15 @@ class Home extends Component {
 
   toggleAnimation = () => requestAnimationFrame(() => this.otherSkills.classList.toggle('popDown'));
 
-  constructor() {
-    super();
-    this.otherSkills = null;
-    this.index = 1;
-    this.Contact = null;
-  }
-
   async componentDidMount() {
     this.otherSkills = document.querySelector('.other-skills');
     this.otherSkills.addEventListener('animationend', this.toggleAnimation);
     this.timer = setInterval(this.updateSkills, 2500);
   }
 
-  async componentWillReceiveProps(nextProps) {
-    if (nextProps.displayShowMe && !this.Contact) {
+  async componentDidUpdate(prevProps, prevState) {
+    const { showAboutMe } = this.state;
+    if (showAboutMe && !this.Contact) {
       const contactMe = await import(/* webpackChunkName: "chunk-contactme" */ './Contact');
       this.Contact = contactMe.default;
       this.forceUpdate();
@@ -61,7 +62,7 @@ class Home extends Component {
     this.otherSkills.removeEventListener('animationend', this.toggleAnimation);
   }
 
-  render = ({ showAboutMe, displayShowMe, hideAboutMe }) => (
+  render = (props, { showAboutMe }) => (
     <section class={styles.home}>
       <h4>Hello & Welcome !</h4>
 
@@ -70,13 +71,15 @@ class Home extends Component {
         <span class="underline">I’m</span> a Front-End Developer &
         <span class="other-skills popDown">Problem Solver</span>
       </h5>
-      <button class="button--outline" onClick={showAboutMe} aria-label="Contact Me">
+      <button class="button--outline" onClick={this.toggleAboutMe} aria-label="Contact Me">
         <svg>
           <use xlinkHref={`#${ContactIcon.id}`} />
         </svg>
         <span>Contact Me</span>
       </button>
-      {this.Contact && <this.Contact displayShowMe={displayShowMe} hideAboutMe={hideAboutMe} />}
+      {this.Contact && (
+        <this.Contact displayShowMe={showAboutMe} hideAboutMe={this.toggleAboutMe} />
+      )}
     </section>
   );
 }

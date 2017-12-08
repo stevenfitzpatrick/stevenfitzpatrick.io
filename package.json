@@ -109,7 +109,6 @@
 		"postcss-import": "^11.0.0",
 		"postcss-loader": "^2.0.8",
 		"postcss-url": "^7.1.2",
-		"preact-redux": "^2.0.3",
 		"preload-webpack-plugin": "^2.0.0",
 		"resource-hints-webpack-plugin": "0.0.1",
 		"sass-loader": "^6.0.6",
@@ -133,10 +132,9 @@
 		"preact-async-route": "^2.0.1",
 		"preact-markup": "^1.6.0",
 		"preact-router": "^2.6.0",
-		"redux": "^3.7.2",
-		"redux-saga": "^0.16.0",
 		"styled-components": "^2.2.2",
-		"unfetch": "^3.0.0"
+		"unfetch": "^3.0.0",
+		"unistore": "^2.4.0"
 	},
 	"config": {
 		"commitizen": {
