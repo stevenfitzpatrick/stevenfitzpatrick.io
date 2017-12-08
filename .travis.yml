@@ -2,7 +2,7 @@ language: node_js
 sudo: false
 dist: trusty # needs Ubuntu Trusty
 node_js:
-- '7'
+- '9'
 addons:
   chrome: stable # have Travis install chrome stable.
 cache:
