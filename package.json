@@ -4,19 +4,32 @@
 	"description": "Homepage of Steven Fitzpatrick",
 	"main": "index.js",
 	"scripts": {
-		"start": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --colors --watch",
-		"test": "npm run lint && cross-env NODE_ENV=test npm run -s test:karma",
-		"test:chrome": "eslint cross-env NODE_ENV=test src/**/*.js && npm run -s test:karma -- --browsers ChromeCanaryHeadless",
-		"test:karma": "karma start test/karma.config.js --single-run",
 		"build": "cross-env NODE_ENV=production BABEL_ENV=production webpack -p",
-		"predeploy": "npm run test && npm run build && npm run minify",
 		"deploy": "aws s3 rm s3://stevenfitzpatrick.io/ --recursive && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control private,no-cache,max-age=0 --exclude \"*\" --include sw.js --include index.html && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control public,max-age=31536000 --exclude sw.js --exclude index.html",
 		"lint": "eslint ./src ./test",
 		"lint:fix": "npm run lint -- --fix",
-		"minify": "minify ./dist/sw.js --out-file ./dist/sw.js"
+		"minify": "minify ./dist/sw.js --out-file ./dist/sw.js",
+		"predeploy": "npm run test && npm run build && npm run minify",
+		"start": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --colors --watch",
+		"test": "npm run lint && npm run test:size",
+		"test:size": "bundlesize"
 	},
 	"browserslist": [
 		"last 2 Chrome versions"
+	],
+	"bundlesize": [
+		{
+			"path": "./dist/vendor.bundle.*.js",
+			"maxSize": "30 kB"
+    },
+    {
+			"path": "./dist/app.bundle.*.js",
+			"maxSize": "20 kB"
+		},
+    {
+			"path": "./dist/index.html",
+			"maxSize": "5 kB"
+		}
 	],
 	"repository": {
 		"type": "git",
@@ -54,6 +67,7 @@
 		"babel-preset-stage-0": "^6.24.1",
 		"babel-register": "^6.26.0",
 		"babel-runtime": "^6.22.0",
+		"bundlesize": "^0.15.3",
 		"chunk-manifest-webpack-plugin": "^1.1.2",
 		"clean-webpack-plugin": "^0.1.17",
 		"copy-webpack-plugin": "^4.2.0",
