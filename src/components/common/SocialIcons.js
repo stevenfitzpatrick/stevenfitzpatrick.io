@@ -1,8 +1,9 @@
 import { h } from 'preact';
+
+import { SVGIcon } from './index';
 import TwitterLogo from '../../assets/svg/twitter';
 import EmailLogo from '../../assets/svg/email';
 import LinkedInLogo from '../../assets/svg/linkedin';
-import cx from 'classnames';
 
 const SOCIAL_LIST = [
   {
@@ -25,9 +26,7 @@ const SOCIAL_LIST = [
 const SocialIcon = ({ glyph, type, ...props }) => (
   <a {...props}>
     <span class="hide--span">{type}</span>
-    <svg class={cx('icon', type)}>
-      <use xlinkHref={`#${glyph.id}`} />
-    </svg>
+    <SVGIcon type={type} glyph={glyph} />
   </a>
 );
 

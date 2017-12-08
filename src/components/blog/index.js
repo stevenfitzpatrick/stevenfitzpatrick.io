@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import Markup from 'preact-markup';
 import MetaHOC from '../HOC/MetaHOC';
-import { slugifyPath } from '../../helpers';
+import { slugifyPath } from '../../utils/helpers';
 import BlogMeta from './blog-meta';
 import Highlight from '../highlight';
 import Share from '../share';

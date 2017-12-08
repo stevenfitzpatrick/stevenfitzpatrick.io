@@ -6,7 +6,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const fs = require('fs');
-const WebpackDashboard = require('webpack-dashboard/plugin');
 
 // const Prod Settings
 const prodPlugins = require('./webpack.prod.config.babel');
@@ -168,7 +167,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       hash: false,
       filename: 'index.html',
-      template: './src/index.ejs',
+      template: './public/index.ejs',
       inject: true,
       prefetch: false,
       minify: {

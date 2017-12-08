@@ -1,17 +1,16 @@
 import { h } from 'preact';
+
 import TwitterLogo from '../../assets/svg/twitter';
 import EmailLogo from '../../assets/svg/email';
 import LinkedInLogo from '../../assets/svg/linkedin';
-import cx from 'classnames';
+import { SVGIcon } from '../common';
 
 import style from './style.scss';
 
 const FooterIcon = ({ glyph, type, ...props }) => (
   <a {...props}>
     <span>{type}</span>
-    <svg class={cx('icon', type)}>
-      <use xlinkHref={`#${glyph.id}`} />
-    </svg>
+    <SVGIcon type={type} glyph={glyph} />
   </a>
 );
 

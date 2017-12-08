@@ -12,7 +12,7 @@ const ArticleTitle = styled.h5`
 
 @MetaHOC
 class Writing extends Component {
-  displayBlogSummary = blog =>
+  displayBlogSummary = blog => (
     <article class={styles.writing__article}>
       <ArticleTitle>
         <Link class="link" href={blog.path}>
@@ -22,13 +22,12 @@ class Writing extends Component {
       <smaller>
         {blog.date} — {blog.duration}
       </smaller>
-      <div class={styles.writing__intro}>
-        {blog.intro}
-      </div>
+      <div class={styles.writing__intro}>{blog.intro}</div>
       <a class="link link--readmore" href={blog.path}>
         Read more…
       </a>
-    </article>;
+    </article>
+  );
 
   render({ blogs }) {
     const [list] = blogs;
@@ -36,8 +35,8 @@ class Writing extends Component {
       <div class={cx('content', styles.writing)}>
         <h3>Writing</h3>
         <p>
-          Writing blogs is a first for me, but I hope you enjoy some of these
-          and learn something along the way.
+          Writing blogs is a first for me, but I hope you enjoy some of these and learn something
+          along the way.
         </p>
         {list.routes.map(this.displayBlogSummary)}
       </div>
