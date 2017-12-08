@@ -10,8 +10,8 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const prodPlugins = [
   // Move Files
   new CopyWebpackPlugin([
-    { from: 'src/manifest.json' },
-    { from: 'src/sitemap.xml' },
+    { from: 'public/manifest.json' },
+    { from: 'public/sitemap.xml' },
     { from: 'content', to: 'content' },
     {
       from: 'src/assets',
@@ -87,8 +87,7 @@ const prodPlugins = [
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     openAnalyzer: true,
-    generateStatsFile: false,
-    reportFilename: '../src/report.html'
+    generateStatsFile: false
   })
 ];
 module.exports = prodPlugins;

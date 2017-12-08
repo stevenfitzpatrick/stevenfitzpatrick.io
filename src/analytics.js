@@ -1,5 +1,3 @@
-/*global ga*/
-
 /**
  * Init Code for Google Analytics, Lazy Loaded
  */
