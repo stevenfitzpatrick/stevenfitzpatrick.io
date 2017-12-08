@@ -11,7 +11,7 @@
 		"minify": "minify ./dist/sw.js --out-file ./dist/sw.js",
 		"predeploy": "npm run test && npm run build && npm run minify",
 		"start": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --colors --watch",
-		"test": "npm run lint && npm run test:size",
+		"test": "npm run lint",
 		"test:size": "bundlesize"
 	},
 	"browserslist": [
