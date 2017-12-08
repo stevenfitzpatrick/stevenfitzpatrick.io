@@ -26,7 +26,6 @@ ul {
   font-synthesis: none;
 }
 
-main,
 footer,
 header,
 main {
@@ -47,8 +46,7 @@ code,
 pre,
 kbd,
 samp {
-  font-family: 'Operator Mono', Monaco, Consolas, 'Andale Mono',
-    'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+  font-family: 'Operator Mono', Monaco, Consolas, Courier, monospace;
   margin: 0;
 }
 
@@ -65,6 +63,11 @@ a {
 ::-moz-focus-inner {
   padding: 0;
   border: 0;
+}
+
+::-moz-selection {
+  background-color: $header; /* Gecko Browsers */
+  color: #fff;
 }
 
 :focus {
@@ -114,10 +117,5 @@ figcaption {
 // Selection Color
 ::selection {
   background-color: $header; /* WebKit/Blink Browsers */
-  color: #fff;
-}
-
-::-moz-selection {
-  background-color: $header; /* Gecko Browsers */
   color: #fff;
 }

@@ -2,7 +2,6 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "selector-list-comma-newline-after": "always",
-    "indentation": 2,
     "selector-type-no-unknown": null,
     "no-missing-end-of-source-newline": null,
     "block-no-empty": null,

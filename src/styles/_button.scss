@@ -18,14 +18,14 @@ button {
     margin-right: $spacing;
   }
 
+  + button {
+    margin-left: $spacing;
+  }
+
   &:hover,
   &:focus,
   &:active {
     background-color: darken($defaultButton, 10%);
-  }
-
-  + button {
-    margin-left: $spacing;
   }
 }
 
@@ -65,8 +65,8 @@ button {
   transform: scale(1, 1);
 }
 
-.button--filter:focus,
-.button--filter {
+.button--filter,
+.button--filter:focus {
   margin: $spacing / 2 $spacing;
   background-color: $focusBorder;
   padding: 0;
@@ -85,8 +85,8 @@ button {
   transform: scale(1);
 }
 
-.button--outline:focus,
-.button--outline {
+.button--outline,
+.button--outline:focus {
   position: absolute;
   right: 1em;
   bottom: 80px;
@@ -124,8 +124,8 @@ button {
 }
 
 @media (min-width: $desktop) {
-  .button--outline:focus,
-  .button--outline {
+  .button--outline,
+  .button--outline:focus {
     position: relative;
     display: inline;
     right: inherit;

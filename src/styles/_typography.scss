@@ -59,17 +59,13 @@ h6 {
 h1,
 h2 {
   line-height: ($line-height-base * 2);
+  font-size: ms(2);
 }
 
 h3,
 h4 {
   margin: $line-height-base 0;
   position: relative;
-}
-
-h1,
-h2 {
-  font-size: ms(2);
 }
 
 h3 {
@@ -108,7 +104,7 @@ smaller {
   font-size: 0.8em;
   color: $inputBorder;
   font-variant-caps: small-caps;
-  font-feature-settings: "smcp";
+  font-feature-settings: 'smcp';
   padding: 0 0 $spacing / 2;
   display: inline-block;
 }
@@ -131,9 +127,9 @@ blockquote {
   &::before {
     display: block;
     height: 0;
-    content: "“";
+    content: '“';
     margin-left: -0.95em;
-    font: italic 400%/1 Cochin, Georgia, "Times New Roman", serif;
+    font: italic 400%/1 Cochin, Georgia, 'Times New Roman', serif;
     color: $darkerHeader;
   }
 

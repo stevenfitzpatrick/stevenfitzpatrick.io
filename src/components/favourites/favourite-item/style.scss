@@ -1,5 +1,20 @@
 @import '../../../styles/_variables.scss';
 
+.favourite__meta {
+  display: flex;
+  font-size: 0.909em;
+  font-weight: 300;
+
+  & span {
+    font-weight: bold;
+    padding-right: 0.3em;
+
+    & + span {
+      margin-left: 0.752em;
+    }
+  }
+}
+
 .favourite {
   display: flex;
   flex-direction: column;
@@ -47,19 +62,4 @@
 
 .favourite__time {
   display: flex;
-}
-
-.favourite__meta {
-  display: flex;
-  font-size: 0.909em;
-  font-weight: 300;
-
-  & span {
-    font-weight: bold;
-    padding-right: 0.3em;
-
-    & + span {
-      margin-left: 0.752em;
-    }
-  }
 }
