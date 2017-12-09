@@ -86,43 +86,40 @@ const CarouselItem = ({ glyph, text }) => (
 );
 
 class Carousel extends Component {
-  constructor() {
-    super();
-    this.list = [
-      {
-        text: 'Angular JS',
-        glyph: AngularIcon
-      },
-      {
-        text: 'React JS',
-        glyph: ReactIcon
-      },
-      {
-        text: 'Preact JS',
-        glyph: PreactIcon
-      },
-      {
-        text: 'ES6',
-        glyph: Es6Icon
-      },
-      {
-        text: 'HTML 5',
-        glyph: Html5Icon
-      },
-      {
-        text: 'CSS 3',
-        glyph: CSS3Icon
-      },
-      {
-        text: 'Webpack',
-        glyph: WebpackIcon
-      },
-      {
-        text: 'Node JS',
-        glyph: NodeIcon
-      }
-    ];
-  }
+  list = [
+    {
+      text: 'Angular JS',
+      glyph: AngularIcon
+    },
+    {
+      text: 'React JS',
+      glyph: ReactIcon
+    },
+    {
+      text: 'Preact JS',
+      glyph: PreactIcon
+    },
+    {
+      text: 'ES6',
+      glyph: Es6Icon
+    },
+    {
+      text: 'HTML 5',
+      glyph: Html5Icon
+    },
+    {
+      text: 'CSS 3',
+      glyph: CSS3Icon
+    },
+    {
+      text: 'Webpack',
+      glyph: WebpackIcon
+    },
+    {
+      text: 'Node JS',
+      glyph: NodeIcon
+    }
+  ];
 
   renderItem = item => <CarouselItem glyph={item.glyph} text={item.text} />;
 

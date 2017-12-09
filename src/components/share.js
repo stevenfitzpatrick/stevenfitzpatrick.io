@@ -27,6 +27,13 @@ class Share extends Component {
     };
   }
 
+  renderShareLink = (shareSvg, shareTitle, onClick) => (
+    <button class={`button--${shareTitle.toLowerCase()}`} onClick={onClick}>
+      <SVGIcon glyph={shareSvg} />
+      <span>{shareTitle}</span>
+    </button>
+  );
+
   render({ title }) {
     const url = window.location.href;
     return (
@@ -34,15 +41,8 @@ class Share extends Component {
         <h4>
           Share this page<span>.</span>
         </h4>
-        <button class="button--twitter" onClick={this.shareTwitter(url, title)}>
-          <SVGIcon glyph={TwitterLogo} />
-          <span>Twitter</span>
-        </button>
-
-        <button class="button--linkedin" onClick={this.shareLinkedIn(url, title)}>
-          <SVGIcon glyph={LinkedInLogo} />
-          <span>LinkedIn</span>
-        </button>
+        {this.renderShareLink(TwitterLogo, 'Twitter', this.shareTwitter(url, title))}
+        {this.renderShareLink(LinkedInLogo, 'LinkedIn', this.shareLinkedIn(url, title))}
       </section>
     );
   }

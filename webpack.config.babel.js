@@ -4,7 +4,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
-const fs = require('fs');
 
 // const Prod Settings
 const prodPlugins = require('./webpack.prod.config.babel');
@@ -17,15 +16,11 @@ const isProd = ENV === 'production';
 module.exports = {
   context: path.resolve(__dirname),
   devServer: {
+    publicPath: '/',
     contentBase: './dist',
     port: 8080,
     open: true,
-    historyApiFallback: true,
-    setup(app) {
-      app.use('/content/**', (req, res) => {
-        fs.createReadStream(`content/${req.params[0]}`).pipe(res);
-      });
-    }
+    historyApiFallback: true
   },
   // Start Bundling Here
   entry: {
