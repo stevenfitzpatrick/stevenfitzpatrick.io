@@ -30,7 +30,15 @@ module.exports = {
   // Start Bundling Here
   entry: {
     app: ['./src/index.js'],
-    vendor: ['preact', 'preact-router', 'preact-async-route', 'classnames', 'styled-components']
+    vendor: [
+      'preact',
+      'preact-router',
+      'preact-async-route',
+      'classnames',
+      'styled-components',
+      'unistore',
+      'unfetch'
+    ]
   },
   // Output of Bundling
   /*

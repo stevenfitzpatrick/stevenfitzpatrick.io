@@ -1,6 +1,6 @@
 import { createStore } from 'unistore';
 
-let store = createStore({
+const store = createStore({
   bookmarks: {
     list: [],
     tags: {},

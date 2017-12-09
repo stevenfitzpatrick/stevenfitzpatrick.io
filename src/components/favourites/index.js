@@ -1,30 +1,24 @@
 import { h, Component } from 'preact';
-// import { connect } from 'unistore';
+import { connect } from 'unistore';
 
 import style from './style';
 import BackToTop from '../backToTop';
 import FilterList from './FilterList';
 import FavouritesList from './FavouritesList';
 import MetaHOC from '../HOC/MetaHOC';
+import actions from './actions';
 
-// const mapStateToProps = state => ({
-//   bookmarks: state.bookmarks.filter
-//     ? state.bookmarks.list.filter(bookmark => bookmark.tags.includes(state.bookmarks.filter))
-//     : state.bookmarks.list,
-//   tags: state.bookmarks.tags,
-//   filter: state.bookmarks.filter
-// });
+const mapStateToProps = ({ bookmarks: { filter, list, tags } } = {}) => ({
+  bookmarks: filter ? list.filter(bookmark => bookmark.tags.includes(filter)) : list,
+  tags,
+  filter
+});
 
 @MetaHOC
-// @connect(mapStateToProps, actions)
+@connect(mapStateToProps, actions)
 export default class Favourites extends Component {
-  getFavourites() {
-    this.props.fetchBookmarks();
-  }
-
   toggleFilter = e => {
     const tag = e.target.name;
-
     if (this.props.filter.includes(tag)) {
       this.props.removeFilter(tag);
     } else {
@@ -34,8 +28,7 @@ export default class Favourites extends Component {
 
   componentDidMount() {
     if (this.props.bookmarks && this.props.bookmarks.length) return;
-    // Get Items from Firebase
-    this.getFavourites();
+    this.props.fetchBookmarks();
   }
 
   render({ tags, bookmarks, filter }) {

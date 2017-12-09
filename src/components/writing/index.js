@@ -1,9 +1,10 @@
 import { h, Component } from 'preact';
+import cx from 'classnames';
+import styled from 'styled-components';
+
 import MetaHOC from '../HOC/MetaHOC';
 import styles from './style';
 import { Link } from 'preact-router';
-import styled from 'styled-components';
-import cx from 'classnames';
 
 const ArticleTitle = styled.h5`
   font-weight: 700;
