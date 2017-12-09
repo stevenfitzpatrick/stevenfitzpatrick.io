@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import cx from 'classnames';
 
-import metaHOC from '../HOC/MetaHOC';
+import { withMeta } from 'HOC';
 import ProfilePictureJpg from '../../assets/profile.jpg';
 import ProfilePictureWebp from '../../assets/profile.webp';
 import style from './style';
@@ -137,4 +137,4 @@ class Carousel extends Component {
   }
 }
 
-export default metaHOC(AboutMe);
+export default withMeta(AboutMe);

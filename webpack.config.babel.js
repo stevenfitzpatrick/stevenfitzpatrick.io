@@ -63,8 +63,8 @@ module.exports = {
     alias: {
       components: path.resolve(__dirname, 'src/components'),
       clients: path.resolve(__dirname, 'src/clients'),
-
       style: path.resolve(__dirname, 'src/styles'),
+      HOC: path.resolve(__dirname, 'src/components/HOC'),
       react: 'preact'
     }
   },

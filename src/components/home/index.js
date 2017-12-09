@@ -1,8 +1,8 @@
 import { h, Component } from 'preact';
 
-import styles from './style';
-import MetaHOC from '../HOC/MetaHOC';
+import { withMeta } from 'HOC';
 import ContactIcon from '../../assets/svg/speech-bubble';
+import styles from './style';
 
 const otherSkills = [
   'Problem Solver',
@@ -15,7 +15,7 @@ const otherSkills = [
   'Love Food'
 ];
 
-@MetaHOC
+@withMeta
 class Home extends Component {
   state = {
     showAboutMe: false

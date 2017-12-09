@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import Loading from '../loading';
+
 const LoadingHOC = WrappedComponent =>
   class LoadingHOC extends Component {
     state = {
@@ -15,7 +16,7 @@ const LoadingHOC = WrappedComponent =>
     }
 
     render(props, { shouldRender }) {
-      return props.bookmarks.length === 0
+      return props.bookmarks && props.bookmarks.length === 0
         ? shouldRender && <Loading />
         : shouldRender && <WrappedComponent {...props} />;
     }

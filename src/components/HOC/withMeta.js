@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+
 import config from '../../config';
 
 const MetaHOC = WrappedComponent =>

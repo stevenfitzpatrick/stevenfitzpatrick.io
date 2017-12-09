@@ -16,6 +16,8 @@ export default class App extends Component {
     url: ''
   };
 
+  static displayName = 'notapp';
+
   handleRoute = e => {
     const currentUrl = e.current.attributes.type ? e.current.attributes.type : e.url;
     this.setState({ url: currentUrl });

@@ -1,11 +1,11 @@
 import { h, Component } from 'preact';
 import { connect } from 'unistore';
 
+import { withMeta } from 'HOC';
 import style from './style';
 import BackToTop from '../backToTop';
 import FilterList from './FilterList';
 import FavouritesList from './FavouritesList';
-import MetaHOC from '../HOC/MetaHOC';
 import actions from './actions';
 
 const mapStateToProps = ({ bookmarks: { filter, list, tags } } = {}) => ({
@@ -14,7 +14,7 @@ const mapStateToProps = ({ bookmarks: { filter, list, tags } } = {}) => ({
   filter
 });
 
-@MetaHOC
+@withMeta
 @connect(mapStateToProps, actions)
 export default class Favourites extends Component {
   toggleFilter = e => {

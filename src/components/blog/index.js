@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import Markup from 'preact-markup';
 
-import MetaHOC from '../HOC/MetaHOC';
+import { withMeta } from 'HOC';
 import { slugifyPath } from '../../utils/helpers';
 import BlogMeta from './blog-meta';
 import Highlight from '../highlight';
@@ -11,7 +11,7 @@ import { FunkyH5 } from 'style/buttons';
 
 import './style';
 
-@MetaHOC
+@withMeta
 export default class Blog extends Component {
   async fetchContent(title) {
     const path = `${slugifyPath(title, '/content/')}.html`;

@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import cx from 'classnames';
 import styled from 'styled-components';
 
-import MetaHOC from '../HOC/MetaHOC';
+import { withMeta } from 'HOC';
 import styles from './style';
 import { Link } from 'preact-router';
 
@@ -11,7 +11,7 @@ const ArticleTitle = styled.h5`
   margin: 0;
 `;
 
-@MetaHOC
+@withMeta
 class Writing extends Component {
   displayBlogSummary = blog => (
     <article class={styles.writing__article}>
