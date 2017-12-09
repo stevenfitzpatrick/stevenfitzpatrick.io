@@ -3,12 +3,11 @@ import Markup from 'preact-markup';
 
 import { withMeta } from 'HOC';
 import { slugifyPath } from '../../utils/helpers';
-import BlogMeta from './blog-meta';
+import BlogMeta from './BlogMeta';
 import Highlight from '../highlight';
 import Share from '../share';
 import BackToTop from '../backToTop';
 import { FunkyH5 } from 'style/buttons';
-
 import './style';
 
 @withMeta

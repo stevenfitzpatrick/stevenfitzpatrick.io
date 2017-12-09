@@ -3,6 +3,8 @@ import Loading from '../loading';
 
 const LoadingHOC = WrappedComponent =>
   class LoadingHOC extends Component {
+    static displayName = `withMeta(${WrappedComponent.displayName || WrappedComponent.name})`;
+
     state = {
       shouldRender: false
     };

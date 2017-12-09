@@ -2,8 +2,10 @@ import { h, Component } from 'preact';
 
 import config from '../../config';
 
-const MetaHOC = WrappedComponent =>
-  class MetaHOC extends Component {
+const withMeta = WrappedComponent =>
+  class withMeta extends Component {
+    static displayName = `withMeta(${WrappedComponent.displayName || WrappedComponent.name})`;
+
     componentWillMount() {
       const { title = '', description = '' } = this.props;
       document.title = title ? `${title} | ${config.title}` : config.title;
@@ -17,4 +19,4 @@ const MetaHOC = WrappedComponent =>
     }
   };
 
-export default MetaHOC;
+export default withMeta;
