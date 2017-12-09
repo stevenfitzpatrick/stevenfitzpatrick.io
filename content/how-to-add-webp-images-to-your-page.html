@@ -1,36 +1,40 @@
 <p>
-  In this post I want to show you two different strategies for adding Google&rsquo;s new image format <a target="_blank"
-    rel="noopener noreferrer" class="link--content" href="https://developers.google.com/speed/webp/">WebP</a>, and the legacy
-  browser issues to be considered in your implementation. As part of your web page optimization to-do list, you will want
-  to decrease image download sizes and this where WebP will help you. WebP offers considerable image size reductions for
-  your site and while browser support is not ideal yet, should definitely be considered. Check out <a target="_blank" rel="noopener noreferrer"
-    class="link--content" href="https://developers.google.com/speed/webp/gallery">this link</a> to compare the quality difference
-  between original images and WebP converted.
+  In this post I want to show you two different strategies for adding Google&rsquo;s new image format
+  <a target="_blank"
+    rel="noopener noreferrer" class="link--content" href="https://developers.google.com/speed/webp/">WebP</a>, and the legacy browser issues to be considered in your implementation. As part of your web page optimization
+  to-do list, you will want to decrease image download sizes and this where WebP will help you. WebP offers considerable
+  image size reductions for your site and while browser support is not ideal yet, should definitely be considered. Check
+  out
+  <a target="_blank" rel="noopener noreferrer" class="link--content" href="https://developers.google.com/speed/webp/gallery">this link</a> to compare the quality difference between original images and WebP converted.
 </p>
 
 <blockquote cite="https://developers.google.com/speed/webp/">
   <p>WebP lossless images are 26% smaller in size compared to PNGs. WebP lossy images are 25-34% smaller than comparable JPEG
     images at equivalent SSIM quality index.</p>
   <footer>
-    &mdash; <cite><a target="_blank"
-              rel="noopener noreferrer" href="https://developers.google.com/speed/webp/">A new image format for the Web</a></cite>
+    &mdash;
+    <cite>
+      <a target="_blank" rel="noopener noreferrer" href="https://developers.google.com/speed/webp/">A new image format for the Web</a>
+    </cite>
   </footer>
 </blockquote>
 
-<h5>Creating WebP Images</h5>
+<funky-h5>Creating WebP Images</funky-h5>
 
 <p>Here are some tools to help you convert your png and jpeg images to WebP format, WebP support both lossy (JPEG) and lossless
   (PNG,GIF) compression.
 </p>
 
 <ul>
-  <li><a target="_blank" rel="noopener noreferrer" class="link--content" href="https://developers.google.com/speed/webp/download">cwebp</a>    command line encoder tool to convert images to WebP</li>
-  <li><a target="_blank" rel="noopener noreferrer" class="link--content" href="http://www.romeolight.com/products/webpconv/">WebPconv</a>    Handy desktop tool to drag and drop multiple images into, will batch convert to WebP and also vice versa if you wish
-    ( I use this one ! )</li>
+  <li>
+    <a target="_blank" rel="noopener noreferrer" class="link--content" href="https://developers.google.com/speed/webp/download">cwebp</a> command line encoder tool to convert images to WebP</li>
+  <li>
+    <a target="_blank" rel="noopener noreferrer" class="link--content" href="http://www.romeolight.com/products/webpconv/">WebPconv</a> Handy desktop tool to drag and drop multiple images into, will batch convert to WebP and also vice versa
+    if you wish ( I use this one ! )</li>
 </ul>
 
-<p>For Webpack user keep in mind by default webpack won't recognize the <code>.webp</code> extension and throw an error, but
-  you simply need to add the image extension to your image / file loader extension test.</p>
+<p>For Webpack user keep in mind by default webpack won't recognize the
+  <code>.webp</code> extension and throw an error, but you simply need to add the image extension to your image / file loader extension test.</p>
 
 <div class="breakout">
   <div class="breakout-wrapper">
@@ -49,19 +53,21 @@
   </div>
 </div>
 
-<h5>Adding WebP from Html</h5>
+<funky-h5>Adding WebP from Html</funky-h5>
 
 <p>
-  Adding images to your html has always been a straightforward process, you simple add an <code>&lt;img&gt;</code> tag in
-  your html and in the src you would specify the image to download. This would take any valid popular image format i.e. png,
-  jpeg, svg etc&hellip; and you were done. Now a WebP image is just another image format, so you would be tempted to just
-  place this new image extension straight in the <code>src</code> of an img tag.
+  Adding images to your html has always been a straightforward process, you simple add an
+  <code>&lt;img&gt;</code> tag in your html and in the src you would specify the image to download. This would take any valid popular image format
+  i.e. png, jpeg, svg etc&hellip; and you were done. Now a WebP image is just another image format, so you would be tempted
+  to just place this new image extension straight in the
+  <code>src</code> of an img tag.
 </p>
 
-<p>But not every browser supports WebP <a target="_blank" rel="noopener noreferrer" class="link--content" href="http://caniuse.com/#feat=webp">yet</a>,
-  currently limited to Chrome, Opera and Android. For example if you would try to load a WebP image in Firefox, the request
-  would fail and no image would be displayed. To handle these unsupported browsers, we need to also specify a fallback image
-  which can be rendered by the browser. For this kind of flexibility we need the HTML 5 <code>&lt;picture&gt;</code> tag.</p>
+<p>But not every browser supports WebP
+  <a target="_blank" rel="noopener noreferrer" class="link--content" href="http://caniuse.com/#feat=webp">yet</a>, currently limited to Chrome, Opera and Android. For example if you would try to load a WebP image in Firefox,
+  the request would fail and no image would be displayed. To handle these unsupported browsers, we need to also specify a
+  fallback image which can be rendered by the browser. For this kind of flexibility we need the HTML 5
+  <code>&lt;picture&gt;</code> tag.</p>
 
 <div class="breakout">
   <div class="breakout-wrapper">
@@ -77,20 +83,25 @@
 </div>
 
 <p>In the above example we added the source tag to specify the WebP image with the correct type, which is defined as MIME Type
-  <strong>image/webp</strong>, and <code>srcset</code> to point to the location of the WebP image. We still have to load
-  the img tag which then loads the alternative file for unsupported browsers, but for supported browsers img source will
-  be
-  <strong>replaced</strong> by the <code>srcset</code> of the WebP <code>source</code> tag&#8202;&mdash;&#8202;Pretty cool!
+  <strong>image/webp</strong>, and
+  <code>srcset</code> to point to the location of the WebP image. We still have to load the img tag which then loads the alternative file for
+  unsupported browsers, but for supported browsers img source will be
+  <strong>replaced</strong> by the
+  <code>srcset</code> of the WebP
+  <code>source</code> tag&#8202;&mdash;&#8202;Pretty cool!
 </p>
 
-<p>Browser support for <code>&lt;picture&gt;</code> is very good as of today, with just Internet Explorer lagging behind (Edge
-  does support it). But fear not since there is a <a target="_blank" rel="noopener noreferrer" class="link--content" href="https://github.com/scottjehl/picturefill">polyfill</a>  for everything these days, but even without the polyfill these browsers would still fallback to the <code>&lt;img&gt;</code>  tag. </p>
+<p>Browser support for
+  <code>&lt;picture&gt;</code> is very good as of today, with just Internet Explorer lagging behind (Edge does support it). But fear not since there
+  is a
+  <a target="_blank" rel="noopener noreferrer" class="link--content" href="https://github.com/scottjehl/picturefill">polyfill</a> for everything these days, but even without the polyfill these browsers would still fallback to the
+  <code>&lt;img&gt;</code> tag. </p>
 
-<p>Make sure that the <code>&lt;img&gt;</code> tag is specified last, since browsers will pick the first matching element and
-  ignore subsequent sources. Note that even the css class, alt etc on the img tag will persist and will be applied to your
-  WebP image.</p>
+<p>Make sure that the
+  <code>&lt;img&gt;</code> tag is specified last, since browsers will pick the first matching element and ignore subsequent sources. Note that even
+  the css class, alt etc on the img tag will persist and will be applied to your WebP image.</p>
 
-<h5>Adding WebP from CSS</h5>
+<funky-h5>Adding WebP from CSS</funky-h5>
 
 <p>
   Next up is setting WebP as background images in CSS, where similar considerations are required. First we need to a way to
@@ -98,13 +109,15 @@
 </p>
 
 <p>
-  To do this we need to add a small <a target="_blank" rel="noopener noreferrer" class="link--content" href="https://modernizr.com/">Modernizr</a>  script to detect the browser support for WebP, which will then add appropriate classes to your html page. We can then use
-  these hints to load the correct image in our css. Download the required WebP detect script from the Modernizr website and
-  then import into your app&#8202;&mdash;&#8202;around 3.4 KB before gzip.
+  To do this we need to add a small
+  <a target="_blank" rel="noopener noreferrer" class="link--content" href="https://modernizr.com/">Modernizr</a> script to detect the browser support for WebP, which will then add appropriate classes to your html page.
+  We can then use these hints to load the correct image in our css. Download the required WebP detect script from the Modernizr
+  website and then import into your app&#8202;&mdash;&#8202;around 3.4 KB before gzip.
 </p>
 
-<p>When your page is loaded you should then see either the <code>.webp</code> or <code>.no-webp</code> css class added to your
-  page html tag</p>
+<p>When your page is loaded you should then see either the
+  <code>.webp</code> or
+  <code>.no-webp</code> css class added to your page html tag</p>
 
 <figure>
   <div class="blog__img">
@@ -126,8 +139,10 @@
   <figcaption>.no-webp class is added when not supported.</figcaption>
 </figure>
 
-<p>With these helpers in place, you now have all you need to switch the <code>background-image</code> depending on browser support.
-  Also note that user might have javascript disabled, in which case you could extend the below class to <code>.no-js, .no-webp</code>.
+<p>With these helpers in place, you now have all you need to switch the
+  <code>background-image</code> depending on browser support. Also note that user might have javascript disabled, in which case you could extend the below
+  class to
+  <code>.no-js, .no-webp</code>.
 </p>
 
 
@@ -145,21 +160,24 @@
   </div>
 </div>
 
-<h5>Little Gotchas</h5>
+<funky-h5>Little Gotchas</funky-h5>
 
-<p>When you are deploying your site you will more than likely need to add the <strong>image/webp</strong> MIME type as valid
-  content type. For example on this site hosted on Amazon S3, all my WebP images initially had a default content type of
+<p>When you are deploying your site you will more than likely need to add the
+  <strong>image/webp</strong> MIME type as valid content type. For example on this site hosted on Amazon S3, all my WebP images initially
+  had a default content type of
   <code>application/octet-stream</code>.
 </p>
 
-<h5>Conclusion</h5>
+<funky-h5>Conclusion</funky-h5>
 
 <p>
   In my opinion there is a clear benefit to adapting the above techniques, quicker download times for your users is a no brainer
   &mdash; when available. There are definitely mixed feelings in the web community about WebP, which has been around since
   2010 when Google purchased On2 Technologies, and I am not sure if it will be ever supported by all major browsers. Firefox
-  has recently <a target="_blank" rel="noopener noreferrer" class="link--content" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1294490">re-opened</a>  the case for supporting WebP, but it might require a specific <a target="_blank" rel="noopener noreferrer" class="link--content"
-    href="http://news.softpedia.com/news/firefox-will-support-google-s-super-tiny-webp-image-format-507622.shtml">browser setting</a>  to be enabled manually&mdash;so not so sure how useful that would be.
+  has recently
+  <a target="_blank" rel="noopener noreferrer" class="link--content" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1294490">re-opened</a> the case for supporting WebP, but it might require a specific
+  <a target="_blank" rel="noopener noreferrer"
+    class="link--content" href="http://news.softpedia.com/news/firefox-will-support-google-s-super-tiny-webp-image-format-507622.shtml">browser setting</a> to be enabled manually&mdash;so not so sure how useful that would be.
 </p>
 
 <p>Downloading images is a huge bottleneck for websites&rsquo; bandwith, so any improvements that can be made in this area is

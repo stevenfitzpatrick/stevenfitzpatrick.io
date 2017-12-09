@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
-import metaHOC from '../HOC/MetaHOC';
-
 import cx from 'classnames';
+
+import metaHOC from '../HOC/MetaHOC';
 import ProfilePictureJpg from '../../assets/profile.jpg';
 import ProfilePictureWebp from '../../assets/profile.webp';
 import style from './style';
@@ -13,7 +13,6 @@ import ReactIcon from '../../assets/svg/react';
 import WebpackIcon from '../../assets/svg/webpack';
 import PreactIcon from '../../assets/svg/preact';
 import NodeIcon from '../../assets/svg/nodejs';
-
 import { FunkyH5 } from 'style/buttons';
 
 const AboutMe = () => (
