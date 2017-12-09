@@ -4,7 +4,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
-const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const fs = require('fs');
 
 // const Prod Settings
@@ -36,10 +35,9 @@ module.exports = {
       'preact-router',
       'preact-async-route',
       'classnames',
-      'preact-redux',
-      'redux-saga',
-      'redux',
-      'styled-components'
+      'styled-components',
+      'unistore',
+      'unfetch'
     ]
   },
   // Output of Bundling
@@ -162,7 +160,6 @@ module.exports = {
   },
   // Bundle Rules
   plugins: [
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-ie/),
     // Inject CSS and JS into HTML
     new HtmlWebpackPlugin({
       hash: false,

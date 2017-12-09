@@ -1,7 +1,7 @@
 import { h, render } from 'preact';
-import { Provider } from 'preact-redux';
+import { Provider } from 'unistore';
 import App from './components/app';
-import store from './redux/store';
+import store from './store/store';
 import './styles';
 
 function init() {
@@ -29,7 +29,7 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   navigator.serviceWorker.register('/sw.js');
 
   const loadAnalytics = () => {
-		import(/* webpackChunkName: "chunk-analytics" */ './analytics').then(page => page.init());
+    import(/* webpackChunkName: "chunk-analytics" */ './analytics').then(page => page.init());
   };
   loadAnalytics();
 }
