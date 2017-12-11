@@ -1,4 +1,5 @@
 import { h } from 'preact';
+
 import LoadingSVG from '../assets/svg/loading';
 
 export default () => (

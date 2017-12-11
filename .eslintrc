@@ -1,5 +1,5 @@
 {
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "import", "jsx-a11y"],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
@@ -77,6 +77,12 @@
       }
     ],
     "import/no-extraneous-dependencies": 0,
+    "import/namespace": 2,
+    "import/default": 2,
+    "import/export": 2,
+    "import/first": 2,
+    "import/order": 2,
+    "import/newline-after-import": 2,
     "linebreak-style": 0,
     "indent": [
       2,

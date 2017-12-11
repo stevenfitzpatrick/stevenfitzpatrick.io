@@ -1,9 +1,9 @@
 import { h } from 'preact';
 
-import { SVGIcon } from './index';
 import TwitterLogo from '../../assets/svg/twitter';
 import EmailLogo from '../../assets/svg/email';
 import LinkedInLogo from '../../assets/svg/linkedin';
+import { SVGIcon } from './index';
 
 const SOCIAL_LIST = [
   {

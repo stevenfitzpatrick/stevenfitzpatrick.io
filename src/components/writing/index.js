@@ -3,8 +3,8 @@ import cx from 'classnames';
 import styled from 'styled-components';
 
 import { withMeta } from 'HOC';
-import styles from './style';
 import { Link } from 'preact-router';
+import styles from './style';
 
 const ArticleTitle = styled.h5`
   font-weight: 700;
@@ -35,10 +35,7 @@ class Writing extends Component {
     return (
       <div class={cx('content', styles.writing)}>
         <h3>Writing</h3>
-        <p>
-          Writing blogs is a first for me, but I hope you enjoy some of these and learn something
-          along the way.
-        </p>
+        <p>Writing blogs is a first for me, but I hope you enjoy some of these and learn something along the way.</p>
         {list.routes.map(this.displayBlogSummary)}
       </div>
     );

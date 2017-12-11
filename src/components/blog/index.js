@@ -1,13 +1,13 @@
 import { h, Component } from 'preact';
 import Markup from 'preact-markup';
 
+import { FunkyH5 } from 'style/buttons';
 import { withMeta } from 'HOC';
 import { slugifyPath } from '../../utils/helpers';
-import BlogMeta from './BlogMeta';
 import Highlight from '../highlight';
 import Share from '../share';
 import BackToTop from '../backToTop';
-import { FunkyH5 } from 'style/buttons';
+import BlogMeta from './BlogMeta';
 import './style';
 
 @withMeta
@@ -38,12 +38,7 @@ export default class Blog extends Component {
             <article>
               <BlogMeta date={route.date} />
               <h2>{route.blogTitle}</h2>
-              <Markup
-                markup={content}
-                type="html"
-                trim={false}
-                components={{ FunkyH5, Highlight }}
-              />
+              <Markup markup={content} type="html" trim={false} components={{ FunkyH5, Highlight }} />
             </article>
             <Share title={route.blogTitle} />
 

@@ -3,9 +3,9 @@ import { route } from 'preact-router';
 import { Link } from 'preact-router/match';
 import cx from 'classnames';
 
-import style from './style';
 import config from '../../config';
 import LogoImage from '../../assets/svg/Header';
+import style from './style';
 
 const expandedHeaderClass = 'header--expanded';
 export default class Header extends Component {

@@ -1,8 +1,8 @@
 import { h, Component } from 'preact';
 
-import { SVGIcon } from './common';
 import TwitterLogo from '../assets/svg/twitter';
 import LinkedInLogo from '../assets/svg/linkedin';
+import { SVGIcon } from './common';
 
 class Share extends Component {
   shareTwitter(url, text) {
@@ -18,9 +18,7 @@ class Share extends Component {
   shareLinkedIn(url, text) {
     return event => {
       open(
-        `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${
-          text
-        }&source=stevenfitzpatrick.io`,
+        `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${text}&source=stevenfitzpatrick.io`,
         'linkedInshare',
         'height=400,width=550,resizable=1,toolbar=0,menubar=0,status=0,location=0'
       );

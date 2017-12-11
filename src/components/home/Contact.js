@@ -2,10 +2,10 @@ import { h } from 'preact';
 import cx from 'classnames';
 import styled, { keyframes } from 'styled-components';
 
-import styles from './style';
-import CloseIcon from '../../assets/svg/close';
 import SocialIcons from 'components/common/SocialIcons';
+import CloseIcon from '../../assets/svg/close';
 import colors from '../../styles/colors';
+import styles from './style';
 
 const neon = keyframes`
 	from {
@@ -18,17 +18,17 @@ const neon = keyframes`
 `;
 
 const Vacancy = styled.div`
-	border: 2px solid ${colors.primary};
-	animation: ${neon} 2.5s alternate infinite ease-in-out;
-	padding: 0.5rem 1rem;
-	font-size: 1.5rem;
-	text-transform: uppercase;
-	color: white;
-	transform: rotate(-2deg);
-	letter-spacing: 2px;
-	border-radius: 5px;
-	margin-bottom: 1rem;
-	user-select: none;
+  border: 2px solid ${colors.primary};
+  animation: ${neon} 2.5s alternate infinite ease-in-out;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: white;
+  transform: rotate(-2deg);
+  letter-spacing: 2px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  user-select: none;
 `;
 
 export default ({ hideAboutMe, displayShowMe }) => (
@@ -57,17 +57,17 @@ export default ({ hideAboutMe, displayShowMe }) => (
     <div class={styles.aboutme__content}>
       <Vacancy>Vacancy</Vacancy>
       <h4>
-				How to contact me<span>.</span>
+        How to contact me<span>.</span>
       </h4>
       <p>
-				Hi there, if you have any questions about me, this site or any projects you need a hand with
-				feel free to contact me on any of the links below !
+        Hi there, if you have any questions about me, this site or any projects you need a hand with feel free to
+        contact me on any of the links below !
       </p>
       <div class={styles.aboutme__links}>
         <SocialIcons />
       </div>
       <a href="#0" onClick={hideAboutMe} class={cx(styles.closeme, 'text--blue')}>
-				Close me
+        Close me
       </a>
     </div>
   </div>

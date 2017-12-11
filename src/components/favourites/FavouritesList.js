@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 
-import FavouriteItem from './favourite-item';
 import { withLoading } from 'HOC';
+import FavouriteItem from './favourite-item';
 
 @withLoading
 class FavouritesList extends Component {

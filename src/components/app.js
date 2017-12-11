@@ -1,14 +1,14 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 import AsyncRoute from 'preact-async-route';
+import cx from 'classnames';
 
 import { slugifyPath } from '../utils/helpers';
+import style from '../styles/index';
+import config from '../config';
 import Header from './header';
 import Home from './home';
 import Footer from './footer';
-import cx from 'classnames';
-import style from '../styles/index';
-import config from '../config';
 import 'unfetch/polyfill';
 
 export default class App extends Component {
