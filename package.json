@@ -134,7 +134,7 @@
 		"preact-router": "^2.6.0",
 		"styled-components": "^2.2.4",
 		"unfetch": "^3.0.0",
-		"unistore": "^2.4.0"
+		"unistore": "^3.0.0"
 	},
 	"config": {
 		"commitizen": {
