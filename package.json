@@ -13,7 +13,7 @@
 		"predeploy": "npm run test && npm run build && npm run minify",
 		"start": "cross-env NODE_ENV=development webpack-dev-server --inline --color",
 		"test": "jest",
-		"test:coverage": "jest --coverage",
+    	"test:ci": "jest --coverage && ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info",
 		"test:size": "bundlesize",
 		"commit": "git add . && git cz && git push",
 		"precommit": "lint-staged"
@@ -107,6 +107,7 @@
 		"clean-webpack-plugin": "^0.1.17",
 		"copy-webpack-plugin": "^4.2.0",
 		"core-js": "^2.5.1",
+		"coveralls": "^3.0.0",
 		"cross-env": "^5.1.0",
 		"css-loader": "^0.28.7",
 		"cz-conventional-changelog": "^2.1.0",
