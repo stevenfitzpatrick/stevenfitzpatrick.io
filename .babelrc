@@ -1,29 +1,42 @@
 {
-	"presets": [
-		[
-			"env",
-			{
-				"loose": true,
-				"modules": false
-			}
-		],
-		"stage-0"
-	],
-	"plugins": [
-		"transform-decorators-legacy",
-		"transform-react-remove-prop-types",
-		[
-			"transform-react-jsx",
-			{
-				"pragma": "h"
-			}
-		],
-		[
-			"transform-runtime",
-			{
-				"polyfill": false,
-				"regenerator": true
-			}
-		]
-	]
+  "presets": [
+    [
+      "env",
+      {
+        "loose": true,
+        "modules": false
+      }
+    ],
+    "stage-0"
+  ],
+  "env": {
+    "test": {
+      "presets": [["env"], "stage-0"],
+      "plugins": [
+        [
+          "webpack-alias",
+          {
+            "config": "./webpack.config.js"
+          }
+        ]
+      ]
+    }
+  },
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-react-remove-prop-types",
+    [
+      "transform-react-jsx",
+      {
+        "pragma": "h"
+      }
+    ],
+    [
+      "transform-runtime",
+      {
+        "polyfill": false,
+        "regenerator": true
+      }
+    ]
+  ]
 }

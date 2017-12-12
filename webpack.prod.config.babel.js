@@ -78,10 +78,8 @@ const prodPlugins = [
   }),
   // Add Service Worker
   new WorkboxPlugin({
-    globDirectory: './dist',
-    globPatterns: ['**/*.{html,js,css,webp,png}'],
-    swDest: './dist/sw.js',
-    skipWaiting: true
+    skipWaiting: true,
+    clientsClaim: true
   }),
   //Add Bundle JS Analyzer
   new BundleAnalyzerPlugin({

@@ -6,16 +6,36 @@
 	"scripts": {
 		"build": "cross-env NODE_ENV=production BABEL_ENV=production webpack -p",
 		"deploy": "aws s3 rm s3://stevenfitzpatrick.io/ --recursive && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control private,no-cache,max-age=0 --exclude \"*\" --include sw.js --include index.html && aws s3 cp ./dist s3://stevenfitzpatrick.io/ --recursive --metadata-directive REPLACE --cache-control public,max-age=31536000 --exclude sw.js --exclude index.html",
-		"lint": "eslint ./src ./test",
+		"lint": "eslint ./src ./test && npm run stylelint",
 		"lint:fix": "npm run lint -- --fix",
 		"stylelint": "stylelint ./src/**/**.scss",
 		"minify": "minify ./dist/sw.js --out-file ./dist/sw.js",
 		"predeploy": "npm run test && npm run build && npm run minify",
 		"start": "cross-env NODE_ENV=development webpack-dev-server --inline --color",
-		"test": "npm run lint && npm run stylelint",
+		"test": "jest",
+		"test:coverage": "jest --coverage",
 		"test:size": "bundlesize",
 		"commit": "git add . && git cz && git push",
 		"precommit": "lint-staged"
+	},
+	"jest": {
+		"transform": {
+			"^.+\\.js$": "babel-jest"
+		},
+		"moduleFileExtensions": [
+			"js",
+			"jsx",
+			"svg",
+			"json",
+			"webp"
+		],
+		"setupFiles": [
+			"<rootDir>/test/__mocks__/setupFile.js"
+		],
+		"moduleNameMapper": {
+			"\\.(css|jpg|png|svg|scss|json|webp|css|svg)$": "identity-obj-proxy",
+			"^react(.*)$": "<rootDir>/node_modules/preact"
+		}
 	},
 	"lint-staged": {
 		"*.{js,tsx,ts}": [
@@ -68,6 +88,7 @@
 		"autoprefixer": "^7.1.6",
 		"babel-core": "^6.26.0",
 		"babel-eslint": "^8.0.1",
+		"babel-jest": "^21.2.0",
 		"babel-loader": "^7.1.2",
 		"babel-minify": "^0.2.0",
 		"babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -75,6 +96,7 @@
 		"babel-plugin-transform-react-jsx": "^6.24.1",
 		"babel-plugin-transform-react-remove-prop-types": "^0.4.10",
 		"babel-plugin-transform-runtime": "^6.23.0",
+		"babel-plugin-webpack-alias": "^2.1.2",
 		"babel-preset-env": "^1.6.1",
 		"babel-preset-react": "^6.24.1",
 		"babel-preset-stage-0": "^6.24.1",
@@ -101,14 +123,17 @@
 		"html-loader": "^0.5.1",
 		"html-webpack-plugin": "^2.30.1",
 		"husky": "^0.14.3",
+		"identity-obj-proxy": "^3.0.0",
 		"image-webpack-loader": "^3.4.2",
 		"inline-manifest-webpack-plugin": "^3.0.1",
+		"jest": "^21.2.1",
 		"lint-staged": "^6.0.0",
 		"modularscale-sass": "^3.0.3",
 		"node-sass": "^4.5.3",
 		"postcss-import": "^11.0.0",
 		"postcss-loader": "^2.0.8",
 		"postcss-url": "^7.1.2",
+		"preact-render-spy": "^1.2.1",
 		"preload-webpack-plugin": "^2.0.0",
 		"resource-hints-webpack-plugin": "0.0.1",
 		"sass-loader": "^6.0.6",
@@ -122,7 +147,7 @@
 		"webpack": "3.10.0",
 		"webpack-bundle-analyzer": "^2.9.1",
 		"webpack-dev-server": "^3.0.0-alpha2",
-		"workbox-webpack-plugin": "^2.1.1"
+		"workbox-webpack-plugin": "3.0.0-alpha.2"
 	},
 	"dependencies": {
 		"babel-polyfill": "^6.26.0",

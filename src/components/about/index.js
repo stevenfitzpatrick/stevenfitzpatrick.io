@@ -5,17 +5,17 @@ import { FunkyH5 } from 'style/buttons';
 import { withMeta } from 'HOC';
 import ProfilePictureJpg from '../../assets/profile.jpg';
 import ProfilePictureWebp from '../../assets/profile.webp';
-import AngularIcon from '../../assets/svg/angular';
-import Html5Icon from '../../assets/svg/html5';
-import CSS3Icon from '../../assets/svg/css3';
-import Es6Icon from '../../assets/svg/es6';
-import ReactIcon from '../../assets/svg/react';
-import WebpackIcon from '../../assets/svg/webpack';
-import PreactIcon from '../../assets/svg/preact';
-import NodeIcon from '../../assets/svg/nodejs';
-import style from './style';
+import AngularIcon from '../../assets/svg/angular.svg';
+import Html5Icon from '../../assets/svg/html5.svg';
+import CSS3Icon from '../../assets/svg/css3.svg';
+import Es6Icon from '../../assets/svg/es6.svg';
+import ReactIcon from '../../assets/svg/react.svg';
+import WebpackIcon from '../../assets/svg/webpack.svg';
+import PreactIcon from '../../assets/svg/preact.svg';
+import NodeIcon from '../../assets/svg/nodejs.svg';
+import style from './style.scss';
 
-const AboutMe = () => (
+export const AboutMe = () => (
   <div class="content about_me">
     <h3>About Me</h3>
     <div class={style.about}>
