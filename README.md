@@ -7,3 +7,5 @@ Check out the source code for stevenfitzpatrick.io
 [![Known Vulnerabilities](https://snyk.io/test/github/stevenfitzpatrick/stevenfitzpatrick.io/badge.svg)](https://snyk.io/test/github/stevenfitzpatrick/stevenfitzpatrick.io)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Maintainability](https://api.codeclimate.com/v1/badges/81d6c91a89935793e498/maintainability)](https://codeclimate.com/github/stevenfitzpatrick/stevenfitzpatrick.io)
+[![Coverage Status](https://img.shields.io/coveralls/github/stevenfitzpatrick/texas-chromeless/master.svg)](https://coveralls.io/github/stevenfitzpatrick/stevenfitzpatrick.io?branch=master)
+
