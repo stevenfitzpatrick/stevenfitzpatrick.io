@@ -11,9 +11,9 @@
 		"stylelint": "stylelint ./src/**/**.scss",
 		"minify": "minify ./dist/sw.js --out-file ./dist/sw.js",
 		"predeploy": "npm run test && npm run build && npm run minify",
-		"start": "cross-env NODE_ENV=development webpack-dev-server --inline --color",
+		"start": "cross-env NODE_ENV=development webpack-dev-server --watch --progress --inline --color",
 		"test": "jest",
-    	"test:ci": "jest --coverage && ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info",
+		"test:ci": "jest --coverage && ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info",
 		"test:size": "bundlesize",
 		"commit": "git add . && git cz && git push",
 		"precommit": "lint-staged"
@@ -147,7 +147,7 @@
 		"url-loader": "^0.6.2",
 		"webpack": "3.10.0",
 		"webpack-bundle-analyzer": "^2.9.1",
-		"webpack-dev-server": "^3.0.0-alpha2",
+		"webpack-dev-server": "^2.9.7",
 		"workbox-webpack-plugin": "3.0.0-alpha.2"
 	},
 	"dependencies": {

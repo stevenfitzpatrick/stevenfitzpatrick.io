@@ -1,9 +1,9 @@
 import { h, Component } from 'preact';
 import Markup from 'preact-markup';
 
-import { FunkyH5 } from 'style/buttons';
 import { withMeta } from 'HOC';
 import { slugifyPath } from '../../utils/helpers';
+import { AnchorTitle } from '../common';
 import Highlight from '../highlight';
 import Share from '../share';
 import BackToTop from '../backToTop';
@@ -12,6 +12,8 @@ import './style';
 
 @withMeta
 export default class Blog extends Component {
+  static Meta = BlogMeta;
+
   async fetchContent(title) {
     const path = `${slugifyPath(title, '/content/')}.html`;
     const content = await this.getBlogByName(path);
@@ -30,15 +32,25 @@ export default class Blog extends Component {
     this.fetchContent(blogTitle);
   }
 
+  componentDidUpdate() {
+    // Check for Anchor Links
+    const hash = window.location.hash;
+
+    if (hash) {
+      const funkyLink = document.querySelector(hash);
+      funkyLink && funkyLink.scrollIntoView();
+    }
+  }
+
   render({ route }, { content }) {
     return (
       <div class="content blog">
         {content && (
           <section>
             <article>
-              <BlogMeta date={route.date} />
+              <Blog.Meta date={route.date} />
               <h2>{route.blogTitle}</h2>
-              <Markup markup={content} type="html" trim={false} components={{ FunkyH5, Highlight }} />
+              <Markup markup={content} type="html" trim={false} components={{ Highlight, AnchorTitle }} />
             </article>
             <Share title={route.blogTitle} />
 

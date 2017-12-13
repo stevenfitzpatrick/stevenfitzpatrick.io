@@ -1,10 +1,10 @@
 // Modules
-const webpack = require('webpack');
+const fs = require('fs');
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
-
 // const Prod Settings
 const prodPlugins = require('./webpack.prod.config.babel');
 
@@ -20,20 +20,17 @@ module.exports = {
     contentBase: './dist',
     port: 8080,
     open: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    setup(app) {
+      app.use('/content/**', (req, res) => {
+        fs.createReadStream(`content/${req.params[0]}`).pipe(res);
+      });
+    }
   },
   // Start Bundling Here
   entry: {
     app: ['./src/index.js'],
-    vendor: [
-      'preact',
-      'preact-router',
-      'preact-async-route',
-      'classnames',
-      'styled-components',
-      'unistore',
-      'unfetch'
-    ]
+    vendor: ['preact', 'preact-router', 'preact-async-route', 'classnames', 'styled-components', 'unistore', 'unfetch']
   },
   // Output of Bundling
   /*
@@ -49,11 +46,7 @@ module.exports = {
     chunkFilename: '[name].[chunkhash].js'
   },
   resolve: {
-    modules: [
-      'node_modules',
-      path.resolve(__dirname, 'node_modules'),
-      path.resolve(__dirname, 'src')
-    ],
+    modules: ['node_modules', path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'src')],
     extensions: ['.js', '.json', '.jsx', '.css', '.scss', '.svg'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),

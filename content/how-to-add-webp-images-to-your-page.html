@@ -1,7 +1,6 @@
 <p>
   In this post I want to show you two different strategies for adding Google&rsquo;s new image format
-  <a target="_blank"
-    rel="noopener noreferrer" class="link--content" href="https://developers.google.com/speed/webp/">WebP</a>, and the legacy browser issues to be considered in your implementation. As part of your web page optimization
+  <a target="_blank" rel="noopener noreferrer" class="link--content" href="https://developers.google.com/speed/webp/">WebP</a>, and the legacy browser issues to be considered in your implementation. As part of your web page optimization
   to-do list, you will want to decrease image download sizes and this where WebP will help you. WebP offers considerable
   image size reductions for your site and while browser support is not ideal yet, should definitely be considered. Check
   out
@@ -19,7 +18,7 @@
   </footer>
 </blockquote>
 
-<funky-h5>Creating WebP Images</funky-h5>
+<anchor-title>Creating WebP Images</anchor-title>
 
 <p>Here are some tools to help you convert your png and jpeg images to WebP format, WebP support both lossy (JPEG) and lossless
   (PNG,GIF) compression.
@@ -53,7 +52,7 @@
   </div>
 </div>
 
-<funky-h5>Adding WebP from Html</funky-h5>
+<anchor-title>Adding WebP from Html</anchor-title>
 
 <p>
   Adding images to your html has always been a straightforward process, you simple add an
@@ -101,7 +100,7 @@
   <code>&lt;img&gt;</code> tag is specified last, since browsers will pick the first matching element and ignore subsequent sources. Note that even
   the css class, alt etc on the img tag will persist and will be applied to your WebP image.</p>
 
-<funky-h5>Adding WebP from CSS</funky-h5>
+<anchor-title>Adding WebP from CSS</anchor-title>
 
 <p>
   Next up is setting WebP as background images in CSS, where similar considerations are required. First we need to a way to
@@ -160,7 +159,7 @@
   </div>
 </div>
 
-<funky-h5>Little Gotchas</funky-h5>
+<anchor-title>Little Gotchas</anchor-title>
 
 <p>When you are deploying your site you will more than likely need to add the
   <strong>image/webp</strong> MIME type as valid content type. For example on this site hosted on Amazon S3, all my WebP images initially
@@ -168,7 +167,7 @@
   <code>application/octet-stream</code>.
 </p>
 
-<funky-h5>Conclusion</funky-h5>
+<anchor-title>Conclusion</anchor-title>
 
 <p>
   In my opinion there is a clear benefit to adapting the above techniques, quicker download times for your users is a no brainer
@@ -176,8 +175,7 @@
   2010 when Google purchased On2 Technologies, and I am not sure if it will be ever supported by all major browsers. Firefox
   has recently
   <a target="_blank" rel="noopener noreferrer" class="link--content" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1294490">re-opened</a> the case for supporting WebP, but it might require a specific
-  <a target="_blank" rel="noopener noreferrer"
-    class="link--content" href="http://news.softpedia.com/news/firefox-will-support-google-s-super-tiny-webp-image-format-507622.shtml">browser setting</a> to be enabled manually&mdash;so not so sure how useful that would be.
+  <a target="_blank" rel="noopener noreferrer" class="link--content" href="http://news.softpedia.com/news/firefox-will-support-google-s-super-tiny-webp-image-format-507622.shtml">browser setting</a> to be enabled manually&mdash;so not so sure how useful that would be.
 </p>
 
 <p>Downloading images is a huge bottleneck for websites&rsquo; bandwith, so any improvements that can be made in this area is
