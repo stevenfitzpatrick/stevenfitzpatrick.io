@@ -2,7 +2,7 @@ import { h } from 'preact';
 
 import { slugifyPath } from '../../utils/helpers';
 import { FunkyH5, FunkyAnchor } from '../../styles/buttons';
-import Link from '../../assets/svg/Link.svg';
+import Link from '../../assets/svg/link.svg';
 import { SVGIcon } from './';
 
 export const Anchor = props => (
