@@ -44,3 +44,7 @@ export const FunkyAnchor = styled.a`
     padding: 0;
   }
 `;
+
+FunkyH5.FunkyAnchor = FunkyAnchor;
+
+export default FunkyH5;

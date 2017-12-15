@@ -25,8 +25,10 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-  /*eslint-disable compat/compat*/
-  navigator.serviceWorker.register('/sw.js');
+  window.addEventListener('load', () => {
+    /*eslint-disable compat/compat*/
+    navigator.serviceWorker.register('/sw.js');
+  });
 
   const loadAnalytics = () => {
     import(/* webpackChunkName: "chunk-analytics" */ './analytics').then(page => page.init());

@@ -1,14 +1,14 @@
 import { h } from 'preact';
 
 import { slugifyPath } from '../../utils/helpers';
-import { FunkyH5, FunkyAnchor } from '../../styles/buttons';
+import FunkyH5 from '../../styles/buttons';
 import Link from '../../assets/svg/link.svg';
 import { SVGIcon } from './';
 
 export const Anchor = props => (
-  <FunkyAnchor {...props}>
+  <FunkyH5.FunkyAnchor {...props}>
     <SVGIcon glyph={Link} />
-  </FunkyAnchor>
+  </FunkyH5.FunkyAnchor>
 );
 
 export const AnchorTitle = ({ children }) => {
