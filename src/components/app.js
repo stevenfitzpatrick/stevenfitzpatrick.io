@@ -1,3 +1,4 @@
+import 'intersection-observer';
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 import AsyncRoute from 'preact-async-route';
