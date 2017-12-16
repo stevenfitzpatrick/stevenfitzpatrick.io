@@ -5,12 +5,9 @@
   /**
   * Font Styles
   */
-
-  @media (min-width: $desktop) {
-    p,
-    ul {
-      font-size: 18px;
-    }
+  p,
+  ul {
+    font-size: 18px;
   }
 
   /**
@@ -70,11 +67,16 @@
     .introduction {
       margin-bottom: $line-height-base;
     }
+  }
 
-    .breakout {
-      .breakout-wrapper {
-        @include containerWrapper;
-      }
-    }
+  .breakout-wrapper {
+    @include containerWrapper;
+  }
+
+  .container {
+    // p {
+    //   font-size: ms(1);
+    //   font-weight: 300;
+    // }
   }
 }

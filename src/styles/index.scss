@@ -95,47 +95,35 @@ ul {
     }
   }
 
-  .link--content {
-    color: $header;
-  }
-
-  .link--readmore {
-    color: $link;
-    font-weight: 600;
-  }
-
   .introduction {
     font-size: ms(1);
     font-weight: 300;
     line-height: 1.25;
   }
+}
 
-  .breakout {
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: $line-height-base 0;
-    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-    box-shadow: 0 3px 4px $boxShadowColor, 0 -3px 4px $boxShadowColor;
-    color: #efefef;
-  }
+.link--content {
+  color: $header;
+}
 
-  .breakout--image {
-    background-image: url('/assets/yolo.jpg');
-    min-height: 300px;
-    background-position: center 70%;
-    background-size: 100%;
-  }
+.link--readmore {
+  color: $link;
+  font-weight: 600;
+}
 
-  .breakout-wrapper {
-    padding: $spacing;
-  }
+.breakout {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: $line-height-base 0;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  box-shadow: 0 3px 4px $boxShadowColor, 0 -3px 4px $boxShadowColor;
+  color: #efefef;
+}
 
-  .breakout__title {
-    font-family: $mainFont;
-    padding: $spacing 0;
-  }
+.breakout-wrapper {
+  padding: $spacing;
 }
 
 /**
@@ -170,16 +158,17 @@ ul {
   fill: currentColor;
   vertical-align: bottom;
 
+  &.icon--big {
+    height: 60px;
+    width: 60px;
+  }
+
   &:hover {
     transform: scale(1.1);
   }
 
   &.twitter:hover {
     fill: $twitter;
-  }
-
-  &.github:hover {
-    fill: $github;
   }
 
   &.linkedin:hover {
@@ -205,3 +194,4 @@ ul {
 @import '_code';
 @import '_images';
 @import '_button';
+@import '_helpers';

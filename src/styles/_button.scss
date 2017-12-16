@@ -87,9 +87,10 @@ button {
 
 .button--outline,
 .button--outline:focus {
-  position: absolute;
+  position: fixed;
+  z-index: 2;
   right: 1em;
-  bottom: 80px;
+  bottom: 60px;
   background: $header;
   color: #fff;
   border-radius: 50%;

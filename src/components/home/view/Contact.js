@@ -3,8 +3,8 @@ import cx from 'classnames';
 import styled, { keyframes } from 'styled-components';
 
 import SocialIcons from 'components/common/SocialIcons';
-import CloseIcon from '../../assets/svg/close';
-import colors from '../../styles/colors';
+import CloseIcon from '../../../assets/svg/close';
+import colors from '../../../styles/colors';
 import styles from './style';
 
 const neon = keyframes`
@@ -32,12 +32,12 @@ const Vacancy = styled.div`
 `;
 
 export default ({ hideAboutMe, displayShowMe }) => (
-  <div class={cx(styles.aboutme, displayShowMe && styles['aboutme--visible'])}>
+  <div class={cx(styles.contact, displayShowMe && styles['contact--visible'])}>
     <div
       tabIndex="-1"
       role="button"
       aria-label="Close Me"
-      class={styles.aboutme__close}
+      class={styles.contact__close}
       onClick={hideAboutMe}
       onKeyDown={hideAboutMe}
     >
@@ -45,7 +45,7 @@ export default ({ hideAboutMe, displayShowMe }) => (
         <use xlinkHref={`#${CloseIcon.id}`} />
       </svg>
     </div>
-    <div class={styles.aboutme__moon}>
+    <div class={styles.contact__moon}>
       <ul>
         <li />
         <li />
@@ -54,7 +54,7 @@ export default ({ hideAboutMe, displayShowMe }) => (
       </ul>
     </div>
 
-    <div class={styles.aboutme__content}>
+    <div class={styles.contact__content}>
       <Vacancy>Vacancy</Vacancy>
       <h4>
         How to contact me<span>.</span>
@@ -63,7 +63,7 @@ export default ({ hideAboutMe, displayShowMe }) => (
         Hi there, if you have any questions about me, this site or any projects you need a hand with feel free to
         contact me on any of the links below !
       </p>
-      <div class={styles.aboutme__links}>
+      <div class={styles.contact__links}>
         <SocialIcons />
       </div>
       <a href="#0" onClick={hideAboutMe} class={cx(styles.closeme, 'text--blue')}>

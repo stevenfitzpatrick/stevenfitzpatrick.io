@@ -1,4 +1,5 @@
-@import '../../styles/_variables.scss';
+@import '../../../styles/_variables.scss';
+@import '../../../styles/_mixin.scss';
 
 .home {
   flex: 1;
@@ -6,6 +7,7 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  height: calc(100vh - 160px);
 }
 
 /**
@@ -16,7 +18,7 @@
   align-items: center;
 }
 
-.aboutme {
+.contact {
   position: fixed;
   top: 0;
   left: 0;
@@ -31,12 +33,12 @@
   overflow: hidden;
 }
 
-.aboutme--visible {
+.contact--visible {
   opacity: 1;
   pointer-events: auto;
 }
 
-.aboutme__moon {
+.contact__moon {
   position: absolute;
   top: 1.5em;
   left: 1.5em;
@@ -48,7 +50,7 @@
 }
 
 @media (min-width: $desktop) {
-  .aboutme__moon {
+  .contact__moon {
     top: 3em;
     left: 3em;
     height: 150px;
@@ -56,14 +58,14 @@
   }
 }
 
-.aboutme__moon li {
+.contact__moon li {
   position: absolute;
   list-style: none;
   background: #737277;
   border-radius: 50%;
 }
 
-.aboutme__moon li:nth-child(1) {
+.contact__moon li:nth-child(1) {
   left: 20px;
   top: 50px;
   width: 25px;
@@ -71,7 +73,7 @@
   box-shadow: inset 6px -2px 0 0 #414043;
 }
 
-.aboutme__moon li:nth-child(2) {
+.contact__moon li:nth-child(2) {
   right: 40px;
   top: 20px;
   width: 20px;
@@ -79,7 +81,7 @@
   box-shadow: inset 3px -2px 0 0 #414043;
 }
 
-.aboutme__moon li:nth-child(3) {
+.contact__moon li:nth-child(3) {
   left: 70%;
   bottom: 35%;
   width: 15px;
@@ -87,7 +89,7 @@
   box-shadow: inset 2px -2px 0 0 #414043;
 }
 
-.aboutme__moon li:nth-child(4) {
+.contact__moon li:nth-child(4) {
   right: 35%;
   bottom: 5px;
   width: 15px;
@@ -95,7 +97,7 @@
   box-shadow: inset 6px -2px 0 0 #414043;
 }
 
-.aboutme__close {
+.contact__close {
   position: absolute;
   top: 1em;
   right: 1em;
@@ -103,14 +105,14 @@
   outline: none;
 }
 
-.aboutme__close svg {
+.contact__close svg {
   height: 25px;
   width: 25px;
   fill: $header;
   outline: none;
 }
 
-.aboutme__content {
+.contact__content {
   min-height: 100%;
   display: flex;
   color: #fff;
@@ -120,23 +122,23 @@
   padding: $spacing * 2;
 }
 
-.aboutme__content h4 {
+.contact__content h4 {
   padding-bottom: $spacing / 2;
   border-bottom: 2px solid $header;
 }
 
 @media (min-width: $desktop) {
-  .aboutme__content p {
+  .contact__content p {
     font-size: 1.15em;
   }
 }
 
-.aboutme__content p {
+.contact__content p {
   max-width: 30em;
   margin: 0 auto $spacing;
 }
 
-.aboutme__links {
+.contact__links {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -144,18 +146,18 @@
   margin: $spacing 0;
 }
 
-.aboutme__links a {
+.contact__links a {
   margin: $spacing;
 }
 
-.aboutme__links svg {
+.contact__links svg {
   fill: #fff;
   height: 40px;
   width: 40px;
   transition: transform 0.2s ease-in;
 }
 
-.aboutme__links svg:hover {
+.contact__links svg:hover {
   transform: translateY(-5%);
 }
 
@@ -184,4 +186,44 @@
     opacity: 1;
     transform: none;
   }
+}
+
+.container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: $spacing * 2 1.5rem;
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  p {
+    font-size: ms(1);
+    font-weight: 300;
+    white-space: pre-line;
+  }
+
+  h5 {
+    border-bottom: 2px solid $header;
+    display: inline-block;
+  }
+}
+
+.aboutme {
+  background-color: #333a40;
+  color: #fff;
+}
+
+.activity {
+  background-color: #fff;
+}
+
+.github {
+  padding: $spacing;
+}
+
+.gh__message {
+  padding-bottom: $spacing;
 }

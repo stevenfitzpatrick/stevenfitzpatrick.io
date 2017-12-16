@@ -8,8 +8,7 @@ $ms-ratio: $fifth;
 $spacing: $line-height-base / 2;
 
 /* Fonts */
-$headerFont: 'brandon-grotesque', 'Segoe UI', Segoe, Calibri,
-  Arial sans-serif;
+$headerFont: 'brandon-grotesque', 'Segoe UI', Segoe, Calibri, Arial sans-serif;
 $mainFont: 'myriad-pro', 'Segoe UI', Segoe, Calibri, Arial sans-serif;
 $textColor: #555;
 
@@ -36,9 +35,9 @@ $defaultButtonText: #fff;
 $link: rgb(103, 135, 213);
 
 /* Media Queries */
-$tablet: 37.5em; /* 600 px */
-$desktop: 62.5em; /* 1000 px */
-$container: 60em;
+$tablet: 37.5rem; /* 600 px */
+$desktop: 62.5rem; /* 1000 px */
+$container: 60rem;
 
 /* Transitions */
 $transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
