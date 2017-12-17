@@ -26,7 +26,6 @@ class HomeContainer extends Component {
   otherSkills = null;
   index = 1;
   Contact = null;
-  observer = null;
 
   toggleAboutMe = () =>
     this.setState({

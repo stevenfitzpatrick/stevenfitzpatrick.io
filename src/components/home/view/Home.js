@@ -1,17 +1,16 @@
 import { h } from 'preact';
 import cx from 'classnames';
 
-import { IntersectionObserverHOC } from 'HOC';
-
+import { IntersectionObserver, SVGIcon } from '../../common';
 import ContactIcon from '../../../assets/svg/speech-bubble.svg';
-import GithubIcon from '../../../assets/svg/github.svg';
 import Loading from '../../loading';
-import { SVGIcon } from '../../common';
+import Github from './Github';
 import styles from './style';
 
+const activityText =
+  'Currently working full-time but always looking for interesting projects to work on. \n Technology wise I am currently learning — React 16, CSS Grid and Jest.';
+
 function Home({ showAboutMe, toggleAboutMe, Contact, getLatestGithubCommit, github }) {
-  const activityText =
-    'Currently working full-time but always looking for interesting projects to work on. \n Technology wise I am currently learning — React 16, CSS Grid and Jest.';
   return (
     <div>
       <section class={styles.home}>
@@ -43,7 +42,7 @@ function Home({ showAboutMe, toggleAboutMe, Contact, getLatestGithubCommit, gith
           </p>
         </div>
       </section>
-      <IntersectionObserverHOC
+      <IntersectionObserver
         onInView={getLatestGithubCommit}
         render={() => (
           <section class={cx(styles.container, styles.activity)}>
@@ -52,32 +51,8 @@ function Home({ showAboutMe, toggleAboutMe, Contact, getLatestGithubCommit, gith
                 What am I upto <span>?</span>
               </h3>
               <p>{activityText}</p>
-
               <h5>Check my latest commit in Github :</h5>
-              {github ? (
-                <div class={cx('row', 'centered')}>
-                  <SVGIcon glyph={GithubIcon} type="icon--big" />
-                  <div class={cx('column', 'github')}>
-                    <strong>
-                      <a
-                        href={github.commit.url}
-                        class={cx('link--readmore', styles.gh__message)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        alt="Commit message"
-                      >
-                        {github.commit.message}
-                      </a>
-                    </strong>
-                    <a alt="Repo" href={github.repo.url} target="_blank" rel="noopener noreferrer">
-                      {github.repo.name}
-                    </a>
-                    <smaller class={styles.gh__date}> Committed {github.date}</smaller>
-                  </div>
-                </div>
-              ) : (
-                <Loading />
-              )}
+              {github ? <Home.Github github={github} /> : <Loading />}
             </div>
           </section>
         )}
@@ -85,5 +60,7 @@ function Home({ showAboutMe, toggleAboutMe, Contact, getLatestGithubCommit, gith
     </div>
   );
 }
+
+Home.Github = Github;
 
 export default Home;

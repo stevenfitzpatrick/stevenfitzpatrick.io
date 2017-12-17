@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 
-class IntersectionObserverHOC extends Component {
+class IntersectObserver extends Component {
   state = {
     inView: false
   };
@@ -23,12 +23,18 @@ class IntersectionObserverHOC extends Component {
       });
 
       this.observer.observe(this.base);
+    } else {
+      this.props.onInView();
     }
   }
 
-  render({ children }, { shouldRender }) {
+  componentWillUnmount = () => {
+    this.observer.disconnect();
+  };
+
+  render({ children }) {
     return this.props.render();
   }
 }
 
-export default IntersectionObserverHOC;
+export default IntersectObserver;

@@ -81,12 +81,12 @@ export default class App extends Component {
 
   render(props, state) {
     const blogRoutes = config.nav.filter(route => route.type === 'list');
-    //const isHome = (state.url === '' || state.url === '/' || state.url === '404') && 'home';
+    const isHome = state.url === '404' && 'home';
     const isError = state.url === '404' && 'flex-align-center';
     return (
       <div class={style.app}>
         <Header {...state} />
-        <main class={cx(isError)}>
+        <main class={cx(isError, isHome)}>
           <Router onChange={this.handleRoute}>
             <Home path="/" />
             <AsyncRoute
