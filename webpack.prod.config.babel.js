@@ -79,17 +79,7 @@ const prodPlugins = [
   // Add Service Worker
   new WorkboxPlugin({
     skipWaiting: true,
-    clientsClaim: true,
-    runtimeCaching: [
-      {
-        urlPattern: 'https?://[^.]+.typekit.+',
-        handler: 'staleWhileRevalidate'
-      },
-      {
-        urlPattern: 'https?://[^.]+.google-analytics.+',
-        handler: 'staleWhileRevalidate'
-      }
-    ]
+    clientsClaim: true
   }),
   //Add Bundle JS Analyzer
   new BundleAnalyzerPlugin({
