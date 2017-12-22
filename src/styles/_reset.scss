@@ -58,6 +58,14 @@ abbr[title] {
 a {
   text-decoration: none;
   text-decoration-skip: ink;
+
+  &:focus:not([class^='link']) {
+    text-decoration: underline;
+
+    .icon {
+      box-shadow: 0 0 0 2px #fff, 0 0 2px 4px $link;
+    }
+  }
 }
 
 ::-moz-focus-inner {

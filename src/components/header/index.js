@@ -85,7 +85,7 @@ const Logo = ({ image, ...props }) => (
 
 // Hamburger Menu for Mobile
 const Menu = ({ open, ...props }) => (
-  <div class={style.header__hamburger} {...props}>
+  <div class={style.header__hamburger} {...props} role="button" aria-label="Main Menu">
     <span />
   </div>
 );

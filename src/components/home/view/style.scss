@@ -97,19 +97,33 @@
   box-shadow: inset 6px -2px 0 0 #414043;
 }
 
+.contact__links svg {
+  fill: #fff;
+  height: 40px;
+  width: 40px;
+  transition: transform 0.2s ease-in;
+}
+
 .contact__close {
   position: absolute;
   top: 1em;
   right: 1em;
   cursor: pointer;
   outline: none;
-}
 
-.contact__close svg {
-  height: 25px;
-  width: 25px;
-  fill: $header;
-  outline: none;
+  svg {
+    height: 25px;
+    width: 25px;
+    fill: #fff;
+    outline: none;
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      fill: $header;
+    }
+  }
 }
 
 .contact__content {
@@ -150,13 +164,6 @@
   margin: $spacing;
 }
 
-.contact__links svg {
-  fill: #fff;
-  height: 40px;
-  width: 40px;
-  transition: transform 0.2s ease-in;
-}
-
 .contact__links svg:hover {
   transform: translateY(-5%);
 }
@@ -168,7 +175,7 @@
 
 .other-skills {
   display: block;
-  color: darken($header, 13%);
+  color: darken($header, 14%);
   will-change: transform;
 }
 
@@ -195,7 +202,8 @@
   transform: translateX(-50%);
   padding: $spacing * 2 1.5rem;
 
-  a:hover {
+  a:hover,
+  a:focus {
     text-decoration: underline;
   }
 

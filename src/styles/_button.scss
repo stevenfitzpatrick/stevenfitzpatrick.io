@@ -23,9 +23,12 @@ button {
   }
 
   &:hover,
-  &:focus,
   &:active {
     background-color: darken($defaultButton, 10%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px $link;
   }
 }
 
@@ -33,7 +36,6 @@ button {
   background-color: $twitter;
 
   &:hover,
-  &:focus,
   &:active {
     background-color: darken($twitter, 10%);
   }
@@ -43,7 +45,6 @@ button {
   background-color: $linkedIn;
 
   &:hover,
-  &:focus,
   &:active {
     background-color: darken($linkedIn, 10%);
   }
@@ -65,8 +66,7 @@ button {
   transform: scale(1, 1);
 }
 
-.button--filter,
-.button--filter:focus {
+.button--filter {
   margin: $spacing / 2 $spacing;
   background-color: $focusBorder;
   padding: 0;
@@ -78,15 +78,14 @@ button {
   background-color: $header;
 }
 
-.filter--active.button--filter:focus,
-.filter--active {
+.filter--active,
+.filter--active:focus {
   background-color: $header;
   box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.4);
   transform: scale(1);
 }
 
-.button--outline,
-.button--outline:focus {
+.button--outline {
   position: fixed;
   z-index: 2;
   right: 1em;
@@ -125,8 +124,7 @@ button {
 }
 
 @media (min-width: $desktop) {
-  .button--outline,
-  .button--outline:focus {
+  .button--outline {
     position: relative;
     display: inline;
     right: inherit;
