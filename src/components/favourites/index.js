@@ -1,11 +1,11 @@
 import { h, Component } from 'preact';
-import { connect } from 'unistore';
+import { connect } from 'unistore/preact';
 
 import { withMeta } from 'HOC';
 import BackToTop from '../backToTop';
 import FilterList from './FilterList';
 import FavouritesList from './FavouritesList';
-import actions from './actions';
+import actions from './unistore';
 import style from './style';
 
 const mapStateToProps = ({ bookmarks: { filter, list, tags } } = {}) => ({

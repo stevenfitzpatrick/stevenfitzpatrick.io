@@ -1,8 +1,8 @@
 import { h, Component } from 'preact';
+import { connect } from 'unistore/preact';
 
 import { withMeta } from 'HOC';
-import { getMostRecentCommit } from '../../../clients/api';
-import { formatPushEvent } from '../../../utils/helpers';
+import actions from '../unistore';
 import Home from '../view/Home';
 
 const otherSkills = [
@@ -16,11 +16,15 @@ const otherSkills = [
   'Love Food'
 ];
 
+const mapStateToProps = ({ github } = {}) => ({
+  github
+});
+
 @withMeta
+@connect(mapStateToProps, actions)
 class HomeContainer extends Component {
   state = {
-    showAboutMe: false,
-    commitMessage: null
+    showAboutMe: false
   };
 
   otherSkills = null;
@@ -41,12 +45,6 @@ class HomeContainer extends Component {
   };
 
   toggleAnimation = () => requestAnimationFrame(() => this.otherSkills.classList.toggle('popDown'));
-
-  getLatestGithubCommit = async () => {
-    const [commit] = await getMostRecentCommit();
-    const formattedCommit = formatPushEvent(commit);
-    this.setState({ commitMessage: formattedCommit });
-  };
 
   async componentDidMount() {
     this.otherSkills = document.querySelector('.other-skills');
@@ -70,14 +68,13 @@ class HomeContainer extends Component {
     this.otherSkills.removeEventListener('animationend', this.toggleAnimation);
   }
 
-  render() {
-    const { showAboutMe, commitMessage } = this.state;
+  render({ fetchGithubCommit, github }, { showAboutMe }) {
     return (
       <Home
         showAboutMe={showAboutMe}
         toggleAboutMe={this.toggleAboutMe}
-        github={commitMessage}
-        getLatestGithubCommit={this.getLatestGithubCommit}
+        github={github}
+        getLatestGithubCommit={fetchGithubCommit}
         Contact={this.Contact}
       />
     );

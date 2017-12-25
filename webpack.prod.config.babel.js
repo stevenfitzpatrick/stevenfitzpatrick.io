@@ -22,11 +22,13 @@ const prodPlugins = [
 
   // Todo check the options
   new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor'
+    name: 'vendor',
+    minChunks: m => m.context && m.context.includes('node_modules')
   }),
   //CommonChunksPlugin will now extract all the common modules from vendor and main bundles
   new webpack.optimize.CommonsChunkPlugin({
-    name: 'manifest' //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
+    name: 'manifest',
+    minChunks: Infinity //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
   }),
 
   new InlineManifestWebpackPlugin({

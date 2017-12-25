@@ -1,4 +1,4 @@
-import { createStore } from 'unistore';
+import createStore from 'unistore';
 
 const store = createStore({
   bookmarks: {
@@ -6,7 +6,11 @@ const store = createStore({
     tags: {},
     filter: ''
   },
-  blogs: []
+  blogs: [],
+  github: {
+    commit: null,
+    error: false
+  }
 });
 
 export default store;

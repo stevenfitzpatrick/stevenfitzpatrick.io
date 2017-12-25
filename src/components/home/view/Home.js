@@ -3,7 +3,6 @@ import cx from 'classnames';
 
 import { IntersectionObserver, SVGIcon } from '../../common';
 import ContactIcon from '../../../assets/svg/speech-bubble.svg';
-import Loading from '../../loading';
 import Github from './Github';
 import styles from './style';
 
@@ -11,11 +10,11 @@ const activityText =
   'Currently working full-time but always looking for interesting projects to work on. \n Technology wise I am currently learning — React 16, CSS Grid and Jest.';
 
 function Home({ showAboutMe, toggleAboutMe, Contact, getLatestGithubCommit, github }) {
+  const { commit, error, loading } = github;
   return (
     <div>
       <section class={styles.home}>
-        <h4>Hello & Welcome !</h4>
-
+        <h4>Hello & Welcome ! </h4>
         <h2>I’m Steven Fitzpatrick.</h2>
         <h5>
           <span class="underline">I’m</span> a Front-End Developer &
@@ -52,7 +51,7 @@ function Home({ showAboutMe, toggleAboutMe, Contact, getLatestGithubCommit, gith
               </h3>
               <p>{activityText}</p>
               <h5>Check my latest commit in Github :</h5>
-              {github ? <Home.Github github={github} /> : <Loading />}
+              <Home.Github github={commit} loading={loading} error={error} />
             </div>
           </section>
         )}

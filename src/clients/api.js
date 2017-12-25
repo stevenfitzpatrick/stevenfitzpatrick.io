@@ -9,6 +9,10 @@ export const getWritings = async () => {
 };
 
 export const getMostRecentCommit = async () => {
-  const body = await fetch('https://api.github.com/users/stevenfitzpatrick/events/public?per_page=1');
-  return await body.json();
+  const body = await fetch('https://api.github.com/users/stevenfitzpatrick/events/public?per_page=3');
+  const results = await body.json();
+  debugger; //eslint-disable-line
+
+  //Filter only for Push Events
+  return results.find(item => item.type === 'PushEvent');
 };

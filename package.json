@@ -53,15 +53,15 @@
 	"bundlesize": [
 		{
 			"path": "./dist/vendor.bundle.*.js",
-			"maxSize": "30 kB"
+			"maxSize": "37 kB"
 		},
 		{
 			"path": "./dist/app.bundle.*.js",
-			"maxSize": "20 kB"
+			"maxSize": "12 kB"
 		},
 		{
 			"path": "./dist/index.html",
-			"maxSize": "5 kB"
+			"maxSize": "6.25 kB"
 		}
 	],
 	"repository": {
@@ -161,7 +161,7 @@
 		"preact-router": "^2.6.0",
 		"styled-components": "^2.2.4",
 		"unfetch": "^3.0.0",
-		"unistore": "^2.4.0"
+		"unistore": "^3.0.3"
 	},
 	"config": {
 		"commitizen": {
