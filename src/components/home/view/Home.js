@@ -33,11 +33,11 @@ function Home({ showAboutMe, toggleAboutMe, Contact, getLatestGithubCommit, gith
           </h3>
           <p>
             I&rsquo;m a <strong>passionate</strong> front-end developer based in Dublin with full-stack experience. When
-            it comes to coding I like to keep it simple, performant, accessible and functional.
+            it comes to coding I like to keep it simple, maintainable and clean.
           </p>
           <p>
-            I enjoy working with the cutting-edge tools and frameworks of the front-end
-            ecosystem&#8202;&mdash;&#8202;and excited about where the industry is going.
+            I enjoy working with the latest and greatest tools of the front-end ecosystem&#8202;&mdash;&#8202;to build
+            fast, responsive, accessible and progressive websites.
           </p>
         </div>
       </section>

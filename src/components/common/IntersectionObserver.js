@@ -18,8 +18,7 @@ class IntersectObserver extends Component {
   componentDidMount() {
     if ('IntersectionObserver' in window) {
       this.observer = new IntersectionObserver(this.onEntry, {
-        rootMargin: '0px',
-        threshold: 0.8
+        threshold: 0.9
       });
 
       this.observer.observe(this.base);

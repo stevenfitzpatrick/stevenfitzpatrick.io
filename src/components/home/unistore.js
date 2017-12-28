@@ -39,7 +39,6 @@ export default store => ({
     try {
       store.setState(updateGithubStateLoading(state));
       const commit = await getMostRecentCommit();
-      debugger; //eslint-disable-line
       const formattedCommit = formatPushEvent(commit);
       saveLocalStorage(GITHUB_LS_KEY, formattedCommit);
       store.setState(updateGithubState(state, formattedCommit));

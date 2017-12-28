@@ -14,7 +14,6 @@ function saveLocalStorage(key, value) {
  */
 function fetchLocalStorage(key) {
   const data = localStorage.getItem(key);
-  debugger; //eslint-disable-line
   return data ? JSON.parse(data) : null;
 }
 

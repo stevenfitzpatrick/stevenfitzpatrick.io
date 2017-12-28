@@ -1,16 +1,15 @@
-import { h, Component } from 'preact';
+import { h } from 'preact';
+import cx from 'classnames';
 
 import GithubStyle from './GithubStyle';
 import Wrap from './Wrap';
 
-export default class Loader extends Component {
-  render({ type, ...props }) {
-    switch (type.toLowerCase()) {
-      case 'github':
-        return <GithubStyle {...props} />;
-      default:
-        return <GithubStyle {...props} />;
-    }
+export default function Loader({ type, ...props }) {
+  switch (type.toLowerCase()) {
+    case 'github':
+      return <GithubStyle {...props} class={cx('row', 'centered')} />;
+    default:
+      return <GithubStyle {...props} />;
   }
 }
 
@@ -18,7 +17,7 @@ Loader.defaultProps = {
   type: 'github',
   speed: 2,
   width: 500,
-  height: 60,
+  height: 57,
   primaryColor: '#f0f0f0',
   secondaryColor: '#e0e0e0'
 };

@@ -9,7 +9,8 @@ const store = createStore({
   blogs: [],
   github: {
     commit: null,
-    error: false
+    error: false,
+    loading: true
   }
 });
 

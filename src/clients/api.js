@@ -8,10 +8,18 @@ export const getWritings = async () => {
   return await body.json();
 };
 
+function sleep(time) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+}
+
 export const getMostRecentCommit = async () => {
   const body = await fetch('https://api.github.com/users/stevenfitzpatrick/events/public?per_page=3');
   const results = await body.json();
-  debugger; //eslint-disable-line
+  await sleep(300);
 
   //Filter only for Push Events
   return results.find(item => item.type === 'PushEvent');
