@@ -17,7 +17,7 @@ import style from './style.scss';
 
 export const AboutMe = () => (
   <div class="content about_me">
-    <h3>About Me</h3>
+    <h1>About Me</h1>
     <div class={style.about}>
       <picture>
         <source type="image/webp" srcset={ProfilePictureWebp} />
@@ -56,8 +56,8 @@ export const AboutMe = () => (
     <p>
       The original aim of this website was just to have a personal playground to test out new features and technologies
       but I will try and expand on that! I will blog about my discoveries and many bugs I encounter in my{' '}
-      <a class="link--content" href="/writing">
-        Writing
+      <a class="link--content" href="/blogs">
+        Blogs
       </a>{' '}
       section, and I'm also keeping a personal bookmarking section in my{' '}
       <a class="link--content" href="/favourites">

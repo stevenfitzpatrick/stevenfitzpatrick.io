@@ -1,4 +1,5 @@
 @import './_variables.scss';
+@import './_mixin.scss';
 
 *,
 *::before,
@@ -59,11 +60,15 @@ a {
   text-decoration: none;
   text-decoration-skip: ink;
 
+  &[class^='link']:focus {
+    outline: 0;
+  }
+
   &:focus:not([class^='link']) {
     text-decoration: underline;
 
     .icon {
-      box-shadow: 0 0 0 2px #fff, 0 0 2px 4px $link;
+      @include boxShadow;
     }
   }
 }
@@ -76,10 +81,6 @@ a {
 ::-moz-selection {
   background-color: $header; /* Gecko Browsers */
   color: #fff;
-}
-
-:focus {
-  outline: 0;
 }
 
 img {

@@ -65,7 +65,7 @@ const prodPlugins = [
       evaluate: true,
       if_return: true,
       join_vars: true,
-      drop_console: true
+      drop_console: false
     },
     comments: false,
     output: { comments: false },

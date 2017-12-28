@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+@mixin boxShadow() {
+  box-shadow: 0 0 2px 3px $link;
+}
+
 @mixin containerWrapper() {
   width: 85%;
   max-width: $container;

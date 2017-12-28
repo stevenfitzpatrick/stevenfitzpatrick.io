@@ -19,6 +19,10 @@ export default class App extends Component {
 
   handleRoute = e => {
     const currentUrl = e.current.attributes.type ? e.current.attributes.type : e.url;
+    const hash = window.location.hash;
+    if (!hash) {
+      window.scrollTo(0, 0);
+    }
     this.setState({ url: currentUrl });
   };
 
@@ -37,8 +41,8 @@ export default class App extends Component {
     return module.default;
   };
 
-  Writing = async () => {
-    const module = await import(/* webpackChunkName: "chunk-writing" */ './writing');
+  Blogs = async () => {
+    const module = await import(/* webpackChunkName: "chunk-blogs" */ './writing');
     return module.default;
   };
 
@@ -86,7 +90,7 @@ export default class App extends Component {
     return (
       <div class={style.app}>
         <Header {...state} />
-        <main class={cx(isError, isHome)}>
+        <main class={cx(isError, isHome)} role="main">
           <Router onChange={this.handleRoute}>
             <Home path="/" />
             <AsyncRoute
@@ -102,10 +106,10 @@ export default class App extends Component {
               description="Checkout my favourite bookmark links regarding React, Javascript, CSS, PWA and more !"
             />
             <AsyncRoute
-              path="/writing"
+              path="/blogs"
               blogs={blogRoutes}
-              getComponent={this.Writing}
-              title="Writing"
+              getComponent={this.Blogs}
+              title="Blogs"
               description="Checkout my list of blogs regarding front-end development and web performance !"
             />
             {this.getNavRoutes(blogRoutes)}

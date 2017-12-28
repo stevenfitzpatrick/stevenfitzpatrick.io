@@ -57,18 +57,19 @@ h6 {
   }
 }
 
-h1,
 h2 {
   line-height: ($line-height-base * 2);
   font-size: ms(2);
 }
 
+h1,
 h3,
 h4 {
   margin: $line-height-base 0;
   position: relative;
 }
 
+h1,
 h3 {
   font-size: ms(2);
   font-weight: 400;

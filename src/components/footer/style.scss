@@ -16,6 +16,10 @@
   padding: $spacing / 2;
 
   a {
+    position: relative;
+    padding: 0 $spacing + 5;
+    outline: 0;
+
     span {
       position: absolute;
       clip: rect(1px, 1px, 1px, 1px);
@@ -26,14 +30,14 @@
         content: ' ';
         width: 1px;
         height: 17px;
-        border-right: 1px solid currentColor;
-        bottom: 3px;
-        margin: 0 1em;
+        left: -4px;
+        top: 4px;
         display: inline-block;
         vertical-align: bottom;
-        position: relative;
+        position: absolute;
         pointer-events: none;
         user-select: none;
+        background-color: black;
       }
     }
   }

@@ -1,4 +1,5 @@
-@import '../../styles/_variables.scss';
+@import '~styles/_variables';
+@import '~styles/mixin';
 
 /**
  * This sites main header can have two different states.active
@@ -145,17 +146,16 @@
     font-family: $headerFont;
     transition: background $transition, opacity $transition;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
 
-    &:hover,
     &:focus {
-      background-color: #333;
-      color: white;
       text-decoration: none;
     }
 
     &.active {
       background-color: $border;
       color: $github;
+      box-shadow: none;
     }
   }
 

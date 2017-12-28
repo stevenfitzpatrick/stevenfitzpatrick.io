@@ -34,7 +34,7 @@ class Writing extends Component {
     const [list] = blogs;
     return (
       <div class={cx('content', styles.writing)}>
-        <h3>Writing</h3>
+        <h1>Blogs</h1>
         <p>Writing blogs is a first for me, but I hope you enjoy some of these and learn something along the way.</p>
         {list.routes.map(this.displayBlogSummary)}
       </div>

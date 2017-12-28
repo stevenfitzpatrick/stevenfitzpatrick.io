@@ -32,7 +32,9 @@ export default class Header extends Component {
     }
   };
 
-  loadHome = () => route('/');
+  loadHome = () => {
+    route('/');
+  };
 
   componentDidMount() {
     requestAnimationFrame(() => {
@@ -66,8 +68,8 @@ export default class Header extends Component {
   render({ url }, { open }) {
     return (
       <div class={cx(style.header, open && style[expandedHeaderClass])}>
-        <header class={style.header__content}>
-          <Logo onClick={this.loadHome} image={LogoImage} />
+        <header class={style.header__content} role="banner">
+          <Logo onKeyPress={this.loadHome} onClick={this.loadHome} image={LogoImage} role="link" tabindex="0" />
           <Nav routes={config.nav} />
           <Menu open={open} onClick={this.toggleMenu} />
         </header>
@@ -92,7 +94,7 @@ const Menu = ({ open, ...props }) => (
 
 // Header Navigation
 const Nav = ({ routes, current, ...props }) => (
-  <nav {...props} class={style.header__menu} aria-label="Main Navigation">
+  <nav {...props} class={style.header__menu} aria-label="Main Navigation" role="navigation">
     {routes.filter(route => route.type === 'page').map(({ path, title }) => (
       <Link href={path} activeClassName={style.active}>
         {title}

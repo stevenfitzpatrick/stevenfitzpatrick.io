@@ -34,7 +34,6 @@ const Vacancy = styled.div`
 export default ({ hideAboutMe, displayShowMe }) => (
   <div class={cx(styles.contact, displayShowMe && styles['contact--visible'])}>
     <div
-      tabIndex="-1"
       role="button"
       aria-label="Close Me"
       class={styles.contact__close}
