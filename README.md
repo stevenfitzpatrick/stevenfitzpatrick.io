@@ -8,4 +8,6 @@ Check out the source code for stevenfitzpatrick.io
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Maintainability](https://api.codeclimate.com/v1/badges/81d6c91a89935793e498/maintainability)](https://codeclimate.com/github/stevenfitzpatrick/stevenfitzpatrick.io)
 [![Coverage Status](https://img.shields.io/coveralls/github/stevenfitzpatrick/stevenfitzpatrick.io/master.svg)](https://coveralls.io/github/stevenfitzpatrick/stevenfitzpatrick.io?branch=master)
+[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
+
 

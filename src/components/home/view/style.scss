@@ -141,15 +141,17 @@
   border-bottom: 2px solid $header;
 }
 
-@media (min-width: $desktop) {
-  .contact__content p {
-    font-size: 1.15em;
-  }
+.contact__content p {
+  max-width: 25em;
+  margin: 0 auto $spacing;
+  font-weight: 400;
 }
 
-.contact__content p {
-  max-width: 30em;
-  margin: 0 auto $spacing;
+@media (min-width: $desktop) {
+  .contact__content p {
+    font-size: ms(1);
+    font-weight: 300;
+  }
 }
 
 .contact__links {

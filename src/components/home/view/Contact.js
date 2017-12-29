@@ -27,7 +27,7 @@ const Vacancy = styled.div`
   transform: rotate(-2deg);
   letter-spacing: 2px;
   border-radius: 5px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   user-select: none;
 `;
 
@@ -59,7 +59,7 @@ export default ({ hideAboutMe, displayShowMe }) => (
         How to contact me<span>.</span>
       </h4>
       <p>
-        Hi there, if you have any questions about me, this site or any projects you need a hand with feel free to
+        Hi there ! If you have any questions&thinsp;&mdash;&thinsp;about me, this site or a project&thinsp;&mdash;&thinsp;feel free to
         contact me on any of the links below !
       </p>
       <div class={styles.contact__links}>

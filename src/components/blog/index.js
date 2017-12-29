@@ -3,7 +3,7 @@ import Markup from 'preact-markup';
 
 import { withMeta } from 'HOC';
 import { slugifyPath } from '../../utils/helpers';
-import { AnchorTitle } from '../common';
+import { AnchorTitle, CopyClipboard } from '../common';
 import Highlight from '../highlight';
 import Share from '../share';
 import BackToTop from '../backToTop';
@@ -50,7 +50,12 @@ export default class Blog extends Component {
             <article>
               <Blog.Meta date={route.date} />
               <h2>{route.blogTitle}</h2>
-              <Markup markup={content} type="html" trim={false} components={{ Highlight, AnchorTitle }} />
+              <Markup
+                markup={content}
+                type="html"
+                trim={false}
+                components={{ Highlight, AnchorTitle, CopyClipboard }}
+              />
             </article>
             <Share title={route.blogTitle} />
 

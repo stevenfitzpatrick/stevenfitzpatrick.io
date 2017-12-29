@@ -23,10 +23,6 @@
 	Set up
 </anchor-title>
 
-<!-- <anchor-title id="on-demand-code-splitting-set-up">On Demand code splitting set up
-	<anchor href="#on-demand-code-splitting-set-up"></anchor>
-</anchor-title> -->
-
 <ul>
 	<li>
 		<a target="_blank" rel="noopener noreferrer" class="link--content" href="https://webpack.js.org">Webpack</a> is the main requirement, and I am using version 3.3.0.</li>
@@ -55,12 +51,14 @@
 
 <div class="breakout">
 	<div class="breakout-wrapper">
-		<Highlight type="xml" code="<Router>
+		<copy-clipboard>
+			<Highlight type="xml" code="<Router>
   <Home path='/' />
   <AsyncRoute path=''/about'' getComponent={this.About} />
   <AsyncRoute path=''/favourites'' getComponent={this.Favourites} />
   <AsyncRoute path=''/writing'' getComponent={this.Writing}         />
 </Router>"></Highlight>
+		</copy-clipboard>
 	</div>
 </div>
 
@@ -74,7 +72,8 @@
 
 <div class="breakout">
 	<div class="breakout-wrapper">
-		<Highlight type="javascript" code="/* No longer doing this... */
+		<copy-clipboard>
+			<Highlight type="javascript" code="/* No longer doing this... */
 import Favourites from './favourites';
 
 /* But now using ES6 Import to create a new split point */
@@ -84,7 +83,8 @@ Favourites = async () => {
   );
   return module.default;
 };">
-		</Highlight>
+			</Highlight>
+		</copy-clipboard>
 	</div>
 </div>
 
@@ -102,7 +102,8 @@ Favourites = async () => {
 
 <div class="breakout">
 	<div class="breakout-wrapper">
-		<Highlight type="javascript" code="async componentDidMount() {
+		<copy-clipboard>
+			<Highlight type="javascript" code="async componentDidMount() {
   const contactMe = await import(
     /* webpackChunkName: ''chunk-contactme'' */ './Contact'
   );
@@ -115,7 +116,8 @@ render() {
   { this.Contact && <this.Contact displayShowMe={displayShowMe} /> }
   ...
 }">
-		</Highlight>
+			</Highlight>
+		</copy-clipboard>
 	</div>
 </div>
 
@@ -125,7 +127,8 @@ render() {
 
 <div class="breakout">
 	<div class="breakout-wrapper">
-		<Highlight type="javascript" code="async componentWillReceiveProps(nextProps) {
+		<copy-clipboard>
+			<Highlight type="javascript" code="async componentWillReceiveProps(nextProps) {
   if (nextProps.displayShowMe && !this.Contact) {
     const contactMe = await import(
       /* webpackChunkName: ''chunk-contactme'' */ './Contact'
@@ -140,7 +143,8 @@ render({ showAboutMe, displayShowMe }) {
   <button onClick={showAboutMe} />
   {this.Contact && <this.Contact displayShowMe={displayShowMe} />}
 }">
-		</Highlight>
+			</Highlight>
+		</copy-clipboard>
 	</div>
 </div>
 
