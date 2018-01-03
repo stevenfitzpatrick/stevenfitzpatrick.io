@@ -51,7 +51,9 @@ function Home({ showAboutMe, toggleAboutMe, Contact, getLatestGithubCommit, gith
               </h3>
               <p>{activityText}</p>
               <h5>Check my latest commit in Github :</h5>
-              <Home.Github github={commit} loading={loading} error={error} />
+              <div style={{ height: '90px' }}>
+                <Home.Github github={commit} loading={loading} error={error} />
+              </div>
             </div>
           </section>
         )}

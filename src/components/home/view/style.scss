@@ -142,12 +142,13 @@
 }
 
 .contact__content p {
-  max-width: 25em;
+  max-width: 40rem;
   margin: 0 auto $spacing;
   font-weight: 400;
+  color: $moon;
 }
 
-@media (min-width: $desktop) {
+@media (min-width: $tablet) {
   .contact__content p {
     font-size: ms(1);
     font-weight: 300;

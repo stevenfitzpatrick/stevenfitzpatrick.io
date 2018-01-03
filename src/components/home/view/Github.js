@@ -5,13 +5,11 @@ import { SVGIcon, Loader } from '../../common';
 import GithubIcon from '../../../assets/svg/github.svg';
 import styles from './style';
 
-const heightStyle = { height: '90px' };
-
 function Github({ github, loading, error }) {
-  if (loading) return <Loader class={styles.github} type="github" style={heightStyle} />;
+  if (loading) return <Loader class={styles.github} type="github" />;
   if (github)
     return (
-      <div class={cx('row', 'centered')} style={heightStyle}>
+      <div class={cx('row', 'centered')}>
         <SVGIcon glyph={GithubIcon} type="icon--big" />
         <div class={cx('column', 'github')}>
           <strong>

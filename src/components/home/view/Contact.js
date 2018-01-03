@@ -59,8 +59,8 @@ export default ({ hideAboutMe, displayShowMe }) => (
         How to contact me<span>.</span>
       </h4>
       <p>
-        Hi there ! If you have any questions&thinsp;&mdash;&thinsp;about me, this site or a project&thinsp;&mdash;&thinsp;feel free to
-        contact me on any of the links below !
+        If you have any questions&thinsp;&mdash;&thinsp;about me, this site or a project&thinsp;&mdash;&thinsp;feel free
+        to contact me on any of the links&nbsp;below !
       </p>
       <div class={styles.contact__links}>
         <SocialIcons />
