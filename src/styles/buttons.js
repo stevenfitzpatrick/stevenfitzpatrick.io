@@ -8,6 +8,7 @@ export const FunkyH5 = styled.h5`
   margin: 0 0 24px 0;
   position: relative;
   font-weight: 600;
+  pointer-events: none;
 
   &::before {
     display: block;

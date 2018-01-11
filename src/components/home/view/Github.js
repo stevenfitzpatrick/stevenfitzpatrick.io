@@ -23,9 +23,15 @@ function Github({ github, loading, error }) {
               {github.commit.message}
             </a>
           </strong>
-          <a alt="Repo" href={github.repo.url} target="_blank" rel="noopener noreferrer">
-            {github.repo.name}
-          </a>
+          <div className={styles.github__links}>
+            <a alt="My Github" href="https://github.com/stevenfitzpatrick/" target="_blank" rel="noopener noreferrer">
+              StevenFitzpatrick
+            </a>
+            <span> / </span>
+            <a alt="Repo" href={github.repo.url} target="_blank" rel="noopener noreferrer">
+              {github.repo.name}
+            </a>
+          </div>
           <smaller class={styles.gh__date}> Committed {github.date}</smaller>
         </div>
       </div>

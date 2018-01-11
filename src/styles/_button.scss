@@ -89,7 +89,7 @@ button {
   background: $header;
   color: #fff;
   border-radius: 50%;
-  box-shadow: 3px 4px 6px rgba(50, 50, 93, 0.15), 2px 2px 5px 1px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: all 0.25s ease-in-out;
   height: 60px;
   width: 60px;
@@ -116,7 +116,7 @@ button {
 
 .button--outline:hover {
   background-color: darken($header, 5%);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 @media (min-width: $desktop) {

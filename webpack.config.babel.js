@@ -30,7 +30,15 @@ module.exports = {
   // Start Bundling Here
   entry: {
     app: ['./src/index.js'],
-    vendor: ['preact', 'preact-router', 'preact-async-route', 'classnames', 'styled-components', 'unistore', 'unfetch']
+    vendor: [
+      'preact',
+      'preact-router',
+      'preact-async-route',
+      'classnames',
+      'styled-components',
+      'unistore',
+      'unfetch'
+    ]
   },
   // Output of Bundling
   /*
@@ -46,7 +54,11 @@ module.exports = {
     chunkFilename: '[name].[chunkhash].js'
   },
   resolve: {
-    modules: ['node_modules', path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'src')],
+    modules: [
+      'node_modules',
+      path.resolve(__dirname, 'node_modules'),
+      path.resolve(__dirname, 'src')
+    ],
     extensions: ['.js', '.json', '.jsx', '.css', '.scss', '.svg'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
@@ -163,7 +175,9 @@ module.exports = {
     }),
     // Write out CSS bundle to its own file:
     new ExtractTextPlugin({
-      filename: isProd ? 'css/[name].styles.[contenthash].css' : 'css/[name].styles.css',
+      filename: isProd
+        ? 'css/[name].styles.[contenthash].css'
+        : 'css/[name].styles.css',
       allChunks: true
     }),
     // // Add Preload allChunks
@@ -175,7 +189,9 @@ module.exports = {
     // Set Environment Variables
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: isProd ? JSON.stringify('production') : JSON.stringify('development')
+        NODE_ENV: isProd
+          ? JSON.stringify('production')
+          : JSON.stringify('development')
       }
     })
   ].concat(isProd ? prodPlugins : [])

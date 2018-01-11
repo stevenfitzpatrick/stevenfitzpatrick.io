@@ -20,7 +20,8 @@
   flex-direction: column;
   background-color: #fff;
   padding: $spacing;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
   margin-bottom: $line-height-base;
 
   & div {

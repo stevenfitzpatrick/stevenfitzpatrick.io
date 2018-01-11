@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -79,9 +80,17 @@ const prodPlugins = [
     dry: false
   }),
   // Add Service Worker
-  new WorkboxPlugin({
+  new WorkboxPlugin.GenerateSW({
     skipWaiting: true,
-    clientsClaim: true
+    clientsClaim: true,
+    runtimeCaching: [
+      {
+        urlPattern: new RegExp(
+          'https://stevenfitzpatrick-5181b.firebaseio.com/favourites.json'
+        ),
+        handler: 'networkFirst'
+      }
+    ]
   }),
   //Add Bundle JS Analyzer
   new BundleAnalyzerPlugin({

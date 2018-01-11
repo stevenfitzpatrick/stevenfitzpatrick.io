@@ -9,7 +9,11 @@ function BlogMeta({ date }) {
       <figure>
         <picture>
           <source type="image/webp" srcset={ProfilePictureWebp} />
-          <img src={ProfilePictureJpg} class="profile profile--small" alt="This is me !" />
+          <img
+            src={ProfilePictureJpg}
+            class="profile profile--small"
+            alt="This is me !"
+          />
         </picture>
       </figure>
       <div>
