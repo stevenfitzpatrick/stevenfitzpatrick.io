@@ -18,7 +18,7 @@
 		"commit": "git add . && git cz && git push",
 		"precommit": "lint-staged",
 		"cypress": "cypress open",
-		"cypress:run": "wait-on http://localhost:8080 && cypress run"
+		"cypress:run": "wait-on http://localhost:8080 && cypress run --record"
 	},
 	"jest": {
 		"transform": {
