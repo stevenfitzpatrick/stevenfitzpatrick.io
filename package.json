@@ -17,7 +17,8 @@
 		"test:size": "bundlesize",
 		"commit": "git add . && git cz && git push",
 		"precommit": "lint-staged",
-		"cypress": "cypress open"
+		"cypress": "cypress open",
+		"cypress:run": "cypress run"
 	},
 	"jest": {
 		"transform": {
