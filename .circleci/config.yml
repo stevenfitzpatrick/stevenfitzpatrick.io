@@ -29,7 +29,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       # run tests!
       - run: npm run build
-      - run: npm run start
+      - run:
+          name: Start
+          command: npm run start
+          background: true
       - run:
           name: Lint
           command: npm run lint
@@ -43,7 +46,7 @@ jobs:
           name: Generate code coverage
           command: npm run test:ci
       - run:
-          name: Run Cypress E2E
+          name: E2E Tests Cypress
           command: npm run cypress:run
 
 
