@@ -5,7 +5,7 @@ import sizes from '../styles/typography';
 
 export const FunkyH5 = styled.h5`
   line-height: 1;
-  margin: 0 0 24px 0;
+  margin: 48px 0 24px 0;
   position: relative;
   font-weight: 600;
   pointer-events: none;
@@ -37,6 +37,7 @@ export const FunkyH5 = styled.h5`
 export const FunkyAnchor = styled.a`
   position: static;
   padding-left: 8px;
+  pointer-events: auto;
 
   @media (min-width: ${sizes.desktop}) {
     position: absolute;

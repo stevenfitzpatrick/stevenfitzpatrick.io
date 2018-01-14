@@ -14,9 +14,15 @@
     "mocha": true
   },
   "globals": {
-    "ga": true
+    "ga": true,
+    "cy": true
   },
-  "extends": ["eslint:recommended", "eslint-config-synacor", "prettier", "prettier/react"],
+  "extends": [
+    "eslint:recommended",
+    "eslint-config-synacor",
+    "prettier",
+    "prettier/react"
+  ],
   "rules": {
     "prefer-template": 2,
     "template-curly-spacing": 2,
