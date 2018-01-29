@@ -3,6 +3,10 @@
 
 .about {
   @include flexColumnCenter;
+
+  p + p {
+    margin: 0;
+  }
 }
 
 @media (min-width: $desktop) {

@@ -3,7 +3,12 @@
 
 .footer {
   text-align: center;
-  padding: 0.5em 0;
+  background-color: $footer;
+  margin-top: $line-height-base;
+}
+
+.footer__wrapper {
+  margin: $line-height-base 5rem;
 }
 
 .footer__title {

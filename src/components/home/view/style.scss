@@ -230,6 +230,8 @@
 
 .activity {
   background-color: #fff;
+  margin-bottom: -$line-height-base;
+  padding-bottom: $line-height-base * 2;
 }
 
 .github {

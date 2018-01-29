@@ -7,6 +7,6 @@ describe('Footer', () => {
   it('should render icons', () => {
     const context = shallow(<Footer />);
     expect(context.find('footer').length).toEqual(1);
-    expect(context.find('FooterIcon').length).toEqual(3);
+    expect(context.find('FooterIcon').length).toEqual(4);
   });
 });

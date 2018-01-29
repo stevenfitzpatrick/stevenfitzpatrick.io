@@ -4,7 +4,10 @@
       "env",
       {
         "loose": true,
-        "modules": false
+        "modules": false,
+        "targets": {
+          "browsers": ["> 1%", "last 2 versions"]
+        }
       }
     ],
     "stage-0"

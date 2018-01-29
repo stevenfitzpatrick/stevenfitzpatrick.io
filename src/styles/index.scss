@@ -159,6 +159,7 @@ ul {
   width: 24px;
   fill: currentColor;
   vertical-align: bottom;
+  transition: all 0.2s ease-in;
 
   &--big {
     height: 60px;
@@ -192,8 +193,8 @@ ul {
 }
 
 @import '_tablet';
-@import 'desktop';
 @import '_code';
 @import '_images';
 @import '_button';
 @import '_helpers';
+@import 'desktop';

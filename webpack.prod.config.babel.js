@@ -82,15 +82,7 @@ const prodPlugins = [
   // Add Service Worker
   new WorkboxPlugin.GenerateSW({
     skipWaiting: true,
-    clientsClaim: true,
-    runtimeCaching: [
-      {
-        urlPattern: new RegExp(
-          'https://stevenfitzpatrick-5181b.firebaseio.com/favourites.json'
-        ),
-        handler: 'networkFirst'
-      }
-    ]
+    clientsClaim: true
   }),
   //Add Bundle JS Analyzer
   new BundleAnalyzerPlugin({
