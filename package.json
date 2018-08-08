@@ -136,7 +136,7 @@
 		"modularscale-sass": "^3.0.3",
 		"node-sass": "^4.5.3",
 		"postcss-import": "^11.0.0",
-		"postcss-loader": "^2.0.8",
+		"postcss-loader": "^3.0.0",
 		"postcss-url": "^7.1.2",
 		"preact-render-spy": "^1.2.1",
 		"preload-webpack-plugin": "^2.0.0",
