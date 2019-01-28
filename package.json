@@ -87,7 +87,7 @@
 	},
 	"homepage": "https://stevenfitzpatrick.io",
 	"devDependencies": {
-		"autoprefixer": "^7.1.6",
+		"autoprefixer": "^9.4.7",
 		"babel-core": "^6.26.0",
 		"babel-eslint": "^8.0.1",
 		"babel-jest": "^22.0.4",
