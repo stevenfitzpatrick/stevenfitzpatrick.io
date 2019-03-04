@@ -107,7 +107,7 @@
 		"babel-runtime": "^6.22.0",
 		"bundlesize": "^0.15.3",
 		"chunk-manifest-webpack-plugin": "^1.1.2",
-		"clean-webpack-plugin": "^0.1.17",
+		"clean-webpack-plugin": "^2.0.0",
 		"copy-webpack-plugin": "^4.2.0",
 		"core-js": "^2.5.1",
 		"coveralls": "^3.0.0",
