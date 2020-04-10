@@ -112,7 +112,7 @@
 		"core-js": "^2.5.1",
 		"coveralls": "^3.0.0",
 		"cross-env": "^5.1.0",
-		"css-loader": "^0.28.7",
+		"css-loader": "^3.5.2",
 		"cypress": "^1.4.1",
 		"cz-conventional-changelog": "^2.1.0",
 		"eslint": "4.13.0",
